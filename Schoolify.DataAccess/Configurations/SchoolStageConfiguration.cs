@@ -4,6 +4,7 @@ using Schoolify.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,6 +41,8 @@ namespace Schoolify.DataAccess.Configurations
                 .WithOne(y => y.SchoolStage)
                 .HasForeignKey(y => y.SchoolStageId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+
 
         }
     }

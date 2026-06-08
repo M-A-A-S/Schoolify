@@ -71,6 +71,7 @@ namespace Schoolify.DataAccess.Configurations
                 sy.SchoolYearId
             })
             .IsUnique();
+
         }
     }
 }

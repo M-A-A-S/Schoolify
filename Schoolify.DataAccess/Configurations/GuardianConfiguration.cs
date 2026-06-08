@@ -57,6 +57,8 @@ namespace Schoolify.DataAccess.Configurations
                 .WithOne(sg => sg.Guardian)
                 .HasForeignKey(gt => gt.GuardianId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+
         }
     }
 }

@@ -43,6 +43,13 @@ namespace Schoolify.DataAccess.Configurations
                 "[MinScore] <= [MaxScore]"
             );
 
+            // Optional but recommended: valid score range
+            builder.HasCheckConstraint(
+                "CK_ScoreRange_ValidRange",
+                "[MinScore] >= 0 AND [MaxScore] <= 100"
+            );
+
+
             // Prevent duplicate grade definitions
             builder.HasIndex(sr => sr.Grade)
                 .IsUnique();

@@ -58,6 +58,7 @@ namespace Schoolify.DataAccess.Configurations
                 .WithOne(p => p.SchoolYear)
                 .HasForeignKey(p => p.SchoolYearId)
                 .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

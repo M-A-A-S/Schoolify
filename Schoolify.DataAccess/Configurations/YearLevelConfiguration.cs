@@ -38,11 +38,19 @@ namespace Schoolify.DataAccess.Configurations
 
             // Relationships
 
+            // YearLevel -> SchoolStage (One-to-Many)
+            builder.HasOne(y => y.SchoolStage)
+                .WithMany(s => s.YearLevels)
+                .HasForeignKey(y => y.SchoolStageId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             // YearLevel -> StudentYearLevels (One-to-Many)
             builder.HasMany(s => s.StudentYearLevels)
                 .WithOne(y => y.YearLevel)
                 .HasForeignKey(y => y.YearLevelId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+
         }
     }
 }

@@ -47,6 +47,7 @@ namespace Schoolify.DataAccess.Configurations
                 .WithOne(cs => cs.Classroom)
                 .HasForeignKey(cs => cs.ClassroomId) 
                 .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }

@@ -52,6 +52,7 @@ namespace Schoolify.DataAccess.Configurations
                 "CK_StudentClass_Marks",
                 "[MarksObtained] IS NULL OR ([MarksObtained] >= 0 AND [MarksObtained] <= 100)"
             );
+
         }
     }
 }

@@ -54,6 +54,7 @@ namespace Schoolify.DataAccess.Configurations
                 sg.GuardianTypeId
             })
             .IsUnique();
+
         }
     }
 }

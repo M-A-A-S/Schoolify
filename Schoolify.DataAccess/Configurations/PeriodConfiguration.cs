@@ -54,6 +54,7 @@ namespace Schoolify.DataAccess.Configurations
                 .OnDelete(DeleteBehavior.Cascade);
 
 
+
         }
     }
 }

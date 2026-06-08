@@ -59,7 +59,7 @@ namespace Schoolify.DataAccess.Configurations
                 .WithOne()
                 .HasForeignKey(sc => sc.ClassId) 
                 .OnDelete(DeleteBehavior.Cascade);
-     
+
         }
     }
 }

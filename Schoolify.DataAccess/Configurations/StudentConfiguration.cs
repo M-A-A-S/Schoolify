@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Schoolify.Common.Enums;
 using Schoolify.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -71,6 +72,7 @@ namespace Schoolify.DataAccess.Configurations
                 .WithOne(syl => syl.Student)
                 .HasForeignKey(syl => syl.StudentId)
                 .OnDelete(DeleteBehavior.Cascade);
+
 
         }
     }
