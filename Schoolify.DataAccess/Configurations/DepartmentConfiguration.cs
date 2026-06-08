@@ -20,7 +20,7 @@ namespace Schoolify.DataAccess.Configurations
             builder.Property(d => d.NameEn)
                 .IsRequired()
                 .HasMaxLength(100)
-                .HasColumnType("nvarchar(100)");
+                .HasColumnType("varchar(100)");
 
             builder.Property(d => d.NameAr)
                 .IsRequired()

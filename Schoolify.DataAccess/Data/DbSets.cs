@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Schoolify.DataAccess.Data
 {
-    public partial class DbSets
+    public partial class AppDbContext
     {
-        public DbSet<Student> Student { get; set; }
+        public DbSet<Student> Students { get; set; }
         public DbSet<Class> Classes { get; set; }
         public DbSet<Classroom> Classrooms { get; set; }
         public DbSet<ClassroomType> ClassroomTypes { get; set; }

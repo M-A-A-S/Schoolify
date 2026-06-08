@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Schoolify.DataAccess\Schoolify.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

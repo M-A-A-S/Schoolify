@@ -1,3 +1,4 @@
+using Schoolify.Business;
 using Schoolify.Common;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,7 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-AppSettings.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddBusinessServices(builder.Configuration);
+
+//AppSettings.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 var app = builder.Build();
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Schoolify.Common;
 using Schoolify.Common.Models;
+using Schoolify.DataAccess.Configurations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,8 @@ namespace Schoolify.DataAccess.Data
             // Apply generic global soft-delete filter using helper function
             ApplyGlobalSoftDeleteFilter(modelBuilder);
 
+            DbSeeder.Seed(modelBuilder);
+
         }
 
         private static void ApplyGlobalSoftDeleteFilter(ModelBuilder modelBuilder)
@@ -46,9 +49,9 @@ namespace Schoolify.DataAccess.Data
             }
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-            options.UseSqlServer(AppSettings.ConnectionString);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder options)
+        //{
+        //    options.UseSqlServer(AppSettings.ConnectionString);
+        //}
     }
 }
