@@ -13,8 +13,10 @@ namespace Schoolify.DataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<Student> builder)
         {
+            // Primary Key
             builder.HasKey(s => s.Id);
 
+            // Properties
             builder.Property(s => s.FirstName)
                 .IsRequired()
                 .HasMaxLength(50)
@@ -49,6 +51,26 @@ namespace Schoolify.DataAccess.Configurations
 
             builder.Property(s => s.UpdatedAt)
                 .HasDefaultValueSql("GETUTCDATE()");
+
+            // Relationships
+
+            // Student -> StudentGuardians (One-to-Many)
+            builder.HasMany(s => s.StudentGuardians)
+                .WithOne(sg => sg.Student)
+                .HasForeignKey(sg => sg.StudentId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Student -> StudentClasses (One-to-Many)
+            builder.HasMany(s => s.StudentClasses)
+                .WithOne(sc => sc.Student)
+                .HasForeignKey(sc => sc.StudentId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Student -> StudentYearLevels (One-to-Many)
+            builder.HasMany(s => s.StudentYearLevels)
+                .WithOne(syl => syl.Student)
+                .HasForeignKey(syl => syl.StudentId)
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

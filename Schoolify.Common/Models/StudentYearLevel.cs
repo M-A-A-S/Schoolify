@@ -11,6 +11,7 @@ namespace Schoolify.Common.Models
         public int StudentId { get; set; }
         public int YearLevelId { get; set; }
         public int SchoolYearId { get; set; }
+
         public decimal? FinalYearScore { get; set; }
 
         public Student Student { get; set; }

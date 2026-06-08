@@ -10,6 +10,7 @@ namespace Schoolify.Common.Models
     {
         public int GuardianTypeId { get; set; }
         public int GuardianId { get; set; }
+        public int StudentId { get; set; }
 
         public Student Student { get; set; }
         public GuardianType GuardianType { get; set; }

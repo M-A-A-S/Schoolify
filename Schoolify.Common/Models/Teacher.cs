@@ -17,6 +17,7 @@ namespace Schoolify.Common.Models
         public DateOnly HireDate { get; set; }
         public string PhoneNumber { get; set; }
         public string EmailAddress { get; set; }
+
         public ICollection<Class> Classes { get; set; }
     }
 }
