@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Schoolify.Business\Schoolify.Business.csproj" />
+    <ProjectReference Include="..\Schoolify.Common\Schoolify.Common.csproj" />
+  </ItemGroup>
+
 </Project>
