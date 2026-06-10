@@ -1,4 +1,4 @@
-﻿namespace Schoolify.Common
+﻿namespace Schoolify.Common.Utilities
 {
     public static class AppSettings
     {
