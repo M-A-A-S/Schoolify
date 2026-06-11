@@ -109,11 +109,6 @@ namespace Schoolify.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var teacher = await _teacherService.GetByIdAsync(id);
-            if (teacher != null)
-            {
-                await _teacherService.DeleteAsync(id);
-            }
 
             var deleteResult = await _teacherService.DeleteAsync(id);
 
@@ -124,7 +119,7 @@ namespace Schoolify.Web.Controllers
             }
 
             TempData["Error"] = _localizer["GenericError"].Value;
-            return View(teacher);
+            return View(deleteResult.Data);
         }
 
     }

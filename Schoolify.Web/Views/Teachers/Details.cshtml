@@ -39,7 +39,21 @@
 
             <div class="col-md-4">
                 <strong>@Localizer["Gender"]:</strong>
-                <div>@Model.Gender</div>
+                @switch (Model.Gender)
+                {
+                    case Gender.Male:
+                        <div class="badge bg-primary">@Localizer["Male"]</div>
+                        break;
+
+                    case Gender.Female:
+                        <div class="badge bg-danger">@Localizer["Female"]</div>
+                        break;
+
+                    default:
+                        <div class="badge bg-secondary">@Localizer["Unknown"]</div>
+                        break;
+                }
+                @* <div>@Model.Gender</div> *@
             </div>
 
             <div class="col-md-4">
@@ -66,7 +80,7 @@
             </a>
 
             <a asp-action="Index" class="btn btn-secondary">
-                @Localizer["Back"]
+                @Localizer["GoBack"]
             </a>
 
         </div>

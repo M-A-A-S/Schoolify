@@ -339,4 +339,10 @@
   <data name="GenericError" xml:space="preserve">
     <value>حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.</value>
   </data>
+  <data name="DeleteConfirmationMessage" xml:space="preserve">
+    <value>هل أنت متأكد من الحذف؟</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
 </root>
