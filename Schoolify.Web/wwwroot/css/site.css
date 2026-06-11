@@ -43,6 +43,15 @@ html {
     --transition: 0.3s ease-in-out all;
 }
 
+/* Hide the scroll bar */
+::-webkit-scrollbar {
+    display: none;
+}
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
 html[data-theme="dark"] {
     --text-color: #f1f5f9;
     --background-color: #0f172a;
@@ -116,30 +125,52 @@ button {
     color: var(--primary-color)
 }
 
-/*body[data-bs-theme="dark"] {
+.btn-primary {
+    background-color: var(--primary-color);
+    outline-color: var(--primary-color);
+    border-color: var(--primary-color)
+}
+.btn-primary:hover {
+    background-color: var(--primary-color-hover-darker);
+    outline-color: var(--primary-color-hover-darker);
+    border-color: var(--primary-color-hover-darker)
+}
+    /*body[data-bs-theme="dark"] {
     background-color: #0f172a;
 }
 
 body[data-bs-theme="light"] {
     background-color: #f8f9fa;
 }*/
-/* Start Navbar */
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+
+.table {
     background-color: var(--card-background);
-    color: var(--text-color);
-    color: white;
-    height: 60px;
-    padding: 0 1rem;
-    border-bottom: 1px solid var(--border-color);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
 }
+
+    .table th,
+    .table td {
+        color: var(--text-color);
+/*        padding: 0.5rem 1rem;*/
+    }
+
+    /* Start Navbar */
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--card-background);
+        color: var(--text-color);
+        color: white;
+        height: 60px;
+        padding: 0 1rem;
+        border-bottom: 1px solid var(--border-color);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
 
 
 .navbar > div {
@@ -323,3 +354,62 @@ html[dir="rtl"] .submenu a {
 /* End Sidebar */
 
 
+/* Start Actions Icons */
+/* Button wrapper */
+.tooltip-btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible; /* IMPORTANT */
+}
+
+    /* Tooltip box */
+    .tooltip-btn::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: calc(100% + 6px);
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #000;
+        color: #fff;
+        padding: 4px 8px;
+        font-size: 12px;
+        border-radius: 4px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: 0.2s ease;
+        z-index: 9999;
+    }
+
+    /* Arrow */
+    .tooltip-btn::before {
+        content: "";
+        position: absolute;
+        bottom: calc(100% + 1px);
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.2s ease;
+        z-index: 9999;
+    }
+
+    /* SHOW ON HOVER */
+    .tooltip-btn:hover::after,
+    .tooltip-btn:hover::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+
+
+
+
+/* End Actions Icons */

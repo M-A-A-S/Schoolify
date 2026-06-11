@@ -1,0 +1,19 @@
+﻿@using Schoolify.Common.DTOs.Teacher;
+@model TeacherDTO
+
+<h2>Create Teacher</h2>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input asp-for="FirstName" class="form-control" placeholder="FirstName" />
+    <input asp-for="SecondName" class="form-control" placeholder="SecondName" />
+    <input asp-for="ThirdName" class="form-control" placeholder="ThirdName" />
+    <input asp-for="FirstName" class="form-control" placeholder="FirstName" />
+    <input asp-for="ForthName" class="form-control" placeholder="ForthName" />
+    <input asp-for="Gender" class="form-control" placeholder="Gender" />
+    <input asp-for="HireDate" class="form-control" placeholder="HireDate" />
+    <input asp-for="PhoneNumber" class="form-control" placeholder="PhoneNumber" />
+    <input asp-for="EmailAddress" class="form-control" placeholder="EmailAddress" />
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
