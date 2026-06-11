@@ -297,4 +297,46 @@
   <data name="Unknown" xml:space="preserve">
     <value>Unknown</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveData" xml:space="preserve">
+    <value>Save Data</value>
+  </data>
+  <data name="GoBack" xml:space="preserve">
+    <value>Go Back</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>This field is required</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Invalid email address</value>
+  </data>
+  <data name="InvalidPhone" xml:space="preserve">
+    <value>Invalid phone number</value>
+  </data>
+  <data name="SelectGender" xml:space="preserve">
+    <value>-- Select Gender --</value>
+  </data>
+  <data name="TeacherCreatedSuccess" xml:space="preserve">
+    <value>Teacher created successfully!</value>
+  </data>
+  <data name="TeacherUpdatedSuccess" xml:space="preserve">
+    <value>Teacher updated successfully!</value>
+  </data>
+  <data name="TeacherDeletedSuccess" xml:space="preserve">
+    <value>Teacher deleted successfully!</value>
+  </data>
+  <data name="ValidationError" xml:space="preserve">
+    <value>Please fix the validation errors and try again.</value>
+  </data>
+  <data name="GenericError" xml:space="preserve">
+    <value>An unexpected error occurred. Please try again.</value>
+  </data>
 </root>

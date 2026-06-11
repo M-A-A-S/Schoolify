@@ -79,6 +79,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Class.
         /// </summary>
         public static string Class {
@@ -147,6 +156,15 @@ namespace Schoolify.Common.Resources {
         public static string ClassSchedules {
             get {
                 return ResourceManager.GetString("ClassSchedules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
             }
         }
         
@@ -259,6 +277,24 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An unexpected error occurred. Please try again..
+        /// </summary>
+        public static string GenericError {
+            get {
+                return ResourceManager.GetString("GenericError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go Back.
+        /// </summary>
+        public static string GoBack {
+            get {
+                return ResourceManager.GetString("GoBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guardian.
         /// </summary>
         public static string Guardian {
@@ -300,6 +336,24 @@ namespace Schoolify.Common.Resources {
         public static string HireDate {
             get {
                 return ResourceManager.GetString("HireDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid email address.
+        /// </summary>
+        public static string InvalidEmail {
+            get {
+                return ResourceManager.GetString("InvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid phone number.
+        /// </summary>
+        public static string InvalidPhone {
+            get {
+                return ResourceManager.GetString("InvalidPhone", resourceCulture);
             }
         }
         
@@ -367,6 +421,33 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This field is required.
+        /// </summary>
+        public static string Required {
+            get {
+                return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Data.
+        /// </summary>
+        public static string SaveData {
+            get {
+                return ResourceManager.GetString("SaveData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to School Stage.
         /// </summary>
         public static string SchoolStage {
@@ -426,6 +507,15 @@ namespace Schoolify.Common.Resources {
         public static string SecondName {
             get {
                 return ResourceManager.GetString("SecondName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select Gender --.
+        /// </summary>
+        public static string SelectGender {
+            get {
+                return ResourceManager.GetString("SelectGender", resourceCulture);
             }
         }
         
@@ -538,11 +628,38 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Teacher created successfully!.
+        /// </summary>
+        public static string TeacherCreatedSuccess {
+            get {
+                return ResourceManager.GetString("TeacherCreatedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teacher deleted successfully!.
+        /// </summary>
+        public static string TeacherDeletedSuccess {
+            get {
+                return ResourceManager.GetString("TeacherDeletedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Teachers.
         /// </summary>
         public static string Teachers {
             get {
                 return ResourceManager.GetString("Teachers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teacher updated successfully!.
+        /// </summary>
+        public static string TeacherUpdatedSuccess {
+            get {
+                return ResourceManager.GetString("TeacherUpdatedSuccess", resourceCulture);
             }
         }
         
@@ -579,6 +696,15 @@ namespace Schoolify.Common.Resources {
         public static string Unknown {
             get {
                 return ResourceManager.GetString("Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please fix the validation errors and try again..
+        /// </summary>
+        public static string ValidationError {
+            get {
+                return ResourceManager.GetString("ValidationError", resourceCulture);
             }
         }
         

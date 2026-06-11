@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Localization;
+﻿using Microsoft.AspNetCore.Localization;
 using System.Globalization;
 using Schoolify.Business;
 using Schoolify.Common;
@@ -19,9 +19,34 @@ builder.Services.AddLocalization(options =>
     options.ResourcesPath = "Resources";
 });
 
+//builder.Services.AddControllersWithViews()
+//    .AddViewLocalization()
+//    .AddDataAnnotationsLocalization();
+
+//builder.Services.AddControllersWithViews(options =>
+//{
+//    options.ModelBindingMessageProvider.SetValueIsInvalidAccessor((value) =>
+//        CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+//            ? "قيمة غير صحيحة"
+//            : "The value is invalid.");
+
+//    options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor((fieldName) =>
+//        CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+//            ? "هذا الحقل مطلوب"
+//            : "The field is required.");
+
+//    options.ModelBindingMessageProvider.SetAttemptedValueIsInvalidAccessor((value, fieldName) =>
+//        CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+//            ? "القيمة المدخلة غير صحيحة"
+//            : "The value is invalid.");
+//})
 builder.Services.AddControllersWithViews()
     .AddViewLocalization()
-    .AddDataAnnotationsLocalization();
+    .AddDataAnnotationsLocalization(options =>
+    {
+        options.DataAnnotationLocalizerProvider = (type, factory) =>
+            factory.Create(typeof(SharedResource));
+    });
 
 
 

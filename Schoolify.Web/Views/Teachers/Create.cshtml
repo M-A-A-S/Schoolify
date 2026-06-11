@@ -1,19 +1,101 @@
 ﻿@using Schoolify.Common.DTOs.Teacher;
 @model TeacherDTO
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@using Schoolify.Common;
+@inject IStringLocalizer<SharedResource> Localizer
+@using Schoolify.Common.Enums
 
-<h2>Create Teacher</h2>
 
-<form asp-action="Create" method="post">
-    <input type="hidden" asp-for="Id" />
-    <input asp-for="FirstName" class="form-control" placeholder="FirstName" />
-    <input asp-for="SecondName" class="form-control" placeholder="SecondName" />
-    <input asp-for="ThirdName" class="form-control" placeholder="ThirdName" />
-    <input asp-for="FirstName" class="form-control" placeholder="FirstName" />
-    <input asp-for="ForthName" class="form-control" placeholder="ForthName" />
-    <input asp-for="Gender" class="form-control" placeholder="Gender" />
-    <input asp-for="HireDate" class="form-control" placeholder="HireDate" />
-    <input asp-for="PhoneNumber" class="form-control" placeholder="PhoneNumber" />
-    <input asp-for="EmailAddress" class="form-control" placeholder="EmailAddress" />
+<div class="card shadow-sm border-0">
+    @* <div class="card-header bg-primary text-white"> *@
+    <div class="card-header text-white">
+        <h5 class="mb-0">@Localizer["Create"] @Localizer["Teacher"]</h5>
+    </div>
 
-    <button type="submit" class="btn btn-success">Save</button>
-</form>
+    <div class="card-body">
+
+        <form asp-action="Create" method="post">
+
+            @* <input type="hidden" asp-for="Id" /> *@
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row g-3">
+
+                <div class="col-md-3">
+                    @* <label asp-for="FirstName" class="form-label">@Localizer["FirstName"]</label> *@
+                    <label asp-for="FirstName" class="form-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="SecondName" class="form-label"></label>
+                    <input asp-for="SecondName" class="form-control" />
+                    <span asp-validation-for="SecondName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="ThirdName" class="form-label"></label>
+                    <input asp-for="ThirdName" class="form-control" />
+                    <span asp-validation-for="ThirdName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="ForthName" class="form-label"></label>
+                    <input asp-for="ForthName" class="form-control" />
+                    <span asp-validation-for="ForthName" class="text-danger"></span>
+                </div>
+
+                <!-- Gender Dropdown -->
+                <div class="col-md-4">
+                    <label asp-for="Gender" class="form-label"></label>
+                    <select asp-for="Gender" class="form-select"
+                            asp-items="Html.GetEnumSelectList<Gender>()">
+                        <option value="" disabled selected>@Localizer["SelectGender"]</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="HireDate" class="form-label"></label>
+                    <input asp-for="HireDate" type="date" class="form-control" />
+                    <span asp-validation-for="HireDate" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="PhoneNumber" class="form-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="EmailAddress" class="form-label"></label>
+                    <input asp-for="EmailAddress" class="form-control" />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="d-flex gap-2 mt-4">
+
+                <button type="submit" class="btn btn-success">
+                    @Localizer["Save"]
+                </button>
+
+                <a asp-action="Index" class="btn btn-secondary">
+                    @Localizer["Cancel"]
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -297,4 +297,46 @@
   <data name="Unknown" xml:space="preserve">
     <value>غير محدد</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="SaveData" xml:space="preserve">
+    <value>حفظ البيانات</value>
+  </data>
+  <data name="GoBack" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>هذا الحقل مطلوب</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>البريد الإلكتروني غير صحيح</value>
+  </data>
+  <data name="InvalidPhone" xml:space="preserve">
+    <value>رقم الهاتف غير صحيح</value>
+  </data>
+  <data name="SelectGender" xml:space="preserve">
+    <value>-- اختر الجنس --</value>
+  </data>
+  <data name="TeacherCreatedSuccess" xml:space="preserve">
+    <value>تم إنشاء المعلم بنجاح!</value>
+  </data>
+  <data name="TeacherUpdatedSuccess" xml:space="preserve">
+    <value>تم تحديث بيانات المعلم بنجاح!</value>
+  </data>
+  <data name="TeacherDeletedSuccess" xml:space="preserve">
+    <value>تم حذف المعلم بنجاح!</value>
+  </data>
+  <data name="ValidationError" xml:space="preserve">
+    <value>يرجى تصحيح أخطاء التحقق والمحاولة مرة أخرى.</value>
+  </data>
+  <data name="GenericError" xml:space="preserve">
+    <value>حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.</value>
+  </data>
 </root>
