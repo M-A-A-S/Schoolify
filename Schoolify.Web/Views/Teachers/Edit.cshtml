@@ -53,7 +53,7 @@
                     <select asp-for="Gender"
                             class="form-select"
                             asp-items="Html.GetEnumSelectList<Gender>()">
-                        <option value="">@Localizer["SelectGender"]</option>
+                        <option value="" disabled>@Localizer["SelectGender"]</option>
                     </select>
                     <span asp-validation-for="Gender" class="text-danger"></span>
                 </div>

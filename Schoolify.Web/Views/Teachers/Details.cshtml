@@ -1,12 +1,75 @@
 ﻿@using Schoolify.Common.DTOs.Teacher;
 @model TeacherDTO
-<h2>Teacher Details</h2>
+@using Microsoft.Extensions.Localization;
+@using Schoolify.Common;
+@inject IStringLocalizer<SharedResource> Localizer
+@using Schoolify.Common.Enums
 
-<p>@Model.FirstName</p>
-<p>@Model.SecondName</p>
-<p>@Model.ThirdName</p>
-<p>@Model.ForthName</p>
-<p>@Model.EmailAddress</p>
-<p>@Model.Gender</p>
-<p>@Model.PhoneNumber</p>
-<p>@Model.HireDate</p>
+<div class="card shadow-sm border-0">
+
+    <div class="card-header text-white">
+        <h5 class="mb-0">
+            @Localizer["Teacher"] @Localizer["Details"]
+        </h5>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row g-3">
+
+            <div class="col-md-3">
+                <strong>@Localizer["FirstName"]:</strong>
+                <div>@Model.FirstName</div>
+            </div>
+
+            <div class="col-md-3">
+                <strong>@Localizer["SecondName"]:</strong>
+                <div>@Model.SecondName</div>
+            </div>
+
+            <div class="col-md-3">
+                <strong>@Localizer["ThirdName"]:</strong>
+                <div>@Model.ThirdName</div>
+            </div>
+
+            <div class="col-md-3">
+                <strong>@Localizer["ForthName"]:</strong>
+                <div>@Model.ForthName</div>
+            </div>
+
+            <div class="col-md-4">
+                <strong>@Localizer["Gender"]:</strong>
+                <div>@Model.Gender</div>
+            </div>
+
+            <div class="col-md-4">
+                <strong>@Localizer["HireDate"]:</strong>
+                <div>@Model.HireDate</div>
+            </div>
+
+            <div class="col-md-4">
+                <strong>@Localizer["Phone"]:</strong>
+                <div>@Model.PhoneNumber</div>
+            </div>
+
+            <div class="col-md-6">
+                <strong>@Localizer["Email"]:</strong>
+                <div>@Model.EmailAddress</div>
+            </div>
+
+        </div>
+
+        <div class="mt-4 d-flex gap-2">
+
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                @Localizer["Edit"]
+            </a>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Back"]
+            </a>
+
+        </div>
+
+    </div>
+</div>
