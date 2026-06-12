@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Schoolify.Common.Utilities
+namespace Schoolify.Common.Utilities.ResultCodes
 {
-    public partial class ResultCodes
+    public static partial class ResultCodes
     {
         public const string TeacherNotFound = "TeacherNotFound";
         public const string TeacherCreated = "TeacherCreated";

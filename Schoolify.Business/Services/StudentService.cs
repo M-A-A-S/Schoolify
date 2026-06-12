@@ -1,30 +1,28 @@
-﻿using Schoolify.Business.Interfaces;
-using Schoolify.Common.DTOs.Guardian;
-using Schoolify.Common.DTOs.Teacher;
+﻿using Schoolify.Common.DTOs.Student;
 using Schoolify.Common.Extensions;
 using Schoolify.Common.Utilities;
-using Schoolify.Common.Utilities.ResultCodes;
 using Schoolify.DataAccess.Interfaces;
+using Schoolify.Common.Utilities.ResultCodes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-  
+using Schoolify.Business.Interfaces;
 
 namespace Schoolify.Business.Services
 {
-    public class GuardianService : IGuardianService
+    public class StudentService : IStudentService
     {
-        private readonly IGuardianRepository _repo;
+        private readonly IStudentRepository _repo;
 
-        public GuardianService(IGuardianRepository repo)
+        public StudentService(IStudentRepository repo)
         {
             _repo = repo;
         }
 
         #region Add
-        public async Task<Result<GuardianDTO>> AddAsync(GuardianDTO dto)
+        public async Task<Result<StudentDTO>> AddAsync(StudentDTO dto)
         {
             var entity = dto.ToEntity();
 
@@ -32,54 +30,51 @@ namespace Schoolify.Business.Services
 
             if (!addResult.IsSuccess)
             {
-                return Result<GuardianDTO>.Failure(ResultCodes.ServerError, 500);
+                return Result<StudentDTO>.Failure(ResultCodes.ServerError, 500);
             }
 
             var FindResult = await _repo.FindByAsync(t => t.Id == addResult.Data.Id);
 
             if (!FindResult.IsSuccess || FindResult.Data == null)
             {
-                //return Result<GuardianDTO>.Failure(
-                //    ResultCodes.GuardianNotFound,
-                //    404);
-                return Result<GuardianDTO>.Failure(
+                return Result<StudentDTO>.Failure(
                     ResultCodes.ServerError,
                     500);
             }
 
             var result = FindResult.Data?.ToDTO();
 
-            return Result<GuardianDTO>.Success(result, ResultCodes.GuardianCreated);
+            return Result<StudentDTO>.Success(result, ResultCodes.StudentCreated);
         }
         #endregion
 
         #region Get
-        public async Task<Result<GuardianDTO>> GetByIdAsync(int id)
+        public async Task<Result<StudentDTO>> GetByIdAsync(int id)
         {
             var findResult = await _repo.FindByAsync(c => c.Id == id);
 
             if (!findResult.IsSuccess || findResult.Data == null)
             {
-                return Result<GuardianDTO>.Failure(
-                    ResultCodes.GuardianNotFound,
+                return Result<StudentDTO>.Failure(
+                    ResultCodes.StudentNotFound,
                     404);
             }
 
             var result = findResult.Data?.ToDTO();
 
-            return Result<GuardianDTO>.Success(result);
+            return Result<StudentDTO>.Success(result);
         }
 
-        public async Task<Result<IEnumerable<GuardianDTO>>> GetAllAsync()
+        public async Task<Result<IEnumerable<StudentDTO>>> GetAllAsync()
         {
             var teachersResult = await _repo.GetAllAsync();
 
             if (!teachersResult.IsSuccess || teachersResult.Data == null)
             {
-                return Result<IEnumerable<GuardianDTO>>.Failure(ResultCodes.GuardiansNotFound, 200);
+                return Result<IEnumerable<StudentDTO>>.Failure(ResultCodes.StudentsNotFound, 200);
             }
 
-            var result = new List<GuardianDTO>();
+            var result = new List<StudentDTO>();
 
             foreach (var item in teachersResult.Data)
             {
@@ -87,20 +82,20 @@ namespace Schoolify.Business.Services
                 result.Add(newItem);
             }
 
-            return Result<IEnumerable<GuardianDTO>>.Success(result);
+            return Result<IEnumerable<StudentDTO>>.Success(result);
         }
         #endregion
 
         #region Update
-        public async Task<Result<GuardianDTO>> UpdateAsync(int id, GuardianDTO dto)
+        public async Task<Result<StudentDTO>> UpdateAsync(int id, StudentDTO dto)
         {
             var existingResult = await _repo.FindByAsync(c => c.Id == id);
             if (!existingResult.IsSuccess || existingResult.Data == null)
             {
-                return Result<GuardianDTO>.Failure(
-                    ResultCodes.GuardianNotFound,
+                return Result<StudentDTO>.Failure(
+                    ResultCodes.StudentNotFound,
                     404,
-                    "Guardian not found");
+                    "Student not found");
             }
 
             var entity = existingResult.Data;
@@ -111,21 +106,21 @@ namespace Schoolify.Business.Services
 
             if (!updateResult.IsSuccess)
             {
-                return Result<GuardianDTO>.Failure(ResultCodes.ServerError, 500);
+                return Result<StudentDTO>.Failure(ResultCodes.ServerError, 500);
             }
 
             var findResult = await _repo.FindByAsync(c => c.Id == id);
 
             if (!findResult.IsSuccess || findResult.Data == null)
             {
-                return Result<GuardianDTO>.Failure(
+                return Result<StudentDTO>.Failure(
                     ResultCodes.ServerError,
                     500);
             }
 
             var result = findResult.Data?.ToDTO();
 
-            return Result<GuardianDTO>.Success(result, ResultCodes.GuardianUpdated);
+            return Result<StudentDTO>.Success(result, ResultCodes.StudentUpdated);
 
         }
         #endregion
@@ -137,7 +132,7 @@ namespace Schoolify.Business.Services
             if (!findResult.IsSuccess)
             {
                 return Result<bool>.Failure(
-                    ResultCodes.GuardianNotFound,
+                    ResultCodes.StudentNotFound,
                     404);
             }
 
@@ -148,7 +143,7 @@ namespace Schoolify.Business.Services
                 return Result<bool>.Failure(ResultCodes.ServerError, 500);
             }
 
-            return Result<bool>.Success(true, ResultCodes.GuardianDeleted);
+            return Result<bool>.Success(true, ResultCodes.StudentDeleted);
         }
         #endregion
     }
