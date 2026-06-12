@@ -53,5 +53,37 @@ namespace Schoolify.Web.Controllers
             TempData["Error"] = _localizer["GenericError"].Value;
             return View(guardian);
         }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var findResult = await _service.GetByIdAsync(id);
+            if (findResult.Data == null || !findResult.IsSuccess)
+            {
+                TempData["Error"] = _localizer[findResult.Code].Value;
+                return NotFound();
+            }
+            return View(findResult.Data);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(GuardianDTO DTO)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = _localizer["ValidationError"].Value;
+                return View(DTO);
+            }
+
+            var updateResult = await _service.UpdateAsync(DTO.Id, DTO);
+            if (updateResult.IsSuccess)
+            {
+                TempData["Success"] = _localizer[updateResult.Code].Value;
+                return RedirectToAction(nameof(Index));
+            }
+
+            TempData["Error"] = _localizer[updateResult.Code].Value;
+            return View(DTO);
+        }
     }
 }
