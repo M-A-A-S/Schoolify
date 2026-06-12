@@ -360,4 +360,25 @@
   <data name="GuardianDeleted" xml:space="preserve">
     <value>تم حذف ولي الأمر بنجاح</value>
   </data>
+  <data name="StudentNotFound" xml:space="preserve">
+    <value>لم يتم العثور على الطالب</value>
+  </data>
+  <data name="StudentsNotFound" xml:space="preserve">
+    <value>لا يوجد طلاب</value>
+  </data>
+  <data name="StudentCreated" xml:space="preserve">
+    <value>تم إنشاء الطالب بنجاح</value>
+  </data>
+  <data name="StudentUpdated" xml:space="preserve">
+    <value>تم تحديث بيانات الطالب بنجاح</value>
+  </data>
+  <data name="StudentDeleted" xml:space="preserve">
+    <value>تم حذف الطالب بنجاح</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="EnrolmentDate" xml:space="preserve">
+    <value>تاريخ التسجيل</value>
+  </data>
 </root>

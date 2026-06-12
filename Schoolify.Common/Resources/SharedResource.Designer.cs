@@ -187,6 +187,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date of Birth.
+        /// </summary>
+        public static string DateOfBirth {
+            get {
+                return ResourceManager.GetString("DateOfBirth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
@@ -246,6 +255,15 @@ namespace Schoolify.Common.Resources {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enrolment Date.
+        /// </summary>
+        public static string EnrolmentDate {
+            get {
+                return ResourceManager.GetString("EnrolmentDate", resourceCulture);
             }
         }
         
@@ -619,6 +637,24 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Student created successfully.
+        /// </summary>
+        public static string StudentCreated {
+            get {
+                return ResourceManager.GetString("StudentCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student deleted successfully.
+        /// </summary>
+        public static string StudentDeleted {
+            get {
+                return ResourceManager.GetString("StudentDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Student Guardian.
         /// </summary>
         public static string StudentGuardian {
@@ -637,11 +673,38 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Student not found.
+        /// </summary>
+        public static string StudentNotFound {
+            get {
+                return ResourceManager.GetString("StudentNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Students.
         /// </summary>
         public static string Students {
             get {
                 return ResourceManager.GetString("Students", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No students found.
+        /// </summary>
+        public static string StudentsNotFound {
+            get {
+                return ResourceManager.GetString("StudentsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student updated successfully.
+        /// </summary>
+        public static string StudentUpdated {
+            get {
+                return ResourceManager.GetString("StudentUpdated", resourceCulture);
             }
         }
         

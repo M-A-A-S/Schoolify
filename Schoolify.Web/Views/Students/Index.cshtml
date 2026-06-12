@@ -1,0 +1,88 @@
+﻿@using Schoolify.Common.DTOs.Student;
+@model List<StudentDTO>
+@using Microsoft.Extensions.Localization
+@using System.Globalization;
+@using Schoolify.Common;
+@inject IStringLocalizer<SharedResource> Localizer
+@using Schoolify.Common.Enums
+
+
+<div class="d-flex align-items-center justify-content-between my-4">
+    <h2>@Localizer["Students"]</h2>
+
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="fa fa-plus me-1"></i>
+        @Localizer["CreateNew"]
+    </a>
+</div>
+
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Localizer["FirstName"]</th>
+                <th>@Localizer["SecondName"]</th>
+                <th>@Localizer["ThirdName"]</th>
+                <th>@Localizer["ForthName"]</th>
+                <th>@Localizer["DateOfBirth"]</th>
+                <th>@Localizer["EnrolmentDate"]</th>
+                <th>@Localizer["Gender"]</th>
+                <th>@Localizer["Actions"]</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.SecondName</td>
+                    <td>@item.ThirdName</td>
+                    <td>@item.ForthName</td>
+                    <td>@item.DateOfBirth</td>
+                    <td>@item.EnrolmentDate.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        @switch (item.Gender)
+                        {
+                            case Gender.Male:
+                                <span class="badge bg-primary">@Localizer["Male"]</span>
+                                break;
+
+                            case Gender.Female:
+                                <span class="badge bg-danger">@Localizer["Female"]</span>
+                                break;
+
+                            default:
+                                <span class="badge bg-secondary">@Localizer["Unknown"]</span>
+                                break;
+                        }
+                    </td>
+
+                    <td style="display: flex; gap: 4px">
+                        <a asp-action="Edit"
+                           asp-route-id="@item.Id"
+                           class="btn btn-icon btn-outline-primary tooltip-btn"
+                           data-tooltip="@Localizer["Edit"]">
+                            <i class="fa fa-pen"></i>
+                        </a>
+                        <a asp-action="Details"
+                           asp-route-id="@item.Id"
+                           class="btn btn-icon btn-outline-info tooltip-btn"
+                           data-tooltip="@Localizer["Details"]">
+                            <i class="fa fa-info"></i>
+                        </a>
+                        <a asp-action="Delete"
+                           asp-route-id="@item.Id"
+                           class="btn btn-icon btn-outline-danger tooltip-btn"
+                           data-tooltip="@Localizer["Delete"]">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

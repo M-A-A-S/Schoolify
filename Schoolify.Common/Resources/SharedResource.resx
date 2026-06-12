@@ -360,4 +360,25 @@
   <data name="GuardianDeleted" xml:space="preserve">
     <value>Guardian deleted successfully</value>
   </data>
+  <data name="StudentNotFound" xml:space="preserve">
+    <value>Student not found</value>
+  </data>
+  <data name="StudentsNotFound" xml:space="preserve">
+    <value>No students found</value>
+  </data>
+  <data name="StudentCreated" xml:space="preserve">
+    <value>Student created successfully</value>
+  </data>
+  <data name="StudentUpdated" xml:space="preserve">
+    <value>Student updated successfully</value>
+  </data>
+  <data name="StudentDeleted" xml:space="preserve">
+    <value>Student deleted successfully</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Date of Birth</value>
+  </data>
+  <data name="EnrolmentDate" xml:space="preserve">
+    <value>Enrolment Date</value>
+  </data>
 </root>
