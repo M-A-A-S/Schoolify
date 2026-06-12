@@ -159,6 +159,7 @@ body[data-bs-theme="light"] {
     }
 .card-header {
     background-color: var(--primary-color);
+    color: white;
 }
 
 
