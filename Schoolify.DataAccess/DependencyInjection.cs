@@ -14,6 +14,7 @@ namespace Schoolify.DataAccess
         {
 
             services.AddScoped<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<IGuardianRepository, GuardianRepository>();
 
             return services;
         }

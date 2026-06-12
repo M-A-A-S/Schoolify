@@ -22,6 +22,7 @@ namespace Schoolify.Business
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<ITeacherService, TeacherService>();
+            services.AddScoped<IGuardianService, GuardianService>();
 
             return services;
         }
