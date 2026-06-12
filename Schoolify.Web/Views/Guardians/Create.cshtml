@@ -1,0 +1,29 @@
+﻿@using Schoolify.Common.DTOs.Guardian;
+@using Schoolify.Common;
+@model GuardianDTO
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="card shadow-sm border-0">
+
+    <div class="card-header text-white">
+        <h5 class="mb-0">@Localizer["Create"] @Localizer["Guardian"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Create" method="post">
+
+            <partial name="_GuardianForm" model="Model" />
+
+            <partial name="~/Views/Shared/_FormButtons.cshtml" />
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

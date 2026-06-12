@@ -1,0 +1,12 @@
+﻿@using Schoolify.Common.DTOs.Guardian;
+@model GuardianDTO
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="row g-3">
+
+    <partial name="_GuardianPersonalInfo" model="Model" />
+
+    <partial name="_GuardianContactInfo" model="Model" />
+
+</div>

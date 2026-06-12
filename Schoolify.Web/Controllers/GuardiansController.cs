@@ -3,6 +3,8 @@ using Microsoft.Extensions.Localization;
 using Schoolify.Business.Interfaces;
 using Schoolify.Business.Services;
 using Schoolify.Common;
+using Schoolify.Common.DTOs.Guardian;
+using Schoolify.Common.DTOs.Teacher;
 using System.Threading.Tasks;
 
 namespace Schoolify.Web.Controllers
@@ -22,6 +24,34 @@ namespace Schoolify.Web.Controllers
         {
             var findAllGuardiansResult = await _service.GetAllAsync();
             return View(findAllGuardiansResult.Data);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(GuardianDTO guardian)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = _localizer["ValidationError"].Value;
+                return View(guardian);
+            }
+
+            var addResult = await _service.AddAsync(guardian);
+
+            if (addResult.IsSuccess)
+            {
+                //TempData["Success"] = _localizer["TeacherCreatedSuccess"].Value;
+                TempData["Success"] = _localizer[addResult.Code].Value;
+                return RedirectToAction(nameof(Index));
+            }
+
+            TempData["Error"] = _localizer["GenericError"].Value;
+            return View(guardian);
         }
     }
 }

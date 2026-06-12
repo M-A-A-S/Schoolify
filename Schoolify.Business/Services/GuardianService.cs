@@ -48,7 +48,7 @@ namespace Schoolify.Business.Services
 
             var result = FindResult.Data?.ToDTO();
 
-            return Result<GuardianDTO>.Success(result);
+            return Result<GuardianDTO>.Success(result, ResultCodes.GuardianCreated);
         }
         #endregion
 
@@ -124,7 +124,7 @@ namespace Schoolify.Business.Services
 
             var result = findResult.Data?.ToDTO();
 
-            return Result<GuardianDTO>.Success(result);
+            return Result<GuardianDTO>.Success(result, ResultCodes.GuardianUpdated);
 
         }
         #endregion
@@ -140,7 +140,14 @@ namespace Schoolify.Business.Services
                     404);
             }
 
-            return await _repo.DeleteAndSaveAsync(findResult.Data);
+            var deleteResult = await _repo.DeleteAndSaveAsync(findResult.Data);
+
+            if (!deleteResult.IsSuccess)
+            {
+                return Result<bool>.Failure(ResultCodes.ServerError, 500);
+            }
+
+            return Result<bool>.Success(true, ResultCodes.GuardianDeleted);
         }
         #endregion
     }

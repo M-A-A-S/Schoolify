@@ -1,0 +1,15 @@
+﻿@using Schoolify.Common;
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="d-flex gap-2 mt-4">
+
+    <button type="submit" class="btn btn-success">
+        @Localizer["Save"]
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        @Localizer["Cancel"]
+    </a>
+
+</div>
