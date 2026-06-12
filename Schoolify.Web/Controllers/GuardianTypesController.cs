@@ -6,12 +6,12 @@ using Schoolify.Common.DTOs.GuardianType;
 
 namespace Schoolify.Web.Controllers
 {
-    public class GuardianTypeController : Controller
+    public class GuardianTypesController : Controller
     {
         private readonly IGuardianTypeService _service;
         private readonly IStringLocalizer<SharedResource> _localizer;
 
-        public GuardianTypeController(IGuardianTypeService service, IStringLocalizer<SharedResource> localizer)
+        public GuardianTypesController(IGuardianTypeService service, IStringLocalizer<SharedResource> localizer)
         {
             _service = service;
             _localizer = localizer;
