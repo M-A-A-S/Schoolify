@@ -1,0 +1,60 @@
+﻿@using Schoolify.Common.DTOs.Student;
+@model StudentDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+@using Schoolify.Common.Enums
+
+<div class="row g-3">
+
+    <div class="col-md-3">
+        <label class="fw-bold">@Localizer["FirstName"]</label>
+        <div>@Model.FirstName</div>
+    </div>
+
+    <div class="col-md-3">
+        <label class="fw-bold">@Localizer["SecondName"]</label>
+        <div>@Model.SecondName</div>
+    </div>
+
+    <div class="col-md-3">
+        <label class="fw-bold">@Localizer["ThirdName"]</label>
+        <div>@Model.ThirdName</div>
+    </div>
+
+    <div class="col-md-3">
+        <label class="fw-bold">@Localizer["ForthName"]</label>
+        <div>@Model.ForthName</div>
+    </div>
+
+    <div class="col-md-4">
+        <label class="fw-bold">@Localizer["DateOfBirth"]</label>
+        <div>@Model.DateOfBirth</div>
+    </div>
+
+    <div class="col-md-4">
+        <label class="fw-bold">@Localizer["EnrolmentDate"]</label>
+        <div>@Model.EnrolmentDate</div>
+    </div>
+
+    <div class="col-md-4">
+        <label class="fw-bold">@Localizer["Gender"]</label>
+        @switch (Model.Gender)
+        {
+            case Gender.Male:
+                <div class="badge bg-primary">@Localizer["Male"]</div>
+                break;
+
+            case Gender.Female:
+                <div class="badge bg-danger">@Localizer["Female"]</div>
+                break;
+
+            default:
+                <div class="badge bg-secondary">@Localizer["Unknown"]</div>
+                break;
+        }
+    </div>
+
+</div>
