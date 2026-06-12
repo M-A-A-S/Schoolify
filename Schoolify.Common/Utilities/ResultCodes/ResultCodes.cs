@@ -8,8 +8,8 @@ namespace Schoolify.Common.Utilities
 {
     public static partial class ResultCodes
     {
-        public const string DatabaseError = "database_error";
-        public const string ServerError = "internal_server_error";
-        public const string NotFound = "not_found";
+        public const string DatabaseError = "DatabaseError";
+        public const string ServerError = "ServerError";
+        public const string NotFound = "NotFound";
     }
 }

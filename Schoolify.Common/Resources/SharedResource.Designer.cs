@@ -322,6 +322,33 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Guardian created successfully.
+        /// </summary>
+        public static string GuardianCreated {
+            get {
+                return ResourceManager.GetString("GuardianCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guardian deleted successfully.
+        /// </summary>
+        public static string GuardianDeleted {
+            get {
+                return ResourceManager.GetString("GuardianDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guardian not found.
+        /// </summary>
+        public static string GuardianNotFound {
+            get {
+                return ResourceManager.GetString("GuardianNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guardians.
         /// </summary>
         public static string Guardians {
@@ -345,6 +372,15 @@ namespace Schoolify.Common.Resources {
         public static string GuardianTypes {
             get {
                 return ResourceManager.GetString("GuardianTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guardian updated successfully.
+        /// </summary>
+        public static string GuardianUpdated {
+            get {
+                return ResourceManager.GetString("GuardianUpdated", resourceCulture);
             }
         }
         
@@ -534,6 +570,15 @@ namespace Schoolify.Common.Resources {
         public static string SelectGender {
             get {
                 return ResourceManager.GetString("SelectGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server error occurred.
+        /// </summary>
+        public static string ServerError {
+            get {
+                return ResourceManager.GetString("ServerError", resourceCulture);
             }
         }
         

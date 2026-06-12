@@ -345,4 +345,19 @@
   <data name="FullName" xml:space="preserve">
     <value>الاسم الكامل</value>
   </data>
+  <data name="ServerError" xml:space="preserve">
+    <value>حدث خطأ في الخادم</value>
+  </data>
+  <data name="GuardianNotFound" xml:space="preserve">
+    <value>لم يتم العثور على ولي الأمر</value>
+  </data>
+  <data name="GuardianCreated" xml:space="preserve">
+    <value>تم إنشاء ولي الأمر بنجاح</value>
+  </data>
+  <data name="GuardianUpdated" xml:space="preserve">
+    <value>تم تحديث بيانات ولي الأمر بنجاح</value>
+  </data>
+  <data name="GuardianDeleted" xml:space="preserve">
+    <value>تم حذف ولي الأمر بنجاح</value>
+  </data>
 </root>

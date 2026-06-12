@@ -345,4 +345,19 @@
   <data name="FullName" xml:space="preserve">
     <value>Full Name</value>
   </data>
+  <data name="ServerError" xml:space="preserve">
+    <value>Server error occurred</value>
+  </data>
+  <data name="GuardianNotFound" xml:space="preserve">
+    <value>Guardian not found</value>
+  </data>
+  <data name="GuardianCreated" xml:space="preserve">
+    <value>Guardian created successfully</value>
+  </data>
+  <data name="GuardianUpdated" xml:space="preserve">
+    <value>Guardian updated successfully</value>
+  </data>
+  <data name="GuardianDeleted" xml:space="preserve">
+    <value>Guardian deleted successfully</value>
+  </data>
 </root>
