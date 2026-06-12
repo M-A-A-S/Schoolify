@@ -97,5 +97,33 @@ namespace Schoolify.Web.Controllers
             return View(findResult.Data);
         }
 
+        public async Task<IActionResult> Delete(int id)
+        {
+            var findResult = await _service.GetByIdAsync(id);
+            if (findResult.Data == null || !findResult.IsSuccess)
+            {
+                TempData["Error"] = _localizer[findResult.Code].Value;
+                return NotFound();
+            }
+            return View(findResult.Data);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+
+            var deleteResult = await _service.DeleteAsync(id);
+
+            if (deleteResult.IsSuccess)
+            {
+                TempData["Success"] = _localizer[deleteResult.Code].Value;
+                return RedirectToAction(nameof(Index));
+            }
+
+            TempData["Error"] = _localizer["GenericError"].Value;
+            return View(deleteResult.Data);
+        }
+
     }
 }

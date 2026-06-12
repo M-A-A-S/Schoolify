@@ -1,35 +1,39 @@
 ﻿@using Schoolify.Common.DTOs.Guardian;
 @model GuardianDTO
 
+@using Schoolify.Common;
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
 <div class="row">
 
     <div class="col-md-3 mb-3">
-        <label class="fw-bold">First Name</label>
+        <label class="fw-bold">@Localizer["FirstName"]</label>
         <div>@Model.FirstName</div>
     </div>
 
     <div class="col-md-3 mb-3">
-        <label class="fw-bold">Second Name</label>
+        <label class="fw-bold">@Localizer["SecondName"]</label>
         <div>@Model.SecondName</div>
     </div>
 
     <div class="col-md-3 mb-3">
-        <label class="fw-bold">Third Name</label>
+        <label class="fw-bold">@Localizer["ThirdName"]</label>
         <div>@Model.ThirdName</div>
     </div>
 
     <div class="col-md-3 mb-3">
-        <label class="fw-bold">Fourth Name</label>
+        <label class="fw-bold">@Localizer["ForthName"]</label>
         <div>@Model.ForthName</div>
     </div>
 
     <div class="col-md-4 mb-3">
-        <label class="fw-bold">Phone Number</label>
+        <label class="fw-bold">@Localizer["Phone"]</label>
         <div>@Model.PhoneNumber</div>
     </div>
 
     <div class="col-md-6 mb-3">
-        <label class="fw-bold">Email</label>
+        <label class="fw-bold">@Localizer["Email"]</label>
         <div>@Model.EmailAddress</div>
     </div>
 
