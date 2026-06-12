@@ -1,28 +1,25 @@
-﻿@using Schoolify.Common.DTOs.Student;
-@model StudentDTO
+﻿
+@using Schoolify.Common.DTOs.GuardianType
+@model GuardianTypeDTO
 
-@using Schoolify.Common
 @using Microsoft.Extensions.Localization
+@using Schoolify.Common
 @inject IStringLocalizer<SharedResource> Localizer
 
 <div class="card shadow-sm">
 
     <div class="card-header">
-        <h5>
-            @Localizer["Edit"] @Localizer["Student"]
-        </h5>
+        <h5>@Localizer["Create"] @Localizer["GuardianType"]</h5>
     </div>
 
     <div class="card-body">
 
-        <form asp-action="Edit">
+        <form asp-action="Create" method="post">
 
-            <input type="hidden" asp-for="Id" />
+            <partial name="Partials/_GuardianTypeForm" model="Model" />
 
-            <partial name="Partials/_StudentForm" model="Model" />
-
-            <button type="submit" class="btn btn-primary">
-                @Localizer["Update"]
+            <button type="submit" class="btn btn-success">
+                @Localizer["Save"]
             </button>
 
             <a asp-action="Index" class="btn btn-secondary">

@@ -279,7 +279,8 @@ namespace Schoolify.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
-        public static string FirstName {
+        public static string FirstName
+        {
             get {
                 return ResourceManager.GetString("FirstName", resourceCulture);
             }
