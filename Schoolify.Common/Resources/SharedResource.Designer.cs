@@ -385,11 +385,56 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Guardian type created successfully.
+        /// </summary>
+        public static string GuardianTypeCreated {
+            get {
+                return ResourceManager.GetString("GuardianTypeCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guardian type deleted successfully.
+        /// </summary>
+        public static string GuardianTypeDeleted {
+            get {
+                return ResourceManager.GetString("GuardianTypeDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guardian type not found.
+        /// </summary>
+        public static string GuardianTypeNotFound {
+            get {
+                return ResourceManager.GetString("GuardianTypeNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guardian Types.
         /// </summary>
         public static string GuardianTypes {
             get {
                 return ResourceManager.GetString("GuardianTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No guardian types found.
+        /// </summary>
+        public static string GuardianTypesNotFound {
+            get {
+                return ResourceManager.GetString("GuardianTypesNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guardian type updated successfully.
+        /// </summary>
+        public static string GuardianTypeUpdated {
+            get {
+                return ResourceManager.GetString("GuardianTypeUpdated", resourceCulture);
             }
         }
         
@@ -435,6 +480,24 @@ namespace Schoolify.Common.Resources {
         public static string Male {
             get {
                 return ResourceManager.GetString("Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name (Arabic).
+        /// </summary>
+        public static string NameAr {
+            get {
+                return ResourceManager.GetString("NameAr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name (English).
+        /// </summary>
+        public static string NameEn {
+            get {
+                return ResourceManager.GetString("NameEn", resourceCulture);
             }
         }
         

@@ -24,6 +24,7 @@ namespace Schoolify.Business
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<IGuardianService, GuardianService>();
             services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<IGuardianTypeService, GuardianTypeService>();
 
             return services;
         }

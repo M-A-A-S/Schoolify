@@ -381,4 +381,25 @@
   <data name="EnrolmentDate" xml:space="preserve">
     <value>تاريخ التسجيل</value>
   </data>
+  <data name="GuardianTypeNotFound" xml:space="preserve">
+    <value>لم يتم العثور على نوع ولي الأمر</value>
+  </data>
+  <data name="GuardianTypesNotFound" xml:space="preserve">
+    <value>لا توجد أنواع أولياء أمور</value>
+  </data>
+  <data name="GuardianTypeCreated" xml:space="preserve">
+    <value>تم إنشاء نوع ولي الأمر بنجاح</value>
+  </data>
+  <data name="GuardianTypeUpdated" xml:space="preserve">
+    <value>تم تحديث نوع ولي الأمر بنجاح</value>
+  </data>
+  <data name="GuardianTypeDeleted" xml:space="preserve">
+    <value>تم حذف نوع ولي الأمر بنجاح</value>
+  </data>
+  <data name="NameEn" xml:space="preserve">
+    <value>الاسم (إنجليزي)</value>
+  </data>
+  <data name="NameAr" xml:space="preserve">
+    <value>الاسم (عربي)</value>
+  </data>
 </root>
