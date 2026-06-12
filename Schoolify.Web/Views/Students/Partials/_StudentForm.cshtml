@@ -1,0 +1,61 @@
+﻿
+
+@using Schoolify.Common.Enums;
+
+@using Schoolify.Common.DTOs.Student;
+@model StudentDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row g-3">
+
+    <div class="col-md-3">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="SecondName"></label>
+        <input asp-for="SecondName" class="form-control" />
+        <span asp-validation-for="SecondName" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="ThirdName"></label>
+        <input asp-for="ThirdName" class="form-control" />
+        <span asp-validation-for="ThirdName" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-3">
+        <label asp-for="ForthName"></label>
+        <input asp-for="ForthName" class="form-control" />
+        <span asp-validation-for="ForthName" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="DateOfBirth"></label>
+        <input asp-for="DateOfBirth" type="date" class="form-control" />
+        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="EnrolmentDate"></label>
+        <input asp-for="EnrolmentDate" type="date" class="form-control" />
+        <span asp-validation-for="EnrolmentDate" class="text-danger"></span>
+    </div>
+
+    <!-- Gender Dropdown -->
+    <div class="col-md-4">
+        <label asp-for="Gender" class="form-label"></label>
+        <select asp-for="Gender" class="form-select"
+                asp-items="Html.GetEnumSelectList<Gender>()">
+            <option value="" disabled selected>@Localizer["SelectGender"]</option>
+        </select>
+        <span asp-validation-for="Gender" class="text-danger"></span>
+    </div>
+
+
+</div>
