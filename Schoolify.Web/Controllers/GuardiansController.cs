@@ -85,5 +85,17 @@ namespace Schoolify.Web.Controllers
             TempData["Error"] = _localizer[updateResult.Code].Value;
             return View(DTO);
         }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var findResult = await _service.GetByIdAsync(id);
+            if (findResult.Data == null || !findResult.IsSuccess)
+            {
+                TempData["Error"] = _localizer[findResult.Code].Value;
+                return NotFound();
+            }
+            return View(findResult.Data);
+        }
+
     }
 }

@@ -1,0 +1,32 @@
+﻿@using Schoolify.Common;
+@using Schoolify.Common.DTOs.Guardian;
+@model GuardianDTO
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="card shadow-sm">
+
+    <div class="card-header text-white">
+        <h5>@Localizer["Teacher"] @Localizer["Details"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <partial name="_GuardianDetails" model="Model" />
+
+    </div>
+
+    <div class="card-footer">
+        <a asp-action="Edit"
+           asp-route-id="@Model.Id"
+           class="btn btn-primary">
+            @Localizer["Edit"]
+        </a>
+
+        <a asp-action="Index"
+           class="btn btn-secondary">
+            @Localizer["GoBack"]
+        </a>
+    </div>
+
+</div>
