@@ -417,4 +417,7 @@
   <data name="SubjectDeleted" xml:space="preserve">
     <value>Subject deleted successfully</value>
   </data>
+  <data name="SelectDepartment" xml:space="preserve">
+    <value>-- Select Department --</value>
+  </data>
 </root>

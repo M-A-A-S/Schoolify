@@ -646,6 +646,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -- Select Department --.
+        /// </summary>
+        public static string SelectDepartment {
+            get {
+                return ResourceManager.GetString("SelectDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to -- Select Gender --.
         /// </summary>
         public static string SelectGender {

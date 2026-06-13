@@ -1,20 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
 using Schoolify.Business.Interfaces;
 using Schoolify.Common;
 using Schoolify.Common.DTOs.Subject;
+using System.Globalization;
+using System.Threading.Tasks;
 
 namespace Schoolify.Web.Controllers
 {
     public class SubjectsController : Controller
     {
         private readonly ISubjectService _service;
+        private readonly IDepartmentService _departmentService;
         private readonly IStringLocalizer<SharedResource> _localizer;
 
-        public SubjectsController(ISubjectService service, IStringLocalizer<SharedResource> localizer)
+        public SubjectsController(ISubjectService service, IStringLocalizer<SharedResource> localizer, IDepartmentService departmentService)
         {
             _service = service;
             _localizer = localizer;
+            _departmentService = departmentService;
         }
 
         public async Task<IActionResult> Index()
@@ -23,8 +28,9 @@ namespace Schoolify.Web.Controllers
             return View(findAllSubjectsResult.Data);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            await LoadDepartments();
             return View();
         }
 
@@ -35,6 +41,7 @@ namespace Schoolify.Web.Controllers
             if (!ModelState.IsValid)
             {
                 TempData["Error"] = _localizer["ValidationError"].Value;
+                await LoadDepartments();
                 return View(DTO);
             }
 
@@ -120,5 +127,19 @@ namespace Schoolify.Web.Controllers
             TempData["Error"] = _localizer[deleteResult.Code].Value;
             return View(deleteResult.Data);
         }
+
+        private async Task LoadDepartments()
+        {
+            var departments = await _departmentService.GetAllAsync();
+
+            ViewBag.Departments = departments.Data.Select(d => new SelectListItem
+            {
+                Value = d.Id.ToString(),
+                Text = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? d.NameAr
+                        : d.NameEn
+            });
+        }
+
     }
 }

@@ -18,6 +18,7 @@ namespace Schoolify.DataAccess
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<IGuardianTypeRepository, GuardianTypeRepository>();
             services.AddScoped<ISubjectRepository, SubjectRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 
             return services;
         }

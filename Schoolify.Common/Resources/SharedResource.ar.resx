@@ -417,4 +417,7 @@
   <data name="SubjectDeleted" xml:space="preserve">
     <value>تم حذف المادة بنجاح</value>
   </data>
+  <data name="SelectDepartment" xml:space="preserve">
+    <value>-- اختر القسم --</value>
+  </data>
 </root>
