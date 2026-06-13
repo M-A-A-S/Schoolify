@@ -402,4 +402,19 @@
   <data name="NameAr" xml:space="preserve">
     <value>الاسم (عربي)</value>
   </data>
+  <data name="SubjectNotFound" xml:space="preserve">
+    <value>لم يتم العثور على المادة</value>
+  </data>
+  <data name="SubjectsNotFound" xml:space="preserve">
+    <value>لم يتم العثور على أي مواد</value>
+  </data>
+  <data name="SubjectCreated" xml:space="preserve">
+    <value>تم إنشاء المادة بنجاح</value>
+  </data>
+  <data name="SubjectUpdated" xml:space="preserve">
+    <value>تم تحديث المادة بنجاح</value>
+  </data>
+  <data name="SubjectDeleted" xml:space="preserve">
+    <value>تم حذف المادة بنجاح</value>
+  </data>
 </root>

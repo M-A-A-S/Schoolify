@@ -402,4 +402,19 @@
   <data name="NameAr" xml:space="preserve">
     <value>Name (Arabic)</value>
   </data>
+  <data name="SubjectNotFound" xml:space="preserve">
+    <value>Subject not found</value>
+  </data>
+  <data name="SubjectsNotFound" xml:space="preserve">
+    <value>No subjects found</value>
+  </data>
+  <data name="SubjectCreated" xml:space="preserve">
+    <value>Subject created successfully</value>
+  </data>
+  <data name="SubjectUpdated" xml:space="preserve">
+    <value>Subject updated successfully</value>
+  </data>
+  <data name="SubjectDeleted" xml:space="preserve">
+    <value>Subject deleted successfully</value>
+  </data>
 </root>

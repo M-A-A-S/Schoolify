@@ -279,8 +279,7 @@ namespace Schoolify.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
-        public static string FirstName
-        {
+        public static string FirstName {
             get {
                 return ResourceManager.GetString("FirstName", resourceCulture);
             }
@@ -800,11 +799,56 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Subject created successfully.
+        /// </summary>
+        public static string SubjectCreated {
+            get {
+                return ResourceManager.GetString("SubjectCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subject deleted successfully.
+        /// </summary>
+        public static string SubjectDeleted {
+            get {
+                return ResourceManager.GetString("SubjectDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subject not found.
+        /// </summary>
+        public static string SubjectNotFound {
+            get {
+                return ResourceManager.GetString("SubjectNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Subjects.
         /// </summary>
         public static string Subjects {
             get {
                 return ResourceManager.GetString("Subjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No subjects found.
+        /// </summary>
+        public static string SubjectsNotFound {
+            get {
+                return ResourceManager.GetString("SubjectsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subject updated successfully.
+        /// </summary>
+        public static string SubjectUpdated {
+            get {
+                return ResourceManager.GetString("SubjectUpdated", resourceCulture);
             }
         }
         
