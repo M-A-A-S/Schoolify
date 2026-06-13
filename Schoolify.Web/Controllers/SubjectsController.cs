@@ -65,6 +65,7 @@ namespace Schoolify.Web.Controllers
                 TempData["Error"] = _localizer[findResult.Code].Value;
                 return NotFound();
             }
+            await LoadDepartments();
             return View(findResult.Data);
         }
 
@@ -75,6 +76,7 @@ namespace Schoolify.Web.Controllers
             if (!ModelState.IsValid)
             {
                 TempData["Error"] = _localizer["ValidationError"].Value;
+                await LoadDepartments();
                 return View(DTO);
             }
 
