@@ -1,4 +1,5 @@
-﻿using Schoolify.Business.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using Schoolify.Business.Interfaces;
 using Schoolify.Common.DTOs.Subject;
 using Schoolify.Common.Extensions;
 using Schoolify.Common.Utilities;
@@ -51,7 +52,7 @@ namespace Schoolify.Business.Services
         #region Get
         public async Task<Result<SubjectDTO>> GetByIdAsync(int id)
         {
-            var findResult = await _repo.FindByAsync(c => c.Id == id);
+            var findResult = await _repo.FindByAsync(c => c.Id == id, include: q => q.Include(s => s.Department));
 
             if (!findResult.IsSuccess || findResult.Data == null)
             {
@@ -67,7 +68,7 @@ namespace Schoolify.Business.Services
 
         public async Task<Result<IEnumerable<SubjectDTO>>> GetAllAsync()
         {
-            var findAllResult = await _repo.GetAllAsync();
+            var findAllResult = await _repo.GetAllAsync(include: q => q.Include(s => s.Department));
 
             if (!findAllResult.IsSuccess || findAllResult.Data == null)
             {

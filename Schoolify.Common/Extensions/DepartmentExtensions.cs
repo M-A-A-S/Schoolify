@@ -1,4 +1,4 @@
-﻿using Schoolify.Common.DTOs.Subject;
+﻿using Schoolify.Common.DTOs.Department;
 using Schoolify.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -8,42 +8,39 @@ using System.Threading.Tasks;
 
 namespace Schoolify.Common.Extensions
 {
-    public static class SubjectExtensions
+    public static class DepartmentExtensions
     {
-        public static SubjectDTO ToDTO(this Subject entity)
+        public static DepartmentDTO ToDTO(this Department entity)
         {
             if (entity == null)
             {
                 return null;
             }
 
-            return new SubjectDTO
+            return new DepartmentDTO
             {
                 Id = entity.Id,
-                DepartmentId = entity.DepartmentId,
                 NameEn = entity.NameEn,
                 NameAr = entity.NameAr,
-                Department = entity.Department?.ToDTO() 
             };
         }
 
-        public static Subject ToEntity(this SubjectDTO DTO)
+        public static Department ToEntity(this DepartmentDTO DTO)
         {
             if (DTO == null)
             {
                 return null;
             }
 
-            return new Subject
+            return new Department
             {
                 Id = DTO.Id,
-                DepartmentId = DTO.DepartmentId,
                 NameEn = DTO.NameEn,
                 NameAr = DTO.NameAr
             };
         }
 
-        public static void UpdateFromDTO(this Subject entity, SubjectDTO DTO)
+        public static void UpdateFromDTO(this Department entity, DepartmentDTO DTO)
         {
 
             if (entity == null || DTO == null)
@@ -51,10 +48,8 @@ namespace Schoolify.Common.Extensions
                 return;
             }
 
-            entity.DepartmentId = DTO.DepartmentId;
             entity.NameEn = DTO.NameEn;
             entity.NameAr = DTO.NameAr;
         }
-    
     }
 }

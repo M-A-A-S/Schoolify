@@ -1,25 +1,15 @@
-﻿using Schoolify.Common.DTOs.Department;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Schoolify.Common.DTOs.Subject
+namespace Schoolify.Common.DTOs.Department
 {
-    public class SubjectDTO
+    public class DepartmentDTO
     {
         public int Id { get; set; }
-
-        [Display(Name = nameof(Resources.SharedResource.Department),
-ResourceType = typeof(Resources.SharedResource)
-)]
-        [Required(
-ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
-ErrorMessageResourceType = typeof(Resources.SharedResource)
-)]
-        public int DepartmentId { get; set; }
 
         [Display(Name = nameof(Resources.SharedResource.NameEn),
 ResourceType = typeof(Resources.SharedResource)
@@ -38,9 +28,5 @@ ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
         public string NameAr { get; set; }
-
-
-        public DepartmentDTO? Department { get; set; }
-
     }
 }
