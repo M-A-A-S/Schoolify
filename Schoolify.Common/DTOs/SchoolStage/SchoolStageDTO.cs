@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Schoolify.Common.Models
+namespace Schoolify.Common.DTOs.SchoolStage
 {
-    public class ClassroomType : BaseEntity
+    public class SchoolStageDTO
     {
         public int Id { get; set; }
 
@@ -18,17 +18,15 @@ ResourceType = typeof(Resources.SharedResource)
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public string NameEn { get; set; } // e.g., "Science Lab", "Standard Classroom"
+        public string NameEn { get; set; } // e.g., "Primary"
 
-        [Display(Name = nameof(Resources.SharedResource.NameEn),
+        [Display(Name = nameof(Resources.SharedResource.NameAr),
 ResourceType = typeof(Resources.SharedResource)
 )]
         [Required(
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public string NameAr { get; set; } // مثل: "مختبر العلوم"، "فصل دراسي عادي"
-
-        public ICollection<Classroom> Classrooms { get; set; }
+        public string NameAr { get; set; } // مثل: "الابتدائية"
     }
 }

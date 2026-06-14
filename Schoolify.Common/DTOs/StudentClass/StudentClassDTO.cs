@@ -5,30 +5,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Schoolify.Common.Models
+namespace Schoolify.Common.DTOs.StudentClass
 {
-    public class ClassroomType : BaseEntity
+    internal class StudentClassDTO
     {
         public int Id { get; set; }
 
-        [Display(Name = nameof(Resources.SharedResource.NameEn),
+        [Display(Name = nameof(Resources.SharedResource.Class),
 ResourceType = typeof(Resources.SharedResource)
 )]
         [Required(
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public string NameEn { get; set; } // e.g., "Science Lab", "Standard Classroom"
+        public int ClassId { get; set; }
 
-        [Display(Name = nameof(Resources.SharedResource.NameEn),
+        [Display(Name = nameof(Resources.SharedResource.Student),
 ResourceType = typeof(Resources.SharedResource)
 )]
         [Required(
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public string NameAr { get; set; } // مثل: "مختبر العلوم"، "فصل دراسي عادي"
+        public int StudentId { get; set; }
 
-        public ICollection<Classroom> Classrooms { get; set; }
+        [Display(Name = nameof(Resources.SharedResource.MarksObtained),
+ResourceType = typeof(Resources.SharedResource)
+)]
+        public decimal? MarksObtained { get; set; } // The actual grade earned
     }
 }

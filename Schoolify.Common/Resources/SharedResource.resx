@@ -420,4 +420,52 @@
   <data name="SelectDepartment" xml:space="preserve">
     <value>-- Select Department --</value>
   </data>
+  <data name="LevelOrder" xml:space="preserve">
+    <value>Level Order</value>
+  </data>
+  <data name="TermNumber" xml:space="preserve">
+    <value>Term Number</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="FinalYearScore" xml:space="preserve">
+    <value>Final Year Score</value>
+  </data>
+  <data name="MarksObtained" xml:space="preserve">
+    <value>Marks Obtained</value>
+  </data>
+  <data name="MinScore" xml:space="preserve">
+    <value>Minimum Score</value>
+  </data>
+  <data name="MaxScore" xml:space="preserve">
+    <value>Maximum Score</value>
+  </data>
+  <data name="Grade" xml:space="preserve">
+    <value>Grade</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>End Time</value>
+  </data>
+  <data name="DayOfWeek" xml:space="preserve">
+    <value>Day Of Week </value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="Capacity" xml:space="preserve">
+    <value>Capacity</value>
+  </data>
+  <data name="RoomType" xml:space="preserve">
+    <value>Room Type</value>
+  </data>
+  <data name="RoomTypes" xml:space="preserve">
+    <value>Room Types</value>
+  </data>
 </root>

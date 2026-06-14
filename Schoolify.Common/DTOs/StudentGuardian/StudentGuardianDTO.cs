@@ -5,30 +5,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Schoolify.Common.Models
+namespace Schoolify.Common.DTOs.StudentGuardian
 {
-    public class ClassroomType : BaseEntity
+    public class StudentGuardianDTO
     {
         public int Id { get; set; }
 
-        [Display(Name = nameof(Resources.SharedResource.NameEn),
+        [Display(Name = nameof(Resources.SharedResource.GuardianType),
 ResourceType = typeof(Resources.SharedResource)
 )]
         [Required(
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public string NameEn { get; set; } // e.g., "Science Lab", "Standard Classroom"
+        public int GuardianTypeId { get; set; }
 
-        [Display(Name = nameof(Resources.SharedResource.NameEn),
+        [Display(Name = nameof(Resources.SharedResource.Guardian),
 ResourceType = typeof(Resources.SharedResource)
 )]
         [Required(
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public string NameAr { get; set; } // مثل: "مختبر العلوم"، "فصل دراسي عادي"
+        public int GuardianId { get; set; }
 
-        public ICollection<Classroom> Classrooms { get; set; }
+        [Display(Name = nameof(Resources.SharedResource.Student),
+ResourceType = typeof(Resources.SharedResource)
+)]
+        [Required(
+ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
+ErrorMessageResourceType = typeof(Resources.SharedResource)
+)]
+        public int StudentId { get; set; }
     }
 }

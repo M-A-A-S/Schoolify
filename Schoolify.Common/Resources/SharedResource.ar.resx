@@ -420,4 +420,52 @@
   <data name="SelectDepartment" xml:space="preserve">
     <value>-- اختر القسم --</value>
   </data>
+  <data name="LevelOrder" xml:space="preserve">
+    <value>ترتيب المستوى</value>
+  </data>
+  <data name="TermNumber" xml:space="preserve">
+    <value>رقم الفصل الدراسي</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>تاريخ البداية</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>تاريخ النهاية</value>
+  </data>
+  <data name="FinalYearScore" xml:space="preserve">
+    <value>الدرجة النهائية السنوية</value>
+  </data>
+  <data name="MarksObtained" xml:space="preserve">
+    <value>الدرجات المحصَّلة</value>
+  </data>
+  <data name="MinScore" xml:space="preserve">
+    <value>الحد الأدنى للدرجة</value>
+  </data>
+  <data name="MaxScore" xml:space="preserve">
+    <value>الحد الأقصى للدرجة</value>
+  </data>
+  <data name="Grade" xml:space="preserve">
+    <value>التقدير</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>وقت البداية</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>وقت النهاية</value>
+  </data>
+  <data name="DayOfWeek" xml:space="preserve">
+    <value>اليوم من الأسبوع</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>اليوم</value>
+  </data>
+  <data name="Capacity" xml:space="preserve">
+    <value>السعة</value>
+  </data>
+  <data name="RoomType" xml:space="preserve">
+    <value>نوع القاعة</value>
+  </data>
+  <data name="RoomTypes" xml:space="preserve">
+    <value>أنواع القاعات</value>
+  </data>
 </root>

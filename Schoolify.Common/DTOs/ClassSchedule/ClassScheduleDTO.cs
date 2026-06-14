@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Schoolify.Common.DTOs.ClassSchedule
+{
+    public class ClassScheduleDTO
+    {
+        public int Id { get; set; }
+
+        [Display(Name = nameof(Resources.SharedResource.Class),
+ResourceType = typeof(Resources.SharedResource)
+)]
+        [Required(
+ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
+ErrorMessageResourceType = typeof(Resources.SharedResource)
+)]
+        public int ClassId { get; set; }
+
+        [Display(Name = nameof(Resources.SharedResource.Period),
+ResourceType = typeof(Resources.SharedResource)
+)]
+        [Required(
+ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
+ErrorMessageResourceType = typeof(Resources.SharedResource)
+)]
+        public int PeriodId { get; set; }
+        [Display(Name = nameof(Resources.SharedResource.Classroom),
+ResourceType = typeof(Resources.SharedResource)
+)]
+        [Required(
+ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
+ErrorMessageResourceType = typeof(Resources.SharedResource)
+)]
+
+        public int ClassroomId { get; set; }
+        [Display(Name = nameof(Resources.SharedResource.DayOfWeek),
+ResourceType = typeof(Resources.SharedResource)
+)]
+        [Required(
+ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
+ErrorMessageResourceType = typeof(Resources.SharedResource)
+)]
+
+        public DayOfWeek DayOfWeek { get; set; } // C# built-in enum for days of the week
+    }
+}
