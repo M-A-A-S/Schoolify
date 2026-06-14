@@ -1,0 +1,32 @@
+﻿@using Schoolify.Common.DTOs.SchoolStage
+@model SchoolStageDTO
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="card shadow-sm">
+
+    <div class="card-header">
+        <h5>@Localizer["Details"] @Localizer["SchoolStage"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <partial name="Partials/_SchoolStagesDetails" model="Model" />
+
+    </div>
+
+    <div class="card-footer">
+
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+            @Localizer["Edit"]
+        </a>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            @Localizer["GoBack"]
+        </a>
+
+    </div>
+
+</div>
