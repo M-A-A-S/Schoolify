@@ -1,4 +1,5 @@
-﻿using Schoolify.Business.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using Schoolify.Business.Interfaces;
 using Schoolify.Common.DTOs.YearLevel;
 using Schoolify.Common.Extensions;
 using Schoolify.Common.Utilities;
@@ -51,7 +52,7 @@ namespace Schoolify.Business.Services
         #region Get
         public async Task<Result<YearLevelDTO>> GetByIdAsync(int id)
         {
-            var findResult = await _repo.FindByAsync(c => c.Id == id);
+            var findResult = await _repo.FindByAsync(c => c.Id == id, include: q => q.Include(yl => yl.SchoolStage).AsNoTrackingWithIdentityResolution());
 
             if (!findResult.IsSuccess || findResult.Data == null)
             {
@@ -67,7 +68,7 @@ namespace Schoolify.Business.Services
 
         public async Task<Result<IEnumerable<YearLevelDTO>>> GetAllAsync()
         {
-            var teachersResult = await _repo.GetAllAsync();
+            var teachersResult = await _repo.GetAllAsync(include: q => q.Include(yl => yl.SchoolStage).AsNoTrackingWithIdentityResolution());
 
             if (!teachersResult.IsSuccess || teachersResult.Data == null)
             {

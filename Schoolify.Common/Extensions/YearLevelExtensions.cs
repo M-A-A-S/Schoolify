@@ -24,6 +24,7 @@ namespace Schoolify.Common.Extensions
                 NameAr = entity.NameAr,
                 LevelOrder = entity.LevelOrder,
                 SchoolStageId = entity.SchoolStageId,
+                SchoolStage = entity.SchoolStage?.ToDTO()
             };
         }
 
