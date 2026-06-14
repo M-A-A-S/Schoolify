@@ -468,4 +468,163 @@
   <data name="RoomTypes" xml:space="preserve">
     <value>Room Types</value>
   </data>
+  <data name="ClassNotFound" xml:space="preserve">
+    <value>Class not found</value>
+  </data>
+  <data name="ClassesNotFound" xml:space="preserve">
+    <value>Classes not found</value>
+  </data>
+  <data name="ClassCreated" xml:space="preserve">
+    <value>Class created successfully</value>
+  </data>
+  <data name="ClassUpdated" xml:space="preserve">
+    <value>Class updated successfully</value>
+  </data>
+  <data name="ClassDeleted" xml:space="preserve">
+    <value>Class deleted successfully</value>
+  </data>
+  <data name="ClassroomNotFound" xml:space="preserve">
+    <value>Classroom not found</value>
+  </data>
+  <data name="ClassroomsNotFound" xml:space="preserve">
+    <value>Classrooms not found</value>
+  </data>
+  <data name="ClassroomCreated" xml:space="preserve">
+    <value>Classroom created successfully</value>
+  </data>
+  <data name="ClassroomUpdated" xml:space="preserve">
+    <value>Classroom updated successfully</value>
+  </data>
+  <data name="ClassroomDeleted" xml:space="preserve">
+    <value>Classroom deleted successfully</value>
+  </data>
+  <data name="ClassroomTypeNotFound" xml:space="preserve">
+    <value>Classroom type not found</value>
+  </data>
+  <data name="ClassroomTypesNotFound" xml:space="preserve">
+    <value>Classroom types not found</value>
+  </data>
+  <data name="ClassroomTypeCreated" xml:space="preserve">
+    <value>Classroom type created successfully</value>
+  </data>
+  <data name="ClassroomTypeUpdated" xml:space="preserve">
+    <value>Classroom type updated successfully</value>
+  </data>
+  <data name="ClassroomTypeDeleted" xml:space="preserve">
+    <value>Classroom type deleted successfully</value>
+  </data>
+  <data name="ClassScheduleNotFound" xml:space="preserve">
+    <value>Class schedule not found</value>
+  </data>
+  <data name="ClassSchedulesNotFound" xml:space="preserve">
+    <value>Class schedules not found</value>
+  </data>
+  <data name="ClassScheduleCreated" xml:space="preserve">
+    <value>Class schedule created successfully</value>
+  </data>
+  <data name="ClassScheduleUpdated" xml:space="preserve">
+    <value>Class schedule updated successfully</value>
+  </data>
+  <data name="ClassScheduleDeleted" xml:space="preserve">
+    <value>Class schedule deleted successfully</value>
+  </data>
+  <data name="PeriodNotFound" xml:space="preserve">
+    <value>Period not found</value>
+  </data>
+  <data name="PeriodsNotFound" xml:space="preserve">
+    <value>Periods not found</value>
+  </data>
+  <data name="PeriodCreated" xml:space="preserve">
+    <value>Period created successfully</value>
+  </data>
+  <data name="PeriodUpdated" xml:space="preserve">
+    <value>Period updated successfully</value>
+  </data>
+  <data name="PeriodDeleted" xml:space="preserve">
+    <value>Period deleted successfully</value>
+  </data>
+  <data name="SchoolStageNotFound" xml:space="preserve">
+    <value>School stage not found</value>
+  </data>
+  <data name="SchoolStagesNotFound" xml:space="preserve">
+    <value>School stages not found</value>
+  </data>
+  <data name="SchoolStageCreated" xml:space="preserve">
+    <value>School stage created successfully</value>
+  </data>
+  <data name="SchoolStageUpdated" xml:space="preserve">
+    <value>School stage updated successfully</value>
+  </data>
+  <data name="SchoolStageDeleted" xml:space="preserve">
+    <value>School stage deleted successfully</value>
+  </data>
+  <data name="SchoolYearNotFound" xml:space="preserve">
+    <value>School year not found</value>
+  </data>
+  <data name="SchoolYearsNotFound" xml:space="preserve">
+    <value>School years not found</value>
+  </data>
+  <data name="SchoolYearCreated" xml:space="preserve">
+    <value>School year created successfully</value>
+  </data>
+  <data name="SchoolYearUpdated" xml:space="preserve">
+    <value>School year updated successfully</value>
+  </data>
+  <data name="SchoolYearDeleted" xml:space="preserve">
+    <value>School year deleted successfully</value>
+  </data>
+  <data name="ScoreRangeNotFound" xml:space="preserve">
+    <value>Score range not found</value>
+  </data>
+  <data name="ScoreRangesNotFound" xml:space="preserve">
+    <value>Score ranges not found</value>
+  </data>
+  <data name="ScoreRangeCreated" xml:space="preserve">
+    <value>Score range created successfully</value>
+  </data>
+  <data name="ScoreRangeUpdated" xml:space="preserve">
+    <value>Score range updated successfully</value>
+  </data>
+  <data name="ScoreRangeDeleted" xml:space="preserve">
+    <value>Score range deleted successfully</value>
+  </data>
+  <data name="StudentClassNotFound" xml:space="preserve">
+    <value>Student class not found</value>
+  </data>
+  <data name="StudentYearLevelNotFound" xml:space="preserve">
+    <value>Student year level not found</value>
+  </data>
+  <data name="StudentGuardianNotFound" xml:space="preserve">
+    <value>Student guardian not found</value>
+  </data>
+  <data name="TermNotFound" xml:space="preserve">
+    <value>Term not found</value>
+  </data>
+  <data name="TermsNotFound" xml:space="preserve">
+    <value>Terms not found</value>
+  </data>
+  <data name="TermCreated" xml:space="preserve">
+    <value>Term created successfully</value>
+  </data>
+  <data name="TermUpdated" xml:space="preserve">
+    <value>Term updated successfully</value>
+  </data>
+  <data name="TermDeleted" xml:space="preserve">
+    <value>Term deleted successfully</value>
+  </data>
+  <data name="YearLevelNotFound" xml:space="preserve">
+    <value>Year level not found</value>
+  </data>
+  <data name="YearLevelsNotFound" xml:space="preserve">
+    <value>Year levels not found</value>
+  </data>
+  <data name="YearLevelCreated" xml:space="preserve">
+    <value>Year level created successfully</value>
+  </data>
+  <data name="YearLevelUpdated" xml:space="preserve">
+    <value>Year level updated successfully</value>
+  </data>
+  <data name="YearLevelDeleted" xml:space="preserve">
+    <value>Year level deleted successfully</value>
+  </data>
 </root>

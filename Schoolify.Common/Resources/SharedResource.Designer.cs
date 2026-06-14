@@ -106,11 +106,47 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Class created successfully.
+        /// </summary>
+        public static string ClassCreated {
+            get {
+                return ResourceManager.GetString("ClassCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class deleted successfully.
+        /// </summary>
+        public static string ClassDeleted {
+            get {
+                return ResourceManager.GetString("ClassDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Classes.
         /// </summary>
         public static string Classes {
             get {
                 return ResourceManager.GetString("Classes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classes not found.
+        /// </summary>
+        public static string ClassesNotFound {
+            get {
+                return ResourceManager.GetString("ClassesNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class not found.
+        /// </summary>
+        public static string ClassNotFound {
+            get {
+                return ResourceManager.GetString("ClassNotFound", resourceCulture);
             }
         }
         
@@ -124,11 +160,47 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Classroom created successfully.
+        /// </summary>
+        public static string ClassroomCreated {
+            get {
+                return ResourceManager.GetString("ClassroomCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classroom deleted successfully.
+        /// </summary>
+        public static string ClassroomDeleted {
+            get {
+                return ResourceManager.GetString("ClassroomDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classroom not found.
+        /// </summary>
+        public static string ClassroomNotFound {
+            get {
+                return ResourceManager.GetString("ClassroomNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Classrooms.
         /// </summary>
         public static string Classrooms {
             get {
                 return ResourceManager.GetString("Classrooms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classrooms not found.
+        /// </summary>
+        public static string ClassroomsNotFound {
+            get {
+                return ResourceManager.GetString("ClassroomsNotFound", resourceCulture);
             }
         }
         
@@ -142,11 +214,65 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Classroom type created successfully.
+        /// </summary>
+        public static string ClassroomTypeCreated {
+            get {
+                return ResourceManager.GetString("ClassroomTypeCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classroom type deleted successfully.
+        /// </summary>
+        public static string ClassroomTypeDeleted {
+            get {
+                return ResourceManager.GetString("ClassroomTypeDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classroom type not found.
+        /// </summary>
+        public static string ClassroomTypeNotFound {
+            get {
+                return ResourceManager.GetString("ClassroomTypeNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Classroom Types.
         /// </summary>
         public static string ClassroomTypes {
             get {
                 return ResourceManager.GetString("ClassroomTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classroom types not found.
+        /// </summary>
+        public static string ClassroomTypesNotFound {
+            get {
+                return ResourceManager.GetString("ClassroomTypesNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classroom type updated successfully.
+        /// </summary>
+        public static string ClassroomTypeUpdated {
+            get {
+                return ResourceManager.GetString("ClassroomTypeUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classroom updated successfully.
+        /// </summary>
+        public static string ClassroomUpdated {
+            get {
+                return ResourceManager.GetString("ClassroomUpdated", resourceCulture);
             }
         }
         
@@ -160,11 +286,65 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Class schedule created successfully.
+        /// </summary>
+        public static string ClassScheduleCreated {
+            get {
+                return ResourceManager.GetString("ClassScheduleCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class schedule deleted successfully.
+        /// </summary>
+        public static string ClassScheduleDeleted {
+            get {
+                return ResourceManager.GetString("ClassScheduleDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class schedule not found.
+        /// </summary>
+        public static string ClassScheduleNotFound {
+            get {
+                return ResourceManager.GetString("ClassScheduleNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Class Schedules.
         /// </summary>
         public static string ClassSchedules {
             get {
                 return ResourceManager.GetString("ClassSchedules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class schedules not found.
+        /// </summary>
+        public static string ClassSchedulesNotFound {
+            get {
+                return ResourceManager.GetString("ClassSchedulesNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class schedule updated successfully.
+        /// </summary>
+        public static string ClassScheduleUpdated {
+            get {
+                return ResourceManager.GetString("ClassScheduleUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class updated successfully.
+        /// </summary>
+        public static string ClassUpdated {
+            get {
+                return ResourceManager.GetString("ClassUpdated", resourceCulture);
             }
         }
         
@@ -628,11 +808,56 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Period created successfully.
+        /// </summary>
+        public static string PeriodCreated {
+            get {
+                return ResourceManager.GetString("PeriodCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Period deleted successfully.
+        /// </summary>
+        public static string PeriodDeleted {
+            get {
+                return ResourceManager.GetString("PeriodDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Period not found.
+        /// </summary>
+        public static string PeriodNotFound {
+            get {
+                return ResourceManager.GetString("PeriodNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Periods.
         /// </summary>
         public static string Periods {
             get {
                 return ResourceManager.GetString("Periods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Periods not found.
+        /// </summary>
+        public static string PeriodsNotFound {
+            get {
+                return ResourceManager.GetString("PeriodsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Period updated successfully.
+        /// </summary>
+        public static string PeriodUpdated {
+            get {
+                return ResourceManager.GetString("PeriodUpdated", resourceCulture);
             }
         }
         
@@ -709,11 +934,56 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to School stage created successfully.
+        /// </summary>
+        public static string SchoolStageCreated {
+            get {
+                return ResourceManager.GetString("SchoolStageCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to School stage deleted successfully.
+        /// </summary>
+        public static string SchoolStageDeleted {
+            get {
+                return ResourceManager.GetString("SchoolStageDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to School stage not found.
+        /// </summary>
+        public static string SchoolStageNotFound {
+            get {
+                return ResourceManager.GetString("SchoolStageNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to School Stages.
         /// </summary>
         public static string SchoolStages {
             get {
                 return ResourceManager.GetString("SchoolStages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to School stages not found.
+        /// </summary>
+        public static string SchoolStagesNotFound {
+            get {
+                return ResourceManager.GetString("SchoolStagesNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to School stage updated successfully.
+        /// </summary>
+        public static string SchoolStageUpdated {
+            get {
+                return ResourceManager.GetString("SchoolStageUpdated", resourceCulture);
             }
         }
         
@@ -727,11 +997,56 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to School year created successfully.
+        /// </summary>
+        public static string SchoolYearCreated {
+            get {
+                return ResourceManager.GetString("SchoolYearCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to School year deleted successfully.
+        /// </summary>
+        public static string SchoolYearDeleted {
+            get {
+                return ResourceManager.GetString("SchoolYearDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to School year not found.
+        /// </summary>
+        public static string SchoolYearNotFound {
+            get {
+                return ResourceManager.GetString("SchoolYearNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to School Years.
         /// </summary>
         public static string SchoolYears {
             get {
                 return ResourceManager.GetString("SchoolYears", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to School years not found.
+        /// </summary>
+        public static string SchoolYearsNotFound {
+            get {
+                return ResourceManager.GetString("SchoolYearsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to School year updated successfully.
+        /// </summary>
+        public static string SchoolYearUpdated {
+            get {
+                return ResourceManager.GetString("SchoolYearUpdated", resourceCulture);
             }
         }
         
@@ -745,11 +1060,56 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Score range created successfully.
+        /// </summary>
+        public static string ScoreRangeCreated {
+            get {
+                return ResourceManager.GetString("ScoreRangeCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Score range deleted successfully.
+        /// </summary>
+        public static string ScoreRangeDeleted {
+            get {
+                return ResourceManager.GetString("ScoreRangeDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Score range not found.
+        /// </summary>
+        public static string ScoreRangeNotFound {
+            get {
+                return ResourceManager.GetString("ScoreRangeNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Score Ranges.
         /// </summary>
         public static string ScoreRanges {
             get {
                 return ResourceManager.GetString("ScoreRanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Score ranges not found.
+        /// </summary>
+        public static string ScoreRangesNotFound {
+            get {
+                return ResourceManager.GetString("ScoreRangesNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Score range updated successfully.
+        /// </summary>
+        public static string ScoreRangeUpdated {
+            get {
+                return ResourceManager.GetString("ScoreRangeUpdated", resourceCulture);
             }
         }
         
@@ -844,6 +1204,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Student class not found.
+        /// </summary>
+        public static string StudentClassNotFound {
+            get {
+                return ResourceManager.GetString("StudentClassNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Student created successfully.
         /// </summary>
         public static string StudentCreated {
@@ -867,6 +1236,15 @@ namespace Schoolify.Common.Resources {
         public static string StudentGuardian {
             get {
                 return ResourceManager.GetString("StudentGuardian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student guardian not found.
+        /// </summary>
+        public static string StudentGuardianNotFound {
+            get {
+                return ResourceManager.GetString("StudentGuardianNotFound", resourceCulture);
             }
         }
         
@@ -921,6 +1299,15 @@ namespace Schoolify.Common.Resources {
         public static string StudentYearLevel {
             get {
                 return ResourceManager.GetString("StudentYearLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student year level not found.
+        /// </summary>
+        public static string StudentYearLevelNotFound {
+            get {
+                return ResourceManager.GetString("StudentYearLevelNotFound", resourceCulture);
             }
         }
         
@@ -1051,6 +1438,33 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Term created successfully.
+        /// </summary>
+        public static string TermCreated {
+            get {
+                return ResourceManager.GetString("TermCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Term deleted successfully.
+        /// </summary>
+        public static string TermDeleted {
+            get {
+                return ResourceManager.GetString("TermDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Term not found.
+        /// </summary>
+        public static string TermNotFound {
+            get {
+                return ResourceManager.GetString("TermNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Term Number.
         /// </summary>
         public static string TermNumber {
@@ -1065,6 +1479,24 @@ namespace Schoolify.Common.Resources {
         public static string Terms {
             get {
                 return ResourceManager.GetString("Terms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terms not found.
+        /// </summary>
+        public static string TermsNotFound {
+            get {
+                return ResourceManager.GetString("TermsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Term updated successfully.
+        /// </summary>
+        public static string TermUpdated {
+            get {
+                return ResourceManager.GetString("TermUpdated", resourceCulture);
             }
         }
         
@@ -1105,11 +1537,56 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Year level created successfully.
+        /// </summary>
+        public static string YearLevelCreated {
+            get {
+                return ResourceManager.GetString("YearLevelCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year level deleted successfully.
+        /// </summary>
+        public static string YearLevelDeleted {
+            get {
+                return ResourceManager.GetString("YearLevelDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year level not found.
+        /// </summary>
+        public static string YearLevelNotFound {
+            get {
+                return ResourceManager.GetString("YearLevelNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Year Levels.
         /// </summary>
         public static string YearLevels {
             get {
                 return ResourceManager.GetString("YearLevels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year levels not found.
+        /// </summary>
+        public static string YearLevelsNotFound {
+            get {
+                return ResourceManager.GetString("YearLevelsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year level updated successfully.
+        /// </summary>
+        public static string YearLevelUpdated {
+            get {
+                return ResourceManager.GetString("YearLevelUpdated", resourceCulture);
             }
         }
     }

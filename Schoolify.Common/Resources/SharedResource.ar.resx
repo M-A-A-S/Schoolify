@@ -468,4 +468,163 @@
   <data name="RoomTypes" xml:space="preserve">
     <value>أنواع القاعات</value>
   </data>
+  <data name="ClassNotFound" xml:space="preserve">
+    <value>الفصل غير موجود</value>
+  </data>
+  <data name="ClassesNotFound" xml:space="preserve">
+    <value>الفصول غير موجودة</value>
+  </data>
+  <data name="ClassCreated" xml:space="preserve">
+    <value>تم إنشاء الفصل بنجاح</value>
+  </data>
+  <data name="ClassUpdated" xml:space="preserve">
+    <value>تم تحديث الفصل بنجاح</value>
+  </data>
+  <data name="ClassDeleted" xml:space="preserve">
+    <value>تم حذف الفصل بنجاح</value>
+  </data>
+  <data name="ClassroomNotFound" xml:space="preserve">
+    <value>القاعة غير موجودة</value>
+  </data>
+  <data name="ClassroomsNotFound" xml:space="preserve">
+    <value>القاعات غير موجودة</value>
+  </data>
+  <data name="ClassroomCreated" xml:space="preserve">
+    <value>تم إنشاء القاعة بنجاح</value>
+  </data>
+  <data name="ClassroomUpdated" xml:space="preserve">
+    <value>تم تحديث القاعة بنجاح</value>
+  </data>
+  <data name="ClassroomDeleted" xml:space="preserve">
+    <value>تم حذف القاعة بنجاح</value>
+  </data>
+  <data name="ClassroomTypeNotFound" xml:space="preserve">
+    <value>نوع القاعة غير موجود</value>
+  </data>
+  <data name="ClassroomTypesNotFound" xml:space="preserve">
+    <value>أنواع القاعات غير موجودة</value>
+  </data>
+  <data name="ClassroomTypeCreated" xml:space="preserve">
+    <value>تم إنشاء نوع القاعة بنجاح</value>
+  </data>
+  <data name="ClassroomTypeUpdated" xml:space="preserve">
+    <value>تم تحديث نوع القاعة بنجاح</value>
+  </data>
+  <data name="ClassroomTypeDeleted" xml:space="preserve">
+    <value>تم حذف نوع القاعة بنجاح</value>
+  </data>
+  <data name="ClassScheduleNotFound" xml:space="preserve">
+    <value>الجدول الدراسي غير موجود</value>
+  </data>
+  <data name="ClassSchedulesNotFound" xml:space="preserve">
+    <value>الجداول الدراسية غير موجودة</value>
+  </data>
+  <data name="ClassScheduleCreated" xml:space="preserve">
+    <value>تم إنشاء الجدول الدراسي بنجاح</value>
+  </data>
+  <data name="ClassScheduleUpdated" xml:space="preserve">
+    <value>تم تحديث الجدول الدراسي بنجاح</value>
+  </data>
+  <data name="ClassScheduleDeleted" xml:space="preserve">
+    <value>تم حذف الجدول الدراسي بنجاح</value>
+  </data>
+  <data name="PeriodNotFound" xml:space="preserve">
+    <value>الحصة غير موجودة</value>
+  </data>
+  <data name="PeriodsNotFound" xml:space="preserve">
+    <value>الحصص غير موجودة</value>
+  </data>
+  <data name="PeriodCreated" xml:space="preserve">
+    <value>تم إنشاء الحصة بنجاح</value>
+  </data>
+  <data name="PeriodUpdated" xml:space="preserve">
+    <value>تم تحديث الحصة بنجاح</value>
+  </data>
+  <data name="PeriodDeleted" xml:space="preserve">
+    <value>تم حذف الحصة بنجاح</value>
+  </data>
+  <data name="SchoolStageNotFound" xml:space="preserve">
+    <value>المرحلة الدراسية غير موجودة</value>
+  </data>
+  <data name="SchoolStagesNotFound" xml:space="preserve">
+    <value>المراحل الدراسية غير موجودة</value>
+  </data>
+  <data name="SchoolStageCreated" xml:space="preserve">
+    <value>تم إنشاء المرحلة الدراسية بنجاح</value>
+  </data>
+  <data name="SchoolStageUpdated" xml:space="preserve">
+    <value>تم تحديث المرحلة الدراسية بنجاح</value>
+  </data>
+  <data name="SchoolStageDeleted" xml:space="preserve">
+    <value>تم حذف المرحلة الدراسية بنجاح</value>
+  </data>
+  <data name="SchoolYearNotFound" xml:space="preserve">
+    <value>العام الدراسي غير موجود</value>
+  </data>
+  <data name="SchoolYearsNotFound" xml:space="preserve">
+    <value>الأعوام الدراسية غير موجودة</value>
+  </data>
+  <data name="SchoolYearCreated" xml:space="preserve">
+    <value>تم إنشاء العام الدراسي بنجاح</value>
+  </data>
+  <data name="SchoolYearUpdated" xml:space="preserve">
+    <value>تم تحديث العام الدراسي بنجاح</value>
+  </data>
+  <data name="SchoolYearDeleted" xml:space="preserve">
+    <value>تم حذف العام الدراسي بنجاح</value>
+  </data>
+  <data name="ScoreRangeNotFound" xml:space="preserve">
+    <value>نطاق الدرجات غير موجود</value>
+  </data>
+  <data name="ScoreRangesNotFound" xml:space="preserve">
+    <value>نطاقات الدرجات غير موجودة</value>
+  </data>
+  <data name="ScoreRangeCreated" xml:space="preserve">
+    <value>تم إنشاء نطاق الدرجات بنجاح</value>
+  </data>
+  <data name="ScoreRangeUpdated" xml:space="preserve">
+    <value>تم تحديث نطاق الدرجات بنجاح</value>
+  </data>
+  <data name="ScoreRangeDeleted" xml:space="preserve">
+    <value>تم حذف نطاق الدرجات بنجاح</value>
+  </data>
+  <data name="StudentClassNotFound" xml:space="preserve">
+    <value>ربط الطالب بالفصل غير موجود</value>
+  </data>
+  <data name="StudentYearLevelNotFound" xml:space="preserve">
+    <value>المستوى الدراسي للطالب غير موجود</value>
+  </data>
+  <data name="StudentGuardianNotFound" xml:space="preserve">
+    <value>ربط الطالب بولي الأمر غير موجود</value>
+  </data>
+  <data name="TermNotFound" xml:space="preserve">
+    <value>الفصل الدراسي غير موجود</value>
+  </data>
+  <data name="TermsNotFound" xml:space="preserve">
+    <value>الفصول الدراسية غير موجودة</value>
+  </data>
+  <data name="TermCreated" xml:space="preserve">
+    <value>تم إنشاء الفصل الدراسي بنجاح</value>
+  </data>
+  <data name="TermUpdated" xml:space="preserve">
+    <value>تم تحديث الفصل الدراسي بنجاح</value>
+  </data>
+  <data name="TermDeleted" xml:space="preserve">
+    <value>تم حذف الفصل الدراسي بنجاح</value>
+  </data>
+  <data name="YearLevelNotFound" xml:space="preserve">
+    <value>المستوى الدراسي غير موجود</value>
+  </data>
+  <data name="YearLevelsNotFound" xml:space="preserve">
+    <value>المستويات الدراسية غير موجودة</value>
+  </data>
+  <data name="YearLevelCreated" xml:space="preserve">
+    <value>تم إنشاء المستوى الدراسي بنجاح</value>
+  </data>
+  <data name="YearLevelUpdated" xml:space="preserve">
+    <value>تم تحديث المستوى الدراسي بنجاح</value>
+  </data>
+  <data name="YearLevelDeleted" xml:space="preserve">
+    <value>تم حذف المستوى الدراسي بنجاح</value>
+  </data>
 </root>
