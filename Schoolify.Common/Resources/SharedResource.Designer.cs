@@ -1141,6 +1141,24 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -- Select School Stage --.
+        /// </summary>
+        public static string SelectSchoolStage {
+            get {
+                return ResourceManager.GetString("SelectSchoolStage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select Year Level --.
+        /// </summary>
+        public static string SelectYearLevel {
+            get {
+                return ResourceManager.GetString("SelectYearLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Server error occurred.
         /// </summary>
         public static string ServerError {

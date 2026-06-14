@@ -1,20 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
 using Schoolify.Business.Interfaces;
+using Schoolify.Business.Services;
 using Schoolify.Common;
 using Schoolify.Common.DTOs.YearLevel;
+using System.Globalization;
+using System.Threading.Tasks;
 
 namespace Schoolify.Web.Controllers
 {
     public class YearLevelsController : Controller
     {
         private readonly IYearLevelService _service;
+        private readonly ISchoolStageService _schoolStageService;
         private readonly IStringLocalizer<SharedResource> _localizer;
 
-        public YearLevelsController(IYearLevelService service, IStringLocalizer<SharedResource> localizer)
+        public YearLevelsController(IYearLevelService service, IStringLocalizer<SharedResource> localizer, ISchoolStageService schoolStageService)
         {
             _service = service;
             _localizer = localizer;
+            _schoolStageService = schoolStageService;
         }
 
         #region Get
@@ -37,8 +43,9 @@ namespace Schoolify.Web.Controllers
         #endregion
 
         #region Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            await LoadSchoolStages();
             return View();
         }
 
@@ -48,6 +55,7 @@ namespace Schoolify.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await LoadSchoolStages();
                 TempData["Error"] = _localizer["ValidationError"].Value;
                 return View(DTO);
             }
@@ -74,6 +82,8 @@ namespace Schoolify.Web.Controllers
                 TempData["Error"] = _localizer[findResult.Code].Value;
                 return NotFound();
             }
+
+            await LoadSchoolStages();   
             return View(findResult.Data);
         }
 
@@ -83,6 +93,7 @@ namespace Schoolify.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                await LoadSchoolStages();
                 TempData["Error"] = _localizer["ValidationError"].Value;
                 return View(DTO);
             }
@@ -126,6 +137,21 @@ namespace Schoolify.Web.Controllers
 
             TempData["Error"] = _localizer[deleteResult.Code].Value;
             return View(deleteResult.Data);
+        }
+        #endregion
+
+        #region Private Helpers
+        private async Task LoadSchoolStages()
+        {
+            var schoolStages = await _schoolStageService.GetAllAsync();
+
+            ViewBag.SchoolStages = schoolStages.Data.Select(d => new SelectListItem
+            {
+                Value = d.Id.ToString(),
+                Text = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? d.NameAr
+                        : d.NameEn
+            });
         }
         #endregion
 

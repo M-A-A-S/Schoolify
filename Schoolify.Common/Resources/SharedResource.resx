@@ -627,4 +627,10 @@
   <data name="YearLevelDeleted" xml:space="preserve">
     <value>Year level deleted successfully</value>
   </data>
+  <data name="SelectYearLevel" xml:space="preserve">
+    <value>-- Select Year Level --</value>
+  </data>
+  <data name="SelectSchoolStage" xml:space="preserve">
+    <value>-- Select School Stage --</value>
+  </data>
 </root>

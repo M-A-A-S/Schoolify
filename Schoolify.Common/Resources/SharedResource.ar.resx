@@ -627,4 +627,10 @@
   <data name="YearLevelDeleted" xml:space="preserve">
     <value>تم حذف المستوى الدراسي بنجاح</value>
   </data>
+  <data name="SelectYearLevel" xml:space="preserve">
+    <value>-- اختر المستوى الدراسي --</value>
+  </data>
+  <data name="SelectSchoolStage" xml:space="preserve">
+    <value>-- اختر المرحلة الدراسية --</value>
+  </data>
 </root>
