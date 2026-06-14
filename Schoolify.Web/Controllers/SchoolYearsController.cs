@@ -2,16 +2,16 @@
 using Microsoft.Extensions.Localization;
 using Schoolify.Business.Interfaces;
 using Schoolify.Common;
-using Schoolify.Common.DTOs.SchoolStage;
+using Schoolify.Common.DTOs.SchoolYear;
 
 namespace Schoolify.Web.Controllers
 {
-    public class SchoolStagesController : Controller
+    public class SchoolYearsController : Controller
     {
-        private readonly ISchoolStageService _service;
+        private readonly ISchoolYearService _service;
         private readonly IStringLocalizer<SharedResource> _localizer;
 
-        public SchoolStagesController(ISchoolStageService service, IStringLocalizer<SharedResource> localizer)
+        public SchoolYearsController(ISchoolYearService service, IStringLocalizer<SharedResource> localizer)
         {
             _service = service;
             _localizer = localizer;
@@ -19,8 +19,8 @@ namespace Schoolify.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var findAllSchoolStagesResult = await _service.GetAllAsync();
-            return View(findAllSchoolStagesResult.Data);
+            var findAllSchoolYearsResult = await _service.GetAllAsync();
+            return View(findAllSchoolYearsResult.Data);
         }
 
         public IActionResult Create()
@@ -30,7 +30,7 @@ namespace Schoolify.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(SchoolStageDTO DTO)
+        public async Task<IActionResult> Create(SchoolYearDTO DTO)
         {
             if (!ModelState.IsValid)
             {
@@ -63,7 +63,7 @@ namespace Schoolify.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(SchoolStageDTO DTO)
+        public async Task<IActionResult> Edit(SchoolYearDTO DTO)
         {
             if (!ModelState.IsValid)
             {
@@ -120,6 +120,6 @@ namespace Schoolify.Web.Controllers
             TempData["Error"] = _localizer[deleteResult.Code].Value;
             return View(deleteResult.Data);
         }
-    
+
     }
 }
