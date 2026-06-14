@@ -1,0 +1,31 @@
+﻿@using Schoolify.Common.DTOs.SchoolYear
+@model SchoolYearDTO
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["NameEn"]</label>
+        <div>@Model.NameEn</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["NameAr"]</label>
+        <div>@Model.NameAr</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["StartDate"]</label>
+        <div>@Model.StartDate</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["EndDate"]</label>
+        <div>@Model.EndDate</div>
+    </div>
+
+</div>
