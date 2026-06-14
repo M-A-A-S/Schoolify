@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Schoolify.Common.DTOs.StudentClass
 {
-    internal class StudentClassDTO
+    public class StudentClassDTO
     {
         public int Id { get; set; }
 

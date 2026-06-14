@@ -66,5 +66,6 @@ namespace Schoolify.Common.Extensions
             entity.EnrolmentDate = DTO.EnrolmentDate;
             entity.Gender = DTO.Gender;
         }
+    
     }
 }

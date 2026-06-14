@@ -70,5 +70,6 @@ namespace Schoolify.Common.Extensions
             entity.PhoneNumber = DTO.PhoneNumber;
             entity.EmailAddress = DTO.EmailAddress;
         }
+    
     }
 }
