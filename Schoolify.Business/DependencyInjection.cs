@@ -28,6 +28,7 @@ namespace Schoolify.Business
             services.AddScoped<ISubjectService, SubjectService>();
             services.AddScoped<IDepartmentService, DepartmentService>();
             services.AddScoped<ISchoolStageService, SchoolStageService>();
+            services.AddScoped<ISchoolYearService, SchoolYearService>();
 
             return services;
         }
