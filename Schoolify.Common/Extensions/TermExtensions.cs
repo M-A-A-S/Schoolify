@@ -24,6 +24,7 @@ namespace Schoolify.Common.Extensions
                 TermNumber = entity.TermNumber,
                 StartDate = entity.StartDate,
                 EndDate = entity.EndDate,
+                SchoolYear = entity.SchoolYear?.ToDTO()
             };
         }
 
