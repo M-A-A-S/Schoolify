@@ -1,0 +1,36 @@
+﻿@using Schoolify.Common.DTOs.Term
+@model TermDTO
+
+@using System.Globalization
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["StartDate"]</label>
+        <div>@Model.StartDate.ToString("d", CultureInfo.CurrentCulture)</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["EndDate"]</label>
+        <div>@Model.EndDate.ToString("d", CultureInfo.CurrentCulture)</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["TermNumber"]</label>
+        <div>@Model.TermNumber</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["SchoolYear"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.SchoolYear?.NameAr
+                        : @Model?.SchoolYear?.NameEn)
+        </div>
+    </div>
+
+</div>
