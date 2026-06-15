@@ -727,6 +727,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to End time must be later than start time.
+        /// </summary>
+        public static string InvalidTimeRange {
+            get {
+                return ResourceManager.GetString("InvalidTimeRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Level Order.
         /// </summary>
         public static string LevelOrder {

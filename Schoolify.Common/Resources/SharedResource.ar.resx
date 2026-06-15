@@ -639,4 +639,7 @@
   <data name="InvalidDateRange" xml:space="preserve">
     <value>يجب أن يكون تاريخ البداية قبل تاريخ النهاية</value>
   </data>
+  <data name="InvalidTimeRange" xml:space="preserve">
+    <value>يجب أن يكون وقت النهاية بعد وقت البداية</value>
+  </data>
 </root>

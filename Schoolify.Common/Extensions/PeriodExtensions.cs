@@ -25,6 +25,7 @@ namespace Schoolify.Common.Extensions
                 NameAr = entity.NameAr,
                 StartTime = entity.StartTime,
                 EndTime = entity.EndTime,
+                SchoolYear = entity?.SchoolYear?.ToDTO()
             };
         }
 
