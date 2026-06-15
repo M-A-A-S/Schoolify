@@ -633,4 +633,10 @@
   <data name="SelectSchoolStage" xml:space="preserve">
     <value>-- Select School Stage --</value>
   </data>
+  <data name="SelectSchoolYear" xml:space="preserve">
+    <value>-- Select School Year --</value>
+  </data>
+  <data name="InvalidDateRange" xml:space="preserve">
+    <value>Start date must be earlier than end date</value>
+  </data>
 </root>

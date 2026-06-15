@@ -25,6 +25,13 @@ namespace Schoolify.Business.Services
         #region Add
         public async Task<Result<TermDTO>> AddAsync(TermDTO dto)
         {
+            if (dto.StartDate >= dto.EndDate)
+            {
+                return Result<TermDTO>.Failure(
+                    ResultCodes.InvalidDateRange,
+                    400);
+            }
+
             var entity = dto.ToEntity();
 
             var addResult = await _repo.AddAndSaveAsync(entity);
@@ -90,6 +97,13 @@ namespace Schoolify.Business.Services
         #region Update
         public async Task<Result<TermDTO>> UpdateAsync(int id, TermDTO dto)
         {
+            if (dto.StartDate >= dto.EndDate)
+            {
+                return Result<TermDTO>.Failure(
+                    ResultCodes.InvalidDateRange,
+                    400);
+            }
+
             var existingResult = await _repo.FindByAsync(c => c.Id == id);
             if (!existingResult.IsSuccess || existingResult.Data == null)
             {

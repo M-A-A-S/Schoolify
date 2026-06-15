@@ -1,4 +1,5 @@
 ﻿using Schoolify.Common.DTOs.SchoolYear;
+using Schoolify.Common.Validation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -46,6 +47,9 @@ ResourceType = typeof(Resources.SharedResource)
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
+        [DateGreaterThan(nameof(StartDate),
+        ErrorMessageResourceType = typeof(Resources.SharedResource),
+        ErrorMessageResourceName = nameof(Resources.SharedResource.InvalidDateRange))]
         public DateTime EndDate { get; set; }
 
         public SchoolYearDTO? SchoolYear { get; set; }

@@ -700,6 +700,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start date must be earlier than end date.
+        /// </summary>
+        public static string InvalidDateRange {
+            get {
+                return ResourceManager.GetString("InvalidDateRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid email address.
         /// </summary>
         public static string InvalidEmail {
@@ -1146,6 +1155,15 @@ namespace Schoolify.Common.Resources {
         public static string SelectSchoolStage {
             get {
                 return ResourceManager.GetString("SelectSchoolStage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select School Year --.
+        /// </summary>
+        public static string SelectSchoolYear {
+            get {
+                return ResourceManager.GetString("SelectSchoolYear", resourceCulture);
             }
         }
         

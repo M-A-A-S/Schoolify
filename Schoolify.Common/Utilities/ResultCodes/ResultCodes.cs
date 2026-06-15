@@ -11,5 +11,6 @@ namespace Schoolify.Common.Utilities.ResultCodes
         public const string DatabaseError = "DatabaseError";
         public const string ServerError = "ServerError";
         public const string NotFound = "NotFound";
+        public const string InvalidDateRange = "InvalidDateRange";
     }
 }

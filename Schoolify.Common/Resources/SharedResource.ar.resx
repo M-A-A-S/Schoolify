@@ -633,4 +633,10 @@
   <data name="SelectSchoolStage" xml:space="preserve">
     <value>-- اختر المرحلة الدراسية --</value>
   </data>
+  <data name="SelectSchoolYear" xml:space="preserve">
+    <value>-- اختر السنة الدراسية --</value>
+  </data>
+  <data name="InvalidDateRange" xml:space="preserve">
+    <value>يجب أن يكون تاريخ البداية قبل تاريخ النهاية</value>
+  </data>
 </root>
