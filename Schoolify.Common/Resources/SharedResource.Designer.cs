@@ -889,6 +889,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Value must be between 0 and 100.
+        /// </summary>
+        public static string RangeError {
+            get {
+                return ResourceManager.GetString("RangeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Relationships.
         /// </summary>
         public static string Relationships {
@@ -1173,6 +1182,33 @@ namespace Schoolify.Common.Resources {
         public static string SelectSchoolYear {
             get {
                 return ResourceManager.GetString("SelectSchoolYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select Subject --.
+        /// </summary>
+        public static string SelectSubject {
+            get {
+                return ResourceManager.GetString("SelectSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select Teacher --.
+        /// </summary>
+        public static string SelectTeacher {
+            get {
+                return ResourceManager.GetString("SelectTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select Teacher --.
+        /// </summary>
+        public static string SelectTerm {
+            get {
+                return ResourceManager.GetString("SelectTerm", resourceCulture);
             }
         }
         

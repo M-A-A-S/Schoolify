@@ -67,7 +67,10 @@ namespace Schoolify.Common.DTOs.Class
     ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
     ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public decimal MaxScore { get; set; } 
+        [Range(0, 100, ErrorMessageResourceName = nameof(Resources.SharedResource.RangeError),
+    ErrorMessageResourceType = typeof(Resources.SharedResource))]
+
+        public decimal MaxScore { get; set; } = 100;
 
         public TeacherDTO? Teacher { get; set; }
         public SubjectDTO? Subject { get; set; }

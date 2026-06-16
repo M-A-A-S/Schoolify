@@ -642,4 +642,16 @@
   <data name="InvalidTimeRange" xml:space="preserve">
     <value>يجب أن يكون وقت النهاية بعد وقت البداية</value>
   </data>
+  <data name="SelectTeacher" xml:space="preserve">
+    <value>-- اختر المعلم --</value>
+  </data>
+  <data name="SelectSubject" xml:space="preserve">
+    <value>-- اختر المادة --</value>
+  </data>
+  <data name="SelectTerm" xml:space="preserve">
+    <value>-- اختر الفصل دراسي --</value>
+  </data>
+  <data name="RangeError" xml:space="preserve">
+    <value>يجب أن تكون القيمة بين 0 و 100</value>
+  </data>
 </root>

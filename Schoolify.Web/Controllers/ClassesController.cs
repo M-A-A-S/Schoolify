@@ -142,23 +142,40 @@ namespace Schoolify.Web.Controllers
         }
         #endregion
 
-        #region Private Helpers        
+        #region Private Helpers    
         public async Task<ClassUpsertDTO> BuildViewModel(ClassDTO? dto = null)
         {
-            var subjects = _subjectService.GetAllAsync();
-            var teachers = _teacherService.GetAllAsync();
-            var terms = _termService.GetAllAsync();
+            var subjects = await _subjectService.GetAllAsync();
+            var teachers = await _teacherService.GetAllAsync();
+            var terms = await _termService.GetAllAsync();
 
-            await Task.WhenAll(subjects, teachers, terms);
+            //await Task.WhenAll(subjects, teachers, terms);
 
             return new ClassUpsertDTO
             {
                 Class = dto ?? new ClassDTO(),
-                Subjects = subjects.Result.Data,
-                Teachers = teachers.Result.Data,
-                Terms = terms.Result.Data
+                Subjects = subjects.Data ?? [],
+                Teachers = teachers.Data ?? [],
+                Terms = terms.Data ?? []
             };
         }
+
+        //public async Task<ClassUpsertDTO> BuildViewModel(ClassDTO? dto = null)
+        //{
+        //    var subjects = _subjectService.GetAllAsync();
+        //    var teachers = _teacherService.GetAllAsync();
+        //    var terms = _termService.GetAllAsync();
+
+        //    await Task.WhenAll(subjects, teachers, terms);
+
+        //    return new ClassUpsertDTO
+        //    {
+        //        Class = dto ?? new ClassDTO(),
+        //        Subjects = subjects.Result.Data ?? [],
+        //        Teachers = teachers.Result.Data ?? [],
+        //        Terms = terms.Result.Data ?? []
+        //    };
+        //}
 
         #endregion
 

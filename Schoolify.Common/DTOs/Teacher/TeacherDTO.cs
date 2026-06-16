@@ -12,7 +12,7 @@ namespace Schoolify.Common.DTOs.Teacher
 {
     public class TeacherDTO
     {
-        public int Id { get; set; } = default;
+        public int Id { get; set; }
         [Display(Name = nameof(Resources.SharedResource.FirstName),
 ResourceType = typeof(Resources.SharedResource)
 )]
@@ -100,5 +100,7 @@ ResourceType = typeof(Resources.SharedResource)
        ErrorMessageResourceName = nameof(Resources.SharedResource.InvalidEmail)
    )]
         public string EmailAddress { get; set; }
+
+        //public string FullName => $"{FirstName} {SecondName} {ThirdName} {ForthName}";
     }
 }

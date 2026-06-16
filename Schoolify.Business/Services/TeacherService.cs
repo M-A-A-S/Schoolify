@@ -71,7 +71,7 @@ namespace Schoolify.Business.Services
 
             if (!teachersResult.IsSuccess || teachersResult.Data == null)
             {
-                return Result<IEnumerable<TeacherDTO>>.Failure();
+                return Result<IEnumerable<TeacherDTO>>.Success(new List<TeacherDTO>());
             }
 
             var result = new List<TeacherDTO>();

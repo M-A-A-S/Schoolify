@@ -1,0 +1,94 @@
+﻿@using Schoolify.Common.DTOs.Class
+@model ClassUpsertDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row g-3">
+
+    <div class="col-md-6">
+        <label asp-for="Class.NameEn"></label>
+        <input asp-for="Class.NameEn" class="form-control" />
+        <span asp-validation-for="Class.NameEn" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Class.NameAr"></label>
+        <input asp-for="Class.NameAr" class="form-control" />
+        <span asp-validation-for="Class.NameAr" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Class.MaxScore"></label>
+        <input asp-for="Class.MaxScore" class="form-control" />
+        <span asp-validation-for="Class.MaxScore" class="text-danger"></span>
+    </div>
+
+    <!-- Teacher -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="Class.TeacherId" class="form-label"></label>
+
+        <select asp-for="Class.TeacherId"
+                class="form-control"
+                asp-items="@(Model?.Teachers?.Select(t => new SelectListItem
+                {
+                    Value = t.Id.ToString(),
+                    Text = $"{t?.FirstName} {t?.SecondName} {t?.ThirdName} {t?.ForthName}"
+                }))">
+
+            <option selected disabled value="">
+                @Localizer["SelectTeacher"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="Class.TeacherId" class="text-danger"></span>
+    </div>
+
+    <!-- Subject -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="Class.SubjectId" class="form-label"></label>
+
+        <select asp-for="Class.SubjectId"
+                class="form-control"
+                asp-items="@(new SelectList(
+                                    Model.Subjects,
+                                    "Id",
+                                    CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                        ? "NameAr"
+                                        : "NameEn"))">
+
+            <option selected disabled value="">
+                @Localizer["SelectSubject"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="Class.SubjectId" class="text-danger"></span>
+    </div>
+
+    <!-- Term -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="Class.TermId" class="form-label"></label>
+
+        <select asp-for="Class.TermId"
+                class="form-control"
+                asp-items="@(Model.Terms.Select(t => new SelectListItem
+                {
+                    Value = t.Id.ToString(),
+                    Text = $"{t.TermNumber} - {t.StartDate:yyyy/MM/dd} - {t.EndDate:yyyy/MM/dd}"
+                }))">
+
+            <option selected disabled value="">
+                @Localizer["SelectTerm"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="Class.TermId" class="text-danger"></span>
+    </div>
+
+
+</div>
