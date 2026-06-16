@@ -142,40 +142,7 @@ namespace Schoolify.Web.Controllers
         }
         #endregion
 
-        #region Private Helpers
-        //private async Task LoadTeachers()
-        //{
-        //    var teachers = await _teacherService.GetAllAsync();
-
-        //    ViewBag.Teachers = teachers.Data.Select(t => new SelectListItem
-        //    {
-        //        Value = t.Id.ToString(),
-        //        Text = t.FirstName + " " + t.SecondName + " " + t.ThirdName + " " + t.ForthName
-        //    });
-        //}
-        //private async Task LoadTerms()
-        //{
-        //    var terms = await _termService.GetAllAsync();
-
-        //    ViewBag.Terms = terms.Data.Select(t => new SelectListItem
-        //    {
-        //        Value = t.Id.ToString(),
-        //        Text = t.TermNumber + "-" + t.StartDate.ToString("yyyy/MM/dd") + " - " + t.EndDate.ToString("yyyy/MM/dd")
-        //    });
-        //}
-        //private async Task LoadSubjects()
-        //{
-        //    var subjects = await _subjectService.GetAllAsync();
-
-        //    ViewBag.Subjects = subjects.Data.Select(s => new SelectListItem
-        //    {
-        //        Value = s.Id.ToString(),
-        //        Text = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
-        //                ? s.NameAr
-        //                : s.NameEn
-        //    });
-        //}
-        
+        #region Private Helpers        
         public async Task<ClassUpsertDTO> BuildViewModel(ClassDTO? dto = null)
         {
             var subjects = _subjectService.GetAllAsync();
