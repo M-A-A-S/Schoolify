@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Schoolify.Business.Interfaces;
-using Schoolify.Common.DTOs.Term;
+using Schoolify.Common.DTOs.Class;
 using Schoolify.Common.Extensions;
 using Schoolify.Common.Utilities;
 using Schoolify.Common.Utilities.ResultCodes;
@@ -13,24 +13,18 @@ using System.Threading.Tasks;
 
 namespace Schoolify.Business.Services
 {
-    public class TermService : ITermService
+    public class ClassService : IClassService
     {
-        private readonly ITermRepository _repo;
+        private readonly IClassRepository _repo;
 
-        public TermService(ITermRepository repo)
+        public ClassService(IClassRepository repo)
         {
             _repo = repo;
         }
 
         #region Add
-        public async Task<Result<TermDTO>> AddAsync(TermDTO dto)
+        public async Task<Result<ClassDTO>> AddAsync(ClassDTO dto)
         {
-            if (dto.StartDate >= dto.EndDate)
-            {
-                return Result<TermDTO>.Failure(
-                    ResultCodes.InvalidDateRange,
-                    400);
-            }
 
             var entity = dto.ToEntity();
 
@@ -38,51 +32,59 @@ namespace Schoolify.Business.Services
 
             if (!addResult.IsSuccess)
             {
-                return Result<TermDTO>.Failure(ResultCodes.ServerError, 500);
+                return Result<ClassDTO>.Failure(ResultCodes.ServerError, 500);
             }
 
             var FindResult = await _repo.FindByAsync(t => t.Id == addResult.Data.Id);
 
             if (!FindResult.IsSuccess || FindResult.Data == null)
             {
-                return Result<TermDTO>.Failure(
+                return Result<ClassDTO>.Failure(
                     ResultCodes.ServerError,
                     500);
             }
 
             var result = FindResult.Data?.ToDTO();
 
-            return Result<TermDTO>.Success(result, ResultCodes.TermCreated);
+            return Result<ClassDTO>.Success(result, ResultCodes.ClassCreated);
         }
         #endregion
 
         #region Get
-        public async Task<Result<TermDTO>> GetByIdAsync(int id)
+        public async Task<Result<ClassDTO>> GetByIdAsync(int id)
         {
-            var findResult = await _repo.FindByAsync(c => c.Id == id, include: q => q.Include(t => t.SchoolYear).AsNoTrackingWithIdentityResolution());
+            var findResult = await _repo.FindByAsync(c => c.Id == id, include: 
+                q => q.Include(c => c.Subject)
+                    .Include(c => c.Term)
+                    .Include(c => c.Teacher)
+                    .AsNoTrackingWithIdentityResolution());
 
             if (!findResult.IsSuccess || findResult.Data == null)
             {
-                return Result<TermDTO>.Failure(
-                    ResultCodes.TermNotFound,
+                return Result<ClassDTO>.Failure(
+                    ResultCodes.ClassNotFound,
                     404);
             }
 
             var result = findResult.Data?.ToDTO();
 
-            return Result<TermDTO>.Success(result);
+            return Result<ClassDTO>.Success(result);
         }
 
-        public async Task<Result<IEnumerable<TermDTO>>> GetAllAsync()
+        public async Task<Result<IEnumerable<ClassDTO>>> GetAllAsync()
         {
-            var getAllResult = await _repo.GetAllAsync(include: q => q.Include(t => t.SchoolYear).AsNoTrackingWithIdentityResolution());
+            var getAllResult = await _repo.GetAllAsync(include:
+                q => q.Include(c => c.Subject)
+                    .Include(c => c.Term)
+                    .Include(c => c.Teacher)
+                    .AsNoTrackingWithIdentityResolution());
 
             if (!getAllResult.IsSuccess || getAllResult.Data == null)
             {
-                return Result<IEnumerable<TermDTO>>.Failure(ResultCodes.TermsNotFound, 200);
+                return Result<IEnumerable<ClassDTO>>.Failure(ResultCodes.ClassesNotFound, 200);
             }
 
-            var result = new List<TermDTO>();
+            var result = new List<ClassDTO>();
 
             foreach (var item in getAllResult.Data)
             {
@@ -90,25 +92,18 @@ namespace Schoolify.Business.Services
                 result.Add(newItem);
             }
 
-            return Result<IEnumerable<TermDTO>>.Success(result);
+            return Result<IEnumerable<ClassDTO>>.Success(result);
         }
         #endregion
 
         #region Update
-        public async Task<Result<TermDTO>> UpdateAsync(int id, TermDTO dto)
+        public async Task<Result<ClassDTO>> UpdateAsync(int id, ClassDTO dto)
         {
-            if (dto.StartDate >= dto.EndDate)
-            {
-                return Result<TermDTO>.Failure(
-                    ResultCodes.InvalidDateRange,
-                    400);
-            }
-
             var existingResult = await _repo.FindByAsync(c => c.Id == id);
             if (!existingResult.IsSuccess || existingResult.Data == null)
             {
-                return Result<TermDTO>.Failure(
-                    ResultCodes.TermNotFound,
+                return Result<ClassDTO>.Failure(
+                    ResultCodes.ClassNotFound,
                     404);
             }
 
@@ -120,21 +115,21 @@ namespace Schoolify.Business.Services
 
             if (!updateResult.IsSuccess)
             {
-                return Result<TermDTO>.Failure(ResultCodes.ServerError, 500);
+                return Result<ClassDTO>.Failure(ResultCodes.ServerError, 500);
             }
 
             var findResult = await _repo.FindByAsync(c => c.Id == id);
 
             if (!findResult.IsSuccess || findResult.Data == null)
             {
-                return Result<TermDTO>.Failure(
+                return Result<ClassDTO>.Failure(
                     ResultCodes.ServerError,
                     500);
             }
 
             var result = findResult.Data?.ToDTO();
 
-            return Result<TermDTO>.Success(result, ResultCodes.TermUpdated);
+            return Result<ClassDTO>.Success(result, ResultCodes.ClassUpdated);
 
         }
         #endregion
@@ -146,7 +141,7 @@ namespace Schoolify.Business.Services
             if (!findResult.IsSuccess)
             {
                 return Result<bool>.Failure(
-                    ResultCodes.TermNotFound,
+                    ResultCodes.ClassNotFound,
                     404);
             }
 
@@ -157,7 +152,7 @@ namespace Schoolify.Business.Services
                 return Result<bool>.Failure(ResultCodes.ServerError, 500);
             }
 
-            return Result<bool>.Success(true, ResultCodes.TermDeleted);
+            return Result<bool>.Success(true, ResultCodes.ClassDeleted);
         }
         #endregion
 
