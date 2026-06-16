@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Schoolify.Common.DTOs.Subject;
+using Schoolify.Common.DTOs.Teacher;
+using Schoolify.Common.DTOs.Term;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -65,5 +68,9 @@ namespace Schoolify.Common.DTOs.Class
     ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
         public decimal MaxScore { get; set; } 
-    }
+
+        public TeacherDTO? Teacher { get; set; }
+        public SubjectDTO? Subject { get; set; }
+        public TermDTO? Term { get; set; }
+}
 }

@@ -26,6 +26,10 @@ namespace Schoolify.Common.Extensions
                 NameEn = entity.NameEn,
                 NameAr = entity.NameAr,
                 MaxScore = entity.MaxScore,
+
+                Subject = entity.Subject?.ToDTO(),
+                Teacher = entity.Teacher?.ToDTO(),
+                Term = entity.Term?.ToDTO()
             };
         }
 
