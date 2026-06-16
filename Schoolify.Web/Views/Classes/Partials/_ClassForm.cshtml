@@ -22,7 +22,7 @@
 
     <div class="col-md-6">
         <label asp-for="Class.MaxScore"></label>
-        <input asp-for="Class.MaxScore" class="form-control" />
+        <input asp-for="Class.MaxScore" type="number" min="0" max="100" class="form-control" />
         <span asp-validation-for="Class.MaxScore" class="text-danger"></span>
     </div>
 
