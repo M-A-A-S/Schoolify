@@ -705,10 +705,10 @@
   <data name="Friday" xml:space="preserve">
     <value>Friday</value>
   </data>
-  <data name="Saturday" xml:space="preserve">
-    <value>Saturday</value>
-  </data>
   <data name="Sunday" xml:space="preserve">
     <value>Sunday</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Saturday</value>
   </data>
 </root>

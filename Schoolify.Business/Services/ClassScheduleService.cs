@@ -104,6 +104,7 @@ namespace Schoolify.Business.Services
                 include: q => q.Include(cs => cs.Period)
                         .Include(cs => cs.Classroom)
                         .Include(cs => cs.Class)
+                            .ThenInclude(c => c.Teacher)
                         .AsNoTrackingWithIdentityResolution());
 
             if (!getAllSchedulesResult.IsSuccess || getAllSchedulesResult.Data == null)
@@ -117,10 +118,13 @@ namespace Schoolify.Business.Services
             {
                 return Result<ScheduleDTO>.Failure(ResultCodes.PeriodsNotFound, 200);
             }
+            //var days = Enum.GetValues(typeof(DayOfWeek))
+            //    .Cast<DayOfWeek>()
+            //    .Where(d => d != DayOfWeek.Saturday && d != DayOfWeek.Friday)
+            //    .ToList();
 
             var days = Enum.GetValues(typeof(DayOfWeek))
                 .Cast<DayOfWeek>()
-                .Where(d => d != DayOfWeek.Saturday && d != DayOfWeek.Friday)
                 .ToList();
 
             var grid = new Dictionary<int, Dictionary<DayOfWeek, ScheduleCellDTO>>();
@@ -139,9 +143,11 @@ namespace Schoolify.Business.Services
                         ? null
                         : new ScheduleCellDTO
                         {
-                            ClassName = item.Class.NameEn,
-                            TeacherName = item.Class.Teacher.FirstName,
-                            ClassroomName = item.Classroom.NameEn
+                            ClassNameEn = item?.Class?.NameEn,
+                            ClassNameAr = item?.Class?.NameAr,
+                            TeacherName = $"{item?.Class?.Teacher?.FirstName} {item?.Class?.Teacher?.SecondName} {item?.Class?.Teacher?.ThirdName} {item?.Class?.Teacher?.ForthName}",
+                            ClassroomNameEn = item?.Classroom?.NameEn,
+                            ClassroomNameAr = item?.Classroom?.NameAr
                         };
                 }
             }

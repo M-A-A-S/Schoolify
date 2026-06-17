@@ -41,6 +41,7 @@ html {
     --input-placeholder-color: #94a3b8;
     /* ---------------- Others ---------------- */
     --transition: 0.3s ease-in-out all;
+    --border-radius: 12px;
 }
 
 /* Hide the scroll bar */
@@ -500,3 +501,17 @@ html[dir="rtl"] .submenu a {
 }
 
 /* End Error Page */
+
+/* Start Schedule */
+.schedule-box {
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    font-size: 13px;
+    box-shadow: var(--shadow-1);
+    transition: var(--transition)
+}
+.schedule-box:hover {
+    box-shadow: var(--shadow-2);
+}
+/* End Schedule */

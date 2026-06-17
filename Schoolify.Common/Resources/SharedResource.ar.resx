@@ -703,13 +703,12 @@
     <value>الخميس</value>
   </data>
   <data name="Friday" xml:space="preserve">
-    <value>السبت</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Saturday" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+    <value>الجمعة</value>
   </data>
   <data name="Sunday" xml:space="preserve">
     <value>الأحد</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>السبت</value>
   </data>
 </root>
