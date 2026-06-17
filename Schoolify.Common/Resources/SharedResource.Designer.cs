@@ -1168,6 +1168,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -- Select Room Type --.
+        /// </summary>
+        public static string SelectRoomType {
+            get {
+                return ResourceManager.GetString("SelectRoomType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to -- Select School Stage --.
         /// </summary>
         public static string SelectSchoolStage {

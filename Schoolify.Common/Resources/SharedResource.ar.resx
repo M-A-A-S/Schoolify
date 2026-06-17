@@ -654,4 +654,7 @@
   <data name="RangeError" xml:space="preserve">
     <value>يجب أن تكون القيمة بين 0 و 100</value>
   </data>
+  <data name="SelectRoomType" xml:space="preserve">
+    <value>-- اختر نوع القاعة --</value>
+  </data>
 </root>
