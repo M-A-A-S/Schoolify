@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Schoolify.Common.DTOs.ClassroomType;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -46,5 +47,7 @@ ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
         public int Capacity { get; set; }
+
+        public ClassroomTypeDTO? RoomType { get; set; }
     }
 }

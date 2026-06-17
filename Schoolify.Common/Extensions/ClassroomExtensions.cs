@@ -24,6 +24,8 @@ namespace Schoolify.Common.Extensions
                 NameEn = entity.NameEn,
                 NameAr = entity.NameAr,
                 Capacity = entity.Capacity,
+
+                RoomType = entity?.RoomType?.ToDTO()
             };
         }
 
