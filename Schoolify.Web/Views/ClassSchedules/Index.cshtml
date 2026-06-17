@@ -7,154 +7,176 @@
 @inject IStringLocalizer<SharedResource> Localizer
 
 <style>
-    /* .schedule-table td, .schedule-table th {
-        text-align: center;
-        vertical-align: middle;
-    }
+	/* .schedule-table td, .schedule-table th {
+			text-align: center;
+			vertical-align: middle;
+		}
 
-    .schedule-box {
-        background: #f8f9fa;
-        border-radius: 12px;
-        padding: 10px;
-        font-size: 13px;
-    }
+		.schedule-box {
+			background: #f8f9fa;
+			border-radius: 12px;
+			padding: 10px;
+			font-size: 13px;
+		}
 
-    .schedule-title {
-        font-weight: bold;
-        color: #0d6efd;
-    } */
+		.schedule-title {
+			font-weight: bold;
+			color: #0d6efd;
+		} */
 
 
 </style>
 
 <div class="d-flex align-items-center justify-content-between my-4">
-    <h2>@Localizer["ClassSchedules"]</h2>
+	<h2>@Localizer["ClassSchedules"]</h2>
 
-    <a asp-action="Create" class="btn btn-primary">
-        <i class="fa fa-plus me-1"></i>
-        @Localizer["CreateNew"]
-    </a>
+	<a asp-action="Create" class="btn btn-primary">
+		<i class="fa fa-plus me-1"></i>
+		@Localizer["CreateNew"]
+	</a>
 </div>
 
 <div class="table-responsive">
 
-    @* <table class="table table-bordered schedule-table"> *@
-    <table class="table ">
+	@* <table class="table table-bordered schedule-table"> *@
+	<table class="table ">
 
-        <!-- HEADER -->
-        @* <thead class="table-dark"> *@
-        <thead>
-            <tr>
-                <th>@Localizer["Period"]</th>
+		<!-- HEADER -->
+		@* <thead class="table-dark"> *@
+		<thead>
+			<tr>
+				<th>@Localizer["Period"]</th>
 
-                @foreach (var day in Model.Days)
-                {
-                    <th>
-                        @switch (day)
-                        {
-                            case DayOfWeek.Monday:
-                                @Localizer["Monday"]
-                                ; break;
-                            case DayOfWeek.Tuesday:
+				@foreach (var day in Model.Days)
+				{
+					<th>
+						@switch (day)
+						{
+							case DayOfWeek.Monday:
+								@Localizer["Monday"]
+								; break;
+							case DayOfWeek.Tuesday:
 
-                                @Localizer["Tuesday"]
-                                ; break;
-                            case DayOfWeek.Wednesday:
+								@Localizer["Tuesday"]
+								; break;
+							case DayOfWeek.Wednesday:
 
-                                @Localizer["Wednesday"]
-                                ; break;
-                            case DayOfWeek.Thursday:
+								@Localizer["Wednesday"]
+								; break;
+							case DayOfWeek.Thursday:
 
-                                @Localizer["Thursday"]
-                                ; break;
-                            case DayOfWeek.Friday:
+								@Localizer["Thursday"]
+								; break;
+							case DayOfWeek.Friday:
 
-                                @Localizer["Friday"]
-                                ; break;
-                            case DayOfWeek.Saturday:
+								@Localizer["Friday"]
+								; break;
+							case DayOfWeek.Saturday:
 
-                                @Localizer["Saturday"]
-                                ; break;
-                            case DayOfWeek.Sunday:
+								@Localizer["Saturday"]
+								; break;
+							case DayOfWeek.Sunday:
 
-                                @Localizer["Sunday"]
-                                ; break;
-                            default:
+								@Localizer["Sunday"]
+								; break;
+							default:
 
-                                @day.ToString()
-                                ; break;
-                        }
-                    </th>
-                }
-            </tr>
-        </thead>
+								@day.ToString()
+								; break;
+						}
+					</th>
+				}
+			</tr>
+		</thead>
 
-        <!-- BODY -->
-        <tbody>
-            @foreach (var period in Model.Periods)
-            {
-                <tr>
+		<!-- BODY -->
+		<tbody>
+			@foreach (var period in Model.Periods)
+			{
+				<tr>
 
-                    <!-- PERIOD INFO -->
-                    <td>
-                        <strong>
-                            @* @period.NameEn *@
-                            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
-                                                    ? period?.NameAr
-                                                    : period?.NameEn)
-                    </strong>
-                    <br />
-                    <small class="text-muted">
-                        @Localizer["StartTime"]: @period.StartTime <br />
-                        @Localizer["EndTime"]: @period.EndTime
-                    </small>
-                </td>
+					<!-- PERIOD INFO -->
+					<td>
+						<strong>
+							@* @period.NameEn *@
+							@(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+													? period?.NameAr
+													: period?.NameEn)
+					</strong>
+					<br />
+					<small class="text-muted">
+						@Localizer["StartTime"]: @period.StartTime <br />
+						@Localizer["EndTime"]: @period.EndTime
+					</small>
+				</td>
 
-                    <!-- DAYS -->
-                @foreach (var day in Model.Days)
-                    {
-                        var cell = Model.Grid[period.Id][day];
+					<!-- DAYS -->
+				@foreach (var day in Model.Days)
+					{
+						var cell = Model.Grid[period.Id][day];
 
-                        <td>
-                            @if (cell != null)
-                            {
-                                <div class="schedule-box"
-                                     @* onclick="editSchedule(@cell.ClassScheduleId)" *@
-                                     onclick="showScheduleDetails(@cell.ClassScheduleId)"
-                                     style="cursor:pointer;">
+						<td>
+							@if (cell != null)
+							{
+								<div class="schedule-box"
+									 @* onclick="editSchedule(@cell.ClassScheduleId)" *@
+									 onclick="showScheduleDetails(@cell.ClassScheduleId)"
+									 style="cursor:pointer;">
 
-                                    <div class="schedule-title">
-                                        @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
-                                                                    ? cell?.ClassNameAr
-                                                                    : cell?.ClassNameEn)
-                                                                                    </div>
+									<div class="schedule-title">
+										@(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+																	? cell?.ClassNameAr
+																	: cell?.ClassNameEn)
+																					</div>
 
-                                    <div>
-                                        <i class="fa-solid fa-chalkboard-user"></i>
-                                        @Localizer["Teacher"]: @cell.TeacherName
-                                    </div>
+									<div>
+										<i class="fa-solid fa-chalkboard-user"></i>
+										@Localizer["Teacher"]: @cell.TeacherName
+									</div>
 
-                                    <div>
-                                        <i class="fa-solid fa-door-open"></i>
-                                        @Localizer["Classroom"]:
-                                        @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
-                                                                    ? cell?.ClassroomNameAr
-                                                                    : cell?.ClassroomNameEn)
-                        </div>
+									<div>
+										<i class="fa-solid fa-door-open"></i>
+										@Localizer["Classroom"]:
+										@(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+																	? cell?.ClassroomNameAr
+																	: cell?.ClassroomNameEn)
+						</div>
 
-                                </div>
-                                        }
-                            else
-                            {
-                                <div onclick="createSchedule(@period.Id, @((int)day))"
-                                     style="cursor:pointer; min-height:60px;"
-                                     class="text-muted d-flex align-items-center justify-content-center">
-                                    + @Localizer["NoClass"]
-                                </div>
-                            }
-                        </td>
 
-                        @* <td>
+									<div style="display: flex; gap: 4px">
+										<a asp-action="Edit"
+										   asp-route-id="@cell.ClassScheduleId"
+										   class="btn btn-icon btn-outline-primary tooltip-btn"
+										   data-tooltip="@Localizer["Edit"]">
+											<i class="fa fa-pen"></i>
+										</a>
+										<a asp-action="Details"
+										   asp-route-id="@cell.ClassScheduleId"
+										   class="btn btn-icon btn-outline-info tooltip-btn"
+										   data-tooltip="@Localizer["Details"]">
+											<i class="fa fa-info"></i>
+										</a>
+										<a asp-action="Delete"
+										   asp-route-id="@cell.ClassScheduleId"
+										   class="btn btn-icon btn-outline-danger tooltip-btn"
+										   data-tooltip="@Localizer["Delete"]">
+											<i class="fa fa-trash"></i>
+										</a>
+									</div>
+
+								</div>
+										}
+							else
+							{
+								<div onclick="createSchedule(@period.Id, @((int)day))"
+									 style="cursor:pointer; min-height:60px;"
+									 class="text-muted d-flex align-items-center justify-content-center">
+									+ @Localizer["NoClass"]
+								</div>
+							}
+						</td>
+
+						@* <td>
                                 @if (cell != null)
                                 {
                                     <div class="schedule-box">
@@ -184,29 +206,29 @@
                                     </span>
                                 }
                             </td> *@
-                    }
+					}
 
-                </tr>
-            }
-        </tbody>
+				</tr>
+			}
+		</tbody>
 
-    </table>
+	</table>
 </div>
 
 <script>
 
-    function createSchedule(periodId, dayId) {
-        window.location.href =
-            `/ClassSchedules/Create?periodId=${periodId}&dayId=${dayId}`;
-    }
+	function createSchedule(periodId, dayId) {
+		window.location.href =
+			`/ClassSchedules/Create?periodId=${periodId}&dayId=${dayId}`;
+	}
 
-    function editSchedule(id) {
-        window.location.href =
-            `/ClassSchedules/Edit/${id}`;
-    }
+	function editSchedule(id) {
+		window.location.href =
+			`/ClassSchedules/Edit/${id}`;
+	}
 
-        function showScheduleDetails(id) {
-        window.location.href =
-            `/ClassSchedules/Details/${id}`;
-    }
+		function showScheduleDetails(id) {
+		window.location.href =
+			`/ClassSchedules/Details/${id}`;
+	}
 </script>
