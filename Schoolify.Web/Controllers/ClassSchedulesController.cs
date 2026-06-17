@@ -169,13 +169,13 @@ namespace Schoolify.Web.Controllers
             var periods = await _periodService.GetAllAsync();
             var days = new List<DayDTO>
             {
-                new DayDTO { Id = 1, Name = _localizer["Monday"] },
+                new DayDTO { Id = 0, Name = _localizer["Sunday"] },
+                new DayDTO  { Id = 1, Name = _localizer["Monday"] },
                 new DayDTO { Id = 2, Name = _localizer["Tuesday"] },
                 new DayDTO { Id = 3, Name = _localizer["Wednesday"] },
                 new DayDTO { Id = 4, Name = _localizer["Thursday"] },
                 new DayDTO { Id = 5, Name = _localizer["Friday"] },
                 new DayDTO { Id = 6, Name = _localizer["Saturday"] },
-                new DayDTO { Id = 7, Name = _localizer["Sunday"] }
             };
 
             //ViewBag.Days = new SelectList(days, "Id", "Name", dto?.DayOfWeek);
