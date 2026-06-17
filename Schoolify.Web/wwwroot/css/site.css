@@ -468,3 +468,35 @@ html[dir="rtl"] .submenu a {
 
 
 /* End Actions Icons */
+
+
+/* Start Error Page */
+.error-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+}
+
+.error-page h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.error-page h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+/*    border-bottom: 2px solid var(--grey-200);*/
+    padding-bottom: 0.5rem;
+}
+
+.error-page p {
+    margin-bottom: 1.5rem;
+}
+
+/* End Error Page */

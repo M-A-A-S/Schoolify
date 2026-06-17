@@ -1,0 +1,23 @@
+﻿@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+@{
+    ViewData["Title"] = Localizer["Error500Title"];
+}
+
+<div class="error-page">
+    <div>
+        <div>
+            <h1 class="text-danger">500</h1>
+            <h2>@Localizer["Error500Heading"]</h2>
+            <p>@Localizer["Error500Description"]</p>
+
+            <a asp-controller="Home"
+               asp-action="Index"
+               class="btn btn-primary">
+                @Localizer["HomeButton"]
+            </a>
+        </div>
+    </div>
+</div>

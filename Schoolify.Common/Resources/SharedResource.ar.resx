@@ -657,4 +657,34 @@
   <data name="SelectRoomType" xml:space="preserve">
     <value>-- اختر نوع القاعة --</value>
   </data>
+  <data name="Error404Title" xml:space="preserve">
+    <value>الصفحة غير موجودة</value>
+  </data>
+  <data name="Error404Heading" xml:space="preserve">
+    <value>عذراً، الصفحة غير موجودة</value>
+  </data>
+  <data name="Error404Description" xml:space="preserve">
+    <value>ربما تم حذف الصفحة أو تغيير اسمها أو أنها غير متاحة حالياً</value>
+  </data>
+  <data name="Error403Title" xml:space="preserve">
+    <value>الوصول مرفوض</value>
+  </data>
+  <data name="Error403Description" xml:space="preserve">
+    <value>لا تملك الإذن للوصول إلى هذه الصفحة</value>
+  </data>
+  <data name="Error500Title" xml:space="preserve">
+    <value>خطأ في الخادم</value>
+  </data>
+  <data name="Error500Heading" xml:space="preserve">
+    <value>حدث خطأ غير متوقع</value>
+  </data>
+  <data name="Error500Description" xml:space="preserve">
+    <value>حدث خطأ في الخادم، يرجى المحاولة مرة أخرى لاحقاً</value>
+  </data>
+  <data name="HomeButton" xml:space="preserve">
+    <value>العودة للرئيسية</value>
+  </data>
+  <data name="Error403Heading" xml:space="preserve">
+    <value>ليس لديك صلاحية الوصول</value>
+  </data>
 </root>

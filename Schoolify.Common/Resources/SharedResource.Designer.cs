@@ -493,6 +493,87 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You do not have permission to access this resource..
+        /// </summary>
+        public static string Error403Description {
+            get {
+                return ResourceManager.GetString("Error403Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Access Denied.
+        /// </summary>
+        public static string Error403Heading {
+            get {
+                return ResourceManager.GetString("Error403Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 403 - Access Denied.
+        /// </summary>
+        public static string Error403Title {
+            get {
+                return ResourceManager.GetString("Error403Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The page you are looking for might have been removed, renamed, or is temporarily unavailable..
+        /// </summary>
+        public static string Error404Description {
+            get {
+                return ResourceManager.GetString("Error404Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oops! Page Not Found.
+        /// </summary>
+        public static string Error404Heading {
+            get {
+                return ResourceManager.GetString("Error404Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 404 - Page Not Found.
+        /// </summary>
+        public static string Error404Title {
+            get {
+                return ResourceManager.GetString("Error404Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An unexpected error occurred on the server. Please try again later.
+        /// </summary>
+        public static string Error500Description {
+            get {
+                return ResourceManager.GetString("Error500Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something Went Wrong.
+        /// </summary>
+        public static string Error500Heading {
+            get {
+                return ResourceManager.GetString("Error500Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 500 - Server Error.
+        /// </summary>
+        public static string Error500Title {
+            get {
+                return ResourceManager.GetString("Error500Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Female.
         /// </summary>
         public static string Female {
@@ -696,6 +777,15 @@ namespace Schoolify.Common.Resources {
         public static string HireDate {
             get {
                 return ResourceManager.GetString("HireDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back to Home.
+        /// </summary>
+        public static string HomeButton {
+            get {
+                return ResourceManager.GetString("HomeButton", resourceCulture);
             }
         }
         

@@ -1,0 +1,21 @@
+﻿@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+@{
+	ViewData["Title"] = Localizer["Error404Title"];
+}
+
+<div class="error-page">
+	<div>
+		<h1 class="text-danger">404</h1>
+		<h2>@Localizer["Error404Heading"]</h2>
+		<p>@Localizer["Error404Description"]</p>
+
+		<a asp-controller="Home"
+		   asp-action="Index"
+		   class="btn btn-primary">
+			@Localizer["HomeButton"]
+		</a>
+	</div>
+</div>
