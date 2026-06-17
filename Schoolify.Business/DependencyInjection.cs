@@ -34,6 +34,7 @@ namespace Schoolify.Business
             services.AddScoped<IPeriodService, PeriodService>();
             services.AddScoped<IClassService, ClassService>();
             services.AddScoped<IClassroomService, ClassroomService>();
+            services.AddScoped<IClassroomTypeService, ClassroomTypeService>();
 
             return services;
         }
