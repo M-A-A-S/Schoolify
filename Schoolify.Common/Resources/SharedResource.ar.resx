@@ -723,4 +723,13 @@
   <data name="SelectClassroom" xml:space="preserve">
     <value>-- اختر القاعة الدراسية --</value>
   </data>
+  <data name="DepartmentCreated" xml:space="preserve">
+    <value>تم إنشاء القسم بنجاح</value>
+  </data>
+  <data name="DepartmentUpdated" xml:space="preserve">
+    <value>تم تحديث القسم بنجاح</value>
+  </data>
+  <data name="DepartmentDeleted" xml:space="preserve">
+    <value>تم حذف القسم بنجاح</value>
+  </data>
 </root>

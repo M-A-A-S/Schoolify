@@ -430,11 +430,38 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Department created successfully.
+        /// </summary>
+        public static string DepartmentCreated {
+            get {
+                return ResourceManager.GetString("DepartmentCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Department deleted successfully.
+        /// </summary>
+        public static string DepartmentDeleted {
+            get {
+                return ResourceManager.GetString("DepartmentDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Departments.
         /// </summary>
         public static string Departments {
             get {
                 return ResourceManager.GetString("Departments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Department updated successfully.
+        /// </summary>
+        public static string DepartmentUpdated {
+            get {
+                return ResourceManager.GetString("DepartmentUpdated", resourceCulture);
             }
         }
         
