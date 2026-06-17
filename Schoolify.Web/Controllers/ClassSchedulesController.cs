@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
 using Schoolify.Business.Interfaces;
 using Schoolify.Common;
@@ -148,13 +149,26 @@ namespace Schoolify.Web.Controllers
             var classes = await _classService.GetAllAsync();
             var classrooms = await _classroomService.GetAllAsync();
             var periods = await _periodService.GetAllAsync();
+            var days = new List<DayDTO>
+            {
+                new DayDTO { Id = 1, Name = _localizer["Monday"] },
+                new DayDTO { Id = 2, Name = _localizer["Tuesday"] },
+                new DayDTO { Id = 3, Name = _localizer["Wednesday"] },
+                new DayDTO { Id = 4, Name = _localizer["Thursday"] },
+                new DayDTO { Id = 5, Name = _localizer["Friday"] },
+                new DayDTO { Id = 6, Name = _localizer["Saturday"] },
+                new DayDTO { Id = 7, Name = _localizer["Sunday"] }
+            };
+
+            //ViewBag.Days = new SelectList(days, "Id", "Name", dto?.DayOfWeek);
 
             return new ClassScheduleUpsertDTO
             {
                 ClassSchedule = dto ?? new ClassScheduleDTO(),
                 Classes = classes.Data ?? [],
                 Classrooms = classrooms.Data ?? [],
-                Periods = periods.Data ?? []
+                Periods = periods.Data ?? [],
+                Days = days
             };
         }
 

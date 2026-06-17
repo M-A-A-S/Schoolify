@@ -1276,6 +1276,33 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -- Select Class --.
+        /// </summary>
+        public static string SelectClass {
+            get {
+                return ResourceManager.GetString("SelectClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select Classroom --.
+        /// </summary>
+        public static string SelectClassroom {
+            get {
+                return ResourceManager.GetString("SelectClassroom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select Day --.
+        /// </summary>
+        public static string SelectDay {
+            get {
+                return ResourceManager.GetString("SelectDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to -- Select Department --.
         /// </summary>
         public static string SelectDepartment {
@@ -1290,6 +1317,15 @@ namespace Schoolify.Common.Resources {
         public static string SelectGender {
             get {
                 return ResourceManager.GetString("SelectGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select Period --.
+        /// </summary>
+        public static string SelectPeriod {
+            get {
+                return ResourceManager.GetString("SelectPeriod", resourceCulture);
             }
         }
         

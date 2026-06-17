@@ -711,4 +711,16 @@
   <data name="Saturday" xml:space="preserve">
     <value>السبت</value>
   </data>
+  <data name="SelectDay" xml:space="preserve">
+    <value>-- اختر اليوم --</value>
+  </data>
+  <data name="SelectClass" xml:space="preserve">
+    <value>-- اختر الفصل --</value>
+  </data>
+  <data name="SelectPeriod" xml:space="preserve">
+    <value>-- اختر الحصة --</value>
+  </data>
+  <data name="SelectClassroom" xml:space="preserve">
+    <value>-- اختر القاعة الدراسية --</value>
+  </data>
 </root>

@@ -1,0 +1,90 @@
+﻿@using Schoolify.Common.DTOs.ClassSchedule
+@model ClassScheduleUpsertDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row g-3">
+
+    <!-- Class -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="ClassSchedule.ClassId" class="form-label"></label>
+
+        <select asp-for="ClassSchedule.ClassId"
+                class="form-control"
+                asp-items="@(Model?.Classes?.Select(t => new SelectListItem
+                {
+                    Value = t.Id.ToString(),
+                    Text = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                                        ? t.NameAr
+                                                                        : t.NameEn
+                }))">
+
+            <option selected disabled value="">
+                @Localizer["SelectClass"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="ClassSchedule.ClassId" class="text-danger"></span>
+    </div>
+
+    <!-- Period -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="ClassSchedule.PeriodId" class="form-label"></label>
+
+        <select asp-for="ClassSchedule.PeriodId"
+                class="form-control"
+                asp-items="@(Model?.Periods?.Select(t => new SelectListItem
+                {
+                    Value = t.Id.ToString(),
+                    Text = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                                                        ? t.NameAr
+                                                                                        : t.NameEn
+                }))">
+
+            <option selected disabled value="">
+                @Localizer["SelectPeriod"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="ClassSchedule.PeriodId" class="text-danger"></span>
+    </div>
+
+    <!-- Classroom -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="ClassSchedule.ClassroomId" class="form-label"></label>
+
+        <select asp-for="ClassSchedule.ClassroomId"
+                class="form-control"
+                asp-items="@(Model?.Classrooms?.Select(t => new SelectListItem
+                {
+                    Value = t.Id.ToString(),
+                    Text = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                                                        ? t.NameAr
+                                                                                        : t.NameEn
+                }))">
+
+            <option selected disabled value="">
+                @Localizer["SelectClassroom"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="ClassSchedule.PeriodId" class="text-danger"></span>
+    </div>
+
+    <!-- DayOfWeek -->
+    <div class="col-md-4">
+        <label asp-for="ClassSchedule.DayOfWeek" class="form-label"></label>
+        <select asp-for="ClassSchedule.DayOfWeek" class="form-select"
+                asp-items="@(new SelectList(Model.Days, "Id", "Name"))">
+            <option value="" disabled selected>@Localizer["SelectDay"]</option>
+        </select>
+        <span asp-validation-for="ClassSchedule.DayOfWeek" class="text-danger"></span>
+    </div>
+
+</div>
