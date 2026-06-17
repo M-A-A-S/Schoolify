@@ -24,6 +24,10 @@ namespace Schoolify.Common.Extensions
                 ClassroomId = entity.ClassroomId,
                 PeriodId = entity.PeriodId,
                 DayOfWeek = entity.DayOfWeek,
+
+                Class = entity?.Class?.ToDTO(),
+                Classroom = entity?.Classroom?.ToDTO(),
+                Period = entity?.Period?.ToDTO()
             };
         }
 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Schoolify.Common.DTOs.Class;
+using Schoolify.Common.DTOs.Classroom;
+using Schoolify.Common.DTOs.Period;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -46,5 +49,9 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
 
         public DayOfWeek DayOfWeek { get; set; } // C# built-in enum for days of the week
+
+        public ClassDTO? Class { get; set; }
+        public PeriodDTO? Period { get; set; }
+        public ClassroomDTO? Classroom { get; set; }
     }
 }
