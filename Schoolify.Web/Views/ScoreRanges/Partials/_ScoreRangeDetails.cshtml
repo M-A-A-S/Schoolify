@@ -1,0 +1,27 @@
+﻿@using Schoolify.Common.DTOs.ScoreRange
+@model ScoreRangeDTO
+
+@using System.Globalization
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["MinScore"]</label>
+        <div>@Model.MinScore</div>
+    </div>
+
+        <div class="col-md-6">
+        <label class="fw-bold">@Localizer["MaxScore"]</label>
+        <div>@Model.MaxScore</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Grade"]</label>
+        <div>@Model.Grade</div>
+    </div>
+
+</div>
