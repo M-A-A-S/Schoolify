@@ -1,0 +1,27 @@
+﻿@using Schoolify.Common.DTOs.ScoreRange
+@model ScoreRangeDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row g-3 mb-1">
+
+    <div class="col-md-6">
+        <label asp-for="MinScore"></label>
+        <input asp-for="MinScore" class="form-control" />
+        <span asp-validation-for="MinScore" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="MaxScore"></label>
+        <input asp-for="MaxScore" class="form-control" />
+        <span asp-validation-for="MaxScore" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Grade"></label>
+        <input asp-for="Grade" class="form-control" />
+        <span asp-validation-for="Grade" class="text-danger"></span>
+    </div>
+</div>

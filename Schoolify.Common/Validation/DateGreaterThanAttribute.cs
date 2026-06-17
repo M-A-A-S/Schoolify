@@ -20,7 +20,7 @@ namespace Schoolify.Common.Validation
         object? value,
         ValidationContext validationContext)
         {
-            var currentValue = (DateTime?)value;
+            var currentValue = value as IComparable;
 
             var property = validationContext.ObjectType.GetProperty(_comparisonProperty);
 
@@ -30,9 +30,14 @@ namespace Schoolify.Common.Validation
             }
 
             var comparisonValue =
-                (DateTime?)property.GetValue(validationContext.ObjectInstance);
+                property.GetValue(validationContext.ObjectInstance) as IComparable;
 
-            if (currentValue <= comparisonValue)
+            if (currentValue == null || comparisonValue == null)
+            {
+                return ValidationResult.Success;
+            }
+
+            if (currentValue.CompareTo(comparisonValue) <= 0)
             {
                 return new ValidationResult(ErrorMessage);
             }
