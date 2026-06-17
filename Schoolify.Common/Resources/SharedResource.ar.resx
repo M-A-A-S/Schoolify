@@ -732,4 +732,10 @@
   <data name="DepartmentDeleted" xml:space="preserve">
     <value>تم حذف القسم بنجاح</value>
   </data>
+  <data name="OverlapError" xml:space="preserve">
+    <value>يوجد تداخل مع نطاق آخر</value>
+  </data>
+  <data name="MinMaxError" xml:space="preserve">
+    <value>يجب أن يكون الحد الأدنى أقل من الحد الأعلى</value>
+  </data>
 </root>

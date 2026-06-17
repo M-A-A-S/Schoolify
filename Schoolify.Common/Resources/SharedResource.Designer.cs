@@ -898,6 +898,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Min score must be less than max score.
+        /// </summary>
+        public static string MinMaxError {
+            get {
+                return ResourceManager.GetString("MinMaxError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Minimum Score.
         /// </summary>
         public static string MinScore {
@@ -948,6 +957,15 @@ namespace Schoolify.Common.Resources {
         public static string Organization {
             get {
                 return ResourceManager.GetString("Organization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Score range overlaps with existing range.
+        /// </summary>
+        public static string OverlapError {
+            get {
+                return ResourceManager.GetString("OverlapError", resourceCulture);
             }
         }
         

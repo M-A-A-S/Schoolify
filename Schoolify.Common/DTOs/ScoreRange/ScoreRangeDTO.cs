@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Schoolify.Common.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,6 +29,10 @@ ResourceType = typeof(Resources.SharedResource)
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
+
+        [DateGreaterThan(nameof(MinScore),
+        ErrorMessageResourceType = typeof(Resources.SharedResource),
+        ErrorMessageResourceName = nameof(Resources.SharedResource.MinMaxError))]
         public decimal MaxScore { get; set; } // e.g., 100.00%
 
         [Display(Name = nameof(Resources.SharedResource.Grade),

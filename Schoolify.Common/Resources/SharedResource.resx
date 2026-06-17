@@ -732,4 +732,10 @@
   <data name="DepartmentDeleted" xml:space="preserve">
     <value>Department deleted successfully</value>
   </data>
+  <data name="OverlapError" xml:space="preserve">
+    <value>Score range overlaps with existing range</value>
+  </data>
+  <data name="MinMaxError" xml:space="preserve">
+    <value>Min score must be less than max score</value>
+  </data>
 </root>
