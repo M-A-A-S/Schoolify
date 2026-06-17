@@ -1,0 +1,36 @@
+﻿@using Schoolify.Common.DTOs.Classroom
+@model ClassroomDTO
+
+@using System.Globalization
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+        <div class="col-md-6">
+        <label class="fw-bold">@Localizer["NameEn"]</label>
+        <div>@Model.NameEn</div>
+    </div>
+
+        <div class="col-md-6">
+        <label class="fw-bold">@Localizer["NameAr"]</label>
+        <div>@Model.NameAr</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Capacity"]</label>
+        <div>@Model.Capacity</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["RoomType"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.RoomType?.NameAr
+                        : @Model?.RoomType?.NameEn)
+        </div>
+    </div>
+
+</div>
