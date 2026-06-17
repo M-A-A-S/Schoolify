@@ -8,6 +8,7 @@ namespace Schoolify.Common.DTOs.ClassSchedule
 {
     public class ScheduleCellDTO
     {
+        public int ClassScheduleId { get; set; }
         public string ClassNameEn { get; set; }
         public string ClassNameAr { get; set; }
         public string TeacherName { get; set; }

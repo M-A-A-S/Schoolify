@@ -50,9 +50,27 @@ namespace Schoolify.Web.Controllers
         #endregion
 
         #region Create
-        public async Task<IActionResult> Create()
+        //public async Task<IActionResult> Create()
+        //{
+
+        //    return View(await BuildViewModel());
+        //}
+
+        public async Task<IActionResult> Create(int? periodId, int? dayId)
         {
-            return View(await BuildViewModel());
+            var dto = new ClassScheduleDTO();
+
+            if (periodId.HasValue)
+            {
+                dto.PeriodId = periodId.Value;
+            }
+
+            if (dayId.HasValue)
+            {
+                dto.DayOfWeek = (DayOfWeek)dayId.Value;
+            }
+
+            return View(await BuildViewModel(dto));
         }
 
         [HttpPost]

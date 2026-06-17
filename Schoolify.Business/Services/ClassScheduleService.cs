@@ -143,6 +143,7 @@ namespace Schoolify.Business.Services
                         ? null
                         : new ScheduleCellDTO
                         {
+                            ClassScheduleId = item.Id,
                             ClassNameEn = item?.Class?.NameEn,
                             ClassNameAr = item?.Class?.NameAr,
                             TeacherName = $"{item?.Class?.Teacher?.FirstName} {item?.Class?.Teacher?.SecondName} {item?.Class?.Teacher?.ThirdName} {item?.Class?.Teacher?.ForthName}",
