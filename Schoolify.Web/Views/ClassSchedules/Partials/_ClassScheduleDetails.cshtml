@@ -1,0 +1,81 @@
+﻿@using Schoolify.Common.DTOs.ClassSchedule
+@model ClassScheduleDTO
+
+@using System.Globalization
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Class"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Class?.NameAr
+                        : @Model?.Class?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Period"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Period?.NameAr
+                        : @Model?.Period?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Classroom"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Classroom?.NameAr
+                        : @Model?.Classroom?.NameEn)
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["DayOfWeek"]</label>
+        <div>
+            @switch (Model.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    @Localizer["Monday"]
+                    ; break;
+                case DayOfWeek.Tuesday:
+
+                    @Localizer["Tuesday"]
+                    ; break;
+                case DayOfWeek.Wednesday:
+
+                    @Localizer["Wednesday"]
+                    ; break;
+                case DayOfWeek.Thursday:
+
+                    @Localizer["Thursday"]
+                    ; break;
+                case DayOfWeek.Friday:
+
+                    @Localizer["Friday"]
+                    ; break;
+                case DayOfWeek.Saturday:
+
+                    @Localizer["Saturday"]
+                    ; break;
+                case DayOfWeek.Sunday:
+
+                    @Localizer["Sunday"]
+                    ; break;
+                default:
+
+                    @Model.DayOfWeek.ToString()
+                    ; break;
+            }
+
+        </div>
+    </div>
+
+</div>

@@ -119,7 +119,8 @@
                             @if (cell != null)
                             {
                                 <div class="schedule-box"
-                                     onclick="editSchedule(@cell.ClassScheduleId)"
+                                     @* onclick="editSchedule(@cell.ClassScheduleId)" *@
+                                     onclick="showScheduleDetails(@cell.ClassScheduleId)"
                                      style="cursor:pointer;">
 
                                     <div class="schedule-title">
@@ -202,5 +203,10 @@
     function editSchedule(id) {
         window.location.href =
             `/ClassSchedules/Edit/${id}`;
+    }
+
+        function showScheduleDetails(id) {
+        window.location.href =
+            `/ClassSchedules/Details/${id}`;
     }
 </script>
