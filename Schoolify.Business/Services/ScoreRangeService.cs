@@ -1,4 +1,5 @@
-﻿using Schoolify.Business.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using Schoolify.Business.Interfaces;
 using Schoolify.Common.DTOs.ScoreRange;
 using Schoolify.Common.Extensions;
 using Schoolify.Common.Utilities;
@@ -91,6 +92,22 @@ namespace Schoolify.Business.Services
             }
 
             return Result<IEnumerable<ScoreRangeDTO>>.Success(result);
+        }
+
+        public async Task<Result<ScoreRangeDTO>> GetGradeAsync(decimal score)
+        {
+            var findResult = await _repo.FindByAsync(s => s.MinScore <= score && s.MaxScore >= score);
+
+            if (!findResult.IsSuccess || findResult.Data == null)
+            {
+                return Result<ScoreRangeDTO>.Failure(
+                    ResultCodes.ScoreRangeNotFound,
+                    404);
+            }
+
+            var result = findResult.Data?.ToDTO();
+
+            return Result<ScoreRangeDTO>.Success(result);
         }
         #endregion
 

@@ -14,6 +14,7 @@ namespace Schoolify.Business.Interfaces
         Task<Result<ScoreRangeDTO>> UpdateAsync(int id, ScoreRangeDTO dto);
         Task<Result<bool>> DeleteAsync(int id);
         Task<Result<ScoreRangeDTO>> GetByIdAsync(int id);
+        Task<Result<ScoreRangeDTO>> GetGradeAsync(decimal score);
         Task<Result<IEnumerable<ScoreRangeDTO>>> GetAllAsync();
 
     }
