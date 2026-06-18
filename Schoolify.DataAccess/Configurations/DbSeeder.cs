@@ -15,31 +15,64 @@ namespace Schoolify.DataAccess.Configurations
         {
             SeedDepartments(modelBuilder);
             SeedSubjects(modelBuilder);
+            SeedTeachers(modelBuilder);
             SeedSchoolStages(modelBuilder);
+            SeedSections(modelBuilder);
             SeedYearLevels(modelBuilder);
             SeedTerms(modelBuilder);
             SeedPeriods(modelBuilder);
             SeedGuardianTypes(modelBuilder);
             SeedClassrooms(modelBuilder);
             SeedClassroomTypes(modelBuilder);
-            SeedClasses(modelBuilder);
+            SeedSubjectClasses(modelBuilder);
             SeedStudents(modelBuilder);
             SeedStudentClasses(modelBuilder);
             SeedGuardians(modelBuilder);
             SeedStudentGuardians(modelBuilder);
-            SeedTeachers(modelBuilder);
-            SeedStudentYearLevels(modelBuilder);
+            SeedEnrollments(modelBuilder);
             SeedScoreRanges(modelBuilder);
             SeedSchoolYears(modelBuilder);
+            SeedSubjectClassTeachers(modelBuilder);
             SeedClassSchedules(modelBuilder);
             SeedExams(modelBuilder);
             SeedFeeStructures(modelBuilder);
             SeedFeeItems(modelBuilder);
             SeedInstallments(modelBuilder);
             SeedPayments(modelBuilder);
-            SeedSections(modelBuilder);
             SeedStudentAcademicRecords(modelBuilder);
             SeedStudentExamResults(modelBuilder);
+        }
+
+        //public int SubjectClassId { get; set; }
+        //public int TeacherId { get; set; }
+        //// Optional: role (main teacher / assistant)
+        //public bool IsMainTeacher { get; set; }
+
+        private static void SeedSubjectClassTeachers(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SubjectClassTeacher>().HasData(
+                new SubjectClassTeacher
+                {
+                    Id = 1,
+                    SubjectClassId = 1,
+                    TeacherId = 1,
+                    IsMainTeacher = true
+                },
+                new SubjectClassTeacher
+                {
+                    Id = 2,
+                    SubjectClassId = 1,
+                    TeacherId = 2,
+                    IsMainTeacher = false
+                },
+                new SubjectClassTeacher
+                {
+                    Id = 3,
+                    SubjectClassId = 1,
+                    TeacherId = 2,
+                    IsMainTeacher = false
+                }
+            );
         }
 
         private static void SeedStudentExamResults(ModelBuilder modelBuilder)
@@ -341,7 +374,7 @@ namespace Schoolify.DataAccess.Configurations
             );
         }
 
-        private static void SeedStudentYearLevels(ModelBuilder modelBuilder)
+        private static void SeedEnrollments(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Enrollment>().HasData(
                 new Enrollment
@@ -350,6 +383,7 @@ namespace Schoolify.DataAccess.Configurations
                     StudentId = 1,
                     YearLevelId = 10,   // Grade 10
                     SchoolYearId = 1,
+                    SectionId = 1,
                     //FinalYearScore = 85.50m
                 },
                 new Enrollment
@@ -358,6 +392,7 @@ namespace Schoolify.DataAccess.Configurations
                     StudentId = 2,
                     YearLevelId = 10,
                     SchoolYearId = 1,
+                    SectionId = 1,
                     //FinalYearScore = 92.00m
                 },
                 new Enrollment
@@ -366,6 +401,7 @@ namespace Schoolify.DataAccess.Configurations
                     StudentId = 1,
                     YearLevelId = 11,   // next year example
                     SchoolYearId = 2,
+                    SectionId = 1,
                     //FinalYearScore = null // still in progress
                 }
             );
@@ -847,7 +883,7 @@ namespace Schoolify.DataAccess.Configurations
             );
         }
 
-        private static void SeedClasses(ModelBuilder modelBuilder)
+        private static void SeedSubjectClasses(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SubjectClass>().HasData(
                     new SubjectClass
@@ -856,6 +892,7 @@ namespace Schoolify.DataAccess.Configurations
                         NameEn = "Math - Grade 10 A",
                         NameAr = "رياضيات - الصف العاشر أ",
                         SubjectId = 1,
+                        SectionId = 1,
                         //TeacherId = 1,
                         TermId = 1,
                         MaxScore = 100.00m
@@ -867,6 +904,7 @@ namespace Schoolify.DataAccess.Configurations
         NameAr = "فيزياء - الصف العاشر أ",
         SubjectId = 2,
         //TeacherId = 1,
+        SectionId = 1,
         TermId = 1,
         MaxScore = 100.00m
     },
@@ -876,6 +914,7 @@ namespace Schoolify.DataAccess.Configurations
         NameEn = "English - Grade 10 A",
         NameAr = "إنجليزي - الصف العاشر أ",
         SubjectId = 3,
+        SectionId = 1,
         //TeacherId = 2,
         TermId = 1,
         MaxScore = 100.00m

@@ -58,10 +58,10 @@ namespace Schoolify.DataAccess.Configurations
 
             // Constraints
 
-            builder.HasCheckConstraint(
-                "CK_StudentYearLevel_Score",
-                "[FinalYearScore] IS NULL OR ([FinalYearScore] >= 0 AND [FinalYearScore] <= 100)"
-            );
+            //builder.HasCheckConstraint(
+            //    "CK_StudentYearLevel_Score",
+            //    "[FinalYearScore] IS NULL OR ([FinalYearScore] >= 0 AND [FinalYearScore] <= 100)"
+            //);
 
             // Prevent duplicate enrollment per year
             builder.HasIndex(sy => new

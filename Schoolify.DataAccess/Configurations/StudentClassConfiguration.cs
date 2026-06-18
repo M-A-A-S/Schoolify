@@ -50,7 +50,7 @@ namespace Schoolify.DataAccess.Configurations
             // Safety constraint
             builder.HasCheckConstraint(
                 "CK_StudentClass_Marks",
-                "[MarksObtained] IS NULL OR ([MarksObtained] >= 0 AND [MarksObtained] <= 100)"
+                "[FinalScore] IS NULL OR ([FinalScore] >= 0 AND [FinalScore] <= 100)"
             );
 
         }

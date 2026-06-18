@@ -12,7 +12,7 @@ using Schoolify.DataAccess.Data;
 namespace Schoolify.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260618162750_UpdateEntitiesAndRelationships")]
+    [Migration("20260618214348_UpdateEntitiesAndRelationships")]
     partial class UpdateEntitiesAndRelationships
     {
         /// <inheritdoc />
@@ -83,67 +83,67 @@ namespace Schoolify.DataAccess.Migrations
                         {
                             Id = 1,
                             ClassroomId = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(1),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3194),
                             DayOfWeek = 0,
                             IsDeleted = false,
                             PeriodId = 1,
                             SubjectClassTeacherId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(1)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3194)
                         },
                         new
                         {
                             Id = 2,
                             ClassroomId = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(2),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3195),
                             DayOfWeek = 0,
                             IsDeleted = false,
                             PeriodId = 2,
                             SubjectClassTeacherId = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(2)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3195)
                         },
                         new
                         {
                             Id = 3,
                             ClassroomId = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(3),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3196),
                             DayOfWeek = 1,
                             IsDeleted = false,
                             PeriodId = 3,
                             SubjectClassTeacherId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(4)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3197)
                         },
                         new
                         {
                             Id = 4,
                             ClassroomId = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(5),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3198),
                             DayOfWeek = 1,
                             IsDeleted = false,
                             PeriodId = 4,
                             SubjectClassTeacherId = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(5)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3198)
                         },
                         new
                         {
                             Id = 5,
                             ClassroomId = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(6),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3199),
                             DayOfWeek = 2,
                             IsDeleted = false,
                             PeriodId = 5,
                             SubjectClassTeacherId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(6)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3199)
                         },
                         new
                         {
                             Id = 6,
                             ClassroomId = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(7),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3200),
                             DayOfWeek = 2,
                             IsDeleted = false,
                             PeriodId = 6,
                             SubjectClassTeacherId = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(7)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3200)
                         });
                 });
 
@@ -198,67 +198,67 @@ namespace Schoolify.DataAccess.Migrations
                         {
                             Id = 1,
                             Capacity = 30,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9642),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2827),
                             IsDeleted = false,
                             NameAr = "الفصل A1",
                             NameEn = "Classroom A1",
                             RoomTypeId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9643)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2827)
                         },
                         new
                         {
                             Id = 2,
                             Capacity = 30,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9644),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2829),
                             IsDeleted = false,
                             NameAr = "الفصل A2",
                             NameEn = "Classroom A2",
                             RoomTypeId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9644)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2829)
                         },
                         new
                         {
                             Id = 3,
                             Capacity = 25,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9645),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2830),
                             IsDeleted = false,
                             NameAr = "معمل العلوم 1",
                             NameEn = "Science Lab 1",
                             RoomTypeId = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9646)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2830)
                         },
                         new
                         {
                             Id = 4,
                             Capacity = 25,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9647),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2831),
                             IsDeleted = false,
                             NameAr = "معمل الحاسوب 1",
                             NameEn = "Computer Lab 1",
                             RoomTypeId = 3,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9647)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2832)
                         },
                         new
                         {
                             Id = 5,
                             Capacity = 40,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9648),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2833),
                             IsDeleted = false,
                             NameAr = "المكتبة",
                             NameEn = "Library Room",
                             RoomTypeId = 4,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9648)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2833)
                         },
                         new
                         {
                             Id = 6,
                             Capacity = 100,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9649),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2834),
                             IsDeleted = false,
                             NameAr = "القاعة الكبرى",
                             NameEn = "Auditorium",
                             RoomTypeId = 5,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9650)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2834)
                         });
                 });
 
@@ -304,47 +304,47 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9678),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2862),
                             IsDeleted = false,
                             NameAr = "فصل دراسي",
                             NameEn = "Regular Classroom",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9678)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2863)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9680),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2864),
                             IsDeleted = false,
                             NameAr = "معمل علوم",
                             NameEn = "Science Laboratory",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9680)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2864)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9681),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2865),
                             IsDeleted = false,
                             NameAr = "معمل حاسوب",
                             NameEn = "Computer Lab",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9681)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2865)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9682),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2866),
                             IsDeleted = false,
                             NameAr = "مكتبة",
                             NameEn = "Library Room",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9682)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2866)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9683),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2867),
                             IsDeleted = false,
                             NameAr = "قاعة متعددة الاستخدام",
                             NameEn = "Auditorium",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9684)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2867)
                         });
                 });
 
@@ -390,38 +390,38 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9282),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2303),
                             IsDeleted = false,
                             NameAr = "العلوم",
                             NameEn = "Science",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9284)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2305)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9285),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2306),
                             IsDeleted = false,
                             NameAr = "اللغات",
                             NameEn = "Languages",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9285)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2306)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9286),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2307),
                             IsDeleted = false,
                             NameAr = "الدراسات الاجتماعية",
                             NameEn = "Social Studies",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9287)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2307)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9287),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2308),
                             IsDeleted = false,
                             NameAr = "الرياضيات",
                             NameEn = "Mathematics",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9288)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2308)
                         });
                 });
 
@@ -484,55 +484,52 @@ namespace Schoolify.DataAccess.Migrations
                     b.HasIndex("StudentId", "YearLevelId", "SchoolYearId", "SectionId")
                         .IsUnique();
 
-                    b.ToTable("Enrollments", t =>
-                        {
-                            t.HasCheckConstraint("CK_StudentYearLevel_Score", "[FinalYearScore] IS NULL OR ([FinalYearScore] >= 0 AND [FinalYearScore] <= 100)");
-                        });
+                    b.ToTable("Enrollments");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9907),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3072),
                             Discount = 0m,
                             IsDeleted = false,
                             NetFees = 0m,
                             SchoolYearId = 1,
-                            SectionId = 0,
+                            SectionId = 1,
                             Status = 0,
                             StudentId = 1,
                             TotalFees = 0m,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9908),
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3072),
                             YearLevelId = 10
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9909),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3073),
                             Discount = 0m,
                             IsDeleted = false,
                             NetFees = 0m,
                             SchoolYearId = 1,
-                            SectionId = 0,
+                            SectionId = 1,
                             Status = 0,
                             StudentId = 2,
                             TotalFees = 0m,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9909),
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3073),
                             YearLevelId = 10
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9910),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3074),
                             Discount = 0m,
                             IsDeleted = false,
                             NetFees = 0m,
                             SchoolYearId = 2,
-                            SectionId = 0,
+                            SectionId = 1,
                             Status = 0,
                             StudentId = 1,
                             TotalFees = 0m,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9910),
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3075),
                             YearLevelId = 11
                         });
                 });
@@ -588,26 +585,26 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(31),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3227),
                             Date = new DateTime(2026, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             MaxScore = 30m,
                             NameAr = "منتصف الفصل",
                             NameEn = "Midterm",
                             SubjectClassId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(31)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3227)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(33),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3229),
                             Date = new DateTime(2026, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             MaxScore = 70m,
                             NameAr = "النهائي",
                             NameEn = "Final",
                             SubjectClassId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(33)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3229)
                         });
                 });
 
@@ -660,23 +657,23 @@ namespace Schoolify.DataAccess.Migrations
                         {
                             Id = 1,
                             Amount = 500m,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(78),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3274),
                             FeeStructureId = 1,
                             IsDeleted = false,
                             NameAr = "الرسوم الدراسية",
                             NameEn = "Tuition Fee",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(79)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3274)
                         },
                         new
                         {
                             Id = 2,
                             Amount = 100m,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(80),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3276),
                             FeeStructureId = 1,
                             IsDeleted = false,
                             NameAr = "الكتب",
                             NameEn = "Books",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(80)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3276)
                         });
                 });
 
@@ -722,19 +719,19 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(55),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3249),
                             IsDeleted = false,
                             SchoolYearId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(55),
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3249),
                             YearLevelId = 1
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(56),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3250),
                             IsDeleted = false,
                             SchoolYearId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(56),
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3251),
                             YearLevelId = 2
                         });
                 });
@@ -801,7 +798,7 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9830),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3016),
                             EmailAddress = "mohamed.ali@email.com",
                             FirstName = "Mohamed",
                             ForthName = "Ahmed",
@@ -809,12 +806,12 @@ namespace Schoolify.DataAccess.Migrations
                             PhoneNumber = "0911111111",
                             SecondName = "Ali",
                             ThirdName = "Hassan",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9830)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3016)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9832),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3018),
                             EmailAddress = "fatima.ibrahim@email.com",
                             FirstName = "Fatima",
                             ForthName = "Youssef",
@@ -822,12 +819,12 @@ namespace Schoolify.DataAccess.Migrations
                             PhoneNumber = "0922222222",
                             SecondName = "Ibrahim",
                             ThirdName = "Omar",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9832)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3018)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9833),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3019),
                             EmailAddress = "abdullah.mahmoud@email.com",
                             FirstName = "Abdullah",
                             ForthName = "Ali",
@@ -835,7 +832,7 @@ namespace Schoolify.DataAccess.Migrations
                             PhoneNumber = "0933333333",
                             SecondName = "Mahmoud",
                             ThirdName = "Hassan",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9834)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3020)
                         });
                 });
 
@@ -881,29 +878,29 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9616),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2798),
                             IsDeleted = false,
                             NameAr = "الأب",
                             NameEn = "Father",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9616)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2798)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9617),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2800),
                             IsDeleted = false,
                             NameAr = "الأم",
                             NameEn = "Mother",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9618)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2800)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9619),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2801),
                             IsDeleted = false,
                             NameAr = "ولي أمر",
                             NameEn = "Guardian",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9619)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2801)
                         });
                 });
 
@@ -957,25 +954,25 @@ namespace Schoolify.DataAccess.Migrations
                         {
                             Id = 1,
                             Amount = 300m,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(105),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3300),
                             DueDate = new DateOnly(2026, 1, 1),
                             EnrollmentId = 1,
                             InstallmentNumber = 1,
                             IsDeleted = false,
                             Status = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(105)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3301)
                         },
                         new
                         {
                             Id = 2,
                             Amount = 300m,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(107),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3303),
                             DueDate = new DateOnly(2026, 3, 1),
                             EnrollmentId = 1,
                             InstallmentNumber = 2,
                             IsDeleted = false,
                             Status = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(107)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3303)
                         });
                 });
 
@@ -1032,13 +1029,13 @@ namespace Schoolify.DataAccess.Migrations
                         {
                             Id = 1,
                             AmountPaid = 300m,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(129),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3326),
                             InstallmentId = 1,
                             IsDeleted = false,
                             PaymentDate = new DateTime(2026, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PaymentMethod = 1,
                             ReceiptNumber = "R-1001",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(129)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3326)
                         });
                 });
 
@@ -1095,86 +1092,86 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9574),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2751),
                             EndTime = new TimeSpan(0, 8, 45, 0, 0),
                             IsDeleted = false,
                             NameAr = "الحصة الأولى",
                             NameEn = "Period 1",
                             SchoolYearId = 1,
                             StartTime = new TimeSpan(0, 8, 0, 0, 0),
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9574)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2751)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9577),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2754),
                             EndTime = new TimeSpan(0, 9, 30, 0, 0),
                             IsDeleted = false,
                             NameAr = "الحصة الثانية",
                             NameEn = "Period 2",
                             SchoolYearId = 1,
                             StartTime = new TimeSpan(0, 8, 45, 0, 0),
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9577)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2755)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9579),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2756),
                             EndTime = new TimeSpan(0, 10, 15, 0, 0),
                             IsDeleted = false,
                             NameAr = "الحصة الثالثة",
                             NameEn = "Period 3",
                             SchoolYearId = 1,
                             StartTime = new TimeSpan(0, 9, 30, 0, 0),
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9579)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2756)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9580),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2758),
                             EndTime = new TimeSpan(0, 10, 45, 0, 0),
                             IsDeleted = false,
                             NameAr = "الفسحة",
                             NameEn = "Break",
                             SchoolYearId = 1,
                             StartTime = new TimeSpan(0, 10, 15, 0, 0),
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9580)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2758)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9582),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2759),
                             EndTime = new TimeSpan(0, 11, 30, 0, 0),
                             IsDeleted = false,
                             NameAr = "الحصة الرابعة",
                             NameEn = "Period 4",
                             SchoolYearId = 1,
                             StartTime = new TimeSpan(0, 10, 45, 0, 0),
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9582)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2759)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9583),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2761),
                             EndTime = new TimeSpan(0, 12, 15, 0, 0),
                             IsDeleted = false,
                             NameAr = "الحصة الخامسة",
                             NameEn = "Period 5",
                             SchoolYearId = 1,
                             StartTime = new TimeSpan(0, 11, 30, 0, 0),
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9584)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2761)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9585),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2762),
                             EndTime = new TimeSpan(0, 13, 0, 0, 0),
                             IsDeleted = false,
                             NameAr = "الحصة السادسة",
                             NameEn = "Period 6",
                             SchoolYearId = 1,
                             StartTime = new TimeSpan(0, 12, 15, 0, 0),
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9585)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2763)
                         });
                 });
 
@@ -1220,29 +1217,29 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9461),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2613),
                             IsDeleted = false,
                             NameAr = "الابتدائية",
                             NameEn = "Primary",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9461)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2613)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9462),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2614),
                             IsDeleted = false,
                             NameAr = "المتوسطة",
                             NameEn = "Middle",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9463)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2614)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9464),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2615),
                             IsDeleted = false,
                             NameAr = "الثانوية",
                             NameEn = "Secondary",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9464)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2615)
                         });
                 });
 
@@ -1294,24 +1291,24 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9967),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3139),
                             EndDate = new DateOnly(2025, 6, 30),
                             IsDeleted = false,
                             NameAr = "العام الدراسي 2024-2025",
                             NameEn = "2024-2025",
                             StartDate = new DateOnly(2024, 9, 1),
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9968)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3139)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9970),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3142),
                             EndDate = new DateOnly(2026, 6, 30),
                             IsDeleted = false,
                             NameAr = "العام الدراسي 2025-2026",
                             NameEn = "2025-2026",
                             StartDate = new DateOnly(2025, 9, 1),
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9970)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3142)
                         });
                 });
 
@@ -1366,52 +1363,52 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9934),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3104),
                             Grade = "A",
                             IsDeleted = false,
                             MaxScore = 100m,
                             MinScore = 90m,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9934)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3105)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9936),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3108),
                             Grade = "B",
                             IsDeleted = false,
                             MaxScore = 89.99m,
                             MinScore = 80m,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9937)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3108)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9938),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3109),
                             Grade = "C",
                             IsDeleted = false,
                             MaxScore = 79.99m,
                             MinScore = 70m,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9938)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3110)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9939),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3111),
                             Grade = "D",
                             IsDeleted = false,
                             MaxScore = 69.99m,
                             MinScore = 60m,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9939)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3111)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9941),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3112),
                             Grade = "F",
                             IsDeleted = false,
                             MaxScore = 59.99m,
                             MinScore = 0m,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9941)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3112)
                         });
                 });
 
@@ -1460,21 +1457,21 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(155),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2643),
                             IsDeleted = false,
                             NameAr = "أ",
                             NameEn = "A",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(155),
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2643),
                             YearLevelId = 1
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(157),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2644),
                             IsDeleted = false,
                             NameAr = "ب",
                             NameEn = "B",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(157),
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2645),
                             YearLevelId = 1
                         });
                 });
@@ -1540,7 +1537,7 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9759),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2941),
                             DateOfBirth = new DateOnly(2010, 5, 10),
                             EnrolmentDate = new DateOnly(2025, 9, 1),
                             FirstName = "Ali",
@@ -1549,12 +1546,12 @@ namespace Schoolify.DataAccess.Migrations
                             IsDeleted = false,
                             SecondName = "Mohamed",
                             ThirdName = "Hassan",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9759)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2941)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9766),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2949),
                             DateOfBirth = new DateOnly(2011, 8, 15),
                             EnrolmentDate = new DateOnly(2025, 9, 1),
                             FirstName = "Sara",
@@ -1563,12 +1560,12 @@ namespace Schoolify.DataAccess.Migrations
                             IsDeleted = false,
                             SecondName = "Ibrahim",
                             ThirdName = "Omar",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9766)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2949)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9768),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2951),
                             DateOfBirth = new DateOnly(2009, 12, 20),
                             EnrolmentDate = new DateOnly(2024, 9, 1),
                             FirstName = "Omar",
@@ -1577,7 +1574,7 @@ namespace Schoolify.DataAccess.Migrations
                             IsDeleted = false,
                             SecondName = "Ali",
                             ThirdName = "Mahmoud",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9769)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2951)
                         });
                 });
 
@@ -1636,14 +1633,14 @@ namespace Schoolify.DataAccess.Migrations
                         {
                             Id = 1,
                             CalculatedAt = new DateTime(2026, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(178),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3352),
                             EnrollmentId = 1,
                             GradeLetter = "A",
                             IsDeleted = false,
                             IsPassed = true,
                             MaxMarks = 100m,
                             TotalMarks = 85m,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(178)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3352)
                         });
                 });
 
@@ -1689,68 +1686,68 @@ namespace Schoolify.DataAccess.Migrations
 
                     b.ToTable("StudentClasses", t =>
                         {
-                            t.HasCheckConstraint("CK_StudentClass_Marks", "[MarksObtained] IS NULL OR ([MarksObtained] >= 0 AND [MarksObtained] <= 100)");
+                            t.HasCheckConstraint("CK_StudentClass_Marks", "[FinalScore] IS NULL OR ([FinalScore] >= 0 AND [FinalScore] <= 100)");
                         });
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9796),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2979),
                             FinalScore = 85.50m,
                             IsDeleted = false,
                             StudentId = 1,
                             SubjectClassId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9796)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2979)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9797),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2980),
                             FinalScore = 78.00m,
                             IsDeleted = false,
                             StudentId = 1,
                             SubjectClassId = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9798)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2981)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9799),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2982),
                             FinalScore = 92.00m,
                             IsDeleted = false,
                             StudentId = 2,
                             SubjectClassId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9799)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2982)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9800),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2983),
                             FinalScore = 88.50m,
                             IsDeleted = false,
                             StudentId = 2,
                             SubjectClassId = 3,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9800)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2983)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9801),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2984),
                             FinalScore = 74.00m,
                             IsDeleted = false,
                             StudentId = 3,
                             SubjectClassId = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9802)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2985)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9803),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2986),
                             IsDeleted = false,
                             StudentId = 3,
                             SubjectClassId = 3,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9803)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2986)
                         });
                 });
 
@@ -1799,22 +1796,22 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(202),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3375),
                             ExamId = 1,
                             IsDeleted = false,
                             MarksObtained = 25m,
                             StudentId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(202)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3375)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(204),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3376),
                             ExamId = 2,
                             IsDeleted = false,
                             MarksObtained = 60m,
                             StudentId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 330, DateTimeKind.Utc).AddTicks(204)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3376)
                         });
                 });
 
@@ -1866,42 +1863,42 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9856),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3045),
                             GuardianId = 1,
                             GuardianTypeId = 1,
                             IsDeleted = false,
                             StudentId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9857)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3046)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9858),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3046),
                             GuardianId = 2,
                             GuardianTypeId = 2,
                             IsDeleted = false,
                             StudentId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9858)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3047)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9859),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3048),
                             GuardianId = 1,
                             GuardianTypeId = 1,
                             IsDeleted = false,
                             StudentId = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9859)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3048)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9860),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3049),
                             GuardianId = 2,
                             GuardianTypeId = 2,
                             IsDeleted = false,
                             StudentId = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9860)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3049)
                         });
                 });
 
@@ -1952,72 +1949,72 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9415),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2542),
                             DepartmentId = 1,
                             IsDeleted = false,
                             NameAr = "الرياضيات",
                             NameEn = "Mathematics",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9416)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2543)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9417),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2544),
                             DepartmentId = 1,
                             IsDeleted = false,
                             NameAr = "الفيزياء",
                             NameEn = "Physics",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9417)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2544)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9419),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2546),
                             DepartmentId = 1,
                             IsDeleted = false,
                             NameAr = "الكيمياء",
                             NameEn = "Chemistry",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9419)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2546)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9420),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2547),
                             DepartmentId = 2,
                             IsDeleted = false,
                             NameAr = "اللغة الإنجليزية",
                             NameEn = "English",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9420)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2547)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9421),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2548),
                             DepartmentId = 2,
                             IsDeleted = false,
                             NameAr = "اللغة العربية",
                             NameEn = "Arabic",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9422)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2549)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9423),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2550),
                             DepartmentId = 3,
                             IsDeleted = false,
                             NameAr = "التاريخ",
                             NameEn = "History",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9423)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2550)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9430),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2551),
                             DepartmentId = 3,
                             IsDeleted = false,
                             NameAr = "الجغرافيا",
                             NameEn = "Geography",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9430)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2551)
                         });
                 });
 
@@ -2080,41 +2077,41 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9721),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2901),
                             IsDeleted = false,
                             MaxScore = 100.00m,
                             NameAr = "رياضيات - الصف العاشر أ",
                             NameEn = "Math - Grade 10 A",
-                            SectionId = 0,
+                            SectionId = 1,
                             SubjectId = 1,
                             TermId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9721)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2901)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9725),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2905),
                             IsDeleted = false,
                             MaxScore = 100.00m,
                             NameAr = "فيزياء - الصف العاشر أ",
                             NameEn = "Physics - Grade 10 A",
-                            SectionId = 0,
+                            SectionId = 1,
                             SubjectId = 2,
                             TermId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9725)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2905)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9727),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2907),
                             IsDeleted = false,
                             MaxScore = 100.00m,
                             NameAr = "إنجليزي - الصف العاشر أ",
                             NameEn = "English - Grade 10 A",
-                            SectionId = 0,
+                            SectionId = 1,
                             SubjectId = 3,
                             TermId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9727)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2907)
                         });
                 });
 
@@ -2158,6 +2155,38 @@ namespace Schoolify.DataAccess.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("SubjectClassTeachers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3168),
+                            IsDeleted = false,
+                            IsMainTeacher = true,
+                            SubjectClassId = 1,
+                            TeacherId = 1,
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3169)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3171),
+                            IsDeleted = false,
+                            IsMainTeacher = false,
+                            SubjectClassId = 1,
+                            TeacherId = 2,
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3171)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3172),
+                            IsDeleted = false,
+                            IsMainTeacher = false,
+                            SubjectClassId = 1,
+                            TeacherId = 2,
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(3172)
+                        });
                 });
 
             modelBuilder.Entity("Schoolify.Common.Models.Teacher", b =>
@@ -2228,7 +2257,7 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9882),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2583),
                             EmailAddress = "ahmed.ali@schoolify.com",
                             FirstName = "Ahmed",
                             ForthName = "Mohamed",
@@ -2238,12 +2267,12 @@ namespace Schoolify.DataAccess.Migrations
                             PhoneNumber = "0912345678",
                             SecondName = "Ali",
                             ThirdName = "Hassan",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9882)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2584)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9884),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2586),
                             EmailAddress = "sara.ibrahim@schoolify.com",
                             FirstName = "Sara",
                             ForthName = "Yusuf",
@@ -2253,7 +2282,7 @@ namespace Schoolify.DataAccess.Migrations
                             PhoneNumber = "0923456789",
                             SecondName = "Ibrahim",
                             ThirdName = "Omar",
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9884)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2586)
                         });
                 });
 
@@ -2311,7 +2340,7 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9541),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2720),
                             EndDate = new DateTime(2025, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             NameAr = "الفصل الدراسي الأول",
@@ -2319,12 +2348,12 @@ namespace Schoolify.DataAccess.Migrations
                             SchoolYearId = 1,
                             StartDate = new DateTime(2025, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TermNumber = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9541)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2720)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9545),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2723),
                             EndDate = new DateTime(2026, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             NameAr = "الفصل الدراسي الثاني",
@@ -2332,7 +2361,7 @@ namespace Schoolify.DataAccess.Migrations
                             SchoolYearId = 1,
                             StartDate = new DateTime(2026, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TermNumber = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9545)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2724)
                         });
                 });
 
@@ -2386,134 +2415,134 @@ namespace Schoolify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9494),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2673),
                             IsDeleted = false,
                             LevelOrder = 1,
                             NameAr = "الصف الأول",
                             NameEn = "Grade 1",
                             SchoolStageId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9495)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2673)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9497),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2676),
                             IsDeleted = false,
                             LevelOrder = 2,
                             NameAr = "الصف الثاني",
                             NameEn = "Grade 2",
                             SchoolStageId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9497)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2676)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9498),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2677),
                             IsDeleted = false,
                             LevelOrder = 3,
                             NameAr = "الصف الثالث",
                             NameEn = "Grade 3",
                             SchoolStageId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9499)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2678)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9500),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2679),
                             IsDeleted = false,
                             LevelOrder = 4,
                             NameAr = "الصف الرابع",
                             NameEn = "Grade 4",
                             SchoolStageId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9500)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2679)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9502),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2681),
                             IsDeleted = false,
                             LevelOrder = 5,
                             NameAr = "الصف الخامس",
                             NameEn = "Grade 5",
                             SchoolStageId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9502)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2681)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9504),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2682),
                             IsDeleted = false,
                             LevelOrder = 6,
                             NameAr = "الصف السادس",
                             NameEn = "Grade 6",
                             SchoolStageId = 1,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9504)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2682)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9505),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2684),
                             IsDeleted = false,
                             LevelOrder = 1,
                             NameAr = "الصف السابع",
                             NameEn = "Grade 7",
                             SchoolStageId = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9506)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2684)
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9507),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2685),
                             IsDeleted = false,
                             LevelOrder = 2,
                             NameAr = "الصف الثامن",
                             NameEn = "Grade 8",
                             SchoolStageId = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9507)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2686)
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9509),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2687),
                             IsDeleted = false,
                             LevelOrder = 3,
                             NameAr = "الصف التاسع",
                             NameEn = "Grade 9",
                             SchoolStageId = 2,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9509)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2687)
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9510),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2689),
                             IsDeleted = false,
                             LevelOrder = 1,
                             NameAr = "الصف العاشر",
                             NameEn = "Grade 10",
                             SchoolStageId = 3,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9511)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2689)
                         },
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9512),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2690),
                             IsDeleted = false,
                             LevelOrder = 2,
                             NameAr = "الصف الحادي عشر",
                             NameEn = "Grade 11",
                             SchoolStageId = 3,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9512)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2691)
                         },
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9514),
+                            CreatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2692),
                             IsDeleted = false,
                             LevelOrder = 3,
                             NameAr = "الصف الثاني عشر",
                             NameEn = "Grade 12",
                             SchoolStageId = 3,
-                            UpdatedAt = new DateTime(2026, 6, 18, 16, 27, 46, 329, DateTimeKind.Utc).AddTicks(9514)
+                            UpdatedAt = new DateTime(2026, 6, 18, 21, 43, 47, 197, DateTimeKind.Utc).AddTicks(2692)
                         });
                 });
 
