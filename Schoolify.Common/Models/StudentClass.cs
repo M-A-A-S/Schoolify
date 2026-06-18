@@ -8,10 +8,11 @@ namespace Schoolify.Common.Models
 {
     public class StudentClass : BaseEntity
     {
-        public int ClassId { get; set; }
+        public int SubjectClassId { get; set; }
         public int StudentId { get; set; }
-        public decimal? MarksObtained { get; set; } // The actual grade earned
+        //public decimal? MarksObtained { get; set; } // The actual grade earned
+        public decimal? FinalScore { get; set; }
         public Student Student { get; set; }
-        public Class Class { get; set; }
+        public SubjectClass SubjectClass { get; set; }
     }
 }

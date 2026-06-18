@@ -13,8 +13,9 @@ namespace Schoolify.Common.Models
         public DateOnly StartDate { get; set; }
         public DateOnly EndDate { get; set; }
 
-        public ICollection<Term> Terms { get; set; }
-        public ICollection<Period> Periods { get; set; }
-        public ICollection<StudentYearLevel> StudentYearLevels { get; set; }
+        public ICollection<Term> Terms { get; set; } = new List<Term>();
+        public ICollection<Period> Periods { get; set; } = new List<Period>();
+        public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+        public ICollection<FeeStructure> FeeStructures { get; set; } = new List<FeeStructure>();
     }
 }

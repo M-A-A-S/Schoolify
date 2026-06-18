@@ -17,7 +17,7 @@ namespace Schoolify.DataAccess.Configurations
             builder.HasKey(sc => sc.Id);
 
             // Properties
-            builder.Property(sc => sc.MarksObtained)
+            builder.Property(sc => sc.FinalScore)
                 .HasColumnType("decimal(5,2)");
 
             builder.Property("CreatedAt")
@@ -34,17 +34,17 @@ namespace Schoolify.DataAccess.Configurations
                 .HasForeignKey(sc => sc.StudentId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // StudentClass -> Class (One-to-Many)
-            builder.HasOne(sc => sc.Class)
+            // StudentClass -> SubjectClass (One-to-Many)
+            builder.HasOne(sc => sc.SubjectClass)
                 .WithMany(c => c.StudentClasses)
-                .HasForeignKey(sc => sc.ClassId)
+                .HasForeignKey(sc => sc.SubjectClassId)
                 .OnDelete(DeleteBehavior.Cascade);
 
 
             // Constraints
 
             // Prevent duplicate enrollment
-            builder.HasIndex(sc => new { sc.StudentId, sc.ClassId })
+            builder.HasIndex(sc => new { sc.StudentId, sc.SubjectClassId })
                 .IsUnique();
 
             // Safety constraint

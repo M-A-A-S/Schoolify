@@ -10,9 +10,10 @@
 
     <!-- Class -->
     <div class="mb-3 col-md-6">
-        <label asp-for="ClassSchedule.ClassId" class="form-label"></label>
+        @* <label asp-for="ClassSchedule.ClassId" class="form-label"></label> *@
+        <label asp-for="ClassSchedule.SubjectClassTeacher.SubjectClassId" class="form-label"></label>
 
-        <select asp-for="ClassSchedule.ClassId"
+        <select asp-for="ClassSchedule.SubjectClassTeacher.SubjectClassId"
                 class="form-control"
                 asp-items="@(Model?.Classes?.Select(t => new SelectListItem
                 {
@@ -28,7 +29,7 @@
 
         </select>
 
-        <span asp-validation-for="ClassSchedule.ClassId" class="text-danger"></span>
+        <span asp-validation-for="ClassSchedule.SubjectClassTeacher.SubjectClassId" class="text-danger"></span>
     </div>
 
     <!-- Period -->

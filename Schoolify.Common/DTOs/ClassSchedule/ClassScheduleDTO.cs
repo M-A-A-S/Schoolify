@@ -1,6 +1,7 @@
 ﻿using Schoolify.Common.DTOs.Class;
 using Schoolify.Common.DTOs.Classroom;
 using Schoolify.Common.DTOs.Period;
+using Schoolify.Common.DTOs.SubjectClassTeacher;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,14 +15,22 @@ namespace Schoolify.Common.DTOs.ClassSchedule
     {
         public int Id { get; set; }
 
-        [Display(Name = nameof(Resources.SharedResource.Class),
+//        [Display(Name = nameof(Resources.SharedResource.Class),
+//ResourceType = typeof(Resources.SharedResource)
+//)]
+//        [Required(
+//ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
+//ErrorMessageResourceType = typeof(Resources.SharedResource)
+//)]
+//        public int ClassId { get; set; }
+        [Display(Name = nameof(Resources.SharedResource.SubjectClassTeacher),
 ResourceType = typeof(Resources.SharedResource)
 )]
         [Required(
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public int ClassId { get; set; }
+        public int SubjectClassTeacherId { get; set; }
 
         [Display(Name = nameof(Resources.SharedResource.Period),
 ResourceType = typeof(Resources.SharedResource)
@@ -50,7 +59,8 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
 
         public DayOfWeek DayOfWeek { get; set; } // C# built-in enum for days of the week
 
-        public ClassDTO? Class { get; set; }
+        //public SubjectClassDTO? Class { get; set; }
+        public SubjectClassTeacherDTO? SubjectClassTeacher { get; set; }
         public PeriodDTO? Period { get; set; }
         public ClassroomDTO? Classroom { get; set; }
     }

@@ -17,8 +17,9 @@ namespace Schoolify.Common.Models
         public DateOnly EnrolmentDate { get; set; }
         public Gender Gender { get; set; }
 
-        public ICollection<StudentGuardian> StudentGuardians { get; set; }
-        public ICollection<StudentClass> StudentClasses { get; set; }
-        public ICollection<StudentYearLevel> StudentYearLevels { get; set; }
+        public ICollection<StudentGuardian> StudentGuardians { get; set; } = new List<StudentGuardian>();
+        public ICollection<StudentClass> StudentClasses { get; set; } = new List<StudentClass>();
+        public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+        public ICollection<StudentExamResult> StudentExamResults { get; set; } = new List<StudentExamResult>();
     }
 }

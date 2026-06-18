@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Schoolify.Common.DTOs.StudentYearLevel
 {
-    public class StudentYearLevelDTO
+    public class EnrollmentDTO
     {
         public int Id { get; set; }
 
@@ -38,9 +38,9 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
         public int SchoolYearId { get; set; }
 
-        [Display(Name = nameof(Resources.SharedResource.FinalYearScore),
-ResourceType = typeof(Resources.SharedResource)
-)]
-        public decimal? FinalYearScore { get; set; }
+//        [Display(Name = nameof(Resources.SharedResource.FinalYearScore),
+//ResourceType = typeof(Resources.SharedResource)
+//)]
+        //public decimal? FinalYearScore { get; set; }
     }
 }

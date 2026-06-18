@@ -18,6 +18,7 @@ namespace Schoolify.Common.Models
         public string PhoneNumber { get; set; }
         public string EmailAddress { get; set; }
 
-        public ICollection<Class> Classes { get; set; }
+        public ICollection<SubjectClassTeacher> SubjectClassTeachers { get; set; } = new List<SubjectClassTeacher>();
+        //public ICollection<SubjectClass> SubjectClasses { get; set; } = new List<SubjectClass>();
     }
 }

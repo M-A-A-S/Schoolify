@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 
 namespace Schoolify.DataAccess.Configurations
 {
-    public class ClassConfiguration : IEntityTypeConfiguration<Class>
+    public class SubjectClassConfiguration : IEntityTypeConfiguration<SubjectClass>
     {
-        public void Configure(EntityTypeBuilder<Class> builder)
+        public void Configure(EntityTypeBuilder<SubjectClass> builder)
         {
+            // Table name
+            builder.ToTable("SubjectClasses");
+
             // Primary Key
             builder.HasKey(c => c.Id);
 
@@ -36,29 +39,45 @@ namespace Schoolify.DataAccess.Configurations
 
             // Relationships
 
-            // Class -> Subject (One-to-Many)
+            // SubjectClass -> Subject (One-to-Many)
             builder.HasOne(c => c.Subject)
-                .WithMany()
+                .WithMany(s => s.SubjectClasses)
                 .HasForeignKey(c => c.SubjectId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Class -> Teacher (Many-to-One)
-            builder.HasOne(c => c.Teacher)
-                .WithMany()
+            // SubjectClass -> Teacher (Many-to-One)
+            builder.HasMany(c => c.SubjectClassTeachers)
+                .WithOne(t => t.SubjectClass)
                 .HasForeignKey(c => c.TeacherId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Class -> Term (Many-to-One)
+            // SubjectClass -> Term (Many-to-One)
             builder.HasOne(c => c.Term)
-                .WithMany(t => t.Classes)
+                .WithMany(t => t.SubjectClasses)
                 .HasForeignKey(c => c.TermId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Class -> StudentClasses (One-to-Many)
+            // SubjectClass -> StudentClasses (One-to-Many)
             builder.HasMany(c => c.StudentClasses)
-                .WithOne()
-                .HasForeignKey(sc => sc.ClassId) 
+                .WithOne(sc => sc.SubjectClass)
+                .HasForeignKey(sc => sc.SubjectClassId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // SubjectClass -> Section (Many-to-One)
+            builder.HasOne(x => x.Section)
+            .WithMany(s => s.SubjectClasses)
+            .HasForeignKey(x => x.SectionId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+
+            builder.HasIndex(x => new
+            {
+                x.SubjectId,
+                //x.TeacherId,
+                x.TermId,
+                x.SectionId
+            })
+            .IsUnique(); // prevents duplicate class offerings
 
         }
     }

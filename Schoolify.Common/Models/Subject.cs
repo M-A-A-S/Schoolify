@@ -13,5 +13,6 @@ namespace Schoolify.Common.Models
         public string NameAr { get; set; }  // مثل: "الكيمياء"
 
         public Department Department { get; set; }
+        public ICollection<SubjectClass> SubjectClasses { get; set; } = new List<SubjectClass>();
     }
 }

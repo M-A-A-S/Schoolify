@@ -12,9 +12,12 @@
     <div class="col-md-6">
         <label class="fw-bold">@Localizer["Class"]</label>
         <div>
-            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+            @* @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
                         ? @Model?.Class?.NameAr
-                        : @Model?.Class?.NameEn)
+                        : @Model?.Class?.NameEn) *@
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.SubjectClassTeacher?.SubjectClass?.NameAr
+                        : @Model?.SubjectClassTeacher?.SubjectClass?.NameEn)
         </div>
     </div>
 

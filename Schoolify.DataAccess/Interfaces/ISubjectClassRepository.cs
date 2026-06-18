@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Schoolify.DataAccess.Interfaces
 {
-    public interface IClassRepository : IRepository<Class>
+    public interface ISubjectClassRepository : IRepository<SubjectClass>
     {
     }
 }

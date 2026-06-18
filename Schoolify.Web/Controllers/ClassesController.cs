@@ -143,7 +143,7 @@ namespace Schoolify.Web.Controllers
         #endregion
 
         #region Private Helpers    
-        public async Task<ClassUpsertDTO> BuildViewModel(ClassDTO? dto = null)
+        public async Task<ClassUpsertDTO> BuildViewModel(SubjectClassDTO? dto = null)
         {
             var subjects = await _subjectService.GetAllAsync();
             var teachers = await _teacherService.GetAllAsync();
@@ -153,7 +153,7 @@ namespace Schoolify.Web.Controllers
 
             return new ClassUpsertDTO
             {
-                Class = dto ?? new ClassDTO(),
+                Class = dto ?? new SubjectClassDTO(),
                 Subjects = subjects.Data ?? [],
                 Teachers = teachers.Data ?? [],
                 Terms = terms.Data ?? []

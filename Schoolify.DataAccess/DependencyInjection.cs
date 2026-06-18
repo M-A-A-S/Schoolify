@@ -25,7 +25,7 @@ namespace Schoolify.DataAccess
             services.AddScoped<IYearLevelRepository, YearLevelRepository>();
             services.AddScoped<ITermRepository, TermRepository>();
             services.AddScoped<IPeriodRepository, PeriodRepository>();
-            services.AddScoped<IClassRepository, ClassRepository>();
+            services.AddScoped<ISubjectClassRepository, SubjectClassRepository>();
             services.AddScoped<IClassroomRepository, ClassroomRepository>();
             services.AddScoped<IClassroomTypeRepository, ClassroomTypeRepository>();
             services.AddScoped<IClassScheduleRepository, ClassScheduleRepository>();

@@ -32,8 +32,176 @@ namespace Schoolify.DataAccess.Configurations
             SeedScoreRanges(modelBuilder);
             SeedSchoolYears(modelBuilder);
             SeedClassSchedules(modelBuilder);
+            SeedExams(modelBuilder);
+            SeedFeeStructures(modelBuilder);
+            SeedFeeItems(modelBuilder);
+            SeedInstallments(modelBuilder);
+            SeedPayments(modelBuilder);
+            SeedSections(modelBuilder);
+            SeedStudentAcademicRecords(modelBuilder);
+            SeedStudentExamResults(modelBuilder);
         }
-        
+
+        private static void SeedStudentExamResults(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<StudentExamResult>().HasData(
+                new StudentExamResult
+                {
+                    Id = 1,
+                    ExamId = 1,
+                    StudentId = 1,
+                    MarksObtained = 25
+                },
+                new StudentExamResult
+                {
+                    Id = 2,
+                    ExamId = 2,
+                    StudentId = 1,
+                    MarksObtained = 60
+                }
+            );
+        }
+
+        private static void SeedStudentAcademicRecords(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<StudentAcademicRecord>().HasData(
+                new StudentAcademicRecord
+                {
+                    Id = 1,
+                    EnrollmentId = 1,
+                    TotalMarks = 85,
+                    MaxMarks = 100,
+                    GradeLetter = "A",
+                    IsPassed = true,
+                    CalculatedAt = new DateTime(2026, 6, 1)
+                }
+            );
+        }
+
+        private static void SeedSections(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Section>().HasData(
+                new Section
+                {
+                    Id = 1,
+                    YearLevelId = 1,
+                    NameEn = "A",
+                    NameAr = "أ"
+                },
+                new Section
+                {
+                    Id = 2,
+                    YearLevelId = 1,
+                    NameEn = "B",
+                    NameAr = "ب"
+                }
+            );
+        }
+
+        private static void SeedPayments(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Payment>().HasData(
+                new Payment
+                {
+                    Id = 1,
+                    InstallmentId = 1,
+                    AmountPaid = 300,
+                    PaymentDate = new DateTime(2026, 1, 5),
+                    PaymentMethod = PaymentMethod.Cash,
+                    ReceiptNumber = "R-1001",
+                    TransactionReference = null
+                }
+            );
+        }
+
+        private static void SeedInstallments(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Installment>().HasData(
+                new Installment
+                {
+                    Id = 1,
+                    EnrollmentId = 1,
+                    InstallmentNumber = 1,
+                    Amount = 300,
+                    DueDate = new DateOnly(2026, 1, 1),
+                    Status = InstallmentStatus.Pending
+                },
+                new Installment
+                {
+                    Id = 2,
+                    EnrollmentId = 1,
+                    InstallmentNumber = 2,
+                    Amount = 300,
+                    DueDate = new DateOnly(2026, 3, 1),
+                    Status = InstallmentStatus.Pending
+                }
+            );
+        }
+
+        private static void SeedFeeItems(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FeeItem>().HasData(
+                new FeeItem
+                {
+                    Id = 1,
+                    FeeStructureId = 1,
+                    NameEn = "Tuition Fee",
+                    NameAr = "الرسوم الدراسية",
+                    Amount = 500
+                },
+                new FeeItem
+                {
+                    Id = 2,
+                    FeeStructureId = 1,
+                    NameEn = "Books",
+                    NameAr = "الكتب",
+                    Amount = 100
+                }
+            );
+        }
+
+        private static void SeedFeeStructures(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FeeStructure>().HasData(
+                new FeeStructure
+                {
+                    Id = 1,
+                    SchoolYearId = 1,
+                    YearLevelId = 1
+                },
+                new FeeStructure
+                {
+                    Id = 2,
+                    SchoolYearId = 1,
+                    YearLevelId = 2
+                }
+            );
+        }
+
+        private static void SeedExams(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Exam>().HasData(
+                new Exam
+                {
+                    Id = 1,
+                    SubjectClassId = 1,
+                    NameEn = "Midterm",
+                    NameAr = "منتصف الفصل",
+                    MaxScore = 30,
+                    Date = new DateTime(2026, 3, 15)
+                },
+                new Exam
+                {
+                    Id = 2,
+                    SubjectClassId = 1,
+                    NameEn = "Final",
+                    NameAr = "النهائي",
+                    MaxScore = 70,
+                    Date = new DateTime(2026, 6, 10)
+                }
+            );
+        }
+
         private static void SeedYearLevels(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<YearLevel>().HasData(
@@ -65,6 +233,8 @@ namespace Schoolify.DataAccess.Configurations
                 {
                     Id = 1,
                     TermNumber = 1,
+                    NameEn = "Term 1",
+                    NameAr = "الفصل الدراسي الأول",
                     StartDate = new DateTime(2025, 9, 1),
                     EndDate = new DateTime(2025, 12, 31),
                     SchoolYearId = 1
@@ -75,6 +245,8 @@ namespace Schoolify.DataAccess.Configurations
                 {
                     Id = 2,
                     TermNumber = 2,
+                    NameEn = "Term 2",
+                    NameAr = "الفصل الدراسي الثاني",
                     StartDate = new DateTime(2026, 1, 15),
                     EndDate = new DateTime(2026, 5, 31),
                     SchoolYearId = 1
@@ -171,30 +343,30 @@ namespace Schoolify.DataAccess.Configurations
 
         private static void SeedStudentYearLevels(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<StudentYearLevel>().HasData(
-                new StudentYearLevel
+            modelBuilder.Entity<Enrollment>().HasData(
+                new Enrollment
                 {
                     Id = 1,
                     StudentId = 1,
                     YearLevelId = 10,   // Grade 10
                     SchoolYearId = 1,
-                    FinalYearScore = 85.50m
+                    //FinalYearScore = 85.50m
                 },
-                new StudentYearLevel
+                new Enrollment
                 {
                     Id = 2,
                     StudentId = 2,
                     YearLevelId = 10,
                     SchoolYearId = 1,
-                    FinalYearScore = 92.00m
+                    //FinalYearScore = 92.00m
                 },
-                new StudentYearLevel
+                new Enrollment
                 {
                     Id = 3,
                     StudentId = 1,
                     YearLevelId = 11,   // next year example
                     SchoolYearId = 2,
-                    FinalYearScore = null // still in progress
+                    //FinalYearScore = null // still in progress
                 }
             );
         }
@@ -532,7 +704,8 @@ namespace Schoolify.DataAccess.Configurations
     new ClassSchedule
     {
         Id = 1,
-        ClassId = 1,
+        //ClassId = 1,
+        SubjectClassTeacherId = 1,
         PeriodId = 1,
         ClassroomId = 1,
         DayOfWeek = DayOfWeek.Sunday
@@ -540,7 +713,7 @@ namespace Schoolify.DataAccess.Configurations
     new ClassSchedule
     {
         Id = 2,
-        ClassId = 2,
+        SubjectClassTeacherId = 2,
         PeriodId = 2,
         ClassroomId = 2,
         DayOfWeek = DayOfWeek.Sunday
@@ -550,7 +723,7 @@ namespace Schoolify.DataAccess.Configurations
     new ClassSchedule
     {
         Id = 3,
-        ClassId = 1,
+        SubjectClassTeacherId = 1,
         PeriodId = 3,
         ClassroomId = 1,
         DayOfWeek = DayOfWeek.Monday
@@ -558,7 +731,7 @@ namespace Schoolify.DataAccess.Configurations
     new ClassSchedule
     {
         Id = 4,
-        ClassId = 2,
+        SubjectClassTeacherId = 2,
         PeriodId = 4,
         ClassroomId = 2,
         DayOfWeek = DayOfWeek.Monday
@@ -568,7 +741,7 @@ namespace Schoolify.DataAccess.Configurations
     new ClassSchedule
     {
         Id = 5,
-        ClassId = 1,
+        SubjectClassTeacherId = 1,
         PeriodId = 5,
         ClassroomId = 1,
         DayOfWeek = DayOfWeek.Tuesday
@@ -576,7 +749,7 @@ namespace Schoolify.DataAccess.Configurations
     new ClassSchedule
     {
         Id = 6,
-        ClassId = 2,
+        SubjectClassTeacherId = 2,
         PeriodId = 6,
         ClassroomId = 2,
         DayOfWeek = DayOfWeek.Tuesday
@@ -676,34 +849,34 @@ namespace Schoolify.DataAccess.Configurations
 
         private static void SeedClasses(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Class>().HasData(
-                    new Class
+            modelBuilder.Entity<SubjectClass>().HasData(
+                    new SubjectClass
                     {
                         Id = 1,
                         NameEn = "Math - Grade 10 A",
                         NameAr = "رياضيات - الصف العاشر أ",
                         SubjectId = 1,
-                        TeacherId = 1,
+                        //TeacherId = 1,
                         TermId = 1,
                         MaxScore = 100.00m
                     },
-    new Class
+    new SubjectClass
     {
         Id = 2,
         NameEn = "Physics - Grade 10 A",
         NameAr = "فيزياء - الصف العاشر أ",
         SubjectId = 2,
-        TeacherId = 1,
+        //TeacherId = 1,
         TermId = 1,
         MaxScore = 100.00m
     },
-    new Class
+    new SubjectClass
     {
         Id = 3,
         NameEn = "English - Grade 10 A",
         NameAr = "إنجليزي - الصف العاشر أ",
         SubjectId = 3,
-        TeacherId = 2,
+        //TeacherId = 2,
         TermId = 1,
         MaxScore = 100.00m
     }
@@ -718,15 +891,15 @@ namespace Schoolify.DataAccess.Configurations
     {
         Id = 1,
         StudentId = 1,
-        ClassId = 1,
-        MarksObtained = 85.50m
+        SubjectClassId = 1,
+        FinalScore = 85.50m
     },
     new StudentClass
     {
         Id = 2,
         StudentId = 1,
-        ClassId = 2,
-        MarksObtained = 78.00m
+        SubjectClassId = 2,
+        FinalScore = 78.00m
     },
 
     // Sara enrollments
@@ -734,15 +907,15 @@ namespace Schoolify.DataAccess.Configurations
     {
         Id = 3,
         StudentId = 2,
-        ClassId = 1,
-        MarksObtained = 92.00m
+        SubjectClassId = 1,
+        FinalScore = 92.00m
     },
     new StudentClass
     {
         Id = 4,
         StudentId = 2,
-        ClassId = 3,
-        MarksObtained = 88.50m
+        SubjectClassId = 3,
+        FinalScore = 88.50m
     },
 
     // Omar enrollments
@@ -750,15 +923,15 @@ namespace Schoolify.DataAccess.Configurations
     {
         Id = 5,
         StudentId = 3,
-        ClassId = 2,
-        MarksObtained = 74.00m
+        SubjectClassId = 2,
+        FinalScore = 74.00m
     },
     new StudentClass
     {
         Id = 6,
         StudentId = 3,
-        ClassId = 3,
-        MarksObtained = null // not graded yet
+        SubjectClassId = 3,
+        FinalScore = null // not graded yet
     }
             );
         }

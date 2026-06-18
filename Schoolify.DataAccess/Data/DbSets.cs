@@ -11,7 +11,7 @@ namespace Schoolify.DataAccess.Data
     public partial class AppDbContext
     {
         public DbSet<Student> Students { get; set; }
-        public DbSet<Class> Classes { get; set; }
+        public DbSet<SubjectClass> SubjectClass { get; set; }
         public DbSet<Classroom> Classrooms { get; set; }
         public DbSet<ClassroomType> ClassroomTypes { get; set; }
         public DbSet<ClassSchedule> ClassSchedules { get; set; }
@@ -24,11 +24,21 @@ namespace Schoolify.DataAccess.Data
         public DbSet<ScoreRange> ScoreRanges { get; set; }
         public DbSet<StudentClass> StudentClasses { get; set; }
         public DbSet<StudentGuardian> StudentGuardians { get; set; }
-        public DbSet<StudentYearLevel> StudentYearLevels { get; set; }
+        //public DbSet<StudentYearLevel> StudentYearLevels { get; set; }
+        public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Term> Terms { get; set; }
         public DbSet<YearLevel> YearLevels { get; set; }
+        public DbSet<Exam> Exams { get; set; }
+        public DbSet<FeeStructure> FeeStructures { get; set; }
+        public DbSet<FeeItem> FeeItems { get; set; }
+        public DbSet<Installment> Installments { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Section> Sections { get; set; }
+        public DbSet<StudentAcademicRecord> StudentAcademicRecords { get; set; }
+        public DbSet<StudentExamResult> StudentExamResults { get; set; }
+        public DbSet<SubjectClassTeacher> SubjectClassTeachers { get; set; }
 
     }
 }

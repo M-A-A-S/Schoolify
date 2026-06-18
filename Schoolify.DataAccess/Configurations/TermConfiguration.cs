@@ -40,8 +40,8 @@ namespace Schoolify.DataAccess.Configurations
                 .HasForeignKey(t => t.SchoolYearId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Term -> Classes (One-to-Many)
-            builder.HasMany(t => t.Classes)
+            // Term -> SubjectClasses (One-to-Many)
+            builder.HasMany(t => t.SubjectClasses)
                 .WithOne(c => c.Term)
                 .HasForeignKey(c => c.TermId)
                 .OnDelete(DeleteBehavior.Cascade);

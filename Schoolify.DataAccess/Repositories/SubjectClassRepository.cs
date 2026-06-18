@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Schoolify.DataAccess.Repositories
 {
-    public class ClassRepository : Repository<Class>, IClassRepository
+    public class SubjectClassRepository : Repository<SubjectClass>, ISubjectClassRepository
     {
-        public ClassRepository(AppDbContext context, ILogger<Class> logger) : base(context, logger)
+        public SubjectClassRepository(AppDbContext context, ILogger<SubjectClass> logger) : base(context, logger)
         {
 
         }

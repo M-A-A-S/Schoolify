@@ -18,7 +18,7 @@ ResourceType = typeof(Resources.SharedResource)
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public int ClassId { get; set; }
+        public int SubjectClassId { get; set; }
 
         [Display(Name = nameof(Resources.SharedResource.Student),
 ResourceType = typeof(Resources.SharedResource)
@@ -29,9 +29,9 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
         public int StudentId { get; set; }
 
-        [Display(Name = nameof(Resources.SharedResource.MarksObtained),
+        [Display(Name = nameof(Resources.SharedResource.FinalScore),
 ResourceType = typeof(Resources.SharedResource)
 )]
-        public decimal? MarksObtained { get; set; } // The actual grade earned
+        public decimal? FinalScore { get; set; } // The actual grade earned
     }
 }

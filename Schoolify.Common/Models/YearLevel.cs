@@ -15,6 +15,8 @@ namespace Schoolify.Common.Models
 
 
         public SchoolStage SchoolStage { get; set; }
-        public ICollection<StudentYearLevel> StudentYearLevels { get; set; }
+        public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+        public ICollection<Section> Sections { get; set; } = new List<Section>();
+        public ICollection<FeeStructure> FeeStructures { get; set; } = new List<FeeStructure>();
     }
 }

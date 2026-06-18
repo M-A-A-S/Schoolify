@@ -20,7 +20,7 @@ namespace Schoolify.DataAccess.Configurations
             builder.Property(cs => cs.DayOfWeek)
                 .IsRequired();
 
-            builder.Property(cs => cs.ClassId)
+            builder.Property(cs => cs.SubjectClassTeacherId)
                 .IsRequired();
 
             builder.Property(cs => cs.PeriodId)
@@ -37,10 +37,10 @@ namespace Schoolify.DataAccess.Configurations
 
             // Relationships
 
-            // ClassSchedule -> Class (Many-to-One)
-            builder.HasOne(cs => cs.Class)
+            // ClassSchedule -> SubjectClassTeacher (Many-to-One)
+            builder.HasOne(cs => cs.SubjectClassTeacher)
                 .WithMany(c => c.ClassSchedules)
-                .HasForeignKey(cs => cs.ClassId)
+                .HasForeignKey(cs => cs.SubjectClassTeacherId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // ClassSchedule -> Period (Many-to-One)
@@ -58,7 +58,8 @@ namespace Schoolify.DataAccess.Configurations
             // Prevent double booking for the same class
             builder.HasIndex(cs => new
             {
-                cs.ClassId,
+                //cs.ClassId,
+                cs.SubjectClassTeacherId,
                 cs.PeriodId,
                 cs.DayOfWeek
             })

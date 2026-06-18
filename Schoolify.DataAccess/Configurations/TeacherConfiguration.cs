@@ -52,8 +52,8 @@ namespace Schoolify.DataAccess.Configurations
 
             // Relationships
 
-            // Teacher -> Classes (One-to-Many)
-            builder.HasMany(t => t.Classes)
+            // Teacher -> SubjectClassTeachers (One-to-Many)
+            builder.HasMany(t => t.SubjectClassTeachers)
             .WithOne(c => c.Teacher)
             .HasForeignKey(c => c.TeacherId)
             .OnDelete(DeleteBehavior.Restrict);

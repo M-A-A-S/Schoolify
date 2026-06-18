@@ -20,12 +20,13 @@ namespace Schoolify.Common.Extensions
             return new ClassScheduleDTO
             {
                 Id = entity.Id,
-                ClassId = entity.ClassId,
+                SubjectClassTeacherId = entity.SubjectClassTeacherId,
+                //ClassId = entity.ClassId,
                 ClassroomId = entity.ClassroomId,
                 PeriodId = entity.PeriodId,
                 DayOfWeek = entity.DayOfWeek,
 
-                Class = entity?.Class?.ToDTO(),
+                //SubjectClassTeacher = entity?.SubjectClassTeacher?.ToDTO(),
                 Classroom = entity?.Classroom?.ToDTO(),
                 Period = entity?.Period?.ToDTO()
             };
@@ -41,7 +42,8 @@ namespace Schoolify.Common.Extensions
             return new ClassSchedule
             {
                 Id = DTO.Id,
-                ClassId = DTO.ClassId,
+                //ClassId = DTO.ClassId,
+                SubjectClassTeacherId = DTO.SubjectClassTeacherId,
                 ClassroomId = DTO.ClassroomId,
                 PeriodId = DTO.PeriodId,
                 DayOfWeek = DTO.DayOfWeek,
@@ -56,7 +58,8 @@ namespace Schoolify.Common.Extensions
                 return;
             }
 
-            entity.ClassId = DTO.ClassId;
+            //entity.ClassId = DTO.ClassId;
+            entity.SubjectClassTeacherId = DTO.SubjectClassTeacherId;
             entity.ClassroomId = DTO.ClassroomId;
             entity.PeriodId = DTO.PeriodId;
             entity.DayOfWeek = DTO.DayOfWeek;

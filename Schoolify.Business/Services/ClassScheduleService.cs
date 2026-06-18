@@ -59,7 +59,7 @@ namespace Schoolify.Business.Services
             var findResult = await _repo.FindByAsync(c => c.Id == id, 
                     include: q => q.Include(cs => cs.Period)
                         .Include(cs => cs.Classroom)
-                        .Include(cs => cs.Class)
+                        .Include(cs => cs.SubjectClassTeacher)
                         .AsNoTrackingWithIdentityResolution());
 
             if (!findResult.IsSuccess || findResult.Data == null)
@@ -103,7 +103,7 @@ namespace Schoolify.Business.Services
             var getAllSchedulesResult = await _repo.GetAllAsync(
                 include: q => q.Include(cs => cs.Period)
                         .Include(cs => cs.Classroom)
-                        .Include(cs => cs.Class)
+                        .Include(cs => cs.SubjectClassTeacher)
                             .ThenInclude(c => c.Teacher)
                         .AsNoTrackingWithIdentityResolution());
 
@@ -141,12 +141,21 @@ namespace Schoolify.Business.Services
 
                     grid[period.Id][day] = item == null
                         ? null
+                        //: new ScheduleCellDTO
+                        //{
+                        //    ClassScheduleId = item.Id,
+                        //    ClassNameEn = item?.Class?.NameEn,
+                        //    ClassNameAr = item?.Class?.NameAr,
+                        //    TeacherName = $"{item?.Class?.Teacher?.FirstName} {item?.Class?.Teacher?.SecondName} {item?.Class?.Teacher?.ThirdName} {item?.Class?.Teacher?.ForthName}",
+                        //    ClassroomNameEn = item?.Classroom?.NameEn,
+                        //    ClassroomNameAr = item?.Classroom?.NameAr
+                        //};
                         : new ScheduleCellDTO
                         {
                             ClassScheduleId = item.Id,
-                            ClassNameEn = item?.Class?.NameEn,
-                            ClassNameAr = item?.Class?.NameAr,
-                            TeacherName = $"{item?.Class?.Teacher?.FirstName} {item?.Class?.Teacher?.SecondName} {item?.Class?.Teacher?.ThirdName} {item?.Class?.Teacher?.ForthName}",
+                            ClassNameEn = item?.SubjectClassTeacher?.SubjectClass?.NameEn,
+                            ClassNameAr = item?.SubjectClassTeacher?.SubjectClass?.NameAr,
+                            TeacherName = $"{item?.SubjectClassTeacher?.Teacher?.FirstName} {item?.SubjectClassTeacher?.Teacher?.SecondName} {item?.SubjectClassTeacher?.Teacher?.ThirdName} {item?.SubjectClassTeacher?.Teacher?.ForthName}",
                             ClassroomNameEn = item?.Classroom?.NameEn,
                             ClassroomNameAr = item?.Classroom?.NameAr
                         };

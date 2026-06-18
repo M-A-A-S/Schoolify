@@ -10,10 +10,10 @@ namespace Schoolify.Business.Interfaces
 {
     public interface IClassService
     {
-        Task<Result<ClassDTO>> AddAsync(ClassDTO dto);
-        Task<Result<ClassDTO>> UpdateAsync(int id, ClassDTO dto);
+        Task<Result<SubjectClassDTO>> AddAsync(SubjectClassDTO dto);
+        Task<Result<SubjectClassDTO>> UpdateAsync(int id, SubjectClassDTO dto);
         Task<Result<bool>> DeleteAsync(int id);
-        Task<Result<ClassDTO>> GetByIdAsync(int id);
-        Task<Result<IEnumerable<ClassDTO>>> GetAllAsync();
+        Task<Result<SubjectClassDTO>> GetByIdAsync(int id);
+        Task<Result<IEnumerable<SubjectClassDTO>>> GetAllAsync();
     }
 }

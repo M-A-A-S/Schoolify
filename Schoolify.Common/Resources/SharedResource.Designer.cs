@@ -610,6 +610,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FinalScore.
+        /// </summary>
+        public static string FinalScore {
+            get {
+                return ResourceManager.GetString("FinalScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Final Year Score.
         /// </summary>
         public static string FinalYearScore {
@@ -1623,6 +1632,15 @@ namespace Schoolify.Common.Resources {
         public static string Subject {
             get {
                 return ResourceManager.GetString("Subject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SubjectClassTeacher.
+        /// </summary>
+        public static string SubjectClassTeacher {
+            get {
+                return ResourceManager.GetString("SubjectClassTeacher", resourceCulture);
             }
         }
         

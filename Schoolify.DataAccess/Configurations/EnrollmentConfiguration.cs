@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace Schoolify.DataAccess.Configurations
 {
-    public class StudentYearLevelConfiguration : IEntityTypeConfiguration<StudentYearLevel>
+    public class EnrollmentConfiguration : IEntityTypeConfiguration<Enrollment>
     {
-        public void Configure(EntityTypeBuilder<StudentYearLevel> builder)
+        public void Configure(EntityTypeBuilder<Enrollment> builder)
         {
             // Primary Key
             builder.HasKey(sy => sy.Id);
 
             // Properties
-            builder.Property(sy => sy.FinalYearScore)
-                .HasColumnType("decimal(5,2)");
+            //builder.Property(sy => sy.FinalYearScore)
+            //    .HasColumnType("decimal(5,2)");
 
             builder.Property(syl => syl.StudentId)
                 .IsRequired();
@@ -38,21 +38,21 @@ namespace Schoolify.DataAccess.Configurations
 
             // Relationships
 
-            // StudentYearLevel -> Student (Many-to-One)
+            // Enrollments -> Student (Many-to-One)
             builder.HasOne(sy => sy.Student)
-                .WithMany(s => s.StudentYearLevels)
+                .WithMany(s => s.Enrollments)
                 .HasForeignKey(sy => sy.StudentId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // StudentYearLevel -> YearLevel (Many-to-One)
+            // Enrollments -> YearLevel (Many-to-One)
             builder.HasOne(sy => sy.YearLevel)
-                .WithMany(yl => yl.StudentYearLevels)
+                .WithMany(yl => yl.Enrollments)
                 .HasForeignKey(sy => sy.YearLevelId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // StudentYearLevel -> SchoolYear (Many-to-One)
+            // Enrollments -> SchoolYear (Many-to-One)
             builder.HasOne(sy => sy.SchoolYear)
-                .WithMany(sy => sy.StudentYearLevels)
+                .WithMany(sy => sy.Enrollments)
                 .HasForeignKey(sy => sy.SchoolYearId)
                 .OnDelete(DeleteBehavior.Restrict);
 
@@ -68,7 +68,8 @@ namespace Schoolify.DataAccess.Configurations
             {
                 sy.StudentId,
                 sy.YearLevelId,
-                sy.SchoolYearId
+                sy.SchoolYearId,
+                sy.SectionId
             })
             .IsUnique();
 

@@ -44,8 +44,8 @@ namespace Schoolify.DataAccess.Configurations
                 .HasForeignKey(y => y.SchoolStageId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // YearLevel -> StudentYearLevels (One-to-Many)
-            builder.HasMany(s => s.StudentYearLevels)
+            // YearLevel -> Enrollments (One-to-Many)
+            builder.HasMany(s => s.Enrollments)
                 .WithOne(y => y.YearLevel)
                 .HasForeignKey(y => y.YearLevelId)
                 .OnDelete(DeleteBehavior.Restrict);

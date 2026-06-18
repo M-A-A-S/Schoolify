@@ -20,9 +20,9 @@ namespace Schoolify.Common.Extensions
             return new StudentClassDTO
             {
                 Id = entity.Id,
-                ClassId = entity.ClassId,
+                SubjectClassId = entity.SubjectClassId,
                 StudentId = entity.StudentId,
-                MarksObtained = entity.MarksObtained,
+                FinalScore = entity.FinalScore,
             };
         }
 
@@ -36,9 +36,9 @@ namespace Schoolify.Common.Extensions
             return new StudentClass
             {
                 Id = DTO.Id,
-                ClassId = DTO.ClassId,
+                SubjectClassId = DTO.SubjectClassId,
                 StudentId = DTO.StudentId,
-                MarksObtained = DTO.MarksObtained,
+                FinalScore = DTO.FinalScore,
             };
         }
 
@@ -50,9 +50,9 @@ namespace Schoolify.Common.Extensions
                 return;
             }
 
-            entity.ClassId = DTO.ClassId;
+            entity.SubjectClassId = DTO.SubjectClassId;
             entity.StudentId = DTO.StudentId;
-            entity.MarksObtained = DTO.MarksObtained;
+            entity.FinalScore = DTO.FinalScore;
         }
    
     }

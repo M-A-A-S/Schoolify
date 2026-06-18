@@ -8,43 +8,41 @@ using System.Threading.Tasks;
 
 namespace Schoolify.Common.Extensions
 {
-    public static class StudentYearLevelExtensions
+    public static class EnrollmentExtensions
     {
-        public static StudentYearLevelDTO ToDTO(this StudentYearLevel entity)
+        public static EnrollmentDTO ToDTO(this Enrollment entity)
         {
             if (entity == null)
             {
                 return null;
             }
 
-            return new StudentYearLevelDTO
+            return new EnrollmentDTO
             {
                 Id = entity.Id,
                 StudentId = entity.StudentId,
                 YearLevelId = entity.YearLevelId,
                 SchoolYearId = entity.SchoolYearId,
-                FinalYearScore = entity.FinalYearScore,
             };
         }
 
-        public static StudentYearLevel ToEntity(this StudentYearLevelDTO DTO)
+        public static Enrollment ToEntity(this EnrollmentDTO DTO)
         {
             if (DTO == null)
             {
                 return null;
             }
 
-            return new StudentYearLevel
+            return new Enrollment
             {
                 Id = DTO.Id,
                 StudentId = DTO.StudentId,
                 YearLevelId = DTO.YearLevelId,
                 SchoolYearId = DTO.SchoolYearId,
-                FinalYearScore = DTO.FinalYearScore,
             };
         }
 
-        public static void UpdateFromDTO(this StudentYearLevel entity, StudentYearLevelDTO DTO)
+        public static void UpdateFromDTO(this Enrollment entity, EnrollmentDTO DTO)
         {
 
             if (entity == null || DTO == null)
@@ -55,7 +53,6 @@ namespace Schoolify.Common.Extensions
             entity.StudentId = DTO.StudentId;
             entity.YearLevelId = DTO.YearLevelId;
             entity.SchoolYearId = DTO.SchoolYearId;
-            entity.FinalYearScore = DTO.FinalYearScore;
         }
     
     }

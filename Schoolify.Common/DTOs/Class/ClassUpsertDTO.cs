@@ -11,7 +11,7 @@ namespace Schoolify.Common.DTOs.Class
 {
     public class ClassUpsertDTO
     {
-        public ClassDTO Class { get; set; }
+        public SubjectClassDTO Class { get; set; }
 
         public IEnumerable<SubjectDTO> Subjects { get; set; } = Enumerable.Empty<SubjectDTO>();
         public IEnumerable<TeacherDTO> Teachers { get; set; } = Enumerable.Empty<TeacherDTO>();

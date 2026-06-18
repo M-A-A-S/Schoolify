@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Schoolify.Common.DTOs.Class
 {
-    public class ClassDTO
+    public class SubjectClassDTO
     {
         public int Id { get; set; }
 

@@ -738,4 +738,10 @@
   <data name="MinMaxError" xml:space="preserve">
     <value>Min score must be less than max score</value>
   </data>
+  <data name="SubjectClassTeacher" xml:space="preserve">
+    <value>SubjectClassTeacher</value>
+  </data>
+  <data name="FinalScore" xml:space="preserve">
+    <value>FinalScore</value>
+  </data>
 </root>

@@ -16,7 +16,7 @@ namespace Schoolify.Common.DTOs.ClassSchedule
     {
         public ClassScheduleDTO ClassSchedule { get; set; }
 
-        public IEnumerable<ClassDTO> Classes { get; set; } = Enumerable.Empty<ClassDTO>();
+        public IEnumerable<SubjectClassDTO> Classes { get; set; } = Enumerable.Empty<SubjectClassDTO>();
         public IEnumerable<PeriodDTO> Periods { get; set; } = Enumerable.Empty<PeriodDTO>();
         public IEnumerable<ClassroomDTO> Classrooms { get; set; } = Enumerable.Empty<ClassroomDTO>();
         public IEnumerable<DayDTO> Days { get; set; } = Enumerable.Empty<DayDTO>();
