@@ -1,0 +1,31 @@
+﻿@using Schoolify.Common.DTOs.Section
+@model SectionDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row g-3">
+
+    <div class="col-md-6">
+        <label asp-for="NameEn"></label>
+        <input asp-for="NameEn" class="form-control" />
+        <span asp-validation-for="NameEn" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="NameAr"></label>
+        <input asp-for="NameAr" class="form-control" />
+        <span asp-validation-for="NameAr" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 col-md-6">
+        <label asp-for="YearLevelId" class="form-label"></label>
+        <select asp-for="YearLevelId"
+                class="form-control"
+                asp-items="ViewBag.YearLevels">
+            <option selected disabled value="">@Localizer["SelectYearLevel"]</option>
+        </select>
+        <span asp-validation-for="YearLevelId" class="text-danger"></span>
+    </div>
+</div>
