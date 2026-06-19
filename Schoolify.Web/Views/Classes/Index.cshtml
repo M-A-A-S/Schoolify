@@ -21,8 +21,9 @@
         <thead>
             <tr>
                 <th>@Localizer["Subject"]</th>
-                <th>@Localizer["Teacher"]</th>
+                <th>@Localizer["Teachers"]</th>
                 <th>@Localizer["Term"]</th>
+                <th>@Localizer["Section"]</th>
                 <th>@Localizer["NameEn"]</th>
                 <th>@Localizer["NameAr"]</th>
                 <th>@Localizer["MaxScore"]</th>
@@ -39,12 +40,21 @@
                         @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
                                             ? item?.Subject?.NameAr
                                             : item?.Subject?.NameEn)
-                    </td>
-                                                                <td>
-                        @($"{item?.Teacher?.FirstName} {item?.Teacher?.SecondName} {item?.Teacher?.ThirdName} {item?.Teacher?.ForthName}")
+                    <td>
+                    @foreach (var teacher in item.SubjectClassTeachers)
+                        {
+                            <span class="badge bg-primary me-1">
+                                @teacher.Teacher.FirstName @teacher.Teacher.SecondName
+                            </span>
+                        }
                     </td>
                     <td>
                         @($"{item?.Term?.TermNumber} - {item?.Term?.StartDate:yyyy/MM/dd} - {item?.Term?.EndDate:yyyy/MM/dd}")
+                    </td>
+                    <td>
+                    @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                        ? item?.Section?.NameAr
+                                        : item?.Section?.NameEn)
                     </td>
                     <td>@item.NameEn</td>
                     <td>@item.NameAr</td>

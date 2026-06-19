@@ -1,4 +1,6 @@
-﻿using Schoolify.Common.DTOs.Subject;
+﻿using Schoolify.Common.DTOs.Section;
+using Schoolify.Common.DTOs.Subject;
+using Schoolify.Common.DTOs.SubjectClassTeacher;
 using Schoolify.Common.DTOs.Teacher;
 using Schoolify.Common.DTOs.Term;
 using System;
@@ -30,16 +32,25 @@ namespace Schoolify.Common.DTOs.Class
     ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
     ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public int TeacherId { get; set; }
+//        public int TeacherId { get; set; }
 
-        [Display(Name = nameof(Resources.SharedResource.Term),
+//        [Display(Name = nameof(Resources.SharedResource.Term),
+//    ResourceType = typeof(Resources.SharedResource)
+//)]
+//        [Required(
+//    ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
+//    ErrorMessageResourceType = typeof(Resources.SharedResource)
+//)]
+        public int TermId { get; set; }
+
+        [Display(Name = nameof(Resources.SharedResource.Section),
     ResourceType = typeof(Resources.SharedResource)
 )]
         [Required(
     ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
     ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public int TermId { get; set; }
+        public int SectionId { get; set; }
 
         [Display(Name = nameof(Resources.SharedResource.NameEn),
     ResourceType = typeof(Resources.SharedResource)
@@ -72,8 +83,11 @@ namespace Schoolify.Common.DTOs.Class
 
         public decimal MaxScore { get; set; } = 100;
 
-        public TeacherDTO? Teacher { get; set; }
+        //public TeacherDTO? Teacher { get; set; }
         public SubjectDTO? Subject { get; set; }
         public TermDTO? Term { get; set; }
-}
+        public SectionDTO? Section { get; set; }
+        public ICollection<SubjectClassTeacherDTO> SubjectClassTeachers { get; set; } = new List<SubjectClassTeacherDTO>();
+
+    }
 }

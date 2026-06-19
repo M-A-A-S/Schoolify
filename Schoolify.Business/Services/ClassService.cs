@@ -56,6 +56,9 @@ namespace Schoolify.Business.Services
             var findResult = await _repo.FindByAsync(c => c.Id == id, include: 
                 q => q.Include(c => c.Subject)
                     .Include(c => c.Term)
+                    .Include(c => c.Section)
+                    .Include(x => x.SubjectClassTeachers)
+                        .ThenInclude(sct => sct.Teacher)
                     //.Include(c => c.Teacher)
                     .AsNoTrackingWithIdentityResolution());
 
@@ -76,6 +79,9 @@ namespace Schoolify.Business.Services
             var getAllResult = await _repo.GetAllAsync(include:
                 q => q.Include(c => c.Subject)
                     .Include(c => c.Term)
+                    .Include(c => c.Section)
+                    .Include(x => x.SubjectClassTeachers)
+                        .ThenInclude(sct => sct.Teacher)
                     //.Include(c => c.Teacher)
                     .AsNoTrackingWithIdentityResolution());
 
