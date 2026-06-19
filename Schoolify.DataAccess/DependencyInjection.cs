@@ -14,6 +14,7 @@ namespace Schoolify.DataAccess
         {
 
             services.AddScoped<IScoreRangeRepository, ScoreRangeRepository>();
+            services.AddScoped<ISectionRepository, SectionRepository>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
             services.AddScoped<IGuardianRepository, GuardianRepository>();
             services.AddScoped<IStudentRepository, StudentRepository>();
