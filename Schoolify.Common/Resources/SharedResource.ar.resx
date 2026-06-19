@@ -828,4 +828,7 @@
   <data name="SectionDeleted" xml:space="preserve">
     <value>تم حذف الشعبة بنجاح</value>
   </data>
+  <data name="SelectSection" xml:space="preserve">
+    <value>-- اختر الشعبة --</value>
+  </data>
 </root>

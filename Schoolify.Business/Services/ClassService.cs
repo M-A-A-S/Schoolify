@@ -2,6 +2,7 @@
 using Schoolify.Business.Interfaces;
 using Schoolify.Common.DTOs.Class;
 using Schoolify.Common.Extensions;
+using Schoolify.Common.Models;
 using Schoolify.Common.Utilities;
 using Schoolify.Common.Utilities.ResultCodes;
 using Schoolify.DataAccess.Interfaces;
@@ -27,6 +28,15 @@ namespace Schoolify.Business.Services
         {
 
             var entity = dto.ToEntity();
+
+            foreach (var t in dto.SubjectClassTeachers)
+            {
+                entity.SubjectClassTeachers.Add(new SubjectClassTeacher
+                {
+                    TeacherId = t.TeacherId,
+                    IsMainTeacher = t.IsMainTeacher,
+                });
+            }
 
             var addResult = await _repo.AddAndSaveAsync(entity);
 

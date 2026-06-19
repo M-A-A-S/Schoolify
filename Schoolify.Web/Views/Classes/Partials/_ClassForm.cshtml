@@ -26,27 +26,6 @@
         <span asp-validation-for="Class.MaxScore" class="text-danger"></span>
     </div>
 
-    <!-- Teacher -->
-    @* <div class="mb-3 col-md-6">
-        <label asp-for="Class.TeacherId" class="form-label"></label>
-
-        <select asp-for="Class.TeacherId"
-                class="form-control"
-                asp-items="@(Model?.Teachers?.Select(t => new SelectListItem
-                {
-                    Value = t.Id.ToString(),
-                    Text = $"{t?.FirstName} {t?.SecondName} {t?.ThirdName} {t?.ForthName}"
-                }))">
-
-            <option selected disabled value="">
-                @Localizer["SelectTeacher"]
-            </option>
-
-        </select>
-
-        <span asp-validation-for="Class.TeacherId" class="text-danger"></span>
-    </div> *@
-
     <!-- Subject -->
     <div class="mb-3 col-md-6">
         <label asp-for="Class.SubjectId" class="form-label"></label>
@@ -90,5 +69,150 @@
         <span asp-validation-for="Class.TermId" class="text-danger"></span>
     </div>
 
+    <!-- Section -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="Class.SectionId" class="form-label"></label>
+
+        <select asp-for="Class.SectionId"
+                class="form-control"
+                asp-items="@(new SelectList(
+                                                    Model.Sections,
+                                                    "Id",
+                                                    CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                        ? "NameAr"
+                                                        : "NameEn"))">
+
+            <option selected disabled value="">
+                @Localizer["SelectSection"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="Class.SectionId" class="text-danger"></span>
+    </div>
+
+    <!-- Teacher -->
+    @* <div class="mb-3 col-md-6">
+        <label asp-for="Class.TeacherId" class="form-label"></label>
+
+        <select asp-for="Class.TeacherId"
+                class="form-control"
+                asp-items="@(Model?.Teachers?.Select(t => new SelectListItem
+                {
+                    Value = t.Id.ToString(),
+                    Text = $"{t?.FirstName} {t?.SecondName} {t?.ThirdName} {t?.ForthName}"
+                }))">
+
+            <option selected disabled value="">
+                @Localizer["SelectTeacher"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="Class.TeacherId" class="text-danger"></span>
+    </div> *@
+
+    <!-- Teachers -->
+    <div class="mb-3 col-md-6">
+        <label class="form-label">@Localizer["Teachers"]</label>
+
+        <div class="d-flex gap-2">
+            <select id="teacherSelect"
+                    class="form-control"
+                    asp-items="@(Model?.Teachers?.Select(t => new SelectListItem
+                    {
+                        Value = t.Id.ToString(),
+                        Text = $"{t?.FirstName} {t?.SecondName} {t?.ThirdName} {t?.ForthName}"
+                    }))">
+
+                <option selected disabled value="">
+                    @Localizer["SelectTeacher"]
+                </option>
+
+            </select>
+
+            <button type="button" class="btn btn-primary" onclick="addTeacher()">
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
+        @* <span asp-validation-for="Class.TeacherId" class="text-danger"></span> *@
+    </div>
+
+    <!-- Teachers Table -->
+    <div class="col-md-12 mt-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>@Localizer["Teacher"]</th>
+                    <th>@Localizer["Actions"]</th>
+                </tr>
+            </thead>
+            <tbody id="teachersTableBody"></tbody>
+        </table>
+    </div>
 
 </div>
+
+<script>
+    let teachers = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+                Model.Class.SubjectClassTeachers.Select(x => new { x.TeacherId })
+        ));
+
+    const teacherOptions = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+                Model.Teachers.Select(t => new
+                {
+                        Id = t.Id,
+                        Name = t.FirstName + " " + t.SecondName
+                })
+        ));
+
+    document.addEventListener("DOMContentLoaded", renderTable);
+
+    function addTeacher() {
+        const select = document.getElementById("teacherSelect");
+        const id = parseInt(select.value);
+
+        if (!id || teachers.some(x => x.TeacherId === id)) return;
+
+        teachers.push({ TeacherId: id });
+
+        renderTable();
+        select.value = "";
+    }
+
+    function removeTeacher(id) {
+        teachers = teachers.filter(x => x.TeacherId !== id);
+        renderTable();
+    }
+
+    function renderTable() {
+        const tbody = document.getElementById("teachersTableBody");
+        tbody.innerHTML = "";
+
+        teachers.forEach((t, index) => {
+
+            const teacher = teacherOptions.find(x => x.Id === t.TeacherId);
+
+            tbody.innerHTML += `
+                <tr>
+                    <td>
+                        ${teacher ? teacher.Name : ""}
+
+                        <!-- ✅ MVC BINDING HERE -->
+                        <input type="hidden"
+                               name="Class.SubjectClassTeachers[${index}].TeacherId"
+                               value="${t.TeacherId}" />
+                    </td>
+
+                    <td>
+                        <button type="button"
+                                class="btn btn-danger btn-sm"
+                                onclick="removeTeacher(${t.TeacherId})">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+</script>

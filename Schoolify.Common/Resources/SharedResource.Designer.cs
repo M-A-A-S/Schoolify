@@ -1600,6 +1600,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -- Select Section --.
+        /// </summary>
+        public static string SelectSection {
+            get {
+                return ResourceManager.GetString("SelectSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to -- Select Subject --.
         /// </summary>
         public static string SelectSubject {
@@ -1618,7 +1627,7 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to -- Select Teacher --.
+        ///   Looks up a localized string similar to -- Select Term --.
         /// </summary>
         public static string SelectTerm {
             get {

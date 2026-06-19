@@ -14,19 +14,22 @@ namespace Schoolify.Web.Controllers
         private readonly ISubjectService _subjectService;
         private readonly ITeacherService _teacherService;
         private readonly ITermService _termService;
+        private readonly ISectionService _sectionService;
         private readonly IStringLocalizer<SharedResource> _localizer;
 
         public ClassesController(IClassService service,
             IStringLocalizer<SharedResource> localizer,
             ISubjectService subjectService,
             ITeacherService teacherService,
-            ITermService termService)
+            ITermService termService,
+            ISectionService sectionService)
         {
             _service = service;
             _localizer = localizer;
             _subjectService = subjectService;
             _teacherService = teacherService;
             _termService = termService;
+            _sectionService = sectionService;
         }
 
         #region Get
@@ -148,6 +151,7 @@ namespace Schoolify.Web.Controllers
             var subjects = await _subjectService.GetAllAsync();
             var teachers = await _teacherService.GetAllAsync();
             var terms = await _termService.GetAllAsync();
+            var sections = await _sectionService.GetAllAsync();
 
             //await Task.WhenAll(subjects, teachers, terms);
 
@@ -156,6 +160,7 @@ namespace Schoolify.Web.Controllers
                 Class = dto ?? new SubjectClassDTO(),
                 Subjects = subjects.Data ?? [],
                 Teachers = teachers.Data ?? [],
+                Sections = sections.Data ?? [],
                 Terms = terms.Data ?? []
             };
         }

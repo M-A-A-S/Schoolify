@@ -25,22 +25,22 @@ namespace Schoolify.Common.DTOs.Class
 )]
         public int SubjectId { get; set; }
 
-        [Display(Name = nameof(Resources.SharedResource.Teacher),
+        //        [Display(Name = nameof(Resources.SharedResource.Teacher),
+        //    ResourceType = typeof(Resources.SharedResource)
+        //)]
+        //        [Required(
+        //    ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
+        //    ErrorMessageResourceType = typeof(Resources.SharedResource)
+        //)]
+        //        public int TeacherId { get; set; }
+
+        [Display(Name = nameof(Resources.SharedResource.Term),
     ResourceType = typeof(Resources.SharedResource)
 )]
         [Required(
     ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
     ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-//        public int TeacherId { get; set; }
-
-//        [Display(Name = nameof(Resources.SharedResource.Term),
-//    ResourceType = typeof(Resources.SharedResource)
-//)]
-//        [Required(
-//    ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
-//    ErrorMessageResourceType = typeof(Resources.SharedResource)
-//)]
         public int TermId { get; set; }
 
         [Display(Name = nameof(Resources.SharedResource.Section),

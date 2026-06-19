@@ -649,7 +649,7 @@
     <value>-- Select Subject --</value>
   </data>
   <data name="SelectTerm" xml:space="preserve">
-    <value>-- Select Teacher --</value>
+    <value>-- Select Term --</value>
   </data>
   <data name="RangeError" xml:space="preserve">
     <value>Value must be between 0 and 100</value>
@@ -827,5 +827,8 @@
   </data>
   <data name="SectionDeleted" xml:space="preserve">
     <value>Section deleted successfully</value>
+  </data>
+  <data name="SelectSection" xml:space="preserve">
+    <value>-- Select Section --</value>
   </data>
 </root>
