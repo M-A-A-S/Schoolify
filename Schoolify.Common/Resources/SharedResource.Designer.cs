@@ -511,6 +511,24 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enrollment.
+        /// </summary>
+        public static string Enrollment {
+            get {
+                return ResourceManager.GetString("Enrollment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enrollments.
+        /// </summary>
+        public static string Enrollments {
+            get {
+                return ResourceManager.GetString("Enrollments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enrolment Date.
         /// </summary>
         public static string EnrolmentDate {
@@ -601,6 +619,69 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exam.
+        /// </summary>
+        public static string Exam {
+            get {
+                return ResourceManager.GetString("Exam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Examination.
+        /// </summary>
+        public static string Examination {
+            get {
+                return ResourceManager.GetString("Examination", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exams.
+        /// </summary>
+        public static string Exams {
+            get {
+                return ResourceManager.GetString("Exams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fee Item.
+        /// </summary>
+        public static string FeeItem {
+            get {
+                return ResourceManager.GetString("FeeItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fee Items.
+        /// </summary>
+        public static string FeeItems {
+            get {
+                return ResourceManager.GetString("FeeItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fee Structure.
+        /// </summary>
+        public static string FeeStructure {
+            get {
+                return ResourceManager.GetString("FeeStructure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fee Structures.
+        /// </summary>
+        public static string FeeStructures {
+            get {
+                return ResourceManager.GetString("FeeStructures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Female.
         /// </summary>
         public static string Female {
@@ -624,6 +705,15 @@ namespace Schoolify.Common.Resources {
         public static string FinalYearScore {
             get {
                 return ResourceManager.GetString("FinalYearScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finance.
+        /// </summary>
+        public static string Finance {
+            get {
+                return ResourceManager.GetString("Finance", resourceCulture);
             }
         }
         
@@ -835,6 +925,24 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Installment.
+        /// </summary>
+        public static string Installment {
+            get {
+                return ResourceManager.GetString("Installment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installments.
+        /// </summary>
+        public static string Installments {
+            get {
+                return ResourceManager.GetString("Installments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start date must be earlier than end date.
         /// </summary>
         public static string InvalidDateRange {
@@ -975,6 +1083,24 @@ namespace Schoolify.Common.Resources {
         public static string OverlapError {
             get {
                 return ResourceManager.GetString("OverlapError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment.
+        /// </summary>
+        public static string Payment {
+            get {
+                return ResourceManager.GetString("Payment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payments.
+        /// </summary>
+        public static string Payments {
+            get {
+                return ResourceManager.GetString("Payments", resourceCulture);
             }
         }
         
@@ -1330,6 +1456,24 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Section.
+        /// </summary>
+        public static string Section {
+            get {
+                return ResourceManager.GetString("Section", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sections.
+        /// </summary>
+        public static string Sections {
+            get {
+                return ResourceManager.GetString("Sections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to -- Select Class --.
         /// </summary>
         public static string SelectClass {
@@ -1492,6 +1636,24 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Student Academic Record.
+        /// </summary>
+        public static string StudentAcademicRecord {
+            get {
+                return ResourceManager.GetString("StudentAcademicRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student Academic Records.
+        /// </summary>
+        public static string StudentAcademicRecords {
+            get {
+                return ResourceManager.GetString("StudentAcademicRecords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Student Class.
         /// </summary>
         public static string StudentClass {
@@ -1533,6 +1695,24 @@ namespace Schoolify.Common.Resources {
         public static string StudentDeleted {
             get {
                 return ResourceManager.GetString("StudentDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student Exam Result.
+        /// </summary>
+        public static string StudentExamResult {
+            get {
+                return ResourceManager.GetString("StudentExamResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student Exam Results.
+        /// </summary>
+        public static string StudentExamResults {
+            get {
+                return ResourceManager.GetString("StudentExamResults", resourceCulture);
             }
         }
         
@@ -1636,11 +1816,38 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SubjectClassTeacher.
+        ///   Looks up a localized string similar to Subject Class.
+        /// </summary>
+        public static string SubjectClass {
+            get {
+                return ResourceManager.GetString("SubjectClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subject Classes.
+        /// </summary>
+        public static string SubjectClasses {
+            get {
+                return ResourceManager.GetString("SubjectClasses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subject Class Teacher.
         /// </summary>
         public static string SubjectClassTeacher {
             get {
                 return ResourceManager.GetString("SubjectClassTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subject Class Teachers.
+        /// </summary>
+        public static string SubjectClassTeachers {
+            get {
+                return ResourceManager.GetString("SubjectClassTeachers", resourceCulture);
             }
         }
         

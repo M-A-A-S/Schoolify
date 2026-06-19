@@ -739,9 +739,78 @@
     <value>Min score must be less than max score</value>
   </data>
   <data name="SubjectClassTeacher" xml:space="preserve">
-    <value>SubjectClassTeacher</value>
+    <value>Subject Class Teacher</value>
   </data>
   <data name="FinalScore" xml:space="preserve">
     <value>FinalScore</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>Section</value>
+  </data>
+  <data name="SubjectClass" xml:space="preserve">
+    <value>Subject Class</value>
+  </data>
+  <data name="Enrollment" xml:space="preserve">
+    <value>Enrollment</value>
+  </data>
+  <data name="Exam" xml:space="preserve">
+    <value>Exam</value>
+  </data>
+  <data name="StudentExamResult" xml:space="preserve">
+    <value>Student Exam Result</value>
+  </data>
+  <data name="StudentAcademicRecord" xml:space="preserve">
+    <value>Student Academic Record</value>
+  </data>
+  <data name="FeeStructure" xml:space="preserve">
+    <value>Fee Structure</value>
+  </data>
+  <data name="FeeItem" xml:space="preserve">
+    <value>Fee Item</value>
+  </data>
+  <data name="Installment" xml:space="preserve">
+    <value>Installment</value>
+  </data>
+  <data name="Payment" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="Examination" xml:space="preserve">
+    <value>Examination</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Finance</value>
+  </data>
+  <data name="Sections" xml:space="preserve">
+    <value>Sections</value>
+  </data>
+  <data name="SubjectClassTeachers" xml:space="preserve">
+    <value>Subject Class Teachers</value>
+  </data>
+  <data name="Enrollments" xml:space="preserve">
+    <value>Enrollments</value>
+  </data>
+  <data name="Exams" xml:space="preserve">
+    <value>Exams</value>
+  </data>
+  <data name="StudentExamResults" xml:space="preserve">
+    <value>Student Exam Results</value>
+  </data>
+  <data name="StudentAcademicRecords" xml:space="preserve">
+    <value>Student Academic Records</value>
+  </data>
+  <data name="FeeStructures" xml:space="preserve">
+    <value>Fee Structures</value>
+  </data>
+  <data name="FeeItems" xml:space="preserve">
+    <value>Fee Items</value>
+  </data>
+  <data name="Installments" xml:space="preserve">
+    <value>Installments</value>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Payments</value>
+  </data>
+  <data name="SubjectClasses" xml:space="preserve">
+    <value>Subject Classes</value>
   </data>
 </root>

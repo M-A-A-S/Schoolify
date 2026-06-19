@@ -10,9 +10,11 @@ namespace Schoolify.Common.Models
     public class Section : BaseEntity
     {
         public int YearLevelId { get; set; }
+        //public int? ClassroomId { get; set; }
         public string NameEn { get; set; } // A
         public string NameAr { get; set; } // أ
         public YearLevel YearLevel { get; set; }
+        //public Classroom Classroom { get; set; }
 
         public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
         public ICollection<SubjectClass> SubjectClasses { get; set; } = new List<SubjectClass>();

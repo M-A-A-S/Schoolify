@@ -238,7 +238,7 @@
     <value>الأشخاص</value>
   </data>
   <data name="Academic" xml:space="preserve">
-    <value>الأكاديمي</value>
+    <value>الشؤون الأكاديمية</value>
   </data>
   <data name="Organization" xml:space="preserve">
     <value>الهيكل التنظيمي</value>
@@ -739,9 +739,78 @@
     <value>يجب أن يكون الحد الأدنى أقل من الحد الأعلى</value>
   </data>
   <data name="SubjectClassTeacher" xml:space="preserve">
-    <value>SubjectClassTeacher</value>
+    <value>معلم صف المادة</value>
   </data>
   <data name="FinalScore" xml:space="preserve">
     <value>FinalScore</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>الشعبة</value>
+  </data>
+  <data name="SubjectClass" xml:space="preserve">
+    <value>صف المادة</value>
+  </data>
+  <data name="Enrollment" xml:space="preserve">
+    <value>التسجيل</value>
+  </data>
+  <data name="Exam" xml:space="preserve">
+    <value>الامتحان</value>
+  </data>
+  <data name="StudentExamResult" xml:space="preserve">
+    <value>نتيجة الطالب</value>
+  </data>
+  <data name="StudentAcademicRecord" xml:space="preserve">
+    <value>السجل الأكاديمي للطالب</value>
+  </data>
+  <data name="FeeStructure" xml:space="preserve">
+    <value>هيكل الرسوم</value>
+  </data>
+  <data name="FeeItem" xml:space="preserve">
+    <value>بند الرسوم</value>
+  </data>
+  <data name="Installment" xml:space="preserve">
+    <value>القسط</value>
+  </data>
+  <data name="Payment" xml:space="preserve">
+    <value>الدفعة</value>
+  </data>
+  <data name="Examination" xml:space="preserve">
+    <value>الامتحانات</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>الشؤون المالية</value>
+  </data>
+  <data name="Sections" xml:space="preserve">
+    <value>الشعب</value>
+  </data>
+  <data name="SubjectClassTeachers" xml:space="preserve">
+    <value>معلمو شعب الموا</value>
+  </data>
+  <data name="Enrollments" xml:space="preserve">
+    <value>التسجيلات</value>
+  </data>
+  <data name="Exams" xml:space="preserve">
+    <value>الامتحانات</value>
+  </data>
+  <data name="StudentExamResults" xml:space="preserve">
+    <value>نتائج الطلاب</value>
+  </data>
+  <data name="StudentAcademicRecords" xml:space="preserve">
+    <value>السجلات الأكاديمية للطلاب</value>
+  </data>
+  <data name="FeeStructures" xml:space="preserve">
+    <value>هياكل الرسوم</value>
+  </data>
+  <data name="FeeItems" xml:space="preserve">
+    <value>بنود الرسوم</value>
+  </data>
+  <data name="Installments" xml:space="preserve">
+    <value>الأقساط</value>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>الدفعات</value>
+  </data>
+  <data name="SubjectClasses" xml:space="preserve">
+    <value>صف المواد</value>
   </data>
 </root>
