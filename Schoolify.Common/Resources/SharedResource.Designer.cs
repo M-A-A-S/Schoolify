@@ -1465,11 +1465,56 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Section created successfully.
+        /// </summary>
+        public static string SectionCreated {
+            get {
+                return ResourceManager.GetString("SectionCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Section deleted successfully.
+        /// </summary>
+        public static string SectionDeleted {
+            get {
+                return ResourceManager.GetString("SectionDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Section not found.
+        /// </summary>
+        public static string SectionNotFound {
+            get {
+                return ResourceManager.GetString("SectionNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sections.
         /// </summary>
         public static string Sections {
             get {
                 return ResourceManager.GetString("Sections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No sections found.
+        /// </summary>
+        public static string SectionsNotFound {
+            get {
+                return ResourceManager.GetString("SectionsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Section updated successfully.
+        /// </summary>
+        public static string SectionUpdated {
+            get {
+                return ResourceManager.GetString("SectionUpdated", resourceCulture);
             }
         }
         

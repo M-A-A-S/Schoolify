@@ -813,4 +813,19 @@
   <data name="SubjectClasses" xml:space="preserve">
     <value>Subject Classes</value>
   </data>
+  <data name="SectionNotFound" xml:space="preserve">
+    <value>Section not found</value>
+  </data>
+  <data name="SectionsNotFound" xml:space="preserve">
+    <value>No sections found</value>
+  </data>
+  <data name="SectionCreated" xml:space="preserve">
+    <value>Section created successfully</value>
+  </data>
+  <data name="SectionUpdated" xml:space="preserve">
+    <value>Section updated successfully</value>
+  </data>
+  <data name="SectionDeleted" xml:space="preserve">
+    <value>Section deleted successfully</value>
+  </data>
 </root>

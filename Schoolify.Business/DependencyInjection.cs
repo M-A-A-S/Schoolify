@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Schoolify.Business.Interfaces;
 using Schoolify.Business.Services;
 using Schoolify.DataAccess;
+using System.ComponentModel.Design;
 
 namespace Schoolify.Business
 {
@@ -21,6 +22,7 @@ namespace Schoolify.Business
 
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            services.AddScoped<ISectionService, SectionService>();
             services.AddScoped<IScoreRangeService, ScoreRangeService>();
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<IGuardianService, GuardianService>();
