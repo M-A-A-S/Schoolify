@@ -17,15 +17,34 @@ namespace Schoolify.Business.Services
     public class ClassService : IClassService
     {
         private readonly ISubjectClassRepository _repo;
+        private readonly ISubjectClassTeacherRepository _subjectClassTeacherRepository;
 
-        public ClassService(ISubjectClassRepository repo)
+        public ClassService(ISubjectClassRepository repo,
+            ISubjectClassTeacherRepository subjectClassTeacherRepository)
         {
             _repo = repo;
+            _subjectClassTeacherRepository = subjectClassTeacherRepository;
         }
 
         #region Add
         public async Task<Result<SubjectClassDTO>> AddAsync(SubjectClassDTO dto)
         {
+
+            //var existingResult = await _repo.FindByAsync(
+            //    c => c.SubjectId == dto.SubjectId && 
+            //    c.TermId == dto.TermId && 
+            //    c.SectionId == dto.SectionId && (c.NameEn == dto.NameEn || c.NameAr == dto.NameAr));
+            var existingResult = await _repo.FindByAsync(
+                c => c.SubjectId == dto.SubjectId && 
+                c.TermId == dto.TermId && 
+                c.SectionId == dto.SectionId);
+
+            if (existingResult.IsSuccess)
+            {
+                return Result<SubjectClassDTO>.Failure(
+                    ResultCodes.ClassAlreadyExists,
+                    400);
+            }
 
             var entity = dto.ToEntity();
 
@@ -63,6 +82,7 @@ namespace Schoolify.Business.Services
         #region Get
         public async Task<Result<SubjectClassDTO>> GetByIdAsync(int id)
         {
+
             var findResult = await _repo.FindByAsync(c => c.Id == id, include: 
                 q => q.Include(c => c.Subject)
                     .Include(c => c.Term)
@@ -115,7 +135,26 @@ namespace Schoolify.Business.Services
         #region Update
         public async Task<Result<SubjectClassDTO>> UpdateAsync(int id, SubjectClassDTO dto)
         {
-            var existingResult = await _repo.FindByAsync(c => c.Id == id);
+    //        var existsResult = await _repo.FindByAsync(
+    //c => c.Id != id && 
+    //c.SubjectId == dto.SubjectId &&
+    //c.TermId == dto.TermId &&
+    //c.SectionId == dto.SectionId && (c.NameEn == dto.NameEn || c.NameAr == dto.NameAr));
+            var existsResult = await _repo.FindByAsync(
+    c => c.Id != id && 
+    c.SubjectId == dto.SubjectId &&
+    c.TermId == dto.TermId &&
+    c.SectionId == dto.SectionId);
+
+            if (existsResult.IsSuccess && existsResult.Data != null)
+            {
+                return Result<SubjectClassDTO>.Failure(
+                    ResultCodes.ClassAlreadyExists,
+                    400);
+            }
+
+            var existingResult = await _repo.FindByAsync(c => c.Id == id,
+                include: q => q.Include(x => x.SubjectClassTeachers));
             if (!existingResult.IsSuccess || existingResult.Data == null)
             {
                 return Result<SubjectClassDTO>.Failure(
@@ -125,7 +164,42 @@ namespace Schoolify.Business.Services
 
             var entity = existingResult.Data;
 
+            // Update scalar properties
             entity.UpdateFromDTO(dto);
+
+            //// Remove existing teachers
+            //await _subjectClassTeacherRepository.DeleteRangeAsync(entity.SubjectClassTeachers);
+
+            //// add new teachers
+            //entity.SubjectClassTeachers = dto.SubjectClassTeachers
+            //    .Select(x => new SubjectClassTeacher
+            //    {
+            //        TeacherId = x.TeacherId,
+            //        IsMainTeacher = x.IsMainTeacher
+            //    }).ToList();
+
+            var existingTeacherIds = entity.SubjectClassTeachers
+                .Select(t => t.TeacherId).ToList();
+
+            var newTeacherIds = dto.SubjectClassTeachers
+                .Select(t => t.TeacherId).ToList();
+
+            var toRemove = entity.SubjectClassTeachers
+                .Where(t => !newTeacherIds.Contains(t.TeacherId)).ToList();
+
+            await _subjectClassTeacherRepository.DeleteRangeAsync(toRemove);
+
+            var toAdd = newTeacherIds.Except(existingTeacherIds);
+
+            foreach (var teacherId in toAdd)
+            {
+                entity.SubjectClassTeachers.Add(new SubjectClassTeacher
+                {
+                    TeacherId = teacherId,
+                    IsMainTeacher = dto.SubjectClassTeachers
+                        .FirstOrDefault(t => t.TeacherId == teacherId)?.IsMainTeacher ?? false
+                });
+            }
 
             var updateResult = await _repo.UpdateAndSaveAsync(existingResult.Data);
 

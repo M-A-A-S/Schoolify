@@ -831,4 +831,7 @@
   <data name="SelectSection" xml:space="preserve">
     <value>-- اختر الشعبة --</value>
   </data>
+  <data name="ClassAlreadyExists" xml:space="preserve">
+    <value>يوجد فصل بنفس المادة والفترة والقسم مسبقًا</value>
+  </data>
 </root>

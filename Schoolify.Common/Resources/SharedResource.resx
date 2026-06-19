@@ -831,4 +831,7 @@
   <data name="SelectSection" xml:space="preserve">
     <value>-- Select Section --</value>
   </data>
+  <data name="ClassAlreadyExists" xml:space="preserve">
+    <value>A class with the selected subject, term, and section already exists</value>
+  </data>
 </root>

@@ -106,6 +106,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A class with the selected subject, term, and section already exists.
+        /// </summary>
+        public static string ClassAlreadyExists {
+            get {
+                return ResourceManager.GetString("ClassAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Class created successfully.
         /// </summary>
         public static string ClassCreated {

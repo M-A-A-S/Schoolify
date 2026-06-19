@@ -13,5 +13,6 @@ namespace Schoolify.Common.Utilities.ResultCodes
         public const string ClassCreated = "ClassCreated";
         public const string ClassUpdated = "ClassUpdated";
         public const string ClassDeleted = "ClassDeleted";
+        public const string ClassAlreadyExists = "ClassAlreadyExists";
     }
 }
