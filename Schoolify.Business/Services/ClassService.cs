@@ -227,13 +227,18 @@ namespace Schoolify.Business.Services
         #region Delete
         public async Task<Result<bool>> DeleteAsync(int id)
         {
-            var findResult = await _repo.FindByAsync(c => c.Id == id);
+            var findResult = await _repo.FindByAsync(c => c.Id == id,
+                include: q => q.Include(x => x.SubjectClassTeachers));
+
             if (!findResult.IsSuccess)
             {
                 return Result<bool>.Failure(
                     ResultCodes.ClassNotFound,
                     404);
             }
+
+            await _subjectClassTeacherRepository.DeleteRangeAsync(
+                findResult.Data.SubjectClassTeachers);
 
             var deleteResult = await _repo.DeleteAndSaveAsync(findResult.Data);
 
