@@ -18,14 +18,19 @@
         </div>
     </div>
 
-    @* <div class="col-md-6">
-        <label class="fw-bold">@Localizer["Teacher"]</label>
-        <div>@($"{@Model?.Teacher?.FirstName} {@Model?.Teacher?.SecondName} {@Model?.Teacher?.ThirdName} {@Model?.Teacher?.ForthName}")</div>
-    </div> *@
 
     <div class="col-md-6">
         <label class="fw-bold">@Localizer["Term"]</label>
         <div>@($"{@Model?.Term?.TermNumber} - {@Model?.Term?.StartDate:yyyy/MM/dd} - {@Model?.Term?.EndDate:yyyy/MM/dd}")</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Section"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? Model?.Section?.NameAr
+                        : Model?.Section?.NameEn)
+        </div>
     </div>
 
     <div class="col-md-6">
@@ -47,6 +52,52 @@
         <div>
             @Model.MaxScore
         </div>
+    </div>
+
+    <div class="col-12">
+        <label class="fw-bold">@Localizer["Teachers"]</label>
+
+        @if (Model.SubjectClassTeachers?.Any() == true)
+        {
+            <table class="table table-bordered mt-2">
+                <thead>
+                    <tr>
+                        <th>@Localizer["Teacher"]</th>
+                        <th>@Localizer["MainTeacher"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.SubjectClassTeachers)
+                    {
+                        <tr>
+                            <td>
+                                @($"{item.Teacher?.FirstName} {item.Teacher?.SecondName} {item.Teacher?.ThirdName} {item.Teacher?.ForthName}")
+                            </td>
+                            <td>
+                                @if (item.IsMainTeacher)
+                                {
+                                    <span class="badge bg-success">
+                                        @Localizer["Yes"]
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">
+                                        @Localizer["No"]
+                                    </span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="text-muted">
+                @Localizer["NoTeachersAssigned"]
+            </div>
+        }
     </div>
 
 

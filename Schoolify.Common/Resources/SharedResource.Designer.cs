@@ -988,11 +988,29 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is Main Teacher.
+        /// </summary>
+        public static string IsMainTeacher {
+            get {
+                return ResourceManager.GetString("IsMainTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Level Order.
         /// </summary>
         public static string LevelOrder {
             get {
                 return ResourceManager.GetString("LevelOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Main Teacher.
+        /// </summary>
+        public static string MainTeacher {
+            get {
+                return ResourceManager.GetString("MainTeacher", resourceCulture);
             }
         }
         
@@ -1069,11 +1087,29 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to NoClass.
         /// </summary>
         public static string NoClass {
             get {
                 return ResourceManager.GetString("NoClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No teachers assigned.
+        /// </summary>
+        public static string NoTeachersAssigned {
+            get {
+                return ResourceManager.GetString("NoTeachersAssigned", resourceCulture);
             }
         }
         
@@ -2208,6 +2244,15 @@ namespace Schoolify.Common.Resources {
         public static string YearLevelUpdated {
             get {
                 return ResourceManager.GetString("YearLevelUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }
