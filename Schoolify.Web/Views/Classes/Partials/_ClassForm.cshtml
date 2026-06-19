@@ -144,6 +144,7 @@
             <thead>
                 <tr>
                     <th>@Localizer["Teacher"]</th>
+                    <th>@Localizer["MainTeacher"]</th>
                     <th>@Localizer["Actions"]</th>
                 </tr>
             </thead>
@@ -155,7 +156,11 @@
 
 <script>
     let teachers = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
-                Model.Class.SubjectClassTeachers.Select(x => new { x.TeacherId })
+                Model.Class.SubjectClassTeachers.Select(x => new
+                {
+                        x.TeacherId,
+                        x.IsMainTeacher
+                })
         ));
 
     const teacherOptions = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
@@ -174,14 +179,33 @@
 
         if (!id || teachers.some(x => x.TeacherId === id)) return;
 
-        teachers.push({ TeacherId: id });
+        teachers.push({
+            TeacherId: id,
+            IsMainTeacher: teachers.length === 0 // first teacher auto main
+        });
 
         renderTable();
         select.value = "";
     }
 
+    function setMainTeacher(id) {
+        teachers.forEach(t => {
+            t.IsMainTeacher = (t.TeacherId === id);
+        });
+
+        renderTable();
+    }
+
     function removeTeacher(id) {
+
+        const removed = teachers.find(x => x.TeacherId === id);
+
         teachers = teachers.filter(x => x.TeacherId !== id);
+
+        if (removed?.IsMainTeacher && teachers.length > 0) {
+            teachers[0].IsMainTeacher = true;
+        }
+
         renderTable();
     }
 
@@ -198,10 +222,25 @@
                     <td>
                         ${teacher ? teacher.Name : ""}
 
-                        <!-- ✅ MVC BINDING HERE -->
                         <input type="hidden"
                                name="Class.SubjectClassTeachers[${index}].TeacherId"
                                value="${t.TeacherId}" />
+
+                        <input type="hidden"
+                               name="Class.SubjectClassTeachers[${index}].IsMainTeacher"
+                               value="${t.IsMainTeacher}" />
+                    </td>
+
+                    <td class="text-center">
+
+                            <label class="main-teacher-switch">
+        <input type="radio"
+               name="mainTeacher"
+               ${t.IsMainTeacher ? "checked" : ""}
+               onclick="setMainTeacher(${t.TeacherId})" />
+
+        <span class="slider"></span>
+    </label>
                     </td>
 
                     <td>

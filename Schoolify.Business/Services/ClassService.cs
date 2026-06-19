@@ -185,9 +185,16 @@ namespace Schoolify.Business.Services
                 .Select(t => t.TeacherId).ToList();
 
             var toRemove = entity.SubjectClassTeachers
-                .Where(t => !newTeacherIds.Contains(t.TeacherId)).ToList();
+                .Where(t => !newTeacherIds.Contains(t.TeacherId))
+                .ToList();
 
             await _subjectClassTeacherRepository.DeleteRangeAsync(toRemove);
+
+            //// REMOVE from navigation too
+            //foreach (var item in toRemove)
+            //{
+            //    entity.SubjectClassTeachers.Remove(item);
+            //}
 
             var toAdd = newTeacherIds.Except(existingTeacherIds);
 
@@ -196,9 +203,19 @@ namespace Schoolify.Business.Services
                 entity.SubjectClassTeachers.Add(new SubjectClassTeacher
                 {
                     TeacherId = teacherId,
-                    IsMainTeacher = dto.SubjectClassTeachers
-                        .FirstOrDefault(t => t.TeacherId == teacherId)?.IsMainTeacher ?? false
                 });
+            }
+
+            // UPDATE ALL IsMainTeacher (THIS IS THE FIX)
+            foreach (var teacher in entity.SubjectClassTeachers)
+            {
+                var dtoTeacher = dto.SubjectClassTeachers
+                    .FirstOrDefault(x => x.TeacherId == teacher.TeacherId);
+
+                if (dtoTeacher != null)
+                {
+                    teacher.IsMainTeacher = dtoTeacher.IsMainTeacher;
+                }
             }
 
             var updateResult = await _repo.UpdateAndSaveAsync(existingResult.Data);
