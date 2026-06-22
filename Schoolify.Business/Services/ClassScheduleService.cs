@@ -18,12 +18,15 @@ namespace Schoolify.Business.Services
     {
         private readonly IClassScheduleRepository _repo;
         private readonly IPeriodRepository _periodRepository;
+        private readonly ISectionRepository _sectionRepository;
 
         public ClassScheduleService(IClassScheduleRepository repo,
-            IPeriodRepository periodRepository)
+            IPeriodRepository periodRepository,
+            ISectionRepository sectionRepository)
         {
             _repo = repo;
             _periodRepository = periodRepository;
+            _sectionRepository = sectionRepository;
         }
 
         #region Add
@@ -57,7 +60,8 @@ namespace Schoolify.Business.Services
         public async Task<Result<ClassScheduleDTO>> GetByIdAsync(int id)
         {
             var findResult = await _repo.FindByAsync(c => c.Id == id, 
-                    include: q => q.Include(cs => cs.Period)
+                    include: q => q
+                        .Include(cs => cs.Period)
                         .Include(cs => cs.Classroom)
                         .Include(cs => cs.SubjectClassTeacher)
                         .AsNoTrackingWithIdentityResolution());
@@ -98,76 +102,198 @@ namespace Schoolify.Business.Services
         //    return Result<IEnumerable<ClassScheduleDTO>>.Success(result);
         //}
 
-        public async Task<Result<ScheduleDTO>> GetAllAsync()
+        public async Task<Result<IEnumerable<SectionScheduleDTO>>> GetAllAsync()
         {
-            var getAllSchedulesResult = await _repo.GetAllAsync(
-                include: q => q.Include(cs => cs.Period)
+            var sectionsResult = await _sectionRepository.GetAllAsync
+                (include: q => q.Include(s => s.YearLevel).AsNoTrackingWithIdentityResolution());
+
+            if (!sectionsResult.IsSuccess || sectionsResult.Data == null)
+            {
+                return Result<IEnumerable<SectionScheduleDTO>>
+                    .Failure(ResultCodes.SectionsNotFound, 200);
+            }
+
+                var getAllSchedulesResult = await _repo.GetAllAsync(
+                include: q => q
+                        .Include(cs => cs.Period)
                         .Include(cs => cs.Classroom)
                         .Include(cs => cs.SubjectClassTeacher)
                             .ThenInclude(c => c.Teacher)
-                        .AsNoTrackingWithIdentityResolution());
+                        .Include(cs => cs.SubjectClassTeacher)
+                            .ThenInclude(c => c.SubjectClass)
+                                .ThenInclude(c => c.Section)
+                        .AsNoTrackingWithIdentityResolution()
+                        .AsSplitQuery());
 
             if (!getAllSchedulesResult.IsSuccess || getAllSchedulesResult.Data == null)
             {
-                return Result<ScheduleDTO>.Failure(ResultCodes.ClassSchedulesNotFound, 200);
+                return Result<IEnumerable<SectionScheduleDTO>>.Failure(ResultCodes.ClassSchedulesNotFound, 200);
             }
 
-            var getAllPeriodsResult = await _periodRepository.GetAllAsync(include: q => q.OrderBy(p => p.StartTime));
+            // load all periods (for table rows)
+            var getAllPeriodsResult = await _periodRepository
+                    .GetAllAsync(include: q => q.OrderBy(p => p.StartTime));
 
             if (!getAllPeriodsResult.IsSuccess || getAllPeriodsResult.Data == null)
             {
-                return Result<ScheduleDTO>.Failure(ResultCodes.PeriodsNotFound, 200);
+                return Result<IEnumerable<SectionScheduleDTO>>.Failure(ResultCodes.PeriodsNotFound, 200);
             }
             //var days = Enum.GetValues(typeof(DayOfWeek))
             //    .Cast<DayOfWeek>()
             //    .Where(d => d != DayOfWeek.Saturday && d != DayOfWeek.Friday)
             //    .ToList();
 
+            // get all days of week (columns in timetable)
             var days = Enum.GetValues(typeof(DayOfWeek))
                 .Cast<DayOfWeek>()
                 .ToList();
 
-            var grid = new Dictionary<int, Dictionary<DayOfWeek, ScheduleCellDTO>>();
+            // final result list (one timetable per section)
+            var result = new List<SectionScheduleDTO>();
 
-            foreach (var period in getAllPeriodsResult.Data)
+            //  group schedules by SectionId
+            //var groupedSections = getAllSchedulesResult.Data
+            //    .GroupBy(s => s.SubjectClassTeacher.SubjectClass.SectionId);
+
+            //foreach (var sectionGroup in groupedSections)
+            //{
+            //    // first item used to get section info (name, id, etc.)
+            //    var first = sectionGroup.FirstOrDefault();
+
+
+            //    // create timetable grid
+            //    // structure: PeriodId -> DayOfWeek -> ScheduleCell
+            //    var grid = new Dictionary<int, Dictionary<DayOfWeek, ScheduleCellDTO>>();
+
+            //    foreach (var period in getAllPeriodsResult.Data)
+            //    {
+            //        grid[period.Id] = new Dictionary<DayOfWeek, ScheduleCellDTO>();
+
+            //        foreach (var day in days)
+            //        {
+            //            //var item = getAllSchedulesResult.Data.FirstOrDefault(x =>
+            //            //    x.PeriodId == period.Id &&
+            //            //    x.DayOfWeek == day);
+
+            //            //var item = getAllSchedulesResult.Data
+            //            //    .FirstOrDefault(x =>
+            //            //    x.PeriodId == period.Id &&
+            //            //    x.DayOfWeek == day);
+
+            //            var item = sectionGroup
+            //                .FirstOrDefault(x =>
+            //                x.PeriodId == period.Id &&
+            //                x.DayOfWeek == day);
+
+            //            grid[period.Id][day] = item == null
+            //            ? null
+            //            //: new ScheduleCellDTO
+            //            //{
+            //            //    ClassScheduleId = item.Id,
+            //            //    ClassNameEn = item?.Class?.NameEn,
+            //            //    ClassNameAr = item?.Class?.NameAr,
+            //            //    TeacherName = $"{item?.Class?.Teacher?.FirstName} {item?.Class?.Teacher?.SecondName} {item?.Class?.Teacher?.ThirdName} {item?.Class?.Teacher?.ForthName}",
+            //            //    ClassroomNameEn = item?.Classroom?.NameEn,
+            //            //    ClassroomNameAr = item?.Classroom?.NameAr
+            //            //};
+            //            : new ScheduleCellDTO
+            //            {
+            //                ClassScheduleId = item.Id,
+
+            //                ClassNameEn = item?.SubjectClassTeacher?.SubjectClass?.NameEn,
+            //                ClassNameAr = item?.SubjectClassTeacher?.SubjectClass?.NameAr,
+
+            //                TeacherName = $"{item?.SubjectClassTeacher?.Teacher?.FirstName} {item?.SubjectClassTeacher?.Teacher?.SecondName} {item?.SubjectClassTeacher?.Teacher?.ThirdName} {item?.SubjectClassTeacher?.Teacher?.ForthName}",
+
+            //                ClassroomNameEn = item?.Classroom?.NameEn,
+            //                ClassroomNameAr = item?.Classroom?.NameAr
+            //            };
+            //        }
+            //    }
+
+            //    result.Add(new SectionScheduleDTO
+            //    {
+            //        SectionId = first?.SubjectClassTeacher?.SubjectClass?.SectionId ?? 0,
+
+            //        SectionNameEn = first?.SubjectClassTeacher?.SubjectClass?.Section?.NameEn,
+            //        SectionNameAr = first?.SubjectClassTeacher?.SubjectClass?.Section?.NameAr,
+
+            //        // all periods (rows)
+            //        Periods = getAllPeriodsResult.Data.Select(p => p.ToDTO()).ToList(),
+
+            //        // all days (columns)
+            //        Days = days,
+
+            //        // final timetable grid
+            //        Grid = grid
+
+            //    });
+
+            //}
+
+            foreach (var section in sectionsResult.Data)
             {
-                grid[period.Id] = new Dictionary<DayOfWeek, ScheduleCellDTO>();
+                //  FILTER schedules for THIS section only
+                var sectionSchedules = getAllSchedulesResult.Data
+                    .Where(x =>
+                        x.SubjectClassTeacher.SubjectClass.SectionId == section.Id)
+                    .ToList();
 
-                foreach (var day in days)
+                // CREATE GRID
+                var grid = new Dictionary<int, Dictionary<DayOfWeek, ScheduleCellDTO>>();
+
+                foreach (var period in getAllPeriodsResult.Data)
                 {
-                    var item = getAllSchedulesResult.Data.FirstOrDefault(x =>
-                        x.PeriodId == period.Id &&
-                        x.DayOfWeek == day);
+                    grid[period.Id] = new Dictionary<DayOfWeek, ScheduleCellDTO>();
 
-                    grid[period.Id][day] = item == null
-                        ? null
-                        //: new ScheduleCellDTO
-                        //{
-                        //    ClassScheduleId = item.Id,
-                        //    ClassNameEn = item?.Class?.NameEn,
-                        //    ClassNameAr = item?.Class?.NameAr,
-                        //    TeacherName = $"{item?.Class?.Teacher?.FirstName} {item?.Class?.Teacher?.SecondName} {item?.Class?.Teacher?.ThirdName} {item?.Class?.Teacher?.ForthName}",
-                        //    ClassroomNameEn = item?.Classroom?.NameEn,
-                        //    ClassroomNameAr = item?.Classroom?.NameAr
-                        //};
-                        : new ScheduleCellDTO
-                        {
-                            ClassScheduleId = item.Id,
-                            ClassNameEn = item?.SubjectClassTeacher?.SubjectClass?.NameEn,
-                            ClassNameAr = item?.SubjectClassTeacher?.SubjectClass?.NameAr,
-                            TeacherName = $"{item?.SubjectClassTeacher?.Teacher?.FirstName} {item?.SubjectClassTeacher?.Teacher?.SecondName} {item?.SubjectClassTeacher?.Teacher?.ThirdName} {item?.SubjectClassTeacher?.Teacher?.ForthName}",
-                            ClassroomNameEn = item?.Classroom?.NameEn,
-                            ClassroomNameAr = item?.Classroom?.NameAr
-                        };
+                    foreach (var day in days)
+                    {
+                        // FIND matching schedule
+                        var item = sectionSchedules.FirstOrDefault(x =>
+                            x.PeriodId == period.Id &&
+                            x.DayOfWeek == day);
+
+                        // BUILD CELL
+                        grid[period.Id][day] = item == null
+                            ? null
+                            : new ScheduleCellDTO
+                            {
+                                ClassScheduleId = item.Id,
+
+                                ClassNameEn = item.SubjectClassTeacher.SubjectClass.NameEn,
+                                ClassNameAr = item.SubjectClassTeacher.SubjectClass.NameAr,
+
+                                TeacherName =
+                                    $"{item.SubjectClassTeacher.Teacher.FirstName} " +
+                                    $"{item.SubjectClassTeacher.Teacher.SecondName} " +
+                                    $"{item.SubjectClassTeacher.Teacher.ThirdName} " +
+                                    $"{item.SubjectClassTeacher.Teacher.ForthName}",
+
+                                ClassroomNameEn = item.Classroom.NameEn,
+                                ClassroomNameAr = item.Classroom.NameAr
+                            };
+                    }
+
                 }
+
+                // ADD SECTION RESULT
+                result.Add(new SectionScheduleDTO
+                {
+                    SectionId = section.Id,
+                    SectionNameEn = section.NameEn,
+                    SectionNameAr = section.NameAr,
+
+                    Periods = getAllPeriodsResult.Data
+                        .Select(p => p.ToDTO())
+                        .ToList(),
+                    Days = days,
+                    Grid = grid
+                });
+
+
             }
 
-            return Result<ScheduleDTO>.Success(new ScheduleDTO
-            {
-                Periods = getAllPeriodsResult.Data.Select(p => p.ToDTO()).ToList(),
-                Days = days,
-                Grid = grid
-            });
+            return Result<IEnumerable<SectionScheduleDTO>>.Success(result);
         }
         #endregion
 
