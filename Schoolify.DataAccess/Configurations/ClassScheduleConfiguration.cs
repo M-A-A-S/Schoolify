@@ -71,7 +71,7 @@ namespace Schoolify.DataAccess.Configurations
                 //cs.ClassId,
                 cs.SubjectClassTeacherId,
                 cs.PeriodId,
-                cs.SectionId,
+                //cs.SectionId,
                 cs.DayOfWeek
             })
             .IsUnique();
@@ -81,7 +81,8 @@ namespace Schoolify.DataAccess.Configurations
             {
                 cs.ClassroomId,
                 cs.PeriodId,
-                cs.DayOfWeek
+                cs.DayOfWeek,
+                cs.SectionId
             })
             .IsUnique();
         }

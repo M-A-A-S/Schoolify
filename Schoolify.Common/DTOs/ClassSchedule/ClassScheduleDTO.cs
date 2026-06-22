@@ -59,8 +59,6 @@ ResourceType = typeof(Resources.SharedResource)
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-
-
         public int ClassroomId { get; set; }
         [Display(Name = nameof(Resources.SharedResource.DayOfWeek),
 ResourceType = typeof(Resources.SharedResource)
