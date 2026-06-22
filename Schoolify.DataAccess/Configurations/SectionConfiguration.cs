@@ -42,10 +42,10 @@ namespace Schoolify.DataAccess.Configurations
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Section -> SubjectClasses (One-to-Many)
-            builder.HasMany(t => t.SubjectClasses)
-                .WithOne(c => c.Section)
-                .HasForeignKey(c => c.SectionId)
-                .OnDelete(DeleteBehavior.Cascade);
+            //builder.HasMany(t => t.SubjectClasses)
+            //    .WithOne(c => c.Section)
+            //    .HasForeignKey(c => c.SectionId)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

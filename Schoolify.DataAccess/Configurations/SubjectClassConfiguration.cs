@@ -64,10 +64,10 @@ namespace Schoolify.DataAccess.Configurations
                 .OnDelete(DeleteBehavior.Cascade);
 
             // SubjectClass -> Section (Many-to-One)
-            builder.HasOne(x => x.Section)
-            .WithMany(s => s.SubjectClasses)
-            .HasForeignKey(x => x.SectionId)
-            .OnDelete(DeleteBehavior.Restrict);
+            //builder.HasOne(x => x.Section)
+            //.WithMany(s => s.SubjectClasses)
+            //.HasForeignKey(x => x.SectionId)
+            //.OnDelete(DeleteBehavior.Restrict);
 
 
             builder.HasIndex(x => new
@@ -75,7 +75,7 @@ namespace Schoolify.DataAccess.Configurations
                 x.SubjectId,
                 //x.TeacherId,
                 x.TermId,
-                x.SectionId
+                //x.SectionId
             })
             .IsUnique(); // prevents duplicate class offerings
 

@@ -105,7 +105,9 @@ namespace Schoolify.Business.Services
         public async Task<Result<IEnumerable<SectionScheduleDTO>>> GetAllAsync()
         {
             var sectionsResult = await _sectionRepository.GetAllAsync
-                (include: q => q.Include(s => s.YearLevel).AsNoTrackingWithIdentityResolution());
+                (include: q => q
+                .Include(s => s.YearLevel)
+                .AsNoTrackingWithIdentityResolution());
 
             if (!sectionsResult.IsSuccess || sectionsResult.Data == null)
             {
@@ -121,7 +123,6 @@ namespace Schoolify.Business.Services
                             .ThenInclude(c => c.Teacher)
                         .Include(cs => cs.SubjectClassTeacher)
                             .ThenInclude(c => c.SubjectClass)
-                                .ThenInclude(c => c.Section)
                         .AsNoTrackingWithIdentityResolution()
                         .AsSplitQuery());
 
@@ -138,10 +139,6 @@ namespace Schoolify.Business.Services
             {
                 return Result<IEnumerable<SectionScheduleDTO>>.Failure(ResultCodes.PeriodsNotFound, 200);
             }
-            //var days = Enum.GetValues(typeof(DayOfWeek))
-            //    .Cast<DayOfWeek>()
-            //    .Where(d => d != DayOfWeek.Saturday && d != DayOfWeek.Friday)
-            //    .ToList();
 
             // get all days of week (columns in timetable)
             var days = Enum.GetValues(typeof(DayOfWeek))
@@ -151,92 +148,11 @@ namespace Schoolify.Business.Services
             // final result list (one timetable per section)
             var result = new List<SectionScheduleDTO>();
 
-            //  group schedules by SectionId
-            //var groupedSections = getAllSchedulesResult.Data
-            //    .GroupBy(s => s.SubjectClassTeacher.SubjectClass.SectionId);
-
-            //foreach (var sectionGroup in groupedSections)
-            //{
-            //    // first item used to get section info (name, id, etc.)
-            //    var first = sectionGroup.FirstOrDefault();
-
-
-            //    // create timetable grid
-            //    // structure: PeriodId -> DayOfWeek -> ScheduleCell
-            //    var grid = new Dictionary<int, Dictionary<DayOfWeek, ScheduleCellDTO>>();
-
-            //    foreach (var period in getAllPeriodsResult.Data)
-            //    {
-            //        grid[period.Id] = new Dictionary<DayOfWeek, ScheduleCellDTO>();
-
-            //        foreach (var day in days)
-            //        {
-            //            //var item = getAllSchedulesResult.Data.FirstOrDefault(x =>
-            //            //    x.PeriodId == period.Id &&
-            //            //    x.DayOfWeek == day);
-
-            //            //var item = getAllSchedulesResult.Data
-            //            //    .FirstOrDefault(x =>
-            //            //    x.PeriodId == period.Id &&
-            //            //    x.DayOfWeek == day);
-
-            //            var item = sectionGroup
-            //                .FirstOrDefault(x =>
-            //                x.PeriodId == period.Id &&
-            //                x.DayOfWeek == day);
-
-            //            grid[period.Id][day] = item == null
-            //            ? null
-            //            //: new ScheduleCellDTO
-            //            //{
-            //            //    ClassScheduleId = item.Id,
-            //            //    ClassNameEn = item?.Class?.NameEn,
-            //            //    ClassNameAr = item?.Class?.NameAr,
-            //            //    TeacherName = $"{item?.Class?.Teacher?.FirstName} {item?.Class?.Teacher?.SecondName} {item?.Class?.Teacher?.ThirdName} {item?.Class?.Teacher?.ForthName}",
-            //            //    ClassroomNameEn = item?.Classroom?.NameEn,
-            //            //    ClassroomNameAr = item?.Classroom?.NameAr
-            //            //};
-            //            : new ScheduleCellDTO
-            //            {
-            //                ClassScheduleId = item.Id,
-
-            //                ClassNameEn = item?.SubjectClassTeacher?.SubjectClass?.NameEn,
-            //                ClassNameAr = item?.SubjectClassTeacher?.SubjectClass?.NameAr,
-
-            //                TeacherName = $"{item?.SubjectClassTeacher?.Teacher?.FirstName} {item?.SubjectClassTeacher?.Teacher?.SecondName} {item?.SubjectClassTeacher?.Teacher?.ThirdName} {item?.SubjectClassTeacher?.Teacher?.ForthName}",
-
-            //                ClassroomNameEn = item?.Classroom?.NameEn,
-            //                ClassroomNameAr = item?.Classroom?.NameAr
-            //            };
-            //        }
-            //    }
-
-            //    result.Add(new SectionScheduleDTO
-            //    {
-            //        SectionId = first?.SubjectClassTeacher?.SubjectClass?.SectionId ?? 0,
-
-            //        SectionNameEn = first?.SubjectClassTeacher?.SubjectClass?.Section?.NameEn,
-            //        SectionNameAr = first?.SubjectClassTeacher?.SubjectClass?.Section?.NameAr,
-
-            //        // all periods (rows)
-            //        Periods = getAllPeriodsResult.Data.Select(p => p.ToDTO()).ToList(),
-
-            //        // all days (columns)
-            //        Days = days,
-
-            //        // final timetable grid
-            //        Grid = grid
-
-            //    });
-
-            //}
-
             foreach (var section in sectionsResult.Data)
             {
                 //  FILTER schedules for THIS section only
                 var sectionSchedules = getAllSchedulesResult.Data
-                    .Where(x =>
-                        x.SubjectClassTeacher.SubjectClass.SectionId == section.Id)
+                    .Where(x => x.SectionId == section.Id)
                     .ToList();
 
                 // CREATE GRID

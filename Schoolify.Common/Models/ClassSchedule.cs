@@ -12,11 +12,13 @@ namespace Schoolify.Common.Models
         public int SubjectClassTeacherId { get; set; }
         public int PeriodId { get; set; }
         public int ClassroomId { get; set; }
+        public int SectionId { get; set; }
         public DayOfWeek DayOfWeek { get; set; } // C# built-in enum for days of the week
 
         //public SubjectClass SubjectClass { get; set; }
         public SubjectClassTeacher SubjectClassTeacher { get; set; }
         public Period Period { get; set; }
         public Classroom Classroom { get; set; }
+        public Section Section { get; set; }
     }
 }

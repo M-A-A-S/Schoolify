@@ -24,11 +24,13 @@ namespace Schoolify.Common.Extensions
                 //ClassId = entity.ClassId,
                 ClassroomId = entity.ClassroomId,
                 PeriodId = entity.PeriodId,
+                SectionId = entity.SectionId,
                 DayOfWeek = entity.DayOfWeek,
 
                 //SubjectClassTeacher = entity?.SubjectClassTeacher?.ToDTO(),
                 Classroom = entity?.Classroom?.ToDTO(),
-                Period = entity?.Period?.ToDTO()
+                Period = entity?.Period?.ToDTO(),
+                Section = entity?.Section?.ToDTO(),
             };
         }
 
@@ -46,6 +48,7 @@ namespace Schoolify.Common.Extensions
                 SubjectClassTeacherId = DTO.SubjectClassTeacherId,
                 ClassroomId = DTO.ClassroomId,
                 PeriodId = DTO.PeriodId,
+                SectionId = DTO.SectionId,
                 DayOfWeek = DTO.DayOfWeek,
             };
         }
@@ -62,6 +65,7 @@ namespace Schoolify.Common.Extensions
             entity.SubjectClassTeacherId = DTO.SubjectClassTeacherId;
             entity.ClassroomId = DTO.ClassroomId;
             entity.PeriodId = DTO.PeriodId;
+            entity.SectionId = DTO.SectionId;
             entity.DayOfWeek = DTO.DayOfWeek;
         }
     

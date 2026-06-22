@@ -21,13 +21,13 @@ namespace Schoolify.Common.Extensions
             {
                 Id = entity.Id,
                 SubjectId = entity.SubjectId,
-                SectionId = entity.SectionId,
+                //SectionId = entity.SectionId,
                 TermId = entity.TermId,
                 NameEn = entity.NameEn,
                 NameAr = entity.NameAr,
                 MaxScore = entity.MaxScore,
                 
-                Section = entity.Section?.ToDTO(),
+                //Section = entity.Section?.ToDTO(),
                 Subject = entity.Subject?.ToDTO(),
                 Term = entity.Term?.ToDTO(),
                 SubjectClassTeachers = entity.SubjectClassTeachers?.Select(sct => sct.ToDTO()).ToList()
@@ -44,7 +44,7 @@ namespace Schoolify.Common.Extensions
             return new SubjectClass
             {
                 Id = DTO.Id,
-                SectionId = DTO.SectionId,
+                //SectionId = DTO.SectionId,
                 SubjectId = DTO.SubjectId,
                 TermId = DTO.TermId,
                 NameEn = DTO.NameEn,
@@ -61,7 +61,7 @@ namespace Schoolify.Common.Extensions
                 return;
             }
 
-            entity.SectionId = DTO.SectionId;
+            //entity.SectionId = DTO.SectionId;
             entity.SubjectId = DTO.SubjectId;
             entity.TermId = DTO.TermId;
             entity.NameEn = DTO.NameEn;

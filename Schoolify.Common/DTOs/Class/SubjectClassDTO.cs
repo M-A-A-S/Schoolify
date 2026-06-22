@@ -43,14 +43,14 @@ namespace Schoolify.Common.DTOs.Class
 )]
         public int TermId { get; set; }
 
-        [Display(Name = nameof(Resources.SharedResource.Section),
-    ResourceType = typeof(Resources.SharedResource)
-)]
-        [Required(
-    ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
-    ErrorMessageResourceType = typeof(Resources.SharedResource)
-)]
-        public int SectionId { get; set; }
+//        [Display(Name = nameof(Resources.SharedResource.Section),
+//    ResourceType = typeof(Resources.SharedResource)
+//)]
+//        [Required(
+//    ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
+//    ErrorMessageResourceType = typeof(Resources.SharedResource)
+//)]
+//        public int SectionId { get; set; }
 
         [Display(Name = nameof(Resources.SharedResource.NameEn),
     ResourceType = typeof(Resources.SharedResource)

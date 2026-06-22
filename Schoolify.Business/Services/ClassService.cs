@@ -35,9 +35,9 @@ namespace Schoolify.Business.Services
             //    c.TermId == dto.TermId && 
             //    c.SectionId == dto.SectionId && (c.NameEn == dto.NameEn || c.NameAr == dto.NameAr));
             var existingResult = await _repo.FindByAsync(
-                c => c.SubjectId == dto.SubjectId && 
-                c.TermId == dto.TermId && 
-                c.SectionId == dto.SectionId);
+                c => c.SubjectId == dto.SubjectId &&
+                c.TermId == dto.TermId);
+                //c.SectionId == dto.SectionId);
 
             if (existingResult.IsSuccess)
             {
@@ -86,7 +86,7 @@ namespace Schoolify.Business.Services
             var findResult = await _repo.FindByAsync(c => c.Id == id, include: 
                 q => q.Include(c => c.Subject)
                     .Include(c => c.Term)
-                    .Include(c => c.Section)
+                    //.Include(c => c.Section)
                     .Include(x => x.SubjectClassTeachers)
                         .ThenInclude(sct => sct.Teacher)
                     //.Include(c => c.Teacher)
@@ -109,7 +109,7 @@ namespace Schoolify.Business.Services
             var getAllResult = await _repo.GetAllAsync(include:
                 q => q.Include(c => c.Subject)
                     .Include(c => c.Term)
-                    .Include(c => c.Section)
+                    //.Include(c => c.Section)
                     .Include(x => x.SubjectClassTeachers)
                         .ThenInclude(sct => sct.Teacher)
                     //.Include(c => c.Teacher)
@@ -135,16 +135,16 @@ namespace Schoolify.Business.Services
         #region Update
         public async Task<Result<SubjectClassDTO>> UpdateAsync(int id, SubjectClassDTO dto)
         {
-    //        var existsResult = await _repo.FindByAsync(
-    //c => c.Id != id && 
-    //c.SubjectId == dto.SubjectId &&
-    //c.TermId == dto.TermId &&
-    //c.SectionId == dto.SectionId && (c.NameEn == dto.NameEn || c.NameAr == dto.NameAr));
+            //        var existsResult = await _repo.FindByAsync(
+            //c => c.Id != id && 
+            //c.SubjectId == dto.SubjectId &&
+            //c.TermId == dto.TermId &&
+            //c.SectionId == dto.SectionId && (c.NameEn == dto.NameEn || c.NameAr == dto.NameAr));
             var existsResult = await _repo.FindByAsync(
-    c => c.Id != id && 
+    c => c.Id != id &&
     c.SubjectId == dto.SubjectId &&
-    c.TermId == dto.TermId &&
-    c.SectionId == dto.SectionId);
+    c.TermId == dto.TermId);
+    //c.SectionId == dto.SectionId);
 
             if (existsResult.IsSuccess && existsResult.Data != null)
             {

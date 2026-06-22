@@ -17,7 +17,8 @@ namespace Schoolify.Common.Models
         //public Classroom Classroom { get; set; }
 
         public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
-        public ICollection<SubjectClass> SubjectClasses { get; set; } = new List<SubjectClass>();
+        public ICollection<ClassSchedule> ClassSchedules { get; set; } = new List<ClassSchedule>();
+        //public ICollection<SubjectClass> SubjectClasses { get; set; } = new List<SubjectClass>();
 
     }
 }

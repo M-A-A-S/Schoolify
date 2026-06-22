@@ -744,6 +744,7 @@ namespace Schoolify.DataAccess.Configurations
         SubjectClassTeacherId = 1,
         PeriodId = 1,
         ClassroomId = 1,
+        SectionId = 1,
         DayOfWeek = DayOfWeek.Sunday
     },
     new ClassSchedule
@@ -752,6 +753,7 @@ namespace Schoolify.DataAccess.Configurations
         SubjectClassTeacherId = 2,
         PeriodId = 2,
         ClassroomId = 2,
+        SectionId = 1,
         DayOfWeek = DayOfWeek.Sunday
     },
 
@@ -762,6 +764,7 @@ namespace Schoolify.DataAccess.Configurations
         SubjectClassTeacherId = 1,
         PeriodId = 3,
         ClassroomId = 1,
+        SectionId = 1,
         DayOfWeek = DayOfWeek.Monday
     },
     new ClassSchedule
@@ -770,6 +773,7 @@ namespace Schoolify.DataAccess.Configurations
         SubjectClassTeacherId = 2,
         PeriodId = 4,
         ClassroomId = 2,
+        SectionId = 1,
         DayOfWeek = DayOfWeek.Monday
     },
 
@@ -780,6 +784,7 @@ namespace Schoolify.DataAccess.Configurations
         SubjectClassTeacherId = 1,
         PeriodId = 5,
         ClassroomId = 1,
+        SectionId = 1,
         DayOfWeek = DayOfWeek.Tuesday
     },
     new ClassSchedule
@@ -788,6 +793,7 @@ namespace Schoolify.DataAccess.Configurations
         SubjectClassTeacherId = 2,
         PeriodId = 6,
         ClassroomId = 2,
+        SectionId = 1,
         DayOfWeek = DayOfWeek.Tuesday
     }
             );
@@ -892,7 +898,7 @@ namespace Schoolify.DataAccess.Configurations
                         NameEn = "Math - Grade 10 A",
                         NameAr = "رياضيات - الصف العاشر أ",
                         SubjectId = 1,
-                        SectionId = 1,
+                        //SectionId = 1,
                         //TeacherId = 1,
                         TermId = 1,
                         MaxScore = 100.00m
@@ -904,7 +910,7 @@ namespace Schoolify.DataAccess.Configurations
         NameAr = "فيزياء - الصف العاشر أ",
         SubjectId = 2,
         //TeacherId = 1,
-        SectionId = 1,
+        //SectionId = 1,
         TermId = 1,
         MaxScore = 100.00m
     },
@@ -914,7 +920,7 @@ namespace Schoolify.DataAccess.Configurations
         NameEn = "English - Grade 10 A",
         NameAr = "إنجليزي - الصف العاشر أ",
         SubjectId = 3,
-        SectionId = 1,
+        //SectionId = 1,
         //TeacherId = 2,
         TermId = 1,
         MaxScore = 100.00m

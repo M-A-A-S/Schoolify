@@ -26,6 +26,10 @@ namespace Schoolify.DataAccess.Configurations
             builder.Property(cs => cs.PeriodId)
                 .IsRequired();
 
+            builder.Property(cs => cs.SectionId)
+                .IsRequired();
+
+
             builder.Property(cs => cs.ClassroomId)
                 .IsRequired();
 
@@ -55,12 +59,19 @@ namespace Schoolify.DataAccess.Configurations
                 .HasForeignKey(cs => cs.ClassroomId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // ClassSchedule -> Section (Many-to-One)
+            builder.HasOne(cs => cs.Section)
+                .WithMany(c => c.ClassSchedules)
+                .HasForeignKey(cs => cs.SectionId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             // Prevent double booking for the same class
             builder.HasIndex(cs => new
             {
                 //cs.ClassId,
                 cs.SubjectClassTeacherId,
                 cs.PeriodId,
+                cs.SectionId,
                 cs.DayOfWeek
             })
             .IsUnique();
