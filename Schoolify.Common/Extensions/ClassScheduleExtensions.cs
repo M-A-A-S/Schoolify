@@ -27,7 +27,7 @@ namespace Schoolify.Common.Extensions
                 SectionId = entity.SectionId,
                 DayOfWeek = entity.DayOfWeek,
 
-                //SubjectClassTeacher = entity?.SubjectClassTeacher?.ToDTO(),
+                SubjectClassTeacher = entity?.SubjectClassTeacher?.ToDTO(),
                 Classroom = entity?.Classroom?.ToDTO(),
                 Period = entity?.Period?.ToDTO(),
                 Section = entity?.Section?.ToDTO(),

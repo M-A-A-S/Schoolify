@@ -74,12 +74,16 @@ namespace Schoolify.Business.Services
         #region Get
         public async Task<Result<ClassScheduleDTO>> GetByIdAsync(int id)
         {
-            var findResult = await _repo.FindByAsync(c => c.Id == id, 
+            var findResult = await _repo.FindByAsync(c => c.Id == id,
                     include: q => q
                         .Include(cs => cs.Period)
                         .Include(cs => cs.Classroom)
                         .Include(cs => cs.SubjectClassTeacher)
-                        .AsNoTrackingWithIdentityResolution());
+                            .ThenInclude(x => x.Teacher)
+                        .Include(cs => cs.SubjectClassTeacher)
+                            .ThenInclude(x => x.SubjectClass)
+                        //.AsNoTrackingWithIdentityResolution()
+                        .AsSplitQuery());
 
             if (!findResult.IsSuccess || findResult.Data == null)
             {
@@ -240,6 +244,18 @@ namespace Schoolify.Business.Services
                     404);
             }
 
+            var subjectClassTeacherResult =
+                await _subjectClassTeacherRepository.FindByAsync(x =>
+                x.TeacherId == dto.SubjectClassTeacher.TeacherId &&
+                x.SubjectClassId == dto.SubjectClassTeacher.SubjectClassId);
+
+                if (!subjectClassTeacherResult.IsSuccess || subjectClassTeacherResult.Data == null)
+                {
+                    return Result<ClassScheduleDTO>.Failure(ResultCodes.NotFound, 404);
+                }
+
+            dto.SubjectClassTeacherId = subjectClassTeacherResult.Data.Id;
+
             var entity = existingResult.Data;
 
             entity.UpdateFromDTO(dto);
@@ -251,7 +267,15 @@ namespace Schoolify.Business.Services
                 return Result<ClassScheduleDTO>.Failure(ResultCodes.ServerError, 500);
             }
 
-            var findResult = await _repo.FindByAsync(c => c.Id == id);
+            var findResult = await _repo.FindByAsync(c => c.Id == id, include: q => 
+                q.Include(x => x.Period)
+                .Include(x => x.Classroom)
+                .Include(x => x.SubjectClassTeacher)
+                    .ThenInclude(x => x.Teacher)
+                .Include(x => x.SubjectClassTeacher)
+                    .ThenInclude(x => x.SubjectClass)
+                .AsNoTrackingWithIdentityResolution()
+                .AsSplitQuery());
 
             if (!findResult.IsSuccess || findResult.Data == null)
             {

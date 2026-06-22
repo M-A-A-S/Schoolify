@@ -3,6 +3,7 @@ using Schoolify.Common.DTOs.Classroom;
 using Schoolify.Common.DTOs.Period;
 using Schoolify.Common.DTOs.Section;
 using Schoolify.Common.DTOs.Subject;
+using Schoolify.Common.DTOs.SubjectClassTeacher;
 using Schoolify.Common.DTOs.Teacher;
 using Schoolify.Common.DTOs.Term;
 using System;
@@ -21,6 +22,7 @@ namespace Schoolify.Common.DTOs.ClassSchedule
         public IEnumerable<PeriodDTO> Periods { get; set; } = Enumerable.Empty<PeriodDTO>();
         public IEnumerable<ClassroomDTO> Classrooms { get; set; } = Enumerable.Empty<ClassroomDTO>();
         public IEnumerable<SectionDTO> Sections { get; set; } = Enumerable.Empty<SectionDTO>();
+        public IEnumerable<SubjectClassTeacherDTO> SubjectClassTeachers { get; set; } = Enumerable.Empty<SubjectClassTeacherDTO>();
         public IEnumerable<DayDTO> Days { get; set; } = Enumerable.Empty<DayDTO>();
 
     }

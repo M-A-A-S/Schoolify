@@ -195,6 +195,7 @@ namespace Schoolify.Web.Controllers
             var classrooms = await _classroomService.GetAllAsync();
             var periods = await _periodService.GetAllAsync();
             var sections = await _sectionService.GetAllAsync();
+            var subjectClassTeachers = await _subjectClassTeacherService.GetAllBySubjectClassAsync(dto?.SubjectClassTeacher?.SubjectClassId ?? 0);
 
             var days = new List<DayDTO>
             {
@@ -216,6 +217,7 @@ namespace Schoolify.Web.Controllers
                 Classrooms = classrooms.Data ?? [],
                 Periods = periods.Data ?? [],
                 Sections = sections.Data ?? [],
+                SubjectClassTeachers = subjectClassTeachers.Data ?? [],
                 Days = days
             };
         }

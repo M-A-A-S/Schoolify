@@ -38,9 +38,17 @@
 
         <select asp-for="ClassSchedule.SubjectClassTeacher.TeacherId"
                 id="SubjectClassTeacherId"
-                class="form-control">
+                class="form-control" 
+                asp-items="@(Model?.SubjectClassTeachers?.Select(t => new SelectListItem
+                {
+                    Value = t.Teacher.Id.ToString(),
+                    Text = $"{t.Teacher.FirstName} {t.Teacher.SecondName} {t.Teacher.ThirdName} {t.Teacher.ForthName}"
+                }))"
+                >
 
             <option value="">@Localizer["SelectTeacher"]</option>
+
+
 
         </select>
 
