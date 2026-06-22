@@ -151,7 +151,7 @@
 										}
 								else
 								{
-									<div onclick="createSchedule(@period.Id, @((int)day))"
+									<div onclick="createSchedule(@period.Id, @((int)day), @(section.SectionId))"
 										 style="cursor:pointer; min-height:60px;"
 										 class="text-muted d-flex align-items-center justify-content-center">
 										+ @Localizer["NoClass"]
@@ -173,9 +173,9 @@
 
 <script>
 
-	function createSchedule(periodId, dayId) {
+	function createSchedule(periodId, dayId, sectionId) {
 		window.location.href =
-			`/ClassSchedules/Create?periodId=${periodId}&dayId=${dayId}`;
+			`/ClassSchedules/Create?periodId=${periodId}&dayId=${dayId}&sectionId=${sectionId}`;
 	}
 
 	function editSchedule(id) {

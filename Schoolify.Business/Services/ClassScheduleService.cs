@@ -19,19 +19,34 @@ namespace Schoolify.Business.Services
         private readonly IClassScheduleRepository _repo;
         private readonly IPeriodRepository _periodRepository;
         private readonly ISectionRepository _sectionRepository;
+        private readonly ISubjectClassTeacherRepository _subjectClassTeacherRepository;
 
         public ClassScheduleService(IClassScheduleRepository repo,
             IPeriodRepository periodRepository,
-            ISectionRepository sectionRepository)
+            ISectionRepository sectionRepository,
+            ISubjectClassTeacherRepository subjectClassTeacherRepository)
         {
             _repo = repo;
             _periodRepository = periodRepository;
             _sectionRepository = sectionRepository;
+            _subjectClassTeacherRepository = subjectClassTeacherRepository;
         }
 
         #region Add
         public async Task<Result<ClassScheduleDTO>> AddAsync(ClassScheduleDTO dto)
         {
+            var subjectClassTeacherResult = 
+                await _subjectClassTeacherRepository.FindByAsync(x => 
+                    x.TeacherId == dto.SubjectClassTeacher.TeacherId &&
+                    x.SubjectClassId == dto.SubjectClassTeacher.SubjectClassId);
+
+            if (!subjectClassTeacherResult.IsSuccess || subjectClassTeacherResult.Data == null)
+            {
+                return Result<ClassScheduleDTO>.Failure(ResultCodes.NotFound, 404);
+            }
+
+            dto.SubjectClassTeacherId = subjectClassTeacherResult.Data.Id;
+
             var entity = dto.ToEntity();
 
             var addResult = await _repo.AddAndSaveAsync(entity);

@@ -8,12 +8,12 @@
 
 <div class="row g-3">
 
-    <!-- Class -->
+    <!-- SUBJECT CLASS -->
     <div class="mb-3 col-md-6">
-        @* <label asp-for="ClassSchedule.ClassId" class="form-label"></label> *@
         <label asp-for="ClassSchedule.SubjectClassTeacher.SubjectClassId" class="form-label"></label>
 
         <select asp-for="ClassSchedule.SubjectClassTeacher.SubjectClassId"
+                id="SubjectClassId"
                 class="form-control"
                 asp-items="@(Model?.Classes?.Select(t => new SelectListItem
                 {
@@ -30,6 +30,42 @@
         </select>
 
         <span asp-validation-for="ClassSchedule.SubjectClassTeacher.SubjectClassId" class="text-danger"></span>
+    </div>
+
+    <!-- TEACHER  -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="ClassSchedule.SubjectClassTeacher.TeacherId"></label>
+
+        <select asp-for="ClassSchedule.SubjectClassTeacher.TeacherId"
+                id="SubjectClassTeacherId"
+                class="form-control">
+
+            <option value="">@Localizer["SelectTeacher"]</option>
+
+        </select>
+
+        <span asp-validation-for="ClassSchedule.SubjectClassTeacher.TeacherId" class="text-danger"></span>
+    </div>
+
+    <!-- SECTION -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="ClassSchedule.SectionId" class="form-label"></label>
+
+        <select asp-for="ClassSchedule.SectionId"
+                class="form-control"
+                asp-items="@(Model?.Sections?.Select(s => new SelectListItem
+                {
+                    Value = s.Id.ToString(),
+                    Text = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                        ? s.NameAr
+                                        : s.NameEn
+                }))">
+
+            <option value="">@Localizer["SelectSection"]</option>
+
+        </select>
+
+        <span asp-validation-for="ClassSchedule.SectionId" class="text-danger"></span>
     </div>
 
     <!-- Period -->
@@ -88,4 +124,32 @@
         <span asp-validation-for="ClassSchedule.DayOfWeek" class="text-danger"></span>
     </div>
 
+
+
 </div>
+
+<script>
+    document.getElementById("SubjectClassId").addEventListener("change", function () {
+
+        var subjectClassId = this.value;
+
+        var teacherSelect = document.getElementById("SubjectClassTeacherId");
+
+        teacherSelect.innerHTML = '<option>Loading...</option>';
+
+        fetch(`/ClassSchedules/GetTeachersBySubjectClass?subjectClassId=${subjectClassId}`)
+            .then(res => res.json())
+            .then(data => {
+
+                // teacherSelect.innerHTML = '<option selected disabled value="">Select Teacher</option>';
+                teacherSelect.innerHTML = '<option selected disabled value="">@Localizer["SelectTeacher"]</option>';
+
+                data.forEach(t => {
+                    console.log(t)
+
+                    teacherSelect.innerHTML +=
+                        `<option value="${t.teacher.id}">${t.teacher.firstName} ${t.teacher.secondName} ${t.teacher.thirdName} ${t.teacher.forthName}</option>`;
+                });
+            });
+    });
+</script>

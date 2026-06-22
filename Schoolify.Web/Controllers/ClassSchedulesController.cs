@@ -5,6 +5,7 @@ using Schoolify.Business.Interfaces;
 using Schoolify.Common;
 using Schoolify.Common.DTOs.Class;
 using Schoolify.Common.DTOs.ClassSchedule;
+using Schoolify.Common.DTOs.SubjectClassTeacher;
 using Schoolify.Common.Models;
 
 namespace Schoolify.Web.Controllers
@@ -15,19 +16,25 @@ namespace Schoolify.Web.Controllers
         private readonly IClassService _classService;
         private readonly IClassroomService _classroomService;
         private readonly IPeriodService _periodService;
+        private readonly ISectionService _sectionService;
+        private readonly ISubjectClassTeacherService _subjectClassTeacherService;
         private readonly IStringLocalizer<SharedResource> _localizer;
 
         public ClassSchedulesController(IClassScheduleService service,
             IStringLocalizer<SharedResource> localizer,
             IClassService classService,
             IClassroomService classroomService,
-            IPeriodService periodService)
+            IPeriodService periodService,
+            ISectionService sectionService,
+            ISubjectClassTeacherService subjectClassTeacherService)
         {
             _service = service;
             _localizer = localizer;
             _classService = classService;
             _classroomService = classroomService;
             _periodService = periodService;
+            _sectionService = sectionService;
+            _subjectClassTeacherService = subjectClassTeacherService;
         }
 
         #region Get
@@ -47,6 +54,21 @@ namespace Schoolify.Web.Controllers
             }
             return View(findResult.Data);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTeachersBySubjectClass(int subjectClassId)
+        {
+            var result = await _subjectClassTeacherService
+                .GetAllBySubjectClassAsync(subjectClassId);
+
+            if (!result.IsSuccess || result.Data == null)
+            {
+                return Json(new List<SubjectClassTeacherDTO>());
+            }
+
+            return Json(result.Data);
+        }
+
         #endregion
 
         #region Create
@@ -56,13 +78,18 @@ namespace Schoolify.Web.Controllers
         //    return View(await BuildViewModel());
         //}
 
-        public async Task<IActionResult> Create(int? periodId, int? dayId)
+        public async Task<IActionResult> Create(int? periodId, int? dayId, int? sectionId)
         {
             var dto = new ClassScheduleDTO();
 
             if (periodId.HasValue)
             {
                 dto.PeriodId = periodId.Value;
+            }
+
+            if (sectionId.HasValue)
+            {
+                dto.SectionId = sectionId.Value;
             }
 
             if (dayId.HasValue)
@@ -167,6 +194,8 @@ namespace Schoolify.Web.Controllers
             var classes = await _classService.GetAllAsync();
             var classrooms = await _classroomService.GetAllAsync();
             var periods = await _periodService.GetAllAsync();
+            var sections = await _sectionService.GetAllAsync();
+
             var days = new List<DayDTO>
             {
                 new DayDTO { Id = 0, Name = _localizer["Sunday"] },
@@ -186,6 +215,7 @@ namespace Schoolify.Web.Controllers
                 Classes = classes.Data ?? [],
                 Classrooms = classrooms.Data ?? [],
                 Periods = periods.Data ?? [],
+                Sections = sections.Data ?? [],
                 Days = days
             };
         }
