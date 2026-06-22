@@ -24,7 +24,12 @@ namespace Schoolify.Common.Extensions
                 TeacherId = entity.TeacherId,
                 IsMainTeacher = entity.IsMainTeacher,
 
-                Teacher = entity.Teacher?.ToDTO(),
+                Teacher = entity?.Teacher?.ToDTO(),
+                //SubjectClass = entity?.SubjectClass?.ToDTO(),
+
+                // // To avoid circular DTO mapping
+                SubjectClassNameAr = entity?.SubjectClass?.NameAr,
+                SubjectClassNameEn = entity?.SubjectClass?.NameEn,
 
             };
         }

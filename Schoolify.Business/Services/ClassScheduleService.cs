@@ -78,6 +78,7 @@ namespace Schoolify.Business.Services
                     include: q => q
                         .Include(cs => cs.Period)
                         .Include(cs => cs.Classroom)
+                        .Include(cs => cs.Section)
                         .Include(cs => cs.SubjectClassTeacher)
                             .ThenInclude(x => x.Teacher)
                         .Include(cs => cs.SubjectClassTeacher)
@@ -138,6 +139,7 @@ namespace Schoolify.Business.Services
                 include: q => q
                         .Include(cs => cs.Period)
                         .Include(cs => cs.Classroom)
+                        .Include(cs => cs.Section)
                         .Include(cs => cs.SubjectClassTeacher)
                             .ThenInclude(c => c.Teacher)
                         .Include(cs => cs.SubjectClassTeacher)
@@ -270,6 +272,7 @@ namespace Schoolify.Business.Services
             var findResult = await _repo.FindByAsync(c => c.Id == id, include: q => 
                 q.Include(x => x.Period)
                 .Include(x => x.Classroom)
+                .Include(x => x.Section)
                 .Include(x => x.SubjectClassTeacher)
                     .ThenInclude(x => x.Teacher)
                 .Include(x => x.SubjectClassTeacher)

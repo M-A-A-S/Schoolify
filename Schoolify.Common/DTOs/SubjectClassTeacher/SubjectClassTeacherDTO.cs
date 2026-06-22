@@ -43,5 +43,9 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
 
         public SubjectClassDTO? SubjectClass { get; set; }
         public TeacherDTO? Teacher { get; set; }
+
+        // To avoid circular DTO mapping
+        public string? SubjectClassNameEn {  get; set; }
+        public string? SubjectClassNameAr { get; set; }
     }
 }

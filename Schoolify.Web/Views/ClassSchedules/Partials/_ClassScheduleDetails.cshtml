@@ -9,18 +9,39 @@
 
 <div class="row">
 
+    <!-- SUBJECT CLASS -->
     <div class="col-md-6">
         <label class="fw-bold">@Localizer["Class"]</label>
         <div>
             @* @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
-                        ? @Model?.Class?.NameAr
-                        : @Model?.Class?.NameEn) *@
-            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
                         ? @Model?.SubjectClassTeacher?.SubjectClass?.NameAr
-                        : @Model?.SubjectClassTeacher?.SubjectClass?.NameEn)
+                        : @Model?.SubjectClassTeacher?.SubjectClass?.NameEn) *@
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.SubjectClassTeacher?.SubjectClassNameAr
+                        : @Model?.SubjectClassTeacher?.SubjectClassNameEn)
         </div>
     </div>
 
+    <!-- TEACHER  -->
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Teacher"]</label>
+        <div>
+            @($"{Model.SubjectClassTeacher.Teacher.FirstName} {@Model.SubjectClassTeacher.Teacher.SecondName} {Model.SubjectClassTeacher.Teacher.ThirdName} {Model.SubjectClassTeacher.Teacher.ForthName}")
+        </div>
+    </div>
+
+    <!-- SECTION -->
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Section"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Section?.NameAr
+                        : @Model?.Section?.NameEn)
+        </div>
+    </div>
+
+    <!-- Period -->
     <div class="col-md-6">
         <label class="fw-bold">@Localizer["Period"]</label>
         <div>
@@ -30,6 +51,8 @@
         </div>
     </div>
 
+
+    <!-- Classroom -->
     <div class="col-md-6">
         <label class="fw-bold">@Localizer["Classroom"]</label>
         <div>
@@ -39,7 +62,7 @@
         </div>
     </div>
 
-
+    <!-- DayOfWeek -->
     <div class="col-md-6">
         <label class="fw-bold">@Localizer["DayOfWeek"]</label>
         <div>
