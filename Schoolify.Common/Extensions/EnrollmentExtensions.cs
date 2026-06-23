@@ -1,4 +1,5 @@
-﻿using Schoolify.Common.DTOs.Enrollment;
+﻿using Schoolify.Common.DTOs.ClassSchedule;
+using Schoolify.Common.DTOs.Enrollment;
 using Schoolify.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,14 @@ namespace Schoolify.Common.Extensions
                 StudentId = entity.StudentId,
                 YearLevelId = entity.YearLevelId,
                 SchoolYearId = entity.SchoolYearId,
+                SectionId = entity.SectionId,
+
+                TotalFees = entity.TotalFees,
+                Discount = entity.Discount,
+                NetFees = entity.NetFees,
+
+                Status = entity.Status,
+
                 
 
                 Section = entity?.Section.ToDTO(),
@@ -44,7 +53,14 @@ namespace Schoolify.Common.Extensions
                 Id = DTO.Id,
                 StudentId = DTO.StudentId,
                 YearLevelId = DTO.YearLevelId,
+                SectionId = DTO.SectionId,
                 SchoolYearId = DTO.SchoolYearId,
+
+                TotalFees = DTO.TotalFees,
+                Discount = DTO.Discount,
+                NetFees = DTO.NetFees,
+
+                Status = DTO.Status,
             };
         }
 
@@ -59,6 +75,11 @@ namespace Schoolify.Common.Extensions
             entity.StudentId = DTO.StudentId;
             entity.YearLevelId = DTO.YearLevelId;
             entity.SchoolYearId = DTO.SchoolYearId;
+            entity.SectionId = DTO.SectionId;
+            entity.TotalFees = DTO.TotalFees;
+            entity.Discount = DTO.Discount;
+            entity.NetFees = DTO.NetFees;
+            entity.Status = DTO.Status;
         }
     
     }

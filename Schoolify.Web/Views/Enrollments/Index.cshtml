@@ -6,6 +6,7 @@
 @inject IStringLocalizer<SharedResource> Localizer
 
 @using System.Globalization
+@using Schoolify.Common.Enums
 
 <div class="d-flex align-items-center justify-content-between my-4">
     <h2>@Localizer["Enrollments"]</h2>
@@ -58,7 +59,31 @@
                 <td>@item.TotalFees</td>
                 <td>@item.Discount</td>
                 <td>@item.NetFees</td>
-                <td>@item.Status.ToString()</td>
+                @* <td>@item.Status.ToString()</td> *@
+                <td>
+                    @switch (item.Status)
+                        {
+                            case EnrollmentStatus.Active:
+                                <div class="badge bg-primary">@Localizer["Active"]</div>
+                                break;
+
+                            case EnrollmentStatus.Suspended:
+                                <div class="badge bg-danger">@Localizer["Suspended"]</div>
+                                break;
+
+                            case EnrollmentStatus.Transferred:
+                                <div class="badge bg-warning">@Localizer["Transferred"]</div>
+                                break;
+
+                            case EnrollmentStatus.Graduated:
+                                <div class="badge bg-success">@Localizer["Graduated"]</div>
+                                break;
+
+                            default:
+                                <div class="badge bg-secondary">@Localizer["Unknown"]</div>
+                                break;
+                        }
+                </td>
 
 
                     <td style="display: flex; gap: 4px">
