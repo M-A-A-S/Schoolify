@@ -29,7 +29,6 @@ namespace Schoolify.Common.Models
         public Section Section { get; set; }
 
         public ICollection<Installment> Installments { get; set; }
-
         public StudentAcademicRecord StudentAcademicRecord { get; set; }
     }
 }

@@ -849,4 +849,67 @@
   <data name="MainTeacher" xml:space="preserve">
     <value>المعلم الأساسي</value>
   </data>
+  <data name="EnrollmentNotFound" xml:space="preserve">
+    <value>لم يتم العثور على التسجيل</value>
+  </data>
+  <data name="EnrollmentsNotFound" xml:space="preserve">
+    <value>لم يتم العثور على أي تسجيلات</value>
+  </data>
+  <data name="EnrollmentCreated" xml:space="preserve">
+    <value>تم إنشاء التسجيل بنجاح</value>
+  </data>
+  <data name="EnrollmentUpdated" xml:space="preserve">
+    <value>تم تحديث التسجيل بنجاح</value>
+  </data>
+  <data name="EnrollmentDeleted" xml:space="preserve">
+    <value>تم حذف التسجيل بنجاح</value>
+  </data>
+  <data name="EnrollmentAlreadyExists" xml:space="preserve">
+    <value>التسجيل موجود بالفع</value>
+  </data>
+  <data name="SubjectClassTeacherNotFound" xml:space="preserve">
+    <value>لم يتم العثور على تعيين المعلم للمادة والصف</value>
+  </data>
+  <data name="SubjectClassTeachersNotFound" xml:space="preserve">
+    <value>لم يتم العثور على أي تعيينات للمعلمين للمادة والصف</value>
+  </data>
+  <data name="SubjectClassTeacherCreated" xml:space="preserve">
+    <value>تم إنشاء تعيين المعلم للمادة والصف بنجاح</value>
+  </data>
+  <data name="SubjectClassTeacherUpdated" xml:space="preserve">
+    <value>تم تحديث تعيين المعلم للمادة والصف بنجاح</value>
+  </data>
+  <data name="SubjectClassTeacherDeleted" xml:space="preserve">
+    <value>تم حذف تعيين المعلم للمادة والصف بنجاح</value>
+  </data>
+  <data name="SubjectClassTeacherAlreadyExists" xml:space="preserve">
+    <value>تعيين المعلم للمادة والصف موجود بالفع</value>
+  </data>
+  <data name="TotalFees" xml:space="preserve">
+    <value>إجمالي الرسوم</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>الخصم</value>
+  </data>
+  <data name="NetFees" xml:space="preserve">
+    <value>صافي الرسوم</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="EnrollmentStatus" xml:space="preserve">
+    <value>حالة التسجيل</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="Suspended" xml:space="preserve">
+    <value>موقوف</value>
+  </data>
+  <data name="Graduated" xml:space="preserve">
+    <value>متخرج</value>
+  </data>
+  <data name="Transferred" xml:space="preserve">
+    <value>منقول</value>
+  </data>
 </root>

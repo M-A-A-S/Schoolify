@@ -1,4 +1,4 @@
-﻿using Schoolify.Common.DTOs.StudentYearLevel;
+﻿using Schoolify.Common.DTOs.Enrollment;
 using Schoolify.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -23,6 +23,12 @@ namespace Schoolify.Common.Extensions
                 StudentId = entity.StudentId,
                 YearLevelId = entity.YearLevelId,
                 SchoolYearId = entity.SchoolYearId,
+                
+
+                Section = entity?.Section.ToDTO(),
+                Student = entity?.Student?.ToDTO(),
+                SchoolYear = entity?.SchoolYear?.ToDTO(),
+                YearLevel = entity?.YearLevel?.ToDTO(),
             };
         }
 

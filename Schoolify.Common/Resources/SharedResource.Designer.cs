@@ -79,6 +79,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -484,6 +493,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discount.
+        /// </summary>
+        public static string Discount {
+            get {
+                return ResourceManager.GetString("Discount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {
@@ -529,11 +547,74 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enrollment already exists.
+        /// </summary>
+        public static string EnrollmentAlreadyExists {
+            get {
+                return ResourceManager.GetString("EnrollmentAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enrollment created successfully.
+        /// </summary>
+        public static string EnrollmentCreated {
+            get {
+                return ResourceManager.GetString("EnrollmentCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enrollment deleted successfully.
+        /// </summary>
+        public static string EnrollmentDeleted {
+            get {
+                return ResourceManager.GetString("EnrollmentDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enrollment not found.
+        /// </summary>
+        public static string EnrollmentNotFound {
+            get {
+                return ResourceManager.GetString("EnrollmentNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enrollments.
         /// </summary>
         public static string Enrollments {
             get {
                 return ResourceManager.GetString("Enrollments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No enrollments found.
+        /// </summary>
+        public static string EnrollmentsNotFound {
+            get {
+                return ResourceManager.GetString("EnrollmentsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enrollment Status.
+        /// </summary>
+        public static string EnrollmentStatus {
+            get {
+                return ResourceManager.GetString("EnrollmentStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enrollment updated successfully.
+        /// </summary>
+        public static string EnrollmentUpdated {
+            get {
+                return ResourceManager.GetString("EnrollmentUpdated", resourceCulture);
             }
         }
         
@@ -795,6 +876,15 @@ namespace Schoolify.Common.Resources {
         public static string Grade {
             get {
                 return ResourceManager.GetString("Grade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Graduated.
+        /// </summary>
+        public static string Graduated {
+            get {
+                return ResourceManager.GetString("Graduated", resourceCulture);
             }
         }
         
@@ -1083,6 +1173,15 @@ namespace Schoolify.Common.Resources {
         public static string NameEn {
             get {
                 return ResourceManager.GetString("NameEn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Net Fees.
+        /// </summary>
+        public static string NetFees {
+            get {
+                return ResourceManager.GetString("NetFees", resourceCulture);
             }
         }
         
@@ -1726,6 +1825,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Student.
         /// </summary>
         public static string Student {
@@ -1942,11 +2050,65 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Subject class teacher assignment already exists.
+        /// </summary>
+        public static string SubjectClassTeacherAlreadyExists {
+            get {
+                return ResourceManager.GetString("SubjectClassTeacherAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subject class teacher assignment created successfully.
+        /// </summary>
+        public static string SubjectClassTeacherCreated {
+            get {
+                return ResourceManager.GetString("SubjectClassTeacherCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subject class teacher assignment deleted successfully.
+        /// </summary>
+        public static string SubjectClassTeacherDeleted {
+            get {
+                return ResourceManager.GetString("SubjectClassTeacherDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subject class teacher assignment not found.
+        /// </summary>
+        public static string SubjectClassTeacherNotFound {
+            get {
+                return ResourceManager.GetString("SubjectClassTeacherNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Subject Class Teachers.
         /// </summary>
         public static string SubjectClassTeachers {
             get {
                 return ResourceManager.GetString("SubjectClassTeachers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No subject class teacher assignments found.
+        /// </summary>
+        public static string SubjectClassTeachersNotFound {
+            get {
+                return ResourceManager.GetString("SubjectClassTeachersNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subject class teacher assignment updated successfully.
+        /// </summary>
+        public static string SubjectClassTeacherUpdated {
+            get {
+                return ResourceManager.GetString("SubjectClassTeacherUpdated", resourceCulture);
             }
         }
         
@@ -2010,6 +2172,15 @@ namespace Schoolify.Common.Resources {
         public static string Sunday {
             get {
                 return ResourceManager.GetString("Sunday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspended.
+        /// </summary>
+        public static string Suspended {
+            get {
+                return ResourceManager.GetString("Suspended", resourceCulture);
             }
         }
         
@@ -2145,6 +2316,24 @@ namespace Schoolify.Common.Resources {
         public static string Thursday {
             get {
                 return ResourceManager.GetString("Thursday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Fees.
+        /// </summary>
+        public static string TotalFees {
+            get {
+                return ResourceManager.GetString("TotalFees", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transferred.
+        /// </summary>
+        public static string Transferred {
+            get {
+                return ResourceManager.GetString("Transferred", resourceCulture);
             }
         }
         
