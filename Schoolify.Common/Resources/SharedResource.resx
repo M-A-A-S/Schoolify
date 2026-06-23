@@ -912,4 +912,28 @@
   <data name="Transferred" xml:space="preserve">
     <value>Transferred</value>
   </data>
+  <data name="SelectStudent" xml:space="preserve">
+    <value>-- Select Student --</value>
+  </data>
+  <data name="SelectEnrollmentStatus" xml:space="preserve">
+    <value>-- Select Enrollment Status --</value>
+  </data>
+  <data name="FeeStructureNotFound" xml:space="preserve">
+    <value>Fee structure not found</value>
+  </data>
+  <data name="FeeStructuresNotFound" xml:space="preserve">
+    <value>No fee structures found</value>
+  </data>
+  <data name="FeeStructureCreated" xml:space="preserve">
+    <value>Fee structure created successfully</value>
+  </data>
+  <data name="FeeStructureUpdated" xml:space="preserve">
+    <value>Fee structure updated successfully</value>
+  </data>
+  <data name="FeeStructureDeleted" xml:space="preserve">
+    <value>Fee structure deleted successfully</value>
+  </data>
+  <data name="FeeStructureAlreadyExists" xml:space="preserve">
+    <value>Fee structure already exists</value>
+  </data>
 </root>

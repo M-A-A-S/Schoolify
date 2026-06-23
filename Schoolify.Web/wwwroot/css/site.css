@@ -171,12 +171,17 @@ body[data-bs-theme="light"] {
     border: 2px solid transparent;
 }
 
-.form-control:focus, .form-select:focus {
-    background-color: var(--background-color);
-    color: var(--input-text-color);
-    box-shadow: none;
-    border-color: var(--primary-color);
-}
+    .form-control:read-only {
+        background-color: var(--background-color);
+/*        cursor: not-allowed*/
+    }
+
+    .form-control:focus, .form-select:focus {
+        background-color: var(--background-color);
+        color: var(--input-text-color);
+        box-shadow: none;
+        border-color: var(--primary-color);
+    }
 
 
 /* ===================================================

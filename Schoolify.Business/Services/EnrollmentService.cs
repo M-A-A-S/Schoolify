@@ -16,17 +16,49 @@ namespace Schoolify.Business.Services
     public class EnrollmentService : IEnrollmentService
     {
         private readonly IEnrollmentRepository _repo;
+        private readonly IFeeStructureRepository _feeStructureRepository;
 
-        public EnrollmentService(IEnrollmentRepository repo)
+        public EnrollmentService(IEnrollmentRepository repo,
+            IFeeStructureRepository feeStructureRepository)
         {
             _repo = repo;
+            _feeStructureRepository = feeStructureRepository;
         }
 
         #region Add
         public async Task<Result<EnrollmentDTO>> AddAsync(EnrollmentDTO dto)
         {
+            // Prevent duplicates
+            var existing = await _repo.FindByAsync(x =>
+                x.StudentId == dto.StudentId &&
+                x.SchoolYearId == dto.SchoolYearId);
+
+            if (existing.IsSuccess && existing.Data != null)
+            {
+                return Result<EnrollmentDTO>.Failure(
+                    ResultCodes.EnrollmentAlreadyExists,
+                    409);
+            }
+
+            // Get fee structure
+            var feeStructureResult = await _feeStructureRepository.FindByAsync(
+                x => x.SchoolYearId == dto.SchoolYearId &&
+                     x.YearLevelId == dto.YearLevelId,
+                include: q => q.Include(f => f.FeeItems));
+
+            if (!feeStructureResult.IsSuccess || feeStructureResult.Data == null)
+            {
+                return Result<EnrollmentDTO>.Failure(
+                    ResultCodes.FeeStructureNotFound,
+                    404);
+            }
+
+            decimal totalFees = feeStructureResult.Data.FeeItems.Sum(x => x.Amount);
 
             var entity = dto.ToEntity();
+
+            entity.TotalFees = totalFees;
+            entity.NetFees = totalFees - dto.Discount;
 
             var addResult = await _repo.AddAndSaveAsync(entity);
 
@@ -98,6 +130,22 @@ namespace Schoolify.Business.Services
             }
 
             return Result<IEnumerable<EnrollmentDTO>>.Success(result);
+        }
+
+        public async Task<Result<decimal>> GetFeesAsync(int schoolYearId, int yearLevelId)
+        {
+            var structureResult = await _feeStructureRepository.FindByAsync(x => x.YearLevelId == yearLevelId &&
+            x.SchoolYearId == schoolYearId, include: q =>
+            q.Include(x => x.FeeItems));
+
+            if (!structureResult.IsSuccess || structureResult.Data == null)
+            {
+                return Result<decimal>.Failure(
+                    ResultCodes.FeeStructureNotFound,
+                    404);
+            }
+
+            return Result<decimal>.Success(structureResult.Data.FeeItems.Sum(x => x.Amount));
         }
         #endregion
 

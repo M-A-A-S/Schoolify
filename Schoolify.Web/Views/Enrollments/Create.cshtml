@@ -1,0 +1,94 @@
+﻿@using Schoolify.Common.DTOs.Enrollment
+@model EnrollmentUpsertDTO
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="card shadow-sm">
+
+    <div class="card-header">
+        <h5>@Localizer["Create"] @Localizer["Enrollment"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Create" method="post">
+
+            <partial name="Partials/_EnrollmentForm" model="Model" />
+
+            <button type="submit" class="btn btn-success">
+                @Localizer["Save"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Cancel"]
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+        $(document).ready(function () {
+
+            console.log("Enrollment script loaded");
+
+            // Attach events ONCE
+            $("#schoolYearId, #yearLevelId").on("change", loadFees);
+
+            $("#Enrollment_Discount").on("input", function () {
+
+                const total = parseFloat($("#Enrollment_TotalFees").val()) || 0;
+                const discount = parseFloat($(this).val()) || 0;
+
+                $("#Enrollment_NetFees").val(total - discount);
+            });
+
+        });
+
+        async function loadFees() {
+
+            const schoolYearId = $("#schoolYearId").val();
+            const yearLevelId = $("#yearLevelId").val();
+
+            console.log("schoolYearId:", schoolYearId);
+            console.log("yearLevelId:", yearLevelId);
+
+            if (!schoolYearId || !yearLevelId)
+                return;
+
+            try {
+
+                const response = await fetch(
+                    `/Enrollments/GetFees?schoolYearId=${schoolYearId}&yearLevelId=${yearLevelId}`);
+
+                if (!response.ok) {
+                    console.error("Failed to load fees.");
+                    return;
+                }
+
+                const data = await response.json();
+
+                $("#Enrollment_TotalFees").val(data.totalFees);
+
+                const discount =
+                    parseFloat($("#Enrollment_Discount").val()) || 0;
+
+                $("#Enrollment_NetFees")
+                    .val(data.totalFees - discount);
+
+            }
+            catch (error) {
+                console.error("Error loading fees:", error);
+            }
+        }
+
+    </script>
+}

@@ -763,11 +763,65 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fee structure already exists.
+        /// </summary>
+        public static string FeeStructureAlreadyExists {
+            get {
+                return ResourceManager.GetString("FeeStructureAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fee structure created successfully.
+        /// </summary>
+        public static string FeeStructureCreated {
+            get {
+                return ResourceManager.GetString("FeeStructureCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fee structure deleted successfully.
+        /// </summary>
+        public static string FeeStructureDeleted {
+            get {
+                return ResourceManager.GetString("FeeStructureDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fee structure not found.
+        /// </summary>
+        public static string FeeStructureNotFound {
+            get {
+                return ResourceManager.GetString("FeeStructureNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fee Structures.
         /// </summary>
         public static string FeeStructures {
             get {
                 return ResourceManager.GetString("FeeStructures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No fee structures found.
+        /// </summary>
+        public static string FeeStructuresNotFound {
+            get {
+                return ResourceManager.GetString("FeeStructuresNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fee structure updated successfully.
+        /// </summary>
+        public static string FeeStructureUpdated {
+            get {
+                return ResourceManager.GetString("FeeStructureUpdated", resourceCulture);
             }
         }
         
@@ -1699,6 +1753,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -- Select Enrollment Status --.
+        /// </summary>
+        public static string SelectEnrollmentStatus {
+            get {
+                return ResourceManager.GetString("SelectEnrollmentStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to -- Select Gender --.
         /// </summary>
         public static string SelectGender {
@@ -1749,6 +1812,15 @@ namespace Schoolify.Common.Resources {
         public static string SelectSection {
             get {
                 return ResourceManager.GetString("SelectSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select Student --.
+        /// </summary>
+        public static string SelectStudent {
+            get {
+                return ResourceManager.GetString("SelectStudent", resourceCulture);
             }
         }
         

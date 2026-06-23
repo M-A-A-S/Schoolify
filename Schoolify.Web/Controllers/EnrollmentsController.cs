@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Schoolify.Business.Interfaces;
 using Schoolify.Common;
@@ -46,6 +47,22 @@ namespace Schoolify.Web.Controllers
                 return NotFound();
             }
             return View(findResult.Data);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetFees(int schoolYearId, int yearLevelId)
+        {
+            var feeStructure = await _service.GetFeesAsync(schoolYearId, yearLevelId);
+
+            if (!feeStructure.IsSuccess)
+            {
+                return Json(new { totalFees = 0 });
+            }
+
+            return Json(new
+            {
+                totalFees = feeStructure.Data
+            });
         }
         #endregion
 

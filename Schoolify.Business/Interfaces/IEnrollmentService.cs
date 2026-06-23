@@ -15,6 +15,7 @@ namespace Schoolify.Business.Interfaces
         Task<Result<bool>> DeleteAsync(int id);
         Task<Result<EnrollmentDTO>> GetByIdAsync(int id);
         Task<Result<IEnumerable<EnrollmentDTO>>> GetAllAsync();
+        Task<Result<decimal>> GetFeesAsync(int schoolYearId, int yearLevelId);
 
     }
 }

@@ -912,4 +912,28 @@
   <data name="Transferred" xml:space="preserve">
     <value>منقول</value>
   </data>
+  <data name="SelectStudent" xml:space="preserve">
+    <value>-- اختر الطالب --</value>
+  </data>
+  <data name="SelectEnrollmentStatus" xml:space="preserve">
+    <value>-- اختر الحالة التسجيل --</value>
+  </data>
+  <data name="FeeStructureNotFound" xml:space="preserve">
+    <value>لم يتم العثور على هيكل الرسوم</value>
+  </data>
+  <data name="FeeStructuresNotFound" xml:space="preserve">
+    <value>لم يتم العثور على أي هياكل رسوم</value>
+  </data>
+  <data name="FeeStructureCreated" xml:space="preserve">
+    <value>تم إنشاء هيكل الرسوم بنجاح</value>
+  </data>
+  <data name="FeeStructureUpdated" xml:space="preserve">
+    <value>تم تحديث هيكل الرسوم بنجاح</value>
+  </data>
+  <data name="FeeStructureDeleted" xml:space="preserve">
+    <value>تم حذف هيكل الرسوم بنجاح</value>
+  </data>
+  <data name="FeeStructureAlreadyExists" xml:space="preserve">
+    <value>هيكل الرسوم موجود بالفعل</value>
+  </data>
 </root>

@@ -1,0 +1,219 @@
+﻿@using Schoolify.Common.DTOs.Enrollment
+@model EnrollmentUpsertDTO
+
+@using Schoolify.Common.Enums
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row g-3">
+
+    <!-- Student -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="Enrollment.StudentId" class="form-label"></label>
+
+        <select asp-for="Enrollment.StudentId"
+                class="form-control"
+                asp-items="@(Model?.Students?.Select(t => new SelectListItem
+                {
+                    Value = t.Id.ToString(),
+                    Text = $"{t?.FirstName} {t?.SecondName} {t?.ThirdName} {t?.ForthName}"
+                }))">
+
+            <option selected disabled value="">
+                @Localizer["SelectStudent"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="Enrollment.StudentId" class="text-danger"></span>
+    </div>
+
+    <!-- YearLevel -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="Enrollment.YearLevelId" class="form-label"></label>
+
+        <select asp-for="Enrollment.YearLevelId"
+                class="form-control"
+                id="yearLevelId"
+                asp-items="@(new SelectList(
+                                                    Model.YearLevels,
+                                                    "Id",
+                                                    CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                        ? "NameAr"
+                                                        : "NameEn"))">
+
+            <option selected disabled value="">
+                @Localizer["SelectYearLevel"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="Enrollment.YearLevelId" class="text-danger"></span>
+    </div>
+
+    <!-- SchoolYear -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="Enrollment.SchoolYearId" class="form-label"></label>
+
+        <select asp-for="Enrollment.SchoolYearId"
+                class="form-control"
+                id="schoolYearId"
+                asp-items="@(new SelectList(
+                                                    Model.SchoolYears,
+                                                    "Id",
+                                                    CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                        ? "NameAr"
+                                                        : "NameEn"))">
+
+            <option selected disabled value="">
+                @Localizer["SelectSchoolYear"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="Enrollment.SchoolYearId" class="text-danger"></span>
+    </div>
+
+    <!-- Section -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="Enrollment.SectionId" class="form-label"></label>
+
+        <select asp-for="Enrollment.SectionId"
+                class="form-control"
+                asp-items="@(new SelectList(
+                                                    Model.Sections,
+                                                    "Id",
+                                                    CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                        ? "NameAr"
+                                                        : "NameEn"))">
+
+            <option selected disabled value="">
+                @Localizer["SelectSection"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="Enrollment.YearLevelId" class="text-danger"></span>
+    </div>
+
+    <!-- Total Fees -->
+    <div class="col-md-6">
+        <label asp-for="Enrollment.TotalFees"></label>
+        <input asp-for="Enrollment.TotalFees" type="number"
+               id="Enrollment_TotalFees" readonly class="form-control" />
+        <span asp-validation-for="Enrollment.TotalFees" class="text-danger"></span>
+    </div>
+
+    <!-- Discount -->
+    <div class="col-md-6">
+        <label asp-for="Enrollment.Discount"></label>
+        <input asp-for="Enrollment.Discount" id="Enrollment_Discount" type="number" class="form-control" />
+        <span asp-validation-for="Enrollment.Discount" class="text-danger"></span>
+    </div>
+
+    <!-- Net Fees -->
+    <div class="col-md-6">
+        <label asp-for="Enrollment.NetFees"></label>
+        <input asp-for="Enrollment.NetFees" id="Enrollment_NetFees" type="number" readonly class="form-control" />
+        <span asp-validation-for="Enrollment.NetFees" class="text-danger"></span>
+    </div>
+
+    <!-- Status -->
+    <div class="col-md-6">
+        <label asp-for="Enrollment.Status" class="form-label"></label>
+        <select asp-for="Enrollment.Status" class="form-select"
+                asp-items="Html.GetEnumSelectList<EnrollmentStatus>()">
+            <option value="" disabled selected>@Localizer["SelectEnrollmentStatus"]</option>
+        </select>
+        <span asp-validation-for="Enrollment.Status" class="text-danger"></span>
+    </div>
+
+
+
+</div>
+
+@section Scripts
+{
+    <script>
+
+                $(document).ready(function () {
+
+            console.log("Enrollment script loaded");
+
+            $("#schoolYearId, #yearLevelId").on("change", loadFees);
+
+            $("#Enrollment_Discount").on("input", function () {
+
+                const total = parseFloat($("#Enrollment_TotalFees").val()) || 0;
+                const discount = parseFloat($(this).val()) || 0;
+
+                $("#Enrollment_NetFees").val(total - discount);
+            });
+
+        });
+
+        console.log("SCRIPT LOADED");
+
+        $(function () {
+
+            $("#schoolYearId, #yearLevelId").on("change", loadFees);
+
+            $("#Enrollment_Discount").on("input", function () {
+
+                console.log('Enrollment_Discount -> ')
+
+                const total =
+                    parseFloat($("#Enrollment_TotalFees").val()) || 0;
+
+                const discount =
+                    parseFloat($(this).val()) || 0;
+
+                $("#Enrollment_NetFees").val(total - discount);
+            });
+
+        });
+
+        async function loadFees() {
+
+            const schoolYearId = $("#schoolYearId").val();
+            const yearLevelId = $("#yearLevelId").val();
+
+                            console.log('yearLevelId -> ', schoolYearId)
+                            console.log('yearLevelId -> ', yearLevelId)
+
+            if (!schoolYearId || !yearLevelId)
+                return;
+
+            try {
+
+                const response = await fetch(
+                    `/Enrollments/GetFees?schoolYearId=${schoolYearId}&yearLevelId=${yearLevelId}`);
+
+                if (!response.ok) {
+                    console.error("Failed to load fees.");
+                    return;
+                }
+
+                const data = await response.json();
+
+                $("#Enrollment_TotalFees").val(data.totalFees);
+
+                const discount =
+                    parseFloat($("#Enrollment_Discount").val()) || 0;
+
+                $("#Enrollment_NetFees")
+                    .val(data.totalFees - discount);
+
+            }
+            catch (error) {
+                console.error(error);
+            }
+        }
+
+    </script>
+}
+
+
