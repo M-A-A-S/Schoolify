@@ -1,0 +1,96 @@
+﻿@using Schoolify.Common.DTOs.Enrollment
+@model EnrollmentDTO
+
+@using System.Globalization
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@using Schoolify.Common.Enums
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Student"]</label>
+        <div>
+            @($"{Model?.Student?.FirstName} {Model?.Student?.SecondName} {Model?.Student?.ThirdName} {Model?.Student?.ForthName}")
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["YearLevel"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.YearLevel?.NameAr
+                        : @Model?.YearLevel?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["SchoolYear"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.SchoolYear?.NameAr
+                        : @Model?.SchoolYear?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Section"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Section?.NameAr
+                        : @Model?.Section?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["TotalFees"]</label>
+        <div>
+            @Model.TotalFees
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Discount"]</label>
+        <div>
+            @Model.Discount
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["NetFees"]</label>
+        <div>
+            @Model.NetFees
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Status"]</label>
+        <div>
+            @switch (Model.Status)
+            {
+                case EnrollmentStatus.Active:
+                    <div class="badge bg-primary">@Localizer["Active"]</div>
+                    break;
+
+                case EnrollmentStatus.Suspended:
+                    <div class="badge bg-danger">@Localizer["Suspended"]</div>
+                    break;
+
+                case EnrollmentStatus.Transferred:
+                    <div class="badge bg-warning">@Localizer["Transferred"]</div>
+                    break;
+
+                case EnrollmentStatus.Graduated:
+                    <div class="badge bg-success">@Localizer["Graduated"]</div>
+                    break;
+
+                default:
+                    <div class="badge bg-secondary">@Localizer["Unknown"]</div>
+                    break;
+            }
+        </div>
+    </div>
+
+</div>
