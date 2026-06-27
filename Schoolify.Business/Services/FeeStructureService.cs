@@ -1,12 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Schoolify.Business.Interfaces;
 using Schoolify.Common.DTOs.FeeStructure;
 using Schoolify.Common.Extensions;
+using Schoolify.Common.Models;
 using Schoolify.Common.Utilities;
 using Schoolify.Common.Utilities.ResultCodes;
 using Schoolify.DataAccess.Interfaces;
+using Schoolify.DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +20,13 @@ namespace Schoolify.Business.Services
     public class FeeStructureService : IFeeStructureService
     {
         private readonly IFeeStructureRepository _repo;
+        private readonly IFeeItemRepository _feeItemRepository;
 
-        public FeeStructureService(IFeeStructureRepository repo)
+        public FeeStructureService(IFeeStructureRepository repo,
+            IFeeItemRepository feeItemRepository)
         {
             _repo = repo;
+            _feeItemRepository = feeItemRepository;
         }
 
         #region Add
@@ -114,7 +121,9 @@ namespace Schoolify.Business.Services
         #region Update
         public async Task<Result<FeeStructureDTO>> UpdateAsync(int id, FeeStructureDTO dto)
         {
-            var existingResult = await _repo.FindByAsync(c => c.Id == id);
+            var existingResult = await _repo.FindByAsync(c => c.Id == id, 
+                include: q => q.Include(x => x.FeeItems));
+
             if (!existingResult.IsSuccess || existingResult.Data == null)
             {
                 return Result<FeeStructureDTO>.Failure(
@@ -126,14 +135,136 @@ namespace Schoolify.Business.Services
 
             entity.UpdateFromDTO(dto);
 
-            var updateResult = await _repo.UpdateAndSaveAsync(existingResult.Data);
+            //var existingFeeItemIds = entity.FeeItems
+            //    .Select(t => t.Id).ToList();
+
+            //var newFeeItemIds = dto.FeeItems
+            //    .Select(t => t.Id).ToList();
+
+            //var toRemove = entity.FeeItems
+            //    .Where(t => !newFeeItemIds.Contains(t.Id))
+            //    .ToList();
+
+            //await _feeItemRepository.DeleteRangeAsync(toRemove);
+
+            //var toAdd = newFeeItemIds.Except(existingFeeItemIds);
+
+            //var toRemove = entity.FeeItems.Where(x => dto.FeeItems.Any(d => d.Id == x.Id));
+
+            //await _feeItemRepository.DeleteRangeAsync(toRemove);
+
+            //foreach (var itemDTO in dto.FeeItems)
+            //{
+            //    var existingItem = entity.FeeItems
+            //        .FirstOrDefault(x => x.Id == itemDTO.Id);
+
+            //    if (existingItem == null)
+            //    {
+            //        entity.FeeItems.Add(new FeeItem
+            //        {
+            //            NameEn = itemDTO.NameEn,
+            //            NameAr = itemDTO.NameAr,
+            //            Amount = itemDTO.Amount,
+            //        });
+            //    } 
+            //    else
+            //    {
+            //        existingItem.NameEn = itemDTO.NameEn;
+            //        existingItem.NameAr = itemDTO.NameAr;
+            //        existingItem.Amount = itemDTO.Amount;
+
+            //    }
+            //}
+
+            // Remove Items not in DTO
+            //var dtoIds = dto.FeeItems.Select(x => x.Id).ToList();
+
+            //var itemsToRemove = entity.FeeItems
+            //    .Where(x => x.Id != 0 && !dtoIds.Contains(x.Id))
+            //    .ToList();
+
+            //var itemsToRemove = entity.FeeItems
+            //    .Where(x => !dtoIds.Contains(x.Id))
+            //    .ToList();
+
+            //foreach ( var item in itemsToRemove )
+            //{
+            //    entity.FeeItems.Remove(item);
+            //}
+
+            // Add + Update Items
+            //foreach (var itemDTO in dto.FeeItems)
+            //{
+            //    var existingItem = entity.FeeItems
+            //        .FirstOrDefault(x => x.Id == itemDTO.Id);
+
+            //    if (existingItem == null)
+            //    {
+            //        entity.FeeItems.Add(new FeeItem
+            //        {
+            //            NameEn = itemDTO.NameEn,
+            //            NameAr = itemDTO.NameAr,
+            //            Amount = itemDTO.Amount,
+            //            FeeStructureId = entity.Id,
+            //        });
+            //    }
+            //    else
+            //    {
+            //        existingItem.NameEn = itemDTO.NameEn;
+            //        existingItem.NameAr = itemDTO.NameAr;
+            //        existingItem.Amount = itemDTO.Amount;
+            //    }
+            //}
+
+            //var updateResult = await _repo.UpdateAndSaveAsync(existingResult.Data);
+
+            // Extract incoming DTO IDs (filtering out new items with Id = 0)
+            var dtoIds = dto.FeeItems.Where(x => x.Id > 0).Select(x => x.Id).ToList();
+
+
+            var itemsToSoftDelete = entity.FeeItems
+                .Where(x => !x.IsDeleted && !dtoIds.Contains(x.Id));
+
+
+            // Soft Delete
+            await _feeItemRepository.DeleteRangeAsync(itemsToSoftDelete);
+
+            // ADD + UPDATE Items
+            foreach (var itemDTO in dto.FeeItems)
+            {
+                var existingItem = itemDTO.Id > 0
+                    ? entity.FeeItems
+                        .FirstOrDefault(x => x.Id == itemDTO.Id)
+                    : null;
+
+                if (existingItem == null)
+                {
+                    entity.FeeItems.Add(new FeeItem
+                    {
+                        NameEn = itemDTO.NameEn,
+                        NameAr = itemDTO.NameAr,
+                        Amount = itemDTO.Amount,
+                        FeeStructureId = entity.Id
+                    });
+                } 
+                else
+                {
+                    existingItem.NameEn = itemDTO.NameEn;
+                    existingItem.NameAr = itemDTO.NameAr;
+                    existingItem.Amount = itemDTO.Amount;
+                }
+
+            }
+
+
+            var updateResult = await _repo.UpdateAndSaveAsync(entity);
 
             if (!updateResult.IsSuccess)
             {
                 return Result<FeeStructureDTO>.Failure(ResultCodes.ServerError, 500);
             }
 
-            var findResult = await _repo.FindByAsync(c => c.Id == id);
+            var findResult = await _repo.FindByAsync(c => c.Id == id, include: q => q.Include(x => x.FeeItems));
 
             if (!findResult.IsSuccess || findResult.Data == null)
             {
