@@ -41,6 +41,8 @@ namespace Schoolify.Common.Extensions
                 Id = DTO.Id,
                 SchoolYearId = DTO.SchoolYearId,
                 YearLevelId = DTO.YearLevelId,
+
+                FeeItems = DTO?.FeeItems?.Select(x => x.ToEntity())?.ToList()
             };
         }
 

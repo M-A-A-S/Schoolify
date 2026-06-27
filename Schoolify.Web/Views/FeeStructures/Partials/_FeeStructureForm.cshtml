@@ -1,0 +1,222 @@
+﻿@using Schoolify.Common.DTOs.FeeItem
+@using Schoolify.Common.DTOs.FeeStructure
+@model FeeStructureUpsertDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row g-3">
+
+    <!-- School Year -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="FeeStructure.SchoolYearId" class="form-label"></label>
+
+        <select asp-for="FeeStructure.SchoolYearId"
+                class="form-control"
+                asp-items="@(new SelectList(
+                                                    Model.SchoolYears,
+                                                    "Id",
+                                                    CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                        ? "NameAr"
+                                                        : "NameEn"))">
+
+            <option selected disabled value="">
+                @Localizer["SelectSchoolYear"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="FeeStructure.SchoolYearId" class="text-danger"></span>
+    </div>
+
+    <!-- YearLevel -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="FeeStructure.YearLevelId" class="form-label"></label>
+
+        <select asp-for="FeeStructure.YearLevelId"
+                class="form-control"
+                asp-items="@(new SelectList(
+                                                    Model.YearLevels,
+                                                    "Id",
+                                                    CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                        ? "NameAr"
+                                                        : "NameEn"))">
+
+            <option selected disabled value="">
+                @Localizer["SelectYearLevel"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="FeeStructure.YearLevelId" class="text-danger"></span>
+    </div>
+
+</div>
+
+<hr />
+
+<h5>@Localizer["FeeItems"]</h5>
+
+<div class="row g-2 align-items-end">
+
+    <div class="col-md-4">
+        <label>@Localizer["NameEn"]</label>
+        <input id="txtNameEn"
+               class="form-control" />
+    </div>
+
+    <div class="col-md-4">
+        <label>@Localizer["NameAr"]</label>
+        <input id="txtNameAr"
+               class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label>@Localizer["Amount"]</label>
+        <input id="txtAmount"
+               type="number"
+               step="0.01"
+               class="form-control" />
+    </div>
+
+    <div class="col-md-1">
+        <button type="button"
+                class="btn btn-primary w-100"
+                onclick="addFeeItem()">
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
+
+</div>
+
+<div class="mt-3">
+
+    <table class="table table-bordered">
+
+        <thead>
+
+            <tr>
+                <th>@Localizer["NameEn"]</th>
+                <th>@Localizer["NameAr"]</th>
+                <th>@Localizer["Amount"]</th>
+                <th style="width:80px">@Localizer["Actions"]</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="feeItemsTableBody"></tbody>
+
+    </table>
+
+</div>
+
+<script>
+
+    let feeItems = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(
+                        Model.FeeStructure.FeeItems ?? new List<FeeItemDTO>()
+        ));
+
+    document.addEventListener("DOMContentLoaded", renderFeeItems);
+
+    function addFeeItem() {
+
+        let nameEn = document.getElementById("txtNameEn").value.trim();
+        let nameAr = document.getElementById("txtNameAr").value.trim();
+        let amount = document.getElementById("txtAmount").value;
+
+        if (nameEn === "" || nameAr === "" || amount === "") {
+
+            alert("@Localizer["PleaseFillAllFields"]");
+            return;
+        }
+
+        feeItems.push({
+            Id: 0,
+            NameEn: nameEn,
+            NameAr: nameAr,
+            Amount: parseFloat(amount)
+        });
+
+        renderFeeItems();
+
+        document.getElementById("txtNameEn").value = "";
+        document.getElementById("txtNameAr").value = "";
+        document.getElementById("txtAmount").value = "";
+
+        document.getElementById("txtNameEn").focus();
+    }
+
+    function removeFeeItem(index){
+
+        feeItems.splice(index,1);
+
+        renderFeeItems();
+    }
+
+    function renderFeeItems(){
+
+        const tbody = document.getElementById("feeItemsTableBody");
+
+        tbody.innerHTML = "";
+
+        feeItems.forEach((item,index)=>{
+
+            tbody.innerHTML += `
+
+    <tr>
+
+    <td>
+
+    ${item.NameEn}
+
+    <input type="hidden"
+           name="FeeStructure.FeeItems[${index}].Id"
+           value="${item.Id}" />
+
+    <input type="hidden"
+           name="FeeStructure.FeeItems[${index}].NameEn"
+           value="${item.NameEn}" />
+
+    </td>
+
+    <td>
+
+    ${item.NameAr}
+
+    <input type="hidden"
+           name="FeeStructure.FeeItems[${index}].NameAr"
+           value="${item.NameAr}" />
+
+    </td>
+
+    <td>
+
+    ${item.Amount}
+
+    <input type="hidden"
+           name="FeeStructure.FeeItems[${index}].Amount"
+           value="${item.Amount}" />
+
+    </td>
+
+    <td>
+
+    <button type="button"
+            class="btn btn-danger btn-sm"
+            onclick="removeFeeItem(${index})">
+
+    <i class="fa fa-trash"></i>
+
+    </button>
+
+    </td>
+
+    </tr>
+
+    `;
+        });
+
+    }
+</script>
