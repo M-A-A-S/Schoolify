@@ -1,0 +1,70 @@
+﻿@using Schoolify.Common.DTOs.FeeStructure
+@model FeeStructureDTO
+
+@using System.Globalization
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["SchoolYear"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.SchoolYear?.NameAr
+                        : @Model?.SchoolYear?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["YearLevel"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.YearLevel?.NameAr
+                        : @Model?.YearLevel?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-12">
+        <label class="fw-bold">@Localizer["FeeItems"]</label>
+
+        @if (Model.FeeItems?.Any() == true)
+        {
+            <table class="table table-bordered mt-2">
+                <thead>
+                    <tr>
+                        <th>@Localizer["NameEn"]</th>
+                        <th>@Localizer["NameAr"]</th>
+                        <th>@Localizer["Amount"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.FeeItems)
+                    {
+                        <tr>
+                            <td>
+                                @item.NameEn
+                            </td>
+                            <td>
+                                @item.NameAr
+                            </td>
+                            <td>
+                                @item.Amount
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="text-muted">
+                @Localizer["NoFeeItemsFound"]
+            </div>
+        }
+    </div>
+
+
+</div>
