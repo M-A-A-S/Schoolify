@@ -936,4 +936,13 @@
   <data name="FeeStructureAlreadyExists" xml:space="preserve">
     <value>هيكل الرسوم موجود بالفعل</value>
   </data>
+  <data name="Amount" xml:space="preserve">
+    <value>المبلغ</value>
+  </data>
+  <data name="NoFeeItemsFound" xml:space="preserve">
+    <value>لا توجد بنود رسوم</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>الإجمالي</value>
+  </data>
 </root>

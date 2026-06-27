@@ -1,0 +1,110 @@
+﻿@using Schoolify.Common.DTOs.FeeStructure
+@model IEnumerable<FeeStructureDTO>
+
+@using System.Globalization
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="d-flex align-items-center justify-content-between my-4">
+    <h2>@Localizer["FeeStructures"]</h2>
+
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="fa fa-plus me-1"></i>
+        @Localizer["CreateNew"]
+    </a>
+
+</div>
+
+
+@foreach (var feeStructure in Model)
+{
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <strong>@Localizer["SchoolYear"]:</strong> @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                            ? feeStructure?.SchoolYear?.NameAr
+                            : feeStructure?.SchoolYear?.NameEn)
+            <br />
+            <strong>@Localizer["YearLevel"]:</strong> @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? feeStructure?.YearLevel?.NameAr
+                        : feeStructure?.YearLevel?.NameEn)
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-light btn-sm"
+                        data-bs-toggle="dropdown">
+                    <i class="fa fa-ellipsis-v"></i>
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item"
+                           asp-action="Details"
+                           asp-route-id="@feeStructure.Id">
+                            @Localizer["Details"]
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item"
+                           asp-action="Edit"
+                           asp-route-id="@feeStructure.Id">
+                            @Localizer["Edit"]
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item text-danger"
+                           asp-action="Delete"
+                           asp-route-id="@feeStructure.Id">
+                            @Localizer["Delete"]
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                    <th>@Localizer["NameEn"]</th>
+                        <th>@Localizer["NameAr"]</th>
+                        <th>@Localizer["Amount"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @if (feeStructure.FeeItems != null && feeStructure.FeeItems.Any())
+                    {
+                        @foreach (var item in feeStructure.FeeItems)
+                        {
+                            <tr>
+                                <td>@item.NameEn</td>
+                                <td>@item.NameAr</td>
+                                <td>@item.Amount.ToString("N2")</td>
+                            </tr>
+                        }
+                    } 
+                    else
+                    {
+                        <tr>
+                            <td colspan="3" class="text-center text-muted">
+                                @Localizer["NoFeeItemsFound"]
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+                @* <tfoot>
+                    <tr>
+                        <th colspan="2">Total</th>
+                        <th>@feeStructure.Total.ToString("N2")</th>
+                    </tr>
+                </tfoot> *@
+            </table>
+        </div>
+   </div> 
+}

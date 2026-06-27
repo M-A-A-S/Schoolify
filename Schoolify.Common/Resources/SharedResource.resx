@@ -936,4 +936,13 @@
   <data name="FeeStructureAlreadyExists" xml:space="preserve">
     <value>Fee structure already exists</value>
   </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="NoFeeItemsFound" xml:space="preserve">
+    <value>No fee items found</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
 </root>
