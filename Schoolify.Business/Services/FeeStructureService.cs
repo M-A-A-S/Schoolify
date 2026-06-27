@@ -135,92 +135,7 @@ namespace Schoolify.Business.Services
 
             entity.UpdateFromDTO(dto);
 
-            //var existingFeeItemIds = entity.FeeItems
-            //    .Select(t => t.Id).ToList();
-
-            //var newFeeItemIds = dto.FeeItems
-            //    .Select(t => t.Id).ToList();
-
-            //var toRemove = entity.FeeItems
-            //    .Where(t => !newFeeItemIds.Contains(t.Id))
-            //    .ToList();
-
-            //await _feeItemRepository.DeleteRangeAsync(toRemove);
-
-            //var toAdd = newFeeItemIds.Except(existingFeeItemIds);
-
-            //var toRemove = entity.FeeItems.Where(x => dto.FeeItems.Any(d => d.Id == x.Id));
-
-            //await _feeItemRepository.DeleteRangeAsync(toRemove);
-
-            //foreach (var itemDTO in dto.FeeItems)
-            //{
-            //    var existingItem = entity.FeeItems
-            //        .FirstOrDefault(x => x.Id == itemDTO.Id);
-
-            //    if (existingItem == null)
-            //    {
-            //        entity.FeeItems.Add(new FeeItem
-            //        {
-            //            NameEn = itemDTO.NameEn,
-            //            NameAr = itemDTO.NameAr,
-            //            Amount = itemDTO.Amount,
-            //        });
-            //    } 
-            //    else
-            //    {
-            //        existingItem.NameEn = itemDTO.NameEn;
-            //        existingItem.NameAr = itemDTO.NameAr;
-            //        existingItem.Amount = itemDTO.Amount;
-
-            //    }
-            //}
-
-            // Remove Items not in DTO
-            //var dtoIds = dto.FeeItems.Select(x => x.Id).ToList();
-
-            //var itemsToRemove = entity.FeeItems
-            //    .Where(x => x.Id != 0 && !dtoIds.Contains(x.Id))
-            //    .ToList();
-
-            //var itemsToRemove = entity.FeeItems
-            //    .Where(x => !dtoIds.Contains(x.Id))
-            //    .ToList();
-
-            //foreach ( var item in itemsToRemove )
-            //{
-            //    entity.FeeItems.Remove(item);
-            //}
-
-            // Add + Update Items
-            //foreach (var itemDTO in dto.FeeItems)
-            //{
-            //    var existingItem = entity.FeeItems
-            //        .FirstOrDefault(x => x.Id == itemDTO.Id);
-
-            //    if (existingItem == null)
-            //    {
-            //        entity.FeeItems.Add(new FeeItem
-            //        {
-            //            NameEn = itemDTO.NameEn,
-            //            NameAr = itemDTO.NameAr,
-            //            Amount = itemDTO.Amount,
-            //            FeeStructureId = entity.Id,
-            //        });
-            //    }
-            //    else
-            //    {
-            //        existingItem.NameEn = itemDTO.NameEn;
-            //        existingItem.NameAr = itemDTO.NameAr;
-            //        existingItem.Amount = itemDTO.Amount;
-            //    }
-            //}
-
-            //var updateResult = await _repo.UpdateAndSaveAsync(existingResult.Data);
-
-            // Extract incoming DTO IDs (filtering out new items with Id = 0)
             var dtoIds = dto.FeeItems.Where(x => x.Id > 0).Select(x => x.Id).ToList();
-
 
             var itemsToSoftDelete = entity.FeeItems
                 .Where(x => !x.IsDeleted && !dtoIds.Contains(x.Id));
@@ -283,13 +198,16 @@ namespace Schoolify.Business.Services
         #region Delete
         public async Task<Result<bool>> DeleteAsync(int id)
         {
-            var findResult = await _repo.FindByAsync(c => c.Id == id);
+            var findResult = await _repo.FindByAsync(c => c.Id == id,
+                include: q => q.Include(x => x.FeeItems));
             if (!findResult.IsSuccess)
             {
                 return Result<bool>.Failure(
                     ResultCodes.FeeStructureNotFound,
                     404);
             }
+
+            await _feeItemRepository.DeleteRangeAsync(findResult.Data.FeeItems);
 
             var deleteResult = await _repo.DeleteAndSaveAsync(findResult.Data);
 
