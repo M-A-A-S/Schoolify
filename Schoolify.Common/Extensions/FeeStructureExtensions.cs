@@ -22,9 +22,10 @@ namespace Schoolify.Common.Extensions
                 Id = entity.Id,
                 SchoolYearId = entity.SchoolYearId,
                 YearLevelId = entity.YearLevelId,
-
+                
                 SchoolYear = entity.SchoolYear?.ToDTO(),
                 YearLevel = entity.YearLevel?.ToDTO(),
+                FeeItems = entity?.FeeItems?.Select(x => x.ToDTO())?.ToList()
             };
         }
 
