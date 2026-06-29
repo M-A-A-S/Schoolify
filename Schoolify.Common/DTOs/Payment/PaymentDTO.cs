@@ -38,7 +38,7 @@ ResourceType = typeof(Resources.SharedResource)
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public DateTime PaymentDate { get; set; }
+        public DateTime PaymentDate { get; set; } = DateTime.UtcNow;
 
         [Display(Name = nameof(Resources.SharedResource.PaymentMethod),
 ResourceType = typeof(Resources.SharedResource)
@@ -52,19 +52,19 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
         [Display(Name = nameof(Resources.SharedResource.ReceiptNumber),
 ResourceType = typeof(Resources.SharedResource)
 )]
-        [Required(
-ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
-ErrorMessageResourceType = typeof(Resources.SharedResource)
-)]
+//        [Required(
+//ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
+//ErrorMessageResourceType = typeof(Resources.SharedResource)
+//)]
         public string? ReceiptNumber { get; set; }
 
         [Display(Name = nameof(Resources.SharedResource.TransactionReference),
 ResourceType = typeof(Resources.SharedResource)
 )]
-        [Required(
-ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
-ErrorMessageResourceType = typeof(Resources.SharedResource)
-)]
+//        [Required(
+//ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
+//ErrorMessageResourceType = typeof(Resources.SharedResource)
+//)]
         public string? TransactionReference { get; set; }
         public InstallmentDTO? Installment { get; set; }
 

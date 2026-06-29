@@ -63,5 +63,8 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
         public EnrollmentDTO? Enrollment { get; set; }
         public ICollection<PaymentDTO> Payments { get; set; } = new List<PaymentDTO>();
 
+        public decimal TotalPaid {  get; set; }
+        public decimal RemainingAmount {  get; set; }
+
     }
 }

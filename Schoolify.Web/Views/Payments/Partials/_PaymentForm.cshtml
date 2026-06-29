@@ -1,0 +1,147 @@
+﻿@using Schoolify.Common.DTOs.Payment
+@model PaymentDTO
+@using Schoolify.Common.Enums
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row g-3 my-2">
+
+    <h3>@Localizer["Installment"]</h3>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Student"]</label>
+        <div>
+            @Model?.Installment?.Enrollment?.Student?.FullName
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["YearLevel"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Installment?.Enrollment?.YearLevel?.NameAr
+                        : @Model?.Installment?.Enrollment?.YearLevel?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["SchoolYear"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Installment?.Enrollment?.SchoolYear?.NameAr
+                        : @Model?.Installment?.Enrollment?.SchoolYear?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Section"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Installment?.Enrollment?.Section?.NameAr
+                        : @Model?.Installment?.Enrollment?.Section?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["InstallmentNumber"]</label>
+        <div>
+            @Model?.Installment?.InstallmentNumber
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Amount"]</label>
+        <div>
+            @Model?.Installment?.Amount
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["TotalPaid"]</label>
+        <div>
+            @Model?.Installment?.TotalPaid
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["RemainingAmount"]</label>
+        <div>
+            @Model?.Installment?.RemainingAmount
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Status"]</label>
+        <div>
+            @switch (Model?.Installment?.Status)
+            {
+                case InstallmentStatus.Pending:
+                    <span class="badge bg-primary">@Localizer["Pending"]</span>
+                    break;
+
+                case InstallmentStatus.PartiallyPaid:
+                    <span class="badge bg-danger">@Localizer["PartiallyPaid"]</span>
+                    break;
+
+                case InstallmentStatus.Paid:
+                    <span class="badge bg-danger">@Localizer["Paid"]</span>
+                    break;
+
+                case InstallmentStatus.Overdue:
+                    <span class="badge bg-danger">@Localizer["Overdue"]</span>
+                    break;
+
+                default:
+                    <span class="badge bg-secondary">@Localizer["Unknown"]</span>
+                    break;
+            }
+        </div>
+    </div>
+
+    <hr />
+
+    <input asp-for="InstallmentId" hidden class="form-control" />
+    @* <div class="col-md-6">
+        <label asp-for="InstallmentId"></label>
+        <input asp-for="InstallmentId" hidden class="form-control" />
+        <span asp-validation-for="InstallmentId" class="text-danger"></span>
+    </div> *@
+
+    <div class="col-md-6">
+        <label asp-for="AmountPaid"></label>
+        <input asp-for="AmountPaid" class="form-control" />
+        <span asp-validation-for="AmountPaid" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="PaymentDate"></label>
+        <input asp-for="PaymentDate" class="form-control" />
+        <span asp-validation-for="PaymentDate" class="text-danger"></span>
+    </div>
+
+    <!-- Payment Method Dropdown -->
+    <div class="col-md-6">
+        <label asp-for="PaymentMethod" class="form-label"></label>
+        <select asp-for="PaymentMethod" class="form-select"
+                asp-items="Html.GetEnumSelectList<PaymentMethod>()">
+            <option value="" disabled selected>@Localizer["SelectPaymentMethod"]</option>
+        </select>
+        <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="ReceiptNumber"></label>
+        <input asp-for="ReceiptNumber" class="form-control" />
+        <span asp-validation-for="ReceiptNumber" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="TransactionReference"></label>
+        <input asp-for="TransactionReference" class="form-control" />
+        <span asp-validation-for="TransactionReference" class="text-danger"></span>
+    </div>
+
+</div>

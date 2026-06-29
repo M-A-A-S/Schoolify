@@ -16,15 +16,45 @@ namespace Schoolify.Business.Services
     public class PaymentService : IPaymentService
     {
         private readonly IPaymentRepository _repo;
+        private readonly IInstallmentRepository _installmentRepository;
 
-        public PaymentService(IPaymentRepository repo)
+        public PaymentService(IPaymentRepository repo,
+            IInstallmentRepository installmentRepository)
         {
             _repo = repo;
+            _installmentRepository = installmentRepository;
         }
 
         #region Add
         public async Task<Result<PaymentDTO>> AddAsync(PaymentDTO dto)
         {
+            if (dto.AmountPaid <= 0)
+            {
+                return Result<PaymentDTO>
+                    .Failure(ResultCodes.AmountMustBeGreaterThanZero, 400);
+            }
+
+            var installmentResult = await _installmentRepository
+                .FindByAsync(x => x.Id == dto.InstallmentId, 
+                include: q => q.Include(x => x.Payments));
+
+            if (!installmentResult.IsSuccess || installmentResult.Data == null)
+            {
+                return Result<PaymentDTO>
+                    .Failure(ResultCodes.InstallmentNotFound, 400);
+            }
+
+            var installment = installmentResult.Data;
+
+            decimal totalPaid = installment.Payments?.Sum(x => x.AmountPaid) ?? 0;
+            decimal remainingAmount = installment.Amount - totalPaid;
+
+            if (dto.AmountPaid > remainingAmount)
+            {
+                return Result<PaymentDTO>
+                    .Failure(ResultCodes.PaymentExceedsRemainingAmount, 400);
+            }
+                                                                
 
             var entity = dto.ToEntity();
 

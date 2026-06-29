@@ -97,6 +97,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amount must be greater than zero.
+        /// </summary>
+        public static string AmountMustBeGreaterThanZero {
+            get {
+                return ResourceManager.GetString("AmountMustBeGreaterThanZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Amount Paid.
         /// </summary>
         public static string AmountPaid {
@@ -1555,6 +1564,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Payment amount exceeds the remaining balance.
+        /// </summary>
+        public static string PaymentExceedsRemainingAmount {
+            get {
+                return ResourceManager.GetString("PaymentExceedsRemainingAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Payment Method.
         /// </summary>
         public static string PaymentMethod {
@@ -1713,6 +1731,15 @@ namespace Schoolify.Common.Resources {
         public static string Relationships {
             get {
                 return ResourceManager.GetString("Relationships", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remaining Amount.
+        /// </summary>
+        public static string RemainingAmount {
+            get {
+                return ResourceManager.GetString("RemainingAmount", resourceCulture);
             }
         }
         
@@ -2082,6 +2109,15 @@ namespace Schoolify.Common.Resources {
         public static string SelectGender {
             get {
                 return ResourceManager.GetString("SelectGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select Payment Method --.
+        /// </summary>
+        public static string SelectPaymentMethod {
+            get {
+                return ResourceManager.GetString("SelectPaymentMethod", resourceCulture);
             }
         }
         
@@ -2721,6 +2757,15 @@ namespace Schoolify.Common.Resources {
         public static string TotalFees {
             get {
                 return ResourceManager.GetString("TotalFees", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Paid.
+        /// </summary>
+        public static string TotalPaid {
+            get {
+                return ResourceManager.GetString("TotalPaid", resourceCulture);
             }
         }
         

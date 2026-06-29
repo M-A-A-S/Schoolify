@@ -1047,4 +1047,19 @@
   <data name="Pay" xml:space="preserve">
     <value>Pay</value>
   </data>
+  <data name="SelectPaymentMethod" xml:space="preserve">
+    <value>-- Select Payment Method --</value>
+  </data>
+  <data name="TotalPaid" xml:space="preserve">
+    <value>Total Paid</value>
+  </data>
+  <data name="RemainingAmount" xml:space="preserve">
+    <value>Remaining Amount</value>
+  </data>
+  <data name="AmountMustBeGreaterThanZero" xml:space="preserve">
+    <value>Amount must be greater than zero</value>
+  </data>
+  <data name="PaymentExceedsRemainingAmount" xml:space="preserve">
+    <value>Payment amount exceeds the remaining balance</value>
+  </data>
 </root>

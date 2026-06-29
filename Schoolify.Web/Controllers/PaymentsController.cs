@@ -74,6 +74,7 @@ namespace Schoolify.Web.Controllers
             if (!ModelState.IsValid)
             {
                 //await LoadSchoolYears();
+                await LoadInstallment(DTO);
                 TempData["Error"] = _localizer["ValidationError"].Value;
                 return View(DTO);
             }
@@ -83,10 +84,12 @@ namespace Schoolify.Web.Controllers
             if (addResult.IsSuccess)
             {
                 TempData["Success"] = _localizer[addResult.Code].Value;
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Installments", new { id = DTO.InstallmentId });
             }
 
             TempData["Error"] = _localizer[addResult.Code].Value;
+            await LoadInstallment(DTO);
             return View(DTO);
         }
         #endregion
@@ -159,6 +162,18 @@ namespace Schoolify.Web.Controllers
         #endregion
 
         #region Private Helpers
+        private async Task LoadInstallment(PaymentDTO dto)
+        {
+            if (dto.InstallmentId > 0)
+            {
+                var result = await _installmentService.GetByIdAsync(dto.InstallmentId);
+
+                if (result.IsSuccess)
+                {
+                    dto.Installment = result.Data;
+                }
+            }
+        }
         #endregion
 
     }

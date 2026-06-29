@@ -14,6 +14,8 @@ namespace Schoolify.Common.Utilities.ResultCodes
         public const string PaymentUpdated = "PaymentUpdated";
         public const string PaymentDeleted = "PaymentDeleted";
         public const string PaymentAlreadyExists = "PaymentAlreadyExists";
+        public const string AmountMustBeGreaterThanZero = "AmountMustBeGreaterThanZero";
+        public const string PaymentExceedsRemainingAmount = "PaymentExceedsRemainingAmount";
 
     }
 }

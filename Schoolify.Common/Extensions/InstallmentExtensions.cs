@@ -26,7 +26,11 @@ namespace Schoolify.Common.Extensions
                 Amount = entity.Amount,
                 DueDate = entity.DueDate,
                 Status = entity.Status,
-                Enrollment = entity.Enrollment?.ToDTO()
+                Enrollment = entity.Enrollment?.ToDTO(),
+                //Payments = entity?.Payments?.Select(x => x.ToDTO())?.ToList()
+
+                TotalPaid = entity.Payments?.Sum(x => x.AmountPaid) ?? 0m,
+                RemainingAmount = entity.Amount - (entity.Payments?.Sum(x => x.AmountPaid) ?? 0m)
             };
         }
 

@@ -63,6 +63,7 @@ namespace Schoolify.Business.Services
                         .ThenInclude(x => x.YearLevel)
                     .Include(t => t.Enrollment)
                         .ThenInclude(x => x.SchoolYear)
+                    .Include(x => x.Payments)
                     .AsNoTrackingWithIdentityResolution()
                     .AsSplitQuery());
 
@@ -90,6 +91,7 @@ namespace Schoolify.Business.Services
                         .ThenInclude(x => x.SchoolYear)
                     .Include(t => t.Enrollment)
                         .ThenInclude(x => x.YearLevel)
+                    .Include(x => x.Payments)
                     .AsNoTrackingWithIdentityResolution()
                     .AsSplitQuery());
 

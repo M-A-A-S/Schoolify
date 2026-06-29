@@ -1,0 +1,36 @@
+﻿@using Schoolify.Common.DTOs.Payment;
+@model PaymentDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="card shadow-sm">
+    <div class="card-header text-white">
+        <h5 class="mb-0">
+            @Localizer["Create"] @Localizer["Payment"]
+        </h5>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Create" method="post">
+
+            <partial name="Partials/_PaymentForm" model="Model" />
+
+            <button type="submit" class="btn btn-success">
+                @Localizer["Save"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Cancel"]
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
