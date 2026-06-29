@@ -15,6 +15,7 @@ namespace Schoolify.Common.Models
         public DateOnly DueDate { get; set; }
         public InstallmentStatus Status { get; set; }
 
+        public Enrollment Enrollment { get; set; }
         public ICollection<Payment> Payments { get; set; } = new List<Payment>();
     }
 }

@@ -56,6 +56,12 @@ namespace Schoolify.DataAccess.Configurations
                 .HasForeignKey(sy => sy.SchoolYearId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Enrollments -> SchoolYear (Many-to-One)
+            builder.HasMany(e => e.Installments)
+                .WithOne(x => x.Enrollment)
+                .HasForeignKey(sy => sy.EnrollmentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             // Constraints
 
             //builder.HasCheckConstraint(
