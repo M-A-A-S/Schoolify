@@ -14,6 +14,7 @@ namespace Schoolify.DataAccess
         {
 
             services.AddScoped<IFeeItemRepository, FeeItemRepository>();
+            services.AddScoped<IExamRepository, ExamRepository>();
             services.AddScoped<IFeeStructureRepository, FeeStructureRepository>();
             services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
             services.AddScoped<ISubjectClassTeacherRepository, SubjectClassTeacherRepository>();
