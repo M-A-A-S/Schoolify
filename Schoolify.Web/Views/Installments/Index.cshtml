@@ -21,12 +21,17 @@
     <table class="table">
         <thead>
             <tr>
+                @* Enrollment Info *@
                 <th>@Localizer["Student"]</th>
                 <th>@Localizer["YearLevel"]</th>
                 <th>@Localizer["SchoolYear"]</th>
                 <th>@Localizer["Section"]</th>
+
+                @* Installment Info *@
                 <th>@Localizer["InstallmentNumber"]</th>
                 <th>@Localizer["Amount"]</th>
+                <th>@Localizer["TotalPaid"]</th>
+                <th>@Localizer["RemainingAmount"]</th>
                 <th>@Localizer["DueDate"]</th>
                 <th>@Localizer["Status"]</th>
                 <th>@Localizer["Actions"]</th>
@@ -57,7 +62,15 @@
                                             : item?.Enrollment?.Section?.NameEn)
                     </td>
                     <td>@item.InstallmentNumber</td>
-                    <td>@item.Amount</td>
+                    <td>
+                    <span class="fs-5  text-warning">@item.Amount</span>
+                    </td>
+                    <td>
+                    <span class="fs-5  text-success">@item.TotalPaid</span>
+                    </td>
+                    <td>
+                    <span class="fs-5  text-danger">@item.RemainingAmount</span>
+                    </td>
                     <td>@item.DueDate.ToString("d", CultureInfo.CurrentCulture)</td>
                     <td>
                     @switch (item.Status)
