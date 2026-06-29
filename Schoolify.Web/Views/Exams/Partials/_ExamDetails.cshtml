@@ -1,0 +1,41 @@
+﻿@using Schoolify.Common.DTOs.Exam
+@model ExamDTO
+
+@using System.Globalization
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["NameEn"]</label>
+        <div>@Model.NameEn</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["NameAr"]</label>
+        <div>@Model.NameAr</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["MaxScore"]</label>
+        <div>@Model.MaxScore</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Date"]</label>
+        <div>@Model.Date.ToString("d", CultureInfo.CurrentCulture)</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Class"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.SubjectClass?.NameAr
+                        : @Model?.SubjectClass?.NameEn)
+        </div>
+    </div>
+
+</div>
