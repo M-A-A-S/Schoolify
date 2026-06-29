@@ -963,4 +963,7 @@
   <data name="ExamAlreadyExists" xml:space="preserve">
     <value>يوجد امتحان بنفس الاسم بالفعل</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>تاريخ</value>
+  </data>
 </root>

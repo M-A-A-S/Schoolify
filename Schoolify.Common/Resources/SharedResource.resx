@@ -963,4 +963,7 @@
   <data name="ExamAlreadyExists" xml:space="preserve">
     <value>An exam with the same name already exists</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
 </root>
