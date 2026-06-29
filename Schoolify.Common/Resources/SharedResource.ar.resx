@@ -945,4 +945,22 @@
   <data name="Total" xml:space="preserve">
     <value>الإجمالي</value>
   </data>
+  <data name="ExamNotFound" xml:space="preserve">
+    <value>لم يتم العثور على الامتحان</value>
+  </data>
+  <data name="ExamsNotFound" xml:space="preserve">
+    <value>لم يتم العثور على أي امتحانات</value>
+  </data>
+  <data name="ExamCreated" xml:space="preserve">
+    <value>تم إنشاء الامتحان بنجاح</value>
+  </data>
+  <data name="ExamUpdated" xml:space="preserve">
+    <value>تم تحديث الامتحان بنجاح</value>
+  </data>
+  <data name="ExamDeleted" xml:space="preserve">
+    <value>تم حذف الامتحان بنجاح</value>
+  </data>
+  <data name="ExamAlreadyExists" xml:space="preserve">
+    <value>يوجد امتحان بنفس الاسم بالفعل</value>
+  </data>
 </root>

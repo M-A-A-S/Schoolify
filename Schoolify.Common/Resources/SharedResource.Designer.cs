@@ -727,6 +727,33 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An exam with the same name already exists.
+        /// </summary>
+        public static string ExamAlreadyExists {
+            get {
+                return ResourceManager.GetString("ExamAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exam created successfully.
+        /// </summary>
+        public static string ExamCreated {
+            get {
+                return ResourceManager.GetString("ExamCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exam deleted successfully.
+        /// </summary>
+        public static string ExamDeleted {
+            get {
+                return ResourceManager.GetString("ExamDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Examination.
         /// </summary>
         public static string Examination {
@@ -736,11 +763,38 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exam not found.
+        /// </summary>
+        public static string ExamNotFound {
+            get {
+                return ResourceManager.GetString("ExamNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exams.
         /// </summary>
         public static string Exams {
             get {
                 return ResourceManager.GetString("Exams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No exams found.
+        /// </summary>
+        public static string ExamsNotFound {
+            get {
+                return ResourceManager.GetString("ExamsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exam updated successfully.
+        /// </summary>
+        public static string ExamUpdated {
+            get {
+                return ResourceManager.GetString("ExamUpdated", resourceCulture);
             }
         }
         

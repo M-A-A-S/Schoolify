@@ -945,4 +945,22 @@
   <data name="Total" xml:space="preserve">
     <value>Total</value>
   </data>
+  <data name="ExamNotFound" xml:space="preserve">
+    <value>Exam not found</value>
+  </data>
+  <data name="ExamsNotFound" xml:space="preserve">
+    <value>No exams found</value>
+  </data>
+  <data name="ExamCreated" xml:space="preserve">
+    <value>Exam created successfully</value>
+  </data>
+  <data name="ExamUpdated" xml:space="preserve">
+    <value>Exam updated successfully</value>
+  </data>
+  <data name="ExamDeleted" xml:space="preserve">
+    <value>Exam deleted successfully</value>
+  </data>
+  <data name="ExamAlreadyExists" xml:space="preserve">
+    <value>An exam with the same name already exists</value>
+  </data>
 </root>
