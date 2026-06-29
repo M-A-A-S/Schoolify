@@ -53,8 +53,22 @@
 
     <div class="col-md-6">
         <label class="fw-bold">@Localizer["Amount"]</label>
-        <div>
+        <div class="fs-5 fw-bold text-warning">
             @Model.Amount
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["TotalPaid"]</label>
+        <div class="fs-5 fw-bold text-success">
+            @Model?.TotalPaid
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["RemainingAmount"]</label>
+        <div class="fs-5 fw-bold text-danger">
+            @Model?.RemainingAmount
         </div>
     </div>
 
