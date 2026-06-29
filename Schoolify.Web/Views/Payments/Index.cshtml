@@ -30,6 +30,8 @@
                 @* Installment Info *@
                 <th>@Localizer["InstallmentNumber"]</th>
                 <th>@Localizer["Amount"]</th>
+                <th>@Localizer["TotalPaid"]</th>
+                <th>@Localizer["RemainingAmount"]</th>
                 <th>@Localizer["DueDate"]</th>
                 <th>@Localizer["Status"]</th>
 
@@ -71,7 +73,15 @@
 
                 @* Installment Info *@
                 <td>@item?.Installment?.InstallmentNumber</td>
-                <td>@item?.Installment?.Amount</td>
+                    <td>
+                        <span class="text-warning fw-bold">@item?.Installment?.Amount</span>
+                    </td>
+                    <td>
+                        <span class="text-success fw-bold">@item?.Installment?.TotalPaid</span>
+                    </td>
+                    <td>
+                        <span class="text-danger fw-bold">@item?.Installment?.RemainingAmount</span>
+                    </td>
                 <td>@item?.Installment?.DueDate</td>
                 @* <td>@item?.Installment?.Status</td> *@
                 <td>
