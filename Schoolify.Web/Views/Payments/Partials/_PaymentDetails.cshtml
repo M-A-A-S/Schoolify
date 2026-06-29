@@ -1,0 +1,152 @@
+﻿@using Schoolify.Common.DTOs.Payment
+@model PaymentDTO
+
+@using System.Globalization
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@using Schoolify.Common.Enums
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+    @* Enrollment Info *@
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Student"]</label>
+        <div>
+            @Model?.Installment?.Enrollment?.Student?.FullName
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["YearLevel"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Installment?.Enrollment?.YearLevel?.NameAr
+                        : @Model?.Installment?.Enrollment?.YearLevel?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["SchoolYear"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Installment?.Enrollment?.SchoolYear?.NameAr
+                        : @Model?.Installment?.Enrollment?.SchoolYear?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Section"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Installment?.Enrollment?.Section?.NameAr
+                        : @Model?.Installment?.Enrollment?.Section?.NameEn)
+        </div>
+    </div>
+
+    @* Installment Info *@
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["InstallmentNumber"]</label>
+        <div>
+            @Model?.Installment?.InstallmentNumber
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Amount"]</label>
+        <div>
+            @Model?.Installment?.Amount
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["DueDate"]</label>
+        <div>
+            @Model?.Installment?.DueDate
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Status"]</label>
+        <div>
+            @switch (Model?.Installment?.Status)
+            {
+                case InstallmentStatus.Pending:
+                    <span class="badge bg-primary">@Localizer["Pending"]</span>
+                    break;
+
+                case InstallmentStatus.PartiallyPaid:
+                    <span class="badge bg-danger">@Localizer["PartiallyPaid"]</span>
+                    break;
+
+                case InstallmentStatus.Paid:
+                    <span class="badge bg-danger">@Localizer["Paid"]</span>
+                    break;
+
+                case InstallmentStatus.Overdue:
+                    <span class="badge bg-danger">@Localizer["Overdue"]</span>
+                    break;
+
+                default:
+                    <span class="badge bg-secondary">@Localizer["Unknown"]</span>
+                    break;
+            }
+        </div>
+    </div>
+
+    @* Payment Info *@
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["AmountPaid"]</label>
+        <div>
+            @Model?.AmountPaid
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["PaymentDate"]</label>
+        <div>
+            @Model?.PaymentDate
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["PaymentMethod"]</label>
+        <div>
+            @switch (Model.PaymentMethod)
+            {
+                case PaymentMethod.Cash:
+                    <span class="badge bg-primary">@Localizer["Cash"]</span>
+                    break;
+
+                case PaymentMethod.Bankak:
+                    <span class="badge bg-primary">@Localizer["Bankak"]</span>
+                    break;
+
+                case PaymentMethod.Fawry:
+                    <span class="badge bg-primary">@Localizer["Fawry"]</span>
+                    break;
+
+                default:
+                    <span class="badge bg-secondary">@Localizer["Unknown"]</span>
+                    break;
+            }
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["ReceiptNumber"]</label>
+        <div>
+            @Model?.ReceiptNumber
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["TransactionReference"]</label>
+        <div>
+            @Model?.TransactionReference
+        </div>
+    </div>
+
+</div>
