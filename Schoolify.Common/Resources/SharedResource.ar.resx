@@ -966,4 +966,70 @@
   <data name="Date" xml:space="preserve">
     <value>تاريخ</value>
   </data>
+  <data name="InstallmentNotFound" xml:space="preserve">
+    <value>لم يتم العثور على القسط</value>
+  </data>
+  <data name="InstallmentsNotFound" xml:space="preserve">
+    <value>لم يتم العثور على أي أقساط</value>
+  </data>
+  <data name="InstallmentCreated" xml:space="preserve">
+    <value>تم إنشاء القسط بنجاح</value>
+  </data>
+  <data name="InstallmentUpdated" xml:space="preserve">
+    <value>تم تحديث القسط بنجاح</value>
+  </data>
+  <data name="InstallmentDeleted" xml:space="preserve">
+    <value>تم حذف القسط بنجاح</value>
+  </data>
+  <data name="InstallmentAlreadyExists" xml:space="preserve">
+    <value>يوجد قسط بنفس الاسم بالفعل</value>
+  </data>
+  <data name="PaymentNotFound" xml:space="preserve">
+    <value>لم يتم العثور على الدفعة</value>
+  </data>
+  <data name="PaymentsNotFound" xml:space="preserve">
+    <value>لم يتم العثور على أي دفعات</value>
+  </data>
+  <data name="PaymentCreated" xml:space="preserve">
+    <value>تم إنشاء الدفعة بنجاح</value>
+  </data>
+  <data name="PaymentUpdated" xml:space="preserve">
+    <value>تم تحديث الدفعة بنجاح</value>
+  </data>
+  <data name="PaymentDeleted" xml:space="preserve">
+    <value>تم حذف الدفعة بنجاح</value>
+  </data>
+  <data name="PaymentAlreadyExists" xml:space="preserve">
+    <value>توجد دفعة بنفس البيانات بالفعل</value>
+  </data>
+  <data name="InstallmentNumber" xml:space="preserve">
+    <value>رقم القسط</value>
+  </data>
+  <data name="DueDate" xml:space="preserve">
+    <value>تاريخ الاستحقاق</value>
+  </data>
+  <data name="PaymentDate" xml:space="preserve">
+    <value>تاريخ الدفع</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>طريقة الدفع</value>
+  </data>
+  <data name="ReceiptNumber" xml:space="preserve">
+    <value>رقم الإيصال</value>
+  </data>
+  <data name="TransactionReference" xml:space="preserve">
+    <value>الرقم المرجعي للمعاملة</value>
+  </data>
+  <data name="AmountPaid" xml:space="preserve">
+    <value>المبلغ المدفوع</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>نقداً</value>
+  </data>
+  <data name="Bankak" xml:space="preserve">
+    <value>بنكك</value>
+  </data>
+  <data name="Fawry" xml:space="preserve">
+    <value>فوري</value>
+  </data>
 </root>

@@ -966,4 +966,70 @@
   <data name="Date" xml:space="preserve">
     <value>Date</value>
   </data>
+  <data name="InstallmentNotFound" xml:space="preserve">
+    <value>Installment not found</value>
+  </data>
+  <data name="InstallmentsNotFound" xml:space="preserve">
+    <value>No installments found</value>
+  </data>
+  <data name="InstallmentCreated" xml:space="preserve">
+    <value>Installment created successfully</value>
+  </data>
+  <data name="InstallmentUpdated" xml:space="preserve">
+    <value>Installment updated successfully</value>
+  </data>
+  <data name="InstallmentDeleted" xml:space="preserve">
+    <value>Installment deleted successfully</value>
+  </data>
+  <data name="InstallmentAlreadyExists" xml:space="preserve">
+    <value>An installment with the same name already exists</value>
+  </data>
+  <data name="PaymentNotFound" xml:space="preserve">
+    <value>Payment not found</value>
+  </data>
+  <data name="PaymentsNotFound" xml:space="preserve">
+    <value>No payments found</value>
+  </data>
+  <data name="PaymentCreated" xml:space="preserve">
+    <value>Payment created successfully</value>
+  </data>
+  <data name="PaymentUpdated" xml:space="preserve">
+    <value>Payment updated successfully</value>
+  </data>
+  <data name="PaymentDeleted" xml:space="preserve">
+    <value>Payment deleted successfully</value>
+  </data>
+  <data name="PaymentAlreadyExists" xml:space="preserve">
+    <value>A payment with the same details already exists</value>
+  </data>
+  <data name="InstallmentNumber" xml:space="preserve">
+    <value>Installment Number</value>
+  </data>
+  <data name="DueDate" xml:space="preserve">
+    <value>Due Date</value>
+  </data>
+  <data name="PaymentDate" xml:space="preserve">
+    <value>Payment Date</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>Payment Method</value>
+  </data>
+  <data name="ReceiptNumber" xml:space="preserve">
+    <value>Receipt Number</value>
+  </data>
+  <data name="TransactionReference" xml:space="preserve">
+    <value>Transaction Reference</value>
+  </data>
+  <data name="AmountPaid" xml:space="preserve">
+    <value>Amount Paid</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>Cash</value>
+  </data>
+  <data name="Bankak" xml:space="preserve">
+    <value>Bankak</value>
+  </data>
+  <data name="Fawry" xml:space="preserve">
+    <value>Fawry</value>
+  </data>
 </root>
