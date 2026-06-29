@@ -72,5 +72,8 @@ ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
         public Gender Gender { get; set; }
+
+
+        public string FullName => $"{FirstName} {SecondName} {ThirdName} {ForthName}";
     }
 }

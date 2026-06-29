@@ -1,0 +1,89 @@
+﻿@using Schoolify.Common.DTOs.Installment
+@model InstallmentDTO
+
+@using System.Globalization
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@using Schoolify.Common.Enums
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Student"]</label>
+        <div>
+            @Model?.Enrollment?.Student?.FullName
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["YearLevel"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Enrollment?.YearLevel?.NameAr
+                        : @Model?.Enrollment?.YearLevel?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["SchoolYear"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Enrollment?.SchoolYear?.NameAr
+                        : @Model?.Enrollment?.SchoolYear?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Section"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.Enrollment?.Section?.NameAr
+                        : @Model?.Enrollment?.Section?.NameEn)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["InstallmentNumber"]</label>
+        <div>
+            @Model.InstallmentNumber
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Amount"]</label>
+        <div>
+            @Model.Amount
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Status"]</label>
+        <div>
+            @switch (Model.Status)
+            {
+                case InstallmentStatus.Pending:
+                    <span class="badge bg-primary">@Localizer["Pending"]</span>
+                    break;
+
+                case InstallmentStatus.PartiallyPaid:
+                    <span class="badge bg-danger">@Localizer["PartiallyPaid"]</span>
+                    break;
+
+                case InstallmentStatus.Paid:
+                    <span class="badge bg-danger">@Localizer["Paid"]</span>
+                    break;
+
+                case InstallmentStatus.Overdue:
+                    <span class="badge bg-danger">@Localizer["Overdue"]</span>
+                    break;
+
+                default:
+                    <span class="badge bg-secondary">@Localizer["Unknown"]</span>
+                    break;
+            }
+        </div>
+    </div>
+
+</div>
