@@ -1,0 +1,160 @@
+﻿@using Schoolify.Common.DTOs.Payment
+@using Schoolify.Common.Enums
+@model IEnumerable<PaymentDTO>
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+@using System.Globalization
+
+<div class="d-flex align-items-center justify-content-between my-4">
+    <h2>@Localizer["Payments"]</h2>
+
+    @* <a asp-action="Create" class="btn btn-primary">
+        <i class="fa fa-plus me-1"></i>
+        @Localizer["CreateNew"]
+    </a> *@
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                @* Enrollment Info *@
+                <th>@Localizer["Student"]</th>
+                <th>@Localizer["YearLevel"]</th>
+                <th>@Localizer["SchoolYear"]</th>
+                <th>@Localizer["Section"]</th>
+
+                @* Installment Info *@
+                <th>@Localizer["InstallmentNumber"]</th>
+                <th>@Localizer["Amount"]</th>
+                <th>@Localizer["DueDate"]</th>
+                <th>@Localizer["Status"]</th>
+
+                @* Payment Info *@
+                <th>@Localizer["AmountPaid"]</th>
+                <th>@Localizer["PaymentDate"]</th>
+                <th>@Localizer["PaymentMethod"]</th>
+                <th>@Localizer["ReceiptNumber"]</th>
+                <th>@Localizer["TransactionReference"]</th>
+
+                <th>@Localizer["Actions"]</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                     @* Enrollment Info  *@
+                    <td>
+                        @item?.Installment?.Enrollment?.Student?.FullName
+                    </td>
+                    <td>
+                        @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                            ? item?.Installment?.Enrollment?.YearLevel?.NameAr
+                                            : item?.Installment?.Enrollment?.YearLevel?.NameEn)
+                                                                              </td>
+                                                                              <td>
+                        @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                            ? item?.Installment?.Enrollment?.SchoolYear?.NameAr
+                                            : item?.Installment?.Enrollment?.SchoolYear?.NameEn)
+                                                                               </td>
+                                                                               <td>
+                        @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                            ? item?.Installment?.Enrollment?.Section?.NameAr
+                                            : item?.Installment?.Enrollment?.Section?.NameEn)
+                </td>
+
+                @* Installment Info *@
+                <td>@item?.Installment?.InstallmentNumber</td>
+                <td>@item?.Installment?.Amount</td>
+                <td>@item?.Installment?.DueDate</td>
+                @* <td>@item?.Installment?.Status</td> *@
+                <td>
+                    @switch (item?.Installment?.Status)
+                        {
+                            case InstallmentStatus.Pending:
+                                <span class="badge bg-primary">@Localizer["Pending"]</span>
+                                break;
+
+                            case InstallmentStatus.PartiallyPaid:
+                                <span class="badge bg-danger">@Localizer["PartiallyPaid"]</span>
+                                break;
+
+                            case InstallmentStatus.Paid:
+                                <span class="badge bg-danger">@Localizer["Paid"]</span>
+                                break;
+
+                            case InstallmentStatus.Overdue:
+                                <span class="badge bg-danger">@Localizer["Overdue"]</span>
+                                break;
+
+                            default:
+                                <span class="badge bg-secondary">@Localizer["Unknown"]</span>
+                                break;
+                        }
+                </td>
+
+                @* Payment Info *@
+                <td>@item.AmountPaid</td>
+                <td>@item.PaymentDate.ToString("d", CultureInfo.CurrentCulture)</td>
+                <td>
+                    @switch (item.PaymentMethod)
+                        {
+                            case PaymentMethod.Cash:
+                                <span class="badge bg-primary">@Localizer["Cash"]</span>
+                                break;
+
+                            case PaymentMethod.Bankak:
+                                <span class="badge bg-primary">@Localizer["Bankak"]</span>
+                                break;
+
+                            case PaymentMethod.Fawry:
+                                <span class="badge bg-primary">@Localizer["Fawry"]</span>
+                                break;
+
+                            default:
+                                <span class="badge bg-secondary">@Localizer["Unknown"]</span>
+                                break;
+                        }
+                    </td>
+                    <td>@item?.ReceiptNumber</td>
+                    <td>@item?.TransactionReference</td>
+
+
+                    <td style="display: flex; gap: 4px">
+                        @* <a asp-action="Edit"
+                           asp-route-id="@item.Id"
+                           class="btn btn-icon btn-outline-primary tooltip-btn"
+                           data-tooltip="@Localizer["Edit"]">
+                            <i class="fa fa-pen"></i>
+                        </a> *@
+                        <a asp-action="Details"
+                           asp-route-id="@item.Id"
+                           class="btn btn-icon btn-outline-info tooltip-btn"
+                           data-tooltip="@Localizer["Details"]">
+                            <i class="fa fa-info"></i>
+                        </a>
+                        @* <a asp-action="Create"
+                           asp-controller="Payments"
+                           asp-route-installmentId="@item.Id"
+                           class="btn btn-icon btn-outline-success tooltip-btn"
+                           data-tooltip="@Localizer["Pay"]">
+                            <i class="fa fa-credit-card"></i>
+                        </a> *@
+                        @* <a asp-action="Delete"
+                           asp-route-id="@item.Id"
+                           class="btn btn-icon btn-outline-danger tooltip-btn"
+                           data-tooltip="@Localizer["Delete"]">
+                            <i class="fa fa-trash"></i>
+                        </a> *@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
