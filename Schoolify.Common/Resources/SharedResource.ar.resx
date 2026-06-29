@@ -1032,4 +1032,19 @@
   <data name="Fawry" xml:space="preserve">
     <value>فوري</value>
   </data>
+  <data name="Pending" xml:space="preserve">
+    <value>مستحق</value>
+  </data>
+  <data name="PartiallyPaid" xml:space="preserve">
+    <value>مدفوع جزئياً</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>مدفوع</value>
+  </data>
+  <data name="Overdue" xml:space="preserve">
+    <value>متأخر</value>
+  </data>
+  <data name="Pay" xml:space="preserve">
+    <value>دفع</value>
+  </data>
 </root>

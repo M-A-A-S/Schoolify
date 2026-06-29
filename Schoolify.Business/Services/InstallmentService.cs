@@ -53,7 +53,18 @@ namespace Schoolify.Business.Services
         #region Get
         public async Task<Result<InstallmentDTO>> GetByIdAsync(int id)
         {
-            var findResult = await _repo.FindByAsync(c => c.Id == id, include: q => q.Include(t => t.Enrollment).AsNoTrackingWithIdentityResolution());
+            var findResult = await _repo.FindByAsync(c => c.Id == id, 
+                include: q => q
+                    .Include(t => t.Enrollment)
+                        .ThenInclude(x => x.Student)
+                    .Include(t => t.Enrollment)
+                        .ThenInclude(x => x.Section)
+                    .Include(t => t.Enrollment)
+                        .ThenInclude(x => x.YearLevel)
+                    .Include(t => t.Enrollment)
+                        .ThenInclude(x => x.SchoolYear)
+                    .AsNoTrackingWithIdentityResolution()
+                    .AsSplitQuery());
 
             if (!findResult.IsSuccess || findResult.Data == null)
             {
@@ -69,7 +80,18 @@ namespace Schoolify.Business.Services
 
         public async Task<Result<IEnumerable<InstallmentDTO>>> GetAllAsync()
         {
-            var getAllResult = await _repo.GetAllAsync(include: q => q.Include(t => t.Enrollment).AsNoTrackingWithIdentityResolution());
+            var getAllResult = await _repo.GetAllAsync(
+                include: q => q
+                    .Include(t => t.Enrollment)
+                        .ThenInclude(x => x.Student)
+                    .Include(t => t.Enrollment)
+                        .ThenInclude(x => x.Section)
+                    .Include(t => t.Enrollment)
+                        .ThenInclude(x => x.SchoolYear)
+                    .Include(t => t.Enrollment)
+                        .ThenInclude(x => x.YearLevel)
+                    .AsNoTrackingWithIdentityResolution()
+                    .AsSplitQuery());
 
             if (!getAllResult.IsSuccess || getAllResult.Data == null)
             {
