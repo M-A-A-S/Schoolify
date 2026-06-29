@@ -33,11 +33,8 @@
 				<a asp-controller="Language"
 				   asp-action="SetLanguage"
 				   asp-route-culture="@(CultureInfo.CurrentUICulture.Name == "en" ? "ar" : "en")"
-				   asp-route-returnUrl="@Context.Request.Path"
-				   class="link"
-				   @* class="btn btn-link"> *@
-                   
-                   >
+				   asp-route-returnUrl="@(Context.Request.Path + Context.Request.QueryString)"
+				   class="link">
 
 					<i class="fa-solid fa-globe"></i>
 					@(CultureInfo.CurrentUICulture.Name == "en" ? "AR" : "EN")
