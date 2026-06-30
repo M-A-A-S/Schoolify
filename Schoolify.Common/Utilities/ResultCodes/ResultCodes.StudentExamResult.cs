@@ -11,8 +11,11 @@ namespace Schoolify.Common.Utilities.ResultCodes
         public const string StudentExamResultNotFound = "StudentExamResultNotFound";
         public const string StudentExamResultsNotFound = "StudentExamResultsNotFound";
         public const string StudentExamResultCreated = "StudentExamResultCreated";
+        public const string StudentExamResultsCreated = "StudentExamResultsCreated";
         public const string StudentExamResultUpdated = "StudentExamResultUpdated";
+        public const string StudentExamResultsUpdated = "StudentExamResultsUpdated";
         public const string StudentExamResultDeleted = "StudentExamResultDeleted";
+        public const string StudentExamResultsDeleted = "StudentExamResultsDeleted";
         public const string StudentExamResultAlreadyExists = "StudentExamResultAlreadyExists";
 
     }

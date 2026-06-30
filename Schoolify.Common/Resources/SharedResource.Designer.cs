@@ -412,6 +412,24 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete all scores for.
+        /// </summary>
+        public static string ConfirmDeleteAllScores {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteAllScores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete all scores for this exam?.
+        /// </summary>
+        public static string ConfirmDeleteAllScoresForExam {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteAllScoresForExam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
         public static string Create {
@@ -480,6 +498,15 @@ namespace Schoolify.Common.Resources {
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete All Scores.
+        /// </summary>
+        public static string DeleteAllScores {
+            get {
+                return ResourceManager.GetString("DeleteAllScores", resourceCulture);
             }
         }
         
@@ -831,6 +858,15 @@ namespace Schoolify.Common.Resources {
         public static string Exams {
             get {
                 return ResourceManager.GetString("Exams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exam Scores.
+        /// </summary>
+        public static string ExamScores {
+            get {
+                return ResourceManager.GetString("ExamScores", resourceCulture);
             }
         }
         
@@ -2347,11 +2383,92 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Student exam result already exists.
+        /// </summary>
+        public static string StudentExamResultAlreadyExists {
+            get {
+                return ResourceManager.GetString("StudentExamResultAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student exam result created successfully.
+        /// </summary>
+        public static string StudentExamResultCreated {
+            get {
+                return ResourceManager.GetString("StudentExamResultCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student exam result deleted successfully.
+        /// </summary>
+        public static string StudentExamResultDeleted {
+            get {
+                return ResourceManager.GetString("StudentExamResultDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student exam result not found.
+        /// </summary>
+        public static string StudentExamResultNotFound {
+            get {
+                return ResourceManager.GetString("StudentExamResultNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Student Exam Results.
         /// </summary>
         public static string StudentExamResults {
             get {
                 return ResourceManager.GetString("StudentExamResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student exam results created successfully.
+        /// </summary>
+        public static string StudentExamResultsCreated {
+            get {
+                return ResourceManager.GetString("StudentExamResultsCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student exam results deleted successfully.
+        /// </summary>
+        public static string StudentExamResultsDeleted {
+            get {
+                return ResourceManager.GetString("StudentExamResultsDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student exam results not found.
+        /// </summary>
+        public static string StudentExamResultsNotFound {
+            get {
+                return ResourceManager.GetString("StudentExamResultsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student exam results updated successfully.
+        /// </summary>
+        public static string StudentExamResultsUpdated {
+            get {
+                return ResourceManager.GetString("StudentExamResultsUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Student exam result updated successfully.
+        /// </summary>
+        public static string StudentExamResultUpdated {
+            get {
+                return ResourceManager.GetString("StudentExamResultUpdated", resourceCulture);
             }
         }
         

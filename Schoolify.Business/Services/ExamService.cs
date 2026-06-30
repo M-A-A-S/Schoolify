@@ -21,15 +21,18 @@ namespace Schoolify.Business.Services
         private readonly IExamRepository _repo;
         private readonly IStudentRepository _studentRepository;
         private readonly IStudentClassRepository _studentClassRepository;
+        private readonly IStudentExamResultRepository _studentExamResultRepository;
 
 
         public ExamService(IExamRepository repo,
             IStudentRepository studentRepository,
-            IStudentClassRepository studentClassRepository)
+            IStudentClassRepository studentClassRepository,
+            IStudentExamResultRepository studentExamResultRepository)
         {
             _repo = repo;
             _studentRepository = studentRepository;
             _studentClassRepository = studentClassRepository;
+            _studentExamResultRepository = studentExamResultRepository;
         }
 
         #region Add
@@ -236,6 +239,28 @@ namespace Schoolify.Business.Services
             }
 
             return Result<bool>.Success(true, ResultCodes.ExamDeleted);
+        }
+        
+        public async Task<Result<bool>> DeleteExamScoresAsync(int examId)
+        {
+            var examScoresResult = await _studentExamResultRepository.GetAllAsync(
+                x => x.ExamId == examId);
+
+            if (!examScoresResult.IsSuccess || examScoresResult?.Data == null ||
+                !examScoresResult.Data.Any())
+            {
+                return Result<bool>.Failure(ResultCodes.StudentExamResultsNotFound);
+            }
+
+            var deleteResult = await _studentExamResultRepository
+                .DeleteRangeAndSaveAsync(examScoresResult.Data);
+
+            if (!deleteResult.IsSuccess)
+            {
+                return Result<bool>.Failure(ResultCodes.ServerError, 500);
+            }
+
+            return Result<bool>.Success(true, ResultCodes.StudentExamResultsDeleted);
         }
         #endregion
 

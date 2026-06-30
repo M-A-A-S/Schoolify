@@ -1065,4 +1065,43 @@
   <data name="NotMarked" xml:space="preserve">
     <value>Not Marked</value>
   </data>
+  <data name="ConfirmDeleteAllScores" xml:space="preserve">
+    <value>Are you sure you want to delete all scores for</value>
+  </data>
+  <data name="ConfirmDeleteAllScoresForExam" xml:space="preserve">
+    <value>Are you sure you want to delete all scores for this exam?</value>
+  </data>
+  <data name="ExamScores" xml:space="preserve">
+    <value>Exam Scores</value>
+  </data>
+  <data name="StudentExamResultNotFound" xml:space="preserve">
+    <value>Student exam result not found</value>
+  </data>
+  <data name="StudentExamResultsNotFound" xml:space="preserve">
+    <value>Student exam results not found</value>
+  </data>
+  <data name="StudentExamResultCreated" xml:space="preserve">
+    <value>Student exam result created successfully</value>
+  </data>
+  <data name="StudentExamResultsCreated" xml:space="preserve">
+    <value>Student exam results created successfully</value>
+  </data>
+  <data name="StudentExamResultUpdated" xml:space="preserve">
+    <value>Student exam result updated successfully</value>
+  </data>
+  <data name="StudentExamResultsUpdated" xml:space="preserve">
+    <value>Student exam results updated successfully</value>
+  </data>
+  <data name="StudentExamResultDeleted" xml:space="preserve">
+    <value>Student exam result deleted successfully</value>
+  </data>
+  <data name="StudentExamResultsDeleted" xml:space="preserve">
+    <value>Student exam results deleted successfully</value>
+  </data>
+  <data name="StudentExamResultAlreadyExists" xml:space="preserve">
+    <value>Student exam result already exists</value>
+  </data>
+  <data name="DeleteAllScores" xml:space="preserve">
+    <value>Delete All Scores</value>
+  </data>
 </root>

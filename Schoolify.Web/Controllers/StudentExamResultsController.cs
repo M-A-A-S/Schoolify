@@ -109,7 +109,7 @@ namespace Schoolify.Web.Controllers
         #region Delete
         public async Task<IActionResult> Delete(int id)
         {
-            var findResult = await _service.GetByIdAsync(id);
+            var findResult = await _examService.GetExamScores(id);
             if (findResult.Data == null || !findResult.IsSuccess)
             {
                 TempData["Error"] = _localizer[findResult.Code].Value;
@@ -123,7 +123,7 @@ namespace Schoolify.Web.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
 
-            var deleteResult = await _service.DeleteAsync(id);
+            var deleteResult = await _examService.DeleteExamScoresAsync(id);
 
             if (deleteResult.IsSuccess)
             {
@@ -132,7 +132,14 @@ namespace Schoolify.Web.Controllers
             }
 
             TempData["Error"] = _localizer[deleteResult.Code].Value;
-            return View(deleteResult.Data);
+            //return View(id);
+            var findResult = await _examService.GetExamScores(id);
+            if (findResult.Data == null || !findResult.IsSuccess)
+            {
+                TempData["Error"] = _localizer[findResult.Code].Value;
+                return NotFound();
+            }
+            return View(findResult.Data);
         }
         #endregion
 

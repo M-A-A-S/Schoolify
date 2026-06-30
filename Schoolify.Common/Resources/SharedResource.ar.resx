@@ -1065,4 +1065,43 @@
   <data name="NotMarked" xml:space="preserve">
     <value>غير مُقيّم</value>
   </data>
+  <data name="ConfirmDeleteAllScores" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد حذف جميع الدرجات الخاصة بـ</value>
+  </data>
+  <data name="ConfirmDeleteAllScoresForExam" xml:space="preserve">
+    <value>هل أنت متأكد من حذف جميع درجات هذا الامتحان؟</value>
+  </data>
+  <data name="ExamScores" xml:space="preserve">
+    <value>درجات الامتحان</value>
+  </data>
+  <data name="StudentExamResultNotFound" xml:space="preserve">
+    <value>نتيجة امتحان الطالب غير موجودة</value>
+  </data>
+  <data name="StudentExamResultsNotFound" xml:space="preserve">
+    <value>نتائج امتحانات الطلاب غير موجودة</value>
+  </data>
+  <data name="StudentExamResultCreated" xml:space="preserve">
+    <value>تم إضافة نتيجة امتحان الطالب بنجاح</value>
+  </data>
+  <data name="StudentExamResultsCreated" xml:space="preserve">
+    <value>تم إضافة نتائج امتحانات الطلاب بنجاح</value>
+  </data>
+  <data name="StudentExamResultUpdated" xml:space="preserve">
+    <value>تم تحديث نتيجة امتحان الطالب بنجاح</value>
+  </data>
+  <data name="StudentExamResultsUpdated" xml:space="preserve">
+    <value>تم تحديث نتائج امتحانات الطلاب بنجاح</value>
+  </data>
+  <data name="StudentExamResultDeleted" xml:space="preserve">
+    <value>تم حذف نتيجة امتحان الطالب بنجاح</value>
+  </data>
+  <data name="StudentExamResultsDeleted" xml:space="preserve">
+    <value>تم حذف نتائج امتحانات الطلاب بنجاح</value>
+  </data>
+  <data name="StudentExamResultAlreadyExists" xml:space="preserve">
+    <value>نتيجة امتحان الطالب موجودة مسبقاً</value>
+  </data>
+  <data name="DeleteAllScores" xml:space="preserve">
+    <value>حذف جميع الدرجات</value>
+  </data>
 </root>
