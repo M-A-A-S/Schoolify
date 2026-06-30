@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Schoolify.Common.DTOs.StudentExamResult
 {
-    public class StudentExamResultDTO
+    public class StudentExamResultDTO 
     {
         public int Id { get; set; }
         public int ExamId { get; set; }
