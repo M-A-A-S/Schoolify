@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Schoolify.Common.Extensions
 {
-    static class StudentExamResultExtensions
+    public static class StudentExamResultExtensions
     {
         public static StudentExamResultDTO ToDTO(this StudentExamResult entity)
         {
