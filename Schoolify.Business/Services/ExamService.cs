@@ -218,6 +218,50 @@ namespace Schoolify.Business.Services
             return Result<ExamDTO>.Success(result, ResultCodes.ExamUpdated);
 
         }
+        
+        public async Task<Result<ExamDTO>> UpdateExamScoresAsync(int examId, ExamDTO dto)
+        {
+            var examResult = await _repo.FindByAsync(x => x.Id == examId,
+                include: q => q.Include(x => x.StudentExamResults));
+
+            if (!examResult.IsSuccess || examResult.Data == null)
+            {
+                return Result<ExamDTO>.Failure(ResultCodes.ExamNotFound);
+            }
+
+            var existingResults = examResult.Data.StudentExamResults
+            .ToDictionary(x => x.StudentId);               
+
+            foreach (var item in dto.StudentExamResults)
+            {
+                if (existingResults.TryGetValue(item.StudentId, out var score))
+                {
+                    score.MarksObtained = item.MarksObtained;
+                }
+                else
+                {
+                    examResult.Data.StudentExamResults.Add(new StudentExamResult
+                    {
+                        ExamId = examResult.Data.Id,
+                        StudentId = item.StudentId,
+                        MarksObtained = item.MarksObtained,
+                    });
+                }
+
+            }
+
+            var updateScoresResult = await _repo.UpdateAndSaveAsync(examResult.Data);
+            if (!updateScoresResult.IsSuccess)
+            {
+                return Result<ExamDTO>.Failure(ResultCodes.ServerError, 500);
+            }
+
+            return Result<ExamDTO>.Success(examResult.Data.ToDTO(), ResultCodes.StudentExamResultsUpdated);
+
+            //return await GetExamScores(examId);
+
+        }
+        
         #endregion
 
         #region Delete

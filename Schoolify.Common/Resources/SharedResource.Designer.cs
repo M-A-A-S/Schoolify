@@ -718,6 +718,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter Scores.
+        /// </summary>
+        public static string EnterScores {
+            get {
+                return ResourceManager.GetString("EnterScores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You do not have permission to access this resource..
         /// </summary>
         public static string Error403Description {

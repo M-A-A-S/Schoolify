@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
 using Schoolify.Business.Interfaces;
 using Schoolify.Common;
+using Schoolify.Common.DTOs.Exam;
 using Schoolify.Common.DTOs.StudentExamResult;
+using Schoolify.Common.Models;
 using System.Globalization;
 
 namespace Schoolify.Web.Controllers
@@ -43,66 +45,88 @@ namespace Schoolify.Web.Controllers
         #endregion
 
         #region Create
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(int? examId)
         {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(StudentExamResultDTO DTO)
-        {
-            if (!ModelState.IsValid)
+            if (examId.HasValue)
             {
-                TempData["Error"] = _localizer["ValidationError"].Value;
-                return View(DTO);
+                var findResult = await _examService.GetExamScores(examId.Value);
+                if (findResult.Data == null || !findResult.IsSuccess)
+                {
+                    TempData["Error"] = _localizer[findResult.Code].Value;
+                    return NotFound();
+                }
+                return View(findResult.Data);
             }
 
-            var addResult = await _service.AddAsync(DTO);
-
-            if (addResult.IsSuccess)
-            {
-                TempData["Success"] = _localizer[addResult.Code].Value;
-                return RedirectToAction(nameof(Index));
-            }
-
-            TempData["Error"] = _localizer[addResult.Code].Value;
-            return View(DTO);
+            return NotFound();
         }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create(ExamDTO DTO)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        TempData["Error"] = _localizer["ValidationError"].Value;
+        //        return View(DTO);
+        //    }
+
+        //    var addResult = await _service.AddAsync(DTO);
+
+        //    if (addResult.IsSuccess)
+        //    {
+        //        TempData["Success"] = _localizer[addResult.Code].Value;
+        //        return RedirectToAction(nameof(Index));
+        //    }
+
+        //    TempData["Error"] = _localizer[addResult.Code].Value;
+        //    return View(DTO);
+        //}
         #endregion
 
         #region Update
-        public async Task<IActionResult> Edit(int id)
+        [HttpGet]
+        public async Task<IActionResult> Edit([FromQuery]int examId)
         {
-            var findResult = await _service.GetByIdAsync(id);
+            var findResult = await _examService.GetExamScores(examId);
             if (findResult.Data == null || !findResult.IsSuccess)
             {
                 TempData["Error"] = _localizer[findResult.Code].Value;
                 return NotFound();
             }
-
             return View(findResult.Data);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(StudentExamResultDTO DTO)
+        public async Task<IActionResult> Edit(ExamDTO DTO)
         {
+            ModelState.Remove(nameof(ExamDTO.NameEn));
+            ModelState.Remove(nameof(ExamDTO.NameAr));
+
             if (!ModelState.IsValid)
             {
                 TempData["Error"] = _localizer["ValidationError"].Value;
                 return View(DTO);
             }
 
-            var updateResult = await _service.UpdateAsync(DTO.Id, DTO);
+            var updateResult = await _examService.UpdateExamScoresAsync(DTO.Id, DTO);
             if (updateResult.IsSuccess)
             {
                 TempData["Success"] = _localizer[updateResult.Code].Value;
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "StudentExamResults", new { id = DTO.Id });
             }
 
             TempData["Error"] = _localizer[updateResult.Code].Value;
-            return View(DTO);
+            //return View(DTO);
+            var findResult = await _examService.GetExamScores(DTO.Id);
+            if (findResult.Data == null || !findResult.IsSuccess)
+            {
+                TempData["Error"] = _localizer[findResult.Code].Value;
+                return NotFound();
+            }
+            return View(findResult.Data);
         }
         #endregion
 

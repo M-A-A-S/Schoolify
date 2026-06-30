@@ -1104,4 +1104,7 @@
   <data name="DeleteAllScores" xml:space="preserve">
     <value>حذف جميع الدرجات</value>
   </data>
+  <data name="EnterScores" xml:space="preserve">
+    <value>إدخال الدرجات</value>
+  </data>
 </root>

@@ -1104,4 +1104,7 @@
   <data name="DeleteAllScores" xml:space="preserve">
     <value>Delete All Scores</value>
   </data>
+  <data name="EnterScores" xml:space="preserve">
+    <value>Enter Scores</value>
+  </data>
 </root>

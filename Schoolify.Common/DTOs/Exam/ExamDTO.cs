@@ -59,6 +59,7 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
         public DateTime Date { get; set; }
         public SubjectClassDTO? SubjectClass { get; set; }
-        public ICollection<StudentExamResultDTO> StudentExamResults { get; set; } = new List<StudentExamResultDTO>();
+        //public ICollection<StudentExamResultDTO> StudentExamResults { get; set; } = new List<StudentExamResultDTO>();
+        public List<StudentExamResultDTO> StudentExamResults { get; set; } = new List<StudentExamResultDTO>();
     }
 }
