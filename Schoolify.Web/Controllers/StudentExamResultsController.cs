@@ -26,8 +26,8 @@ namespace Schoolify.Web.Controllers
         #region Get
         public async Task<IActionResult> Index()
         {
-            var findAllStudentExamResultsResult = await _service.GetAllAsync();
-            return View(findAllStudentExamResultsResult.Data);
+            var findAllExamsResult = await _examService.GetAllAsync();
+            return View(findAllExamsResult.Data);
         }
 
         public async Task<IActionResult> Details(int id)
