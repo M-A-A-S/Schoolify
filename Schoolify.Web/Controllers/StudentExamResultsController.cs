@@ -32,7 +32,7 @@ namespace Schoolify.Web.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            var findResult = await _service.GetByIdAsync(id);
+            var findResult = await _examService.GetExamScores(id);
             if (findResult.Data == null || !findResult.IsSuccess)
             {
                 TempData["Error"] = _localizer[findResult.Code].Value;

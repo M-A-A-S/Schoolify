@@ -16,5 +16,7 @@ namespace Schoolify.Common.DTOs.StudentExamResult
         public decimal MarksObtained { get; set; }
         public ExamDTO? Exam { get; set; }
         public StudentDTO? Student { get; set; }
+
+        public bool IsMarked { get; set; }
     }
 }

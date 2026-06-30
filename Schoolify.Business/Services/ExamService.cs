@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Schoolify.Business.Interfaces;
 using Schoolify.Common.DTOs.Exam;
+using Schoolify.Common.DTOs.StudentExamResult;
 using Schoolify.Common.Extensions;
+using Schoolify.Common.Models;
 using Schoolify.Common.Utilities;
 using Schoolify.Common.Utilities.ResultCodes;
+using Schoolify.DataAccess.Data;
 using Schoolify.DataAccess.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -16,10 +19,17 @@ namespace Schoolify.Business.Services
     internal class ExamService : IExamService
     {
         private readonly IExamRepository _repo;
+        private readonly IStudentRepository _studentRepository;
+        private readonly IStudentClassRepository _studentClassRepository;
 
-        public ExamService(IExamRepository repo)
+
+        public ExamService(IExamRepository repo,
+            IStudentRepository studentRepository,
+            IStudentClassRepository studentClassRepository)
         {
             _repo = repo;
+            _studentRepository = studentRepository;
+            _studentClassRepository = studentClassRepository;
         }
 
         #region Add
@@ -72,6 +82,72 @@ namespace Schoolify.Business.Services
             var result = findResult.Data?.ToDTO();
 
             return Result<ExamDTO>.Success(result);
+        }
+
+        public async Task<Result<ExamDTO>> GetExamScores(int examId)
+        {
+            var examResult = await _repo.FindByAsync(x => x.Id == examId,
+                include: q => q
+                .Include(x => x.StudentExamResults)
+                .AsNoTracking());
+
+            if (!examResult.IsSuccess || examResult.Data == null)
+            {
+                return Result<ExamDTO>.Failure(ResultCodes.ExamNotFound);
+            }
+
+            var examData = examResult.Data;
+
+            var studentClassesResult = await _studentClassRepository.GetAllAsync(
+                x => x.SubjectClassId == examData.SubjectClassId,
+                include: q => q
+                .Include(x => x.Student)
+                .AsNoTracking()
+                .AsSplitQuery());
+
+
+            if (!studentClassesResult.IsSuccess || studentClassesResult.Data == null)
+            {
+                return Result<ExamDTO>.Failure(ResultCodes.StudentClassesNotFound);
+            }
+
+            var resultsDictionary = (examData.StudentExamResults ?? new List<StudentExamResult>())
+                .ToDictionary(x => x.StudentId);
+
+            var exam = new ExamDTO
+            {
+                Id = examResult.Data.Id,
+                NameEn = examResult.Data.NameEn,
+                NameAr = examResult.Data.NameAr,
+                MaxScore = examResult.Data.MaxScore,
+                Date = examResult.Data.Date,
+
+                StudentExamResults = new List<StudentExamResultDTO>()
+            };
+
+
+            foreach (var studentClass in studentClassesResult.Data)
+            {
+                //var result = examResult.Data.StudentExamResults
+                //    .FirstOrDefault(x => x.StudentId == studentClass.StudentId);
+
+                resultsDictionary.TryGetValue(studentClass.StudentId, out var result);
+
+                exam.StudentExamResults.Add(new StudentExamResultDTO
+                {
+                    Id = result?.Id ?? 0,
+                    ExamId = examData.Id,
+                    StudentId = studentClass.StudentId,
+                    MarksObtained = result?.MarksObtained ?? 0,
+                    Student = studentClass.Student.ToDTO(),
+
+                    IsMarked = result != null,
+                }); 
+
+            }
+
+            return Result<ExamDTO>.Success(exam);
+
         }
 
         public async Task<Result<IEnumerable<ExamDTO>>> GetAllAsync()

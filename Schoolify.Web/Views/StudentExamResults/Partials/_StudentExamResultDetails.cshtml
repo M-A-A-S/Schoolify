@@ -1,0 +1,73 @@
+﻿@using Schoolify.Common.DTOs.Exam
+@model ExamDTO
+
+@using System.Globalization
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+    <h5 class="col-12">@Localizer["Exam"]</h5>
+    <hr class="col-12" />
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["NameEn"]</label>
+        <div>@Model.NameEn</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["NameAr"]</label>
+        <div>@Model.NameAr</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["MaxScore"]</label>
+        <div>@Model.MaxScore</div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Date"]</label>
+        <div>@Model.Date.ToString("d", CultureInfo.CurrentCulture)</div>
+    </div>
+
+    <hr class="col-12 my-2" />
+
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        @* <th>#</th> *@
+                        <th>@Localizer["Student"]</th>
+                        <th>@Localizer["MarksObtained"]</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.StudentExamResults)
+                    {
+                        <tr>
+                            <td>@item?.Student?.FullName</td>
+                            <td>
+                                @if (item.IsMarked)
+                                {
+                                    @item.MarksObtained
+                                }
+                                else
+                                {
+                                    @Localizer["NotMarked"]
+                                }
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+

@@ -15,6 +15,7 @@ namespace Schoolify.Business.Interfaces
         Task<Result<bool>> DeleteAsync(int id);
         Task<Result<ExamDTO>> GetByIdAsync(int id);
         Task<Result<IEnumerable<ExamDTO>>> GetAllAsync();
+        Task<Result<ExamDTO>> GetExamScores(int examId);
 
     }
 }

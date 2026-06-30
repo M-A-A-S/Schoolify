@@ -1062,4 +1062,7 @@
   <data name="PaymentExceedsRemainingAmount" xml:space="preserve">
     <value>مبلغ الدفعة يتجاوز المبلغ المتبقي</value>
   </data>
+  <data name="NotMarked" xml:space="preserve">
+    <value>غير مُقيّم</value>
+  </data>
 </root>

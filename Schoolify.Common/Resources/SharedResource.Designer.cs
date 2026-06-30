@@ -1465,6 +1465,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not Marked.
+        /// </summary>
+        public static string NotMarked {
+            get {
+                return ResourceManager.GetString("NotMarked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Organization.
         /// </summary>
         public static string Organization {
