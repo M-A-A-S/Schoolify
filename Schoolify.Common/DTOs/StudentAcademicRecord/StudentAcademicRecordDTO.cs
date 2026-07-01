@@ -1,21 +1,23 @@
-﻿using System;
+﻿using Schoolify.Common.DTOs.Enrollment;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Schoolify.Common.Models
+namespace Schoolify.Common.DTOs.StudentAcademicRecord
 {
-    public class StudentAcademicRecord : BaseEntity 
+    public class StudentAcademicRecordDTO
     {
+        public int Id { get; set; }
         public int EnrollmentId { get; set; }
         public decimal TotalMarks { get; set; }        // final computed score
-
-        // TODO: Move MaxMarks to Enrollment or YearLevel, since it is not specific to a student
         public decimal MaxMarks { get; set; }          // usually 100 or 1000
         public string GradeLetter { get; set; }        // A, B, C...
         public bool IsPassed { get; set; }
         public DateTime CalculatedAt { get; set; } = DateTime.UtcNow;
-        public Enrollment Enrollment { get; set; }
+
+        public EnrollmentDTO Enrollment { get; set; }
+
     }
 }

@@ -12,7 +12,8 @@ namespace Schoolify.DataAccess
     {
         public static IServiceCollection AddApplicationRepositories(this IServiceCollection services)
         {
-            
+
+            services.AddScoped<IStudentAcademicRecordRepository, StudentAcademicRecordRepository>();
             services.AddScoped<IStudentClassRepository, StudentClassRepository>();
             services.AddScoped<IStudentExamResultRepository, StudentExamResultRepository>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
