@@ -46,6 +46,10 @@ ResourceType = typeof(Resources.SharedResource)
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
+
+        public decimal MaxMarks { get; set; }
+        public decimal PassPercentage { get; set; }
+
         public int SchoolStageId { get; set; }
 
         public SchoolStageDTO? SchoolStage { get; set; }

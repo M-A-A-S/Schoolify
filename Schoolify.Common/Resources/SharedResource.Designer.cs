@@ -124,6 +124,24 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Calculate Academic Records.
+        /// </summary>
+        public static string CalculateAcademicRecords {
+            get {
+                return ResourceManager.GetString("CalculateAcademicRecords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculated At.
+        /// </summary>
+        public static string CalculatedAt {
+            get {
+                return ResourceManager.GetString("CalculatedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -1105,6 +1123,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Grade Letter.
+        /// </summary>
+        public static string GradeLetter {
+            get {
+                return ResourceManager.GetString("GradeLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Graduated.
         /// </summary>
         public static string Graduated {
@@ -1375,11 +1402,29 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Passed.
+        /// </summary>
+        public static string IsPassed {
+            get {
+                return ResourceManager.GetString("IsPassed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Level Order.
         /// </summary>
         public static string LevelOrder {
             get {
                 return ResourceManager.GetString("LevelOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load Students.
+        /// </summary>
+        public static string LoadStudents {
+            get {
+                return ResourceManager.GetString("LoadStudents", resourceCulture);
             }
         }
         
@@ -1407,6 +1452,15 @@ namespace Schoolify.Common.Resources {
         public static string MarksObtained {
             get {
                 return ResourceManager.GetString("MarksObtained", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum Marks.
+        /// </summary>
+        public static string MaxMarks {
+            get {
+                return ResourceManager.GetString("MaxMarks", resourceCulture);
             }
         }
         
@@ -1519,6 +1573,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Obtained Marks.
+        /// </summary>
+        public static string ObtainedMarks {
+            get {
+                return ResourceManager.GetString("ObtainedMarks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Organization.
         /// </summary>
         public static string Organization {
@@ -1560,6 +1623,15 @@ namespace Schoolify.Common.Resources {
         public static string PartiallyPaid {
             get {
                 return ResourceManager.GetString("PartiallyPaid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pass Percentage.
+        /// </summary>
+        public static string PassPercentage {
+            get {
+                return ResourceManager.GetString("PassPercentage", resourceCulture);
             }
         }
         
@@ -1686,6 +1758,15 @@ namespace Schoolify.Common.Resources {
         public static string People {
             get {
                 return ResourceManager.GetString("People", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Percentage.
+        /// </summary>
+        public static string Percentage {
+            get {
+                return ResourceManager.GetString("Percentage", resourceCulture);
             }
         }
         

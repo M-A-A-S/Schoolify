@@ -1134,4 +1134,31 @@
   <data name="StudentAcademicRecordAlreadyExists" xml:space="preserve">
     <value>السجل الأكاديمي للطالب موجود بالفعل</value>
   </data>
+  <data name="ObtainedMarks" xml:space="preserve">
+    <value>الدرجات المحصلة</value>
+  </data>
+  <data name="MaxMarks" xml:space="preserve">
+    <value>الحد الأقصى للدرجات</value>
+  </data>
+  <data name="GradeLetter" xml:space="preserve">
+    <value>الحرف التقديري</value>
+  </data>
+  <data name="Percentage" xml:space="preserve">
+    <value>النسبة المئوية</value>
+  </data>
+  <data name="IsPassed" xml:space="preserve">
+    <value>ناجح</value>
+  </data>
+  <data name="CalculatedAt" xml:space="preserve">
+    <value>تاريخ الحساب</value>
+  </data>
+  <data name="PassPercentage" xml:space="preserve">
+    <value>نسبة النجاح</value>
+  </data>
+  <data name="CalculateAcademicRecords" xml:space="preserve">
+    <value>حساب السجلات الأكاديمية</value>
+  </data>
+  <data name="LoadStudents" xml:space="preserve">
+    <value>تحميل الطلاب</value>
+  </data>
 </root>

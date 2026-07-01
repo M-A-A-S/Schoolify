@@ -25,6 +25,7 @@ namespace Schoolify.Common.Extensions
                 ObtainedMarks = entity.ObtainedMarks,
                 MaxMarks = entity.MaxMarks,
                 GradeLetter = entity.GradeLetter,
+                Percentage = entity.Percentage,
                 IsPassed = entity.IsPassed,
                 CalculatedAt = entity.CalculatedAt,
                 //Enrollment = entity.Enrollment?.ToDTO()
@@ -46,6 +47,7 @@ namespace Schoolify.Common.Extensions
                 MaxMarks = DTO.MaxMarks,
                 GradeLetter = DTO.GradeLetter,
                 IsPassed = DTO.IsPassed,
+                Percentage = DTO.Percentage,
                 CalculatedAt = DTO.CalculatedAt,
             };
         }
@@ -63,6 +65,7 @@ namespace Schoolify.Common.Extensions
             entity.MaxMarks = DTO.MaxMarks;
             entity.GradeLetter = DTO.GradeLetter;
             entity.IsPassed = DTO.IsPassed;
+            entity.Percentage = DTO.Percentage;
             entity.CalculatedAt = DTO.CalculatedAt;
         }
 

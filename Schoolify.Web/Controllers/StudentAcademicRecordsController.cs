@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
 using Schoolify.Business.Interfaces;
 using Schoolify.Common;
+using Schoolify.Common.DTOs.Enrollment;
 using Schoolify.Common.DTOs.StudentAcademicRecord;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace Schoolify.Web.Controllers
 {
@@ -35,10 +37,10 @@ namespace Schoolify.Web.Controllers
         #region Get
         public async Task<IActionResult> Index()
         {
-            await LoadDropDowns();
+            //await LoadDropDowns();
             //var findAllStudentAcademicRecordsResult = await _enrollmentService.GetAllAsync();
             //return View(findAllStudentAcademicRecordsResult.Data);
-            return View();
+            return View(await BuildViewModel());
         }
 
         public async Task<IActionResult> Details(int id)
@@ -50,6 +52,17 @@ namespace Schoolify.Web.Controllers
                 return NotFound();
             }
             return View(findResult.Data);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetEnrollments(int yearLevelId, int schoolYearId, int sectionId)
+        {
+            var enrollmentsResult = await _enrollmentService.GetAllAsync(yearLevelId, schoolYearId, sectionId);
+            if (!enrollmentsResult.IsSuccess || enrollmentsResult.Data == null)
+            {
+                return Json(new List<EnrollmentDTO>());
+            }
+            return Json(enrollmentsResult.Data);
         }
         #endregion
 
@@ -152,6 +165,20 @@ namespace Schoolify.Web.Controllers
         #endregion
 
         #region Private Helpers
+
+        private async Task<StudentAcademicRecordListDTO> BuildViewModel()
+        {
+            var yearLevelsResult = await _yearLevelService.GetAllAsync();
+            var sectionsResult = await _sectionService.GetAllAsync();
+            var schoolYearsResult = await _schoolYearService.GetAllAsync();
+
+            return new StudentAcademicRecordListDTO
+            {
+                SchoolYears = schoolYearsResult?.Data?.ToList() ?? [],
+                YearLevels = yearLevelsResult?.Data?.ToList() ?? [],
+                Sections = sectionsResult?.Data?.ToList() ?? [],
+            };
+        }
 
         private async Task LoadDropDowns()
         {

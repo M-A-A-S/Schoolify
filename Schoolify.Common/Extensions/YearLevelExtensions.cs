@@ -23,6 +23,8 @@ namespace Schoolify.Common.Extensions
                 NameEn = entity.NameEn,
                 NameAr = entity.NameAr,
                 LevelOrder = entity.LevelOrder,
+                MaxMarks = entity.MaxMarks,
+                PassPercentage = entity.PassPercentage,
                 SchoolStageId = entity.SchoolStageId,
                 SchoolStage = entity.SchoolStage?.ToDTO()
             };
@@ -41,6 +43,8 @@ namespace Schoolify.Common.Extensions
                 NameEn = DTO.NameEn,
                 NameAr = DTO.NameAr,
                 LevelOrder = DTO.LevelOrder,
+                MaxMarks = DTO.MaxMarks,
+                PassPercentage = DTO.PassPercentage,
                 SchoolStageId = DTO.SchoolStageId,
             };
         }
@@ -56,6 +60,8 @@ namespace Schoolify.Common.Extensions
             entity.NameEn = DTO.NameEn;
             entity.NameAr = DTO.NameAr;
             entity.LevelOrder = DTO.LevelOrder;
+            entity.MaxMarks = DTO.MaxMarks;
+            entity.PassPercentage = DTO.PassPercentage;
             entity.SchoolStageId = DTO.SchoolStageId;
         
         }

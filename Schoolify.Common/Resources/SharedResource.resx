@@ -1134,4 +1134,31 @@
   <data name="StudentAcademicRecordAlreadyExists" xml:space="preserve">
     <value>The student academic record already exists</value>
   </data>
+  <data name="ObtainedMarks" xml:space="preserve">
+    <value>Obtained Marks</value>
+  </data>
+  <data name="MaxMarks" xml:space="preserve">
+    <value>Maximum Marks</value>
+  </data>
+  <data name="GradeLetter" xml:space="preserve">
+    <value>Grade Letter</value>
+  </data>
+  <data name="Percentage" xml:space="preserve">
+    <value>Percentage</value>
+  </data>
+  <data name="IsPassed" xml:space="preserve">
+    <value>Passed</value>
+  </data>
+  <data name="CalculatedAt" xml:space="preserve">
+    <value>Calculated At</value>
+  </data>
+  <data name="PassPercentage" xml:space="preserve">
+    <value>Pass Percentage</value>
+  </data>
+  <data name="CalculateAcademicRecords" xml:space="preserve">
+    <value>Calculate Academic Records</value>
+  </data>
+  <data name="LoadStudents" xml:space="preserve">
+    <value>Load Students</value>
+  </data>
 </root>

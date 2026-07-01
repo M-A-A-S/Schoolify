@@ -1,0 +1,271 @@
+﻿@using Schoolify.Common.DTOs.StudentAcademicRecord
+@model StudentAcademicRecordListDTO
+
+@using System.Globalization
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+
+<div class="d-flex align-items-center justify-content-between my-4">
+    <h2>@Localizer["StudentAcademicRecords"]</h2>
+
+    @* <a asp-action="Create" class="btn btn-primary">
+        <i class="fa fa-plus me-1"></i>
+        @Localizer["CreateNew"]
+    </a> *@
+</div>
+
+<div class="row card">
+
+    <div class="row align-items-end">
+        @* Year Level *@
+        <div class="mb-3 col-md-6">
+            <label asp-for="YearLevelId" class="form-label"></label>
+
+            <select asp-for="YearLevelId"
+                    class="form-control"
+                    id="yearLevelId"
+                    asp-items="@(new SelectList(
+                                                                        Model.YearLevels,
+                                                                        "Id",
+                                                                        CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                                            ? "NameAr"
+                                                                            : "NameEn"))">
+
+                <option selected disabled value="">
+                    @Localizer["SelectYearLevel"]
+                </option>
+
+            </select>
+
+            <span asp-validation-for="YearLevelId" class="text-danger"></span>
+        </div>
+
+        @* School Year *@
+        <div class="mb-3 col-md-6">
+            <label asp-for="SchoolYearId" class="form-label"></label>
+
+            <select asp-for="SchoolYearId"
+                    class="form-control"
+                    id="schoolYearId"
+                    asp-items="@(new SelectList(
+                                                                        Model.SchoolYears,
+                                                                        "Id",
+                                                                        CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                                            ? "NameAr"
+                                                                            : "NameEn"))">
+
+                <option selected disabled value="">
+                    @Localizer["SelectSchoolYear"]
+                </option>
+
+            </select>
+
+            <span asp-validation-for="SchoolYearId" class="text-danger"></span>
+        </div>
+
+        @* Section *@
+        <div class="mb-3 col-md-6">
+            <label asp-for="SectionId" class="form-label"></label>
+
+            <select asp-for="SectionId"
+                    class="form-control"
+                    id="sectionId"
+                    asp-items="@(new SelectList(
+                                                                        Model.Sections,
+                                                                        "Id",
+                                                                        CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                                            ? "NameAr"
+                                                                            : "NameEn"))">
+
+                <option selected disabled value="">
+                    @Localizer["SelectSection"]
+                </option>
+
+            </select>
+
+            <span asp-validation-for="SectionId" class="text-danger"></span>
+        </div>
+
+        @* Action Buttons *@
+        <div class="col-md-6">
+            <button type="button"
+                    id="btnLoad"
+                    class="btn btn-primary mb-3">
+                @Localizer["LoadStudents"]
+            </button>
+
+            @* <button type="button"
+                id="btnCalculate"
+                class="btn btn-success mb-3">
+            @Localizer["CalculateAcademicRecords"]
+        </button> *@
+        </div>
+    </div>
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Localizer["Student"]</th>
+                    <th>@Localizer["MaxMarks"]</th>
+                    <th>@Localizer["PassPercentage"]</th>
+                    <th>@Localizer["ObtainedMarks"]</th>
+                    <th>@Localizer["Percentage"]</th>
+                    <th>@Localizer["GradeLetter"]</th>
+                    <th>@Localizer["IsPassed"]</th>
+                    <th>@Localizer["Actions"]</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody id="studentsBody">
+                @foreach (var item in Model.Enrollments)
+                {
+                    <tr>
+                        <td>
+                            @item?.Student?.FullName
+                        </td>
+                        <td>@item?.YearLevel?.MaxMarks</td>
+                        <td>@item?.YearLevel?.PassPercentage</td>
+                        <td>@item?.StudentAcademicRecord?.ObtainedMarks</td>
+                        <td>@item?.StudentAcademicRecord?.Percentage</td>
+                        <td>@item?.StudentAcademicRecord?.GradeLetter</td>
+                        <td>@item?.StudentAcademicRecord?.IsPassed</td>
+
+                        <td style="display: flex; gap: 4px">
+                            @* <a asp-action="Edit"
+                           asp-route-id="@item.Id"
+                           class="btn btn-icon btn-outline-primary tooltip-btn"
+                           data-tooltip="@Localizer["Edit"]">
+                            <i class="fa fa-pen"></i>
+                        </a> *@
+                            <a asp-action="Edit"
+                               asp-route-yearLevelId="@item?.YearLevelId"
+                               asp-route-schoolYearId="@item?.SchoolYearId"
+                               asp-route-sectionId="@item?.SectionId"
+                               class="btn btn-icon btn-outline-primary tooltip-btn"
+                               data-tooltip="@Localizer["Edit"]">
+                                <i class="fa fa-pen"></i>
+                            </a>
+                            <a asp-action="Details"
+                               asp-route-enrollmentId="@item?.Id"
+                               class="btn btn-icon btn-outline-info tooltip-btn"
+                               data-tooltip="@Localizer["Details"]">
+                                <i class="fa fa-info"></i>
+                            </a>
+                            <a asp-action="Delete"
+                               asp-route-yearLevelId="@item?.YearLevelId"
+                               asp-route-schoolYearId="@item?.SchoolYearId"
+                               asp-route-sectionId="@item?.SectionId"
+                               class="btn btn-icon btn-outline-danger tooltip-btn"
+                               data-tooltip="@Localizer["Delete"]">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+
+@section Scripts
+{
+    <script>
+
+            const lang = {
+            details: "@Localizer["Details"]",
+            edit: "@Localizer["Edit"]",
+            delete: "@Localizer["Delete"]",
+        };
+
+        // LOAD STUDENTS
+        $("#btnLoad").click(function () {
+
+            $.ajax({
+                url: '/StudentAcademicRecords/GetEnrollments',
+                type: 'GET',
+                data: {
+                    yearLevelId: $("#yearLevelId").val(),
+                    schoolYearId: $("#schoolYearId").val(),
+                    sectionId: $("#sectionId").val()
+                },
+                success: function (res) {
+                    console.log(res)
+                    let rows = "";
+
+                    $.each(res, function (i, item) {
+
+                        rows += `
+                        <tr>
+                            <td>${item?.student?.fullName}</td>
+                            <td>${item?.yearLevel?.maxMarks}</td>
+                            <td>${item?.yearLevel?.passPercentage}</td>
+                            <td>${item.obtainedMarks ?? 0}</td>
+                            <td>${item.percentage ?? 0}</td>
+                            <td>${item.gradeLetter ?? '-'}</td>
+                            <td>${item.isPassed ? '✔' : '✘'}</td>
+                            <td>
+          
+
+                                            <a href="/StudentAcademicRecord/Edit?yearLevelId=${item.yearLevelId}&schoolYearId=${item.schoolYearId}&sectionId=${item.sectionId}"
+               class="btn btn-icon btn-outline-primary tooltip-btn"
+               data-tooltip="${lang.edit}">
+                <i class="fa fa-pen"></i>
+            </a>
+
+            <a href="/StudentAcademicRecord/Details/${item.enrollmentId}"
+               class="btn btn-icon btn-outline-info tooltip-btn"
+               data-tooltip="${lang.details}">
+                <i class="fa fa-info"></i>
+            </a>
+
+            <a href="/StudentAcademicRecord/Delete?yearLevelId=${item.yearLevelId}&schoolYearId=${item.schoolYearId}&sectionId=${item.sectionId}"
+               class="btn btn-icon btn-outline-danger tooltip-btn"
+               data-tooltip="${lang.delete}">
+                <i class="fa fa-trash"></i>
+            </a>
+
+                            </td>
+                        </tr>`;
+                    });
+
+                    $("#studentsBody").html(rows);
+                }
+            });
+
+        });
+
+
+        // CALCULATE ALL
+        // $("#btnCalculate").click(function () {
+
+        //     $.ajax({
+        //         url: '/StudentAcademicRecord/Calculate',
+        //         type: 'POST',
+        //         data: {
+        //             yearLevelId: $("#yearLevelId").val(),
+        //             schoolYearId: $("#schoolYearId").val(),
+        //             sectionId: $("#sectionId").val()
+        //         },
+        //         success: function () {
+
+        //             alert("Calculated successfully!");
+
+        //             $("#btnLoad").click(); refresh table
+        //         }
+        //     });
+
+        // });
+
+    </script>
+}
+
