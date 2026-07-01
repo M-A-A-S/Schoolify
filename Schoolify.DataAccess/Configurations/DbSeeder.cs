@@ -102,7 +102,7 @@ namespace Schoolify.DataAccess.Configurations
                 {
                     Id = 1,
                     EnrollmentId = 1,
-                    TotalMarks = 85,
+                    ObtainedMarks = 85,
                     MaxMarks = 100,
                     GradeLetter = "A",
                     IsPassed = true,

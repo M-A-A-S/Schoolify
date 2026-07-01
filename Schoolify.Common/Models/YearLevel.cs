@@ -13,6 +13,10 @@ namespace Schoolify.Common.Models
         public int LevelOrder { get; set; }
         public int SchoolStageId { get; set; }
 
+        public decimal MaxMarks { get; set; } 
+        public decimal PassPercentage { get; set; }
+
+
 
         public SchoolStage SchoolStage { get; set; }
         public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();

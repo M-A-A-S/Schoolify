@@ -21,7 +21,7 @@ namespace Schoolify.Common.Extensions
             {
                 Id = entity.Id,
                 EnrollmentId = entity.EnrollmentId,
-                TotalMarks = entity.TotalMarks,
+                ObtainedMarks = entity.ObtainedMarks,
                 MaxMarks = entity.MaxMarks,
                 GradeLetter = entity.GradeLetter,
                 IsPassed = entity.IsPassed,
@@ -41,7 +41,7 @@ namespace Schoolify.Common.Extensions
             {
                 Id = DTO.Id,
                 EnrollmentId = DTO.EnrollmentId,
-                TotalMarks = DTO.TotalMarks,
+                ObtainedMarks = DTO.ObtainedMarks,
                 MaxMarks = DTO.MaxMarks,
                 GradeLetter = DTO.GradeLetter,
                 IsPassed = DTO.IsPassed,
@@ -58,7 +58,7 @@ namespace Schoolify.Common.Extensions
             }
 
             entity.EnrollmentId = DTO.EnrollmentId;
-            entity.TotalMarks = DTO.TotalMarks;
+            entity.ObtainedMarks = DTO.ObtainedMarks;
             entity.MaxMarks = DTO.MaxMarks;
             entity.GradeLetter = DTO.GradeLetter;
             entity.IsPassed = DTO.IsPassed;

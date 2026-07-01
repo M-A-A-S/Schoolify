@@ -20,7 +20,7 @@ namespace Schoolify.DataAccess.Configurations
         builder.Property(t => t.EnrollmentId)
                 .IsRequired();
 
-            builder.Property(t => t.TotalMarks)
+            builder.Property(t => t.ObtainedMarks)
                 .IsRequired();
 
             builder.Property(t => t.MaxMarks)
