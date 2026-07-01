@@ -1,6 +1,7 @@
 ﻿using Schoolify.Common.DTOs.SchoolYear;
 using Schoolify.Common.DTOs.Section;
 using Schoolify.Common.DTOs.Student;
+using Schoolify.Common.DTOs.StudentAcademicRecord;
 using Schoolify.Common.DTOs.YearLevel;
 using Schoolify.Common.Enums;
 using Schoolify.Common.Models;
@@ -99,6 +100,7 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
         public YearLevelDTO? YearLevel { get; set; }
         public SchoolYearDTO? SchoolYear { get; set; }
         public SectionDTO? Section { get; set; }
+        public StudentAcademicRecordDTO? StudentAcademicRecord { get; set; }
 
         //public ICollection<InstallmentDTO> Installments { get; set; }
         //public StudentAcademicRecordDTO StudentAcademicRecord { get; set; }

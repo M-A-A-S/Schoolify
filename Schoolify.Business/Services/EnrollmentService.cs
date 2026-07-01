@@ -132,6 +132,35 @@ namespace Schoolify.Business.Services
             return Result<IEnumerable<EnrollmentDTO>>.Success(result);
         }
 
+        public async Task<Result<IEnumerable<EnrollmentDTO>>> GetAllAsync(int yearLevelId, int schoolYearId, int sectionId)
+        {
+            var getAllResult = await _repo.GetAllAsync(
+                x => x.YearLevelId == yearLevelId && x.SchoolYearId == schoolYearId && x.SectionId == sectionId,
+                include: q => q
+                .Include(t => t.SchoolYear)
+                .Include(x => x.Student)
+                .Include(x => x.YearLevel)
+                .Include(x => x.Section)
+                .Include(x => x.StudentAcademicRecord)
+                .AsNoTrackingWithIdentityResolution()
+                .AsSplitQuery());
+
+            if (!getAllResult.IsSuccess || getAllResult.Data == null)
+            {
+                return Result<IEnumerable<EnrollmentDTO>>.Failure(ResultCodes.EnrollmentsNotFound, 200);
+            }
+
+            var result = new List<EnrollmentDTO>();
+
+            foreach (var item in getAllResult.Data)
+            {
+                var newItem = item.ToDTO();
+                result.Add(newItem);
+            }
+
+            return Result<IEnumerable<EnrollmentDTO>>.Success(result);
+        }
+
         public async Task<Result<decimal>> GetFeesAsync(int schoolYearId, int yearLevelId)
         {
             var structureResult = await _feeStructureRepository.FindByAsync(x => x.YearLevelId == yearLevelId &&

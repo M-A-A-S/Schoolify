@@ -52,7 +52,7 @@ namespace Schoolify.Business.Services
         #region Get
         public async Task<Result<StudentAcademicRecordDTO>> GetByIdAsync(int id)
         {
-            var findResult = await _repo.FindByAsync(c => c.Id == id, include: q => q.Include(t => t.SchoolYear).AsNoTrackingWithIdentityResolution());
+            var findResult = await _repo.FindByAsync(c => c.Id == id);
 
             if (!findResult.IsSuccess || findResult.Data == null)
             {
@@ -68,7 +68,7 @@ namespace Schoolify.Business.Services
 
         public async Task<Result<IEnumerable<StudentAcademicRecordDTO>>> GetAllAsync()
         {
-            var getAllResult = await _repo.GetAllAsync(include: q => q.Include(t => t.SchoolYear).AsNoTrackingWithIdentityResolution());
+            var getAllResult = await _repo.GetAllAsync();
 
             if (!getAllResult.IsSuccess || getAllResult.Data == null)
             {

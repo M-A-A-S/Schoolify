@@ -38,6 +38,7 @@ namespace Schoolify.Common.Extensions
                 Student = entity?.Student?.ToDTO(),
                 SchoolYear = entity?.SchoolYear?.ToDTO(),
                 YearLevel = entity?.YearLevel?.ToDTO(),
+                StudentAcademicRecord = entity?.StudentAcademicRecord?.ToDTO(),
             };
         }
 
