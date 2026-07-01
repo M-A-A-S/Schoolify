@@ -1107,4 +1107,31 @@
   <data name="EnterScores" xml:space="preserve">
     <value>Enter Scores</value>
   </data>
+  <data name="StudentAcademicRecordNotFound" xml:space="preserve">
+    <value>The student academic record was not found</value>
+  </data>
+  <data name="StudentAcademicRecordsNotFound" xml:space="preserve">
+    <value>No student academic records were found</value>
+  </data>
+  <data name="StudentAcademicRecordCreated" xml:space="preserve">
+    <value>The student academic record was successfully created</value>
+  </data>
+  <data name="StudentAcademicRecordsCreated" xml:space="preserve">
+    <value>The student academic records were successfully created</value>
+  </data>
+  <data name="StudentAcademicRecordUpdated" xml:space="preserve">
+    <value>The student academic record was successfully updated</value>
+  </data>
+  <data name="StudentAcademicRecordsUpdated" xml:space="preserve">
+    <value>The student academic records were successfully updated</value>
+  </data>
+  <data name="StudentAcademicRecordDeleted" xml:space="preserve">
+    <value>The student academic record was successfully deleted</value>
+  </data>
+  <data name="StudentAcademicRecordsDeleted" xml:space="preserve">
+    <value>The student academic records were successfully deleted</value>
+  </data>
+  <data name="StudentAcademicRecordAlreadyExists" xml:space="preserve">
+    <value>The student academic record already exists</value>
+  </data>
 </root>

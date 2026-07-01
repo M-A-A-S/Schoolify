@@ -2329,11 +2329,92 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The student academic record already exists.
+        /// </summary>
+        public static string StudentAcademicRecordAlreadyExists {
+            get {
+                return ResourceManager.GetString("StudentAcademicRecordAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The student academic record was successfully created.
+        /// </summary>
+        public static string StudentAcademicRecordCreated {
+            get {
+                return ResourceManager.GetString("StudentAcademicRecordCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The student academic record was successfully deleted.
+        /// </summary>
+        public static string StudentAcademicRecordDeleted {
+            get {
+                return ResourceManager.GetString("StudentAcademicRecordDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The student academic record was not found.
+        /// </summary>
+        public static string StudentAcademicRecordNotFound {
+            get {
+                return ResourceManager.GetString("StudentAcademicRecordNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Student Academic Records.
         /// </summary>
         public static string StudentAcademicRecords {
             get {
                 return ResourceManager.GetString("StudentAcademicRecords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The student academic records were successfully created.
+        /// </summary>
+        public static string StudentAcademicRecordsCreated {
+            get {
+                return ResourceManager.GetString("StudentAcademicRecordsCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The student academic records were successfully deleted.
+        /// </summary>
+        public static string StudentAcademicRecordsDeleted {
+            get {
+                return ResourceManager.GetString("StudentAcademicRecordsDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No student academic records were found.
+        /// </summary>
+        public static string StudentAcademicRecordsNotFound {
+            get {
+                return ResourceManager.GetString("StudentAcademicRecordsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The student academic records were successfully updated.
+        /// </summary>
+        public static string StudentAcademicRecordsUpdated {
+            get {
+                return ResourceManager.GetString("StudentAcademicRecordsUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The student academic record was successfully updated.
+        /// </summary>
+        public static string StudentAcademicRecordUpdated {
+            get {
+                return ResourceManager.GetString("StudentAcademicRecordUpdated", resourceCulture);
             }
         }
         

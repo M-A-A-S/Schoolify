@@ -1107,4 +1107,31 @@
   <data name="EnterScores" xml:space="preserve">
     <value>إدخال الدرجات</value>
   </data>
+  <data name="StudentAcademicRecordNotFound" xml:space="preserve">
+    <value>لم يتم العثور على السجل الأكاديمي للطالب</value>
+  </data>
+  <data name="StudentAcademicRecordsNotFound" xml:space="preserve">
+    <value>لم يتم العثور على أي سجلات أكاديمية للطلاب</value>
+  </data>
+  <data name="StudentAcademicRecordCreated" xml:space="preserve">
+    <value>تم إنشاء السجل الأكاديمي للطالب بنجاح</value>
+  </data>
+  <data name="StudentAcademicRecordsCreated" xml:space="preserve">
+    <value>تم إنشاء السجلات الأكاديمية للطلاب بنجاح</value>
+  </data>
+  <data name="StudentAcademicRecordUpdated" xml:space="preserve">
+    <value>تم تحديث السجل الأكاديمي للطالب بنجاح</value>
+  </data>
+  <data name="StudentAcademicRecordsUpdated" xml:space="preserve">
+    <value>تم تحديث السجلات الأكاديمية للطلاب بنجاح</value>
+  </data>
+  <data name="StudentAcademicRecordDeleted" xml:space="preserve">
+    <value>تم حذف السجل الأكاديمي للطالب بنجاح</value>
+  </data>
+  <data name="StudentAcademicRecordsDeleted" xml:space="preserve">
+    <value>تم حذف السجلات الأكاديمية للطلاب بنجاح</value>
+  </data>
+  <data name="StudentAcademicRecordAlreadyExists" xml:space="preserve">
+    <value>السجل الأكاديمي للطالب موجود بالفعل</value>
+  </data>
 </root>

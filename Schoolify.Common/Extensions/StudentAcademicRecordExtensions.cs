@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Schoolify.Common.Extensions
 {
+    
     public static class StudentAcademicRecordExtensions
     {
         public static StudentAcademicRecordDTO ToDTO(this StudentAcademicRecord entity)
