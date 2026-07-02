@@ -12,6 +12,7 @@ namespace Schoolify.Business.Interfaces
     {
         Task<Result<StudentAcademicRecordDTO>> AddAsync(StudentAcademicRecordDTO dto);
         Task<Result<StudentAcademicRecordDTO>> UpdateAsync(int id, StudentAcademicRecordDTO dto);
+        Task<Result<bool>> UpdateStudentAcademicRecordsAsync(StudentAcademicRecordListDTO dto);
         Task<Result<bool>> DeleteAsync(int id);
         Task<Result<StudentAcademicRecordDTO>> GetByIdAsync(int id);
         Task<Result<IEnumerable<StudentAcademicRecordDTO>>> GetAllAsync();

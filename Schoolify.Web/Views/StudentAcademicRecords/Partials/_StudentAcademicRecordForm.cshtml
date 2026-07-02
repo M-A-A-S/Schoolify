@@ -1,0 +1,89 @@
+﻿@using Schoolify.Common.DTOs.StudentAcademicRecord
+@model StudentAcademicRecordListDTO
+
+@using System.Globalization
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common.DTOs.StudentExamResult
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+    <h5 class="col-12">@Localizer["Exam"]</h5>
+    @* <input type="hidden" asp-for="Id" /> *@
+    <hr class="col-12" />
+
+    @* Year Level *@
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["YearLevel"]</label>
+        <input type="hidden" asp-for="YearLevelId" />
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar" ?
+                @Model?.Enrollments?.FirstOrDefault()?.YearLevel?.NameAr
+                : @Model?.Enrollments?.FirstOrDefault()?.YearLevel?.NameEn)
+            </div>
+    </div>
+
+    @* School Year *@
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["SchoolYear"]</label>
+        <input type="hidden" asp-for="SchoolYearId" />
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar" ?
+                @Model?.Enrollments?.FirstOrDefault()?.SchoolYear?.NameAr
+            : @Model?.Enrollments?.FirstOrDefault()?.SchoolYear?.NameEn)
+            </div>
+    </div>
+
+    @* Section *@
+    <div class="col-md-6">
+        <input type="hidden" asp-for="SectionId" />
+        <label class="fw-bold">@Localizer["Section"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar" ?
+                @Model?.Enrollments?.FirstOrDefault()?.Section?.NameAr
+            : @Model?.Enrollments?.FirstOrDefault()?.Section?.NameEn)
+            </div>
+    </div>
+
+
+    <hr class="col-12 my-2" />
+
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        @* <th>#</th> *@
+                        <th>@Localizer["Student"]</th>
+                        <th>@Localizer["MarksObtained"]</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @for (int i = 0; i < Model?.Enrollments?.Count; i++)
+                    {
+                        
+                
+                        <tr>
+                            <td>
+                                @Model?.Enrollments[i]?.Student?.FullName
+
+                                <input asp-for="Enrollments[i].Id" type="hidden" />
+                                <input asp-for="Enrollments[i].StudentId" type="hidden" />
+                            </td>
+                            <td>
+                                <input asp-for="Enrollments[i].StudentAcademicRecord.ObtainedMarks" type="number" class="form-control" />
+                                <span asp-validation-for="Enrollments[i].StudentAcademicRecord.ObtainedMarks" class="text-danger"></span>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

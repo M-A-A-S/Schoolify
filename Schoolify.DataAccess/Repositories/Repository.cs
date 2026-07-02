@@ -11,6 +11,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Identity.Client;
 
 namespace Schoolify.DataAccess.Repositories
 {
@@ -184,7 +185,7 @@ namespace Schoolify.DataAccess.Repositories
             if (entities == null || !entities.Any())
             {
                 return Result<bool>.Success(true);
-            } 
+            }
 
             try
             {
@@ -270,11 +271,16 @@ namespace Schoolify.DataAccess.Repositories
 
         public virtual async Task<Result<IEnumerable<T>>> GetAllAsync(
 Expression<Func<T, bool>> predicate = null,
-Func<IQueryable<T>, IQueryable<T>>? include = null)
+Func<IQueryable<T>, IQueryable<T>>? include = null, bool? isTracking = true)
         {
             try
             {
-                IQueryable<T> query = _dbSet.AsNoTracking().AsSplitQuery();
+                IQueryable<T> query = _dbSet.AsSplitQuery();
+
+                if (isTracking.HasValue && !isTracking.Value)
+                {
+                    query.AsNoTracking();
+                }
 
                 if (include != null)
                 {
@@ -296,6 +302,7 @@ Func<IQueryable<T>, IQueryable<T>>? include = null)
                 return Result<IEnumerable<T>>.Failure(ResultCodes.ServerError, 500, "Server error");
             }
         }
+
 
         public virtual async Task<Result<T>> FindByAsync(
 Expression<Func<T, bool>> predicate,
@@ -386,6 +393,26 @@ int pageSize = 10)
         }
 
         #endregion
+
+
+        public virtual async Task<Result<bool>> SaveChangesAsync()
+        {
+            try
+            {
+                await _context.SaveChangesAsync();
+                return Result<bool>.Success(true);
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Database update failed while saving changes.");
+                return Result<bool>.Failure(ResultCodes.DatabaseError, 500, "Database error");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error while saving changes.");
+                return Result<bool>.Failure(ResultCodes.ServerError, 500, "Server error");
+            }
+        }
 
     }
 }

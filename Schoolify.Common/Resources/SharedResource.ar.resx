@@ -1161,4 +1161,10 @@
   <data name="LoadStudents" xml:space="preserve">
     <value>تحميل الطلاب</value>
   </data>
+  <data name="InvalidMaxMarks" xml:space="preserve">
+    <value>الحد الأقصى للدرجات غير صالح</value>
+  </data>
+  <data name="InvalidData" xml:space="preserve">
+    <value>بيانات غير صالحة</value>
+  </data>
 </root>

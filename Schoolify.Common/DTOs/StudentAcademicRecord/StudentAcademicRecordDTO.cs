@@ -13,12 +13,12 @@ namespace Schoolify.Common.DTOs.StudentAcademicRecord
         public int EnrollmentId { get; set; }
         public decimal ObtainedMarks { get; set; }        // final computed score
         public decimal MaxMarks { get; set; }          // usually 100 or 1000
-        public string GradeLetter { get; set; }        // A, B, C...
+        public string? GradeLetter { get; set; }        // A, B, C...
         public decimal Percentage { get; set; }
         public bool IsPassed { get; set; }
         public DateTime CalculatedAt { get; set; } = DateTime.UtcNow;
 
-        public EnrollmentDTO Enrollment { get; set; }
+        public EnrollmentDTO? Enrollment { get; set; }
 
     }
 }

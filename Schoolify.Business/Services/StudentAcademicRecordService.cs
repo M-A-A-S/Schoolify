@@ -1,6 +1,8 @@
-﻿using Schoolify.Business.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using Schoolify.Business.Interfaces;
 using Schoolify.Common.DTOs.StudentAcademicRecord;
-using Schoolify.Common.Extensions;  
+using Schoolify.Common.Extensions;
+using Schoolify.Common.Models;
 using Schoolify.Common.Utilities;
 using Schoolify.Common.Utilities.ResultCodes;
 using Schoolify.DataAccess.Interfaces;
@@ -15,10 +17,17 @@ namespace Schoolify.Business.Services
     public class StudentAcademicRecordService : IStudentAcademicRecordService
     {
         private readonly IStudentAcademicRecordRepository _repo;
+        private readonly IEnrollmentRepository _enrollmentRepository;
+        private readonly IScoreRangeRepository _scoreRangeRepository;
 
-        public StudentAcademicRecordService(IStudentAcademicRecordRepository repo)
+
+        public StudentAcademicRecordService(IStudentAcademicRecordRepository repo,
+            IEnrollmentRepository enrollmentRepository,
+            IScoreRangeRepository scoreRangeRepository)
         {
             _repo = repo;
+            _enrollmentRepository = enrollmentRepository;
+            _scoreRangeRepository = scoreRangeRepository;
         }
 
         #region Add
@@ -123,6 +132,89 @@ namespace Schoolify.Business.Services
 
             return Result<StudentAcademicRecordDTO>.Success(result, ResultCodes.StudentAcademicRecordUpdated);
 
+        }
+        
+        public async Task<Result<bool>> UpdateStudentAcademicRecordsAsync(StudentAcademicRecordListDTO dto)
+        {
+            var enrollmentsResult = await _enrollmentRepository
+                .GetAllAsync(x => x.YearLevelId == dto.YearLevelId
+                    && x.SchoolYearId == dto.SchoolYearId
+                    && x.SectionId == dto.SectionId,
+                include: q => q
+                    .Include(x => x.StudentAcademicRecord)
+                    .Include(x => x.SchoolYear)
+                    .Include(x => x.YearLevel)
+                    .Include(x => x.Section),
+                isTracking: true
+                );
+
+            if (!enrollmentsResult.IsSuccess 
+                || enrollmentsResult.Data == null 
+                || !enrollmentsResult.Data.Any())
+            {
+                return Result<bool>.Failure(ResultCodes.EnrollmentsNotFound);
+            }
+
+            var scoreRangesResult = await _scoreRangeRepository.GetAllAsync();
+
+            if (!scoreRangesResult.IsSuccess 
+                || scoreRangesResult.Data == null
+                || !scoreRangesResult.Data.Any())
+            {
+                return Result<bool>.Failure(ResultCodes.ScoreRangesNotFound);
+            }
+
+            var enrollmentsDictionary = enrollmentsResult.Data.ToDictionary(e => e.StudentId);
+
+            foreach (var record in dto.Enrollments)
+            {
+                if (record.StudentAcademicRecord == null)
+                {
+                    continue;
+                }
+
+                if (!enrollmentsDictionary.TryGetValue(record.StudentId, out var enrollment))
+                {
+                    continue;
+                }
+
+                if (enrollment.YearLevel == null || enrollment.YearLevel.MaxMarks <= 0)
+                {
+                    return Result<bool>.Failure(ResultCodes.InvalidMaxMarks);
+                }
+
+                var percentage = 
+                    ((decimal)record.StudentAcademicRecord.ObtainedMarks / 
+                    (decimal)enrollment.YearLevel.MaxMarks) * 100;
+
+                var gradeLetter = scoreRangesResult.Data
+                    .FirstOrDefault(sr => percentage >= sr.MinScore && percentage <= sr.MaxScore)?.Grade;
+
+                var academicRecord = enrollment.StudentAcademicRecord ?? new StudentAcademicRecord
+                {
+                    EnrollmentId = enrollment.Id,
+                };
+
+                academicRecord.ObtainedMarks = record.StudentAcademicRecord.ObtainedMarks;
+                academicRecord.MaxMarks = enrollment.YearLevel.MaxMarks;
+                academicRecord.Percentage = percentage;
+                academicRecord.GradeLetter = gradeLetter;
+                academicRecord.IsPassed = percentage >= enrollment.YearLevel.PassPercentage;
+                academicRecord.CalculatedAt = DateTime.UtcNow;
+
+                enrollment.StudentAcademicRecord = academicRecord;
+
+                //await _enrollmentRepository.UpdateAsync(enrollment);
+            }
+
+            var saveResult = await _enrollmentRepository.SaveChangesAsync();
+
+            if (!saveResult.IsSuccess)
+            {
+                return Result<bool>.Failure(ResultCodes.ServerError, 500);
+            }
+
+            return Result<bool>.Success(true, ResultCodes.StudentAcademicRecordsUpdated);
         }
         #endregion
 

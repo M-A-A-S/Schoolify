@@ -14,5 +14,8 @@ namespace Schoolify.Common.Utilities.ResultCodes
         public const string InvalidDateRange = "InvalidDateRange";
         public const string InvalidTimeRange = "InvalidTimeRange";
         public const string OverlapError = "OverlapError";
+
+        public const string InvalidMaxMarks = "InvalidMaxMarks";
+        public const string InvalidData = "InvalidData";
     }
 }

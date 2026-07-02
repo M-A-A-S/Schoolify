@@ -100,7 +100,7 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
         public YearLevelDTO? YearLevel { get; set; }
         public SchoolYearDTO? SchoolYear { get; set; }
         public SectionDTO? Section { get; set; }
-        public StudentAcademicRecordDTO? StudentAcademicRecord { get; set; }
+        public StudentAcademicRecordDTO? StudentAcademicRecord { get; set; } = new StudentAcademicRecordDTO();
 
         //public ICollection<InstallmentDTO> Installments { get; set; }
         //public StudentAcademicRecordDTO StudentAcademicRecord { get; set; }

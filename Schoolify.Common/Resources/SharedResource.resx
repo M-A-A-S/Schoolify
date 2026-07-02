@@ -1161,4 +1161,10 @@
   <data name="LoadStudents" xml:space="preserve">
     <value>Load Students</value>
   </data>
+  <data name="InvalidMaxMarks" xml:space="preserve">
+    <value>Invalid maximum marks</value>
+  </data>
+  <data name="InvalidData" xml:space="preserve">
+    <value>Invalid data</value>
+  </data>
 </root>

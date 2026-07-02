@@ -1357,6 +1357,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid data.
+        /// </summary>
+        public static string InvalidData {
+            get {
+                return ResourceManager.GetString("InvalidData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start date must be earlier than end date.
         /// </summary>
         public static string InvalidDateRange {
@@ -1371,6 +1380,15 @@ namespace Schoolify.Common.Resources {
         public static string InvalidEmail {
             get {
                 return ResourceManager.GetString("InvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid maximum marks.
+        /// </summary>
+        public static string InvalidMaxMarks {
+            get {
+                return ResourceManager.GetString("InvalidMaxMarks", resourceCulture);
             }
         }
         

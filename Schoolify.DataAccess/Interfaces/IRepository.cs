@@ -27,7 +27,7 @@ namespace Schoolify.DataAccess.Interfaces
 
         Task<Result<IEnumerable<T>>> GetAllAsync(
 Expression<Func<T, bool>> predicate = null,
-Func<IQueryable<T>, IQueryable<T>>? include = null);
+Func<IQueryable<T>, IQueryable<T>>? include = null, bool? isTracking = false);
 
         Task<Result<T>> FindByAsync(
 Expression<Func<T, bool>> predicate,
@@ -39,6 +39,9 @@ Func<IQueryable<T>, IQueryable<T>>? include = null,
 Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
 int pageNumber = 1,
 int pageSize = 10);
+
+
+        Task<Result<bool>> SaveChangesAsync();
 
     }
 }

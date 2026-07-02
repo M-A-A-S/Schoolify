@@ -218,7 +218,7 @@
                         $("#actionButtonsContainer").html(
                             `
 
-            <a href="/StudentAcademicRecord/Edit?yearLevelId=${yearLevelId}&schoolYearId=${schoolYearId}&sectionId=${sectionId}"
+            <a href="/StudentAcademicRecords/Edit?yearLevelId=${yearLevelId}&schoolYearId=${schoolYearId}&sectionId=${sectionId}"
                class="btn btn-icon btn-outline-primary tooltip-btn"
                data-tooltip="${lang.edit}">
                 <i class="fa fa-pen"></i>
@@ -227,7 +227,7 @@
 
             <!--
 
-            <a href="/StudentAcademicRecord/Details/${res[0].enrollmentId}"
+            <a href="/StudentAcademicRecords/Details/${res[0].enrollmentId}"
                class="btn btn-icon btn-outline-info tooltip-btn"
                data-tooltip="${lang.details}">
                 <i class="fa fa-info"></i>
@@ -235,7 +235,7 @@
 
             -->
 
-                    <a href="/StudentAcademicRecord/DeleteAll?yearLevelId=${yearLevelId}&schoolYearId=${schoolYearId}&sectionId=${sectionId}"
+                    <a href="/StudentAcademicRecords/DeleteAll?yearLevelId=${yearLevelId}&schoolYearId=${schoolYearId}&sectionId=${sectionId}"
                class="btn btn-icon btn-outline-danger tooltip-btn"
                data-tooltip="${lang.delete}">
                 <i class="fa fa-trash"></i>
@@ -265,20 +265,20 @@
 
                             <!--
 
-                                            <a href="/StudentAcademicRecord/Edit?yearLevelId=${item.yearLevelId}&schoolYearId=${item.schoolYearId}&sectionId=${item.sectionId}"
+                                            <a href="/StudentAcademicRecords/Edit?yearLevelId=${item.yearLevelId}&schoolYearId=${item.schoolYearId}&sectionId=${item.sectionId}"
                class="btn btn-icon btn-outline-primary tooltip-btn"
                data-tooltip="${lang.edit}">
                 <i class="fa fa-pen"></i>
             </a>
                             -->
 
-            <a href="/StudentAcademicRecord/Details/${item.enrollmentId}"
+            <a href="/StudentAcademicRecords/Details/${item.enrollmentId}"
                class="btn btn-icon btn-outline-info tooltip-btn"
                data-tooltip="${lang.details}">
                 <i class="fa fa-info"></i>
             </a>
 
-            <a href="/StudentAcademicRecord/Delete?yearLevelId=${item.yearLevelId}&schoolYearId=${item.schoolYearId}&sectionId=${item.sectionId}"
+            <a href="/StudentAcademicRecords/Delete?yearLevelId=${item.yearLevelId}&schoolYearId=${item.schoolYearId}&sectionId=${item.sectionId}"
                class="btn btn-icon btn-outline-danger tooltip-btn"
                data-tooltip="${lang.delete}">
                 <i class="fa fa-trash"></i>

@@ -4,9 +4,13 @@ using Microsoft.Extensions.Localization;
 using Schoolify.Business.Interfaces;
 using Schoolify.Common;
 using Schoolify.Common.DTOs.Enrollment;
+using Schoolify.Common.DTOs.Exam;
+using Schoolify.Common.DTOs.SchoolYear;
 using Schoolify.Common.DTOs.StudentAcademicRecord;
+using Schoolify.Common.Models;
 using System.Globalization;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Schoolify.Web.Controllers
 {
@@ -35,12 +39,30 @@ namespace Schoolify.Web.Controllers
         }
 
         #region Get
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromQuery] int? yearLevelId, [FromQuery] int? schoolYearId, [FromQuery] int? sectionId)
         {
             //await LoadDropDowns();
             //var findAllStudentAcademicRecordsResult = await _enrollmentService.GetAllAsync();
             //return View(findAllStudentAcademicRecordsResult.Data);
-            return View(await BuildViewModel());
+
+            var viewModel = await BuildViewModel();
+
+            if (yearLevelId.HasValue)
+            {
+                viewModel.YearLevelId = yearLevelId.Value;
+            }
+
+            if (schoolYearId.HasValue)
+            {
+                viewModel.SchoolYearId = schoolYearId.Value;
+            }
+
+            if (sectionId.HasValue)
+            {
+                viewModel.SectionId = sectionId.Value;
+            }
+
+            return View(viewModel);
         }
 
         public async Task<IActionResult> Details(int id)
@@ -98,35 +120,48 @@ namespace Schoolify.Web.Controllers
         #endregion
 
         #region Update
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit([FromQuery]int yearLevelId, [FromQuery] int schoolYearId, [FromQuery] int sectionId)
         {
-            var findResult = await _service.GetByIdAsync(id);
-            if (findResult.Data == null || !findResult.IsSuccess)
+
+            var enrollmentsResult = await _enrollmentService.GetAllAsync(yearLevelId, schoolYearId, sectionId);
+
+            if (!enrollmentsResult.IsSuccess || enrollmentsResult.Data == null || !enrollmentsResult.Data.Any())
             {
-                TempData["Error"] = _localizer[findResult.Code].Value;
+                TempData["Error"] = _localizer[enrollmentsResult.Code].Value;
                 return NotFound();
             }
 
-            await LoadDropDowns();
-            return View(findResult.Data);
+            var result = new StudentAcademicRecordListDTO
+            {
+                YearLevelId = yearLevelId,
+                SchoolYearId = schoolYearId,
+                SectionId = sectionId,
+                Enrollments = enrollmentsResult.Data.ToList()
+            };
+            return View(result);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(StudentAcademicRecordDTO DTO)
+        public async Task<IActionResult> Edit(StudentAcademicRecordListDTO DTO)
         {
+            ModelState.Remove(nameof(StudentAcademicRecordDTO.Enrollment));
+            ModelState.Remove(nameof(StudentAcademicRecordDTO.GradeLetter));
+
             if (!ModelState.IsValid)
             {
                 await LoadDropDowns();
                 TempData["Error"] = _localizer["ValidationError"].Value;
                 return View(DTO);
+                
             }
 
-            var updateResult = await _service.UpdateAsync(DTO.Id, DTO);
+            var updateResult = await _service.UpdateStudentAcademicRecordsAsync(DTO);
             if (updateResult.IsSuccess)
             {
                 TempData["Success"] = _localizer[updateResult.Code].Value;
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "StudentAcademicRecords", new { yearLevelId = DTO.YearLevelId, schoolYearId = DTO.SchoolYearId, sectionId = DTO.SectionId });
             }
 
             TempData["Error"] = _localizer[updateResult.Code].Value;

@@ -29,10 +29,17 @@ ResourceType = typeof(Resources.SharedResource)
         public int YearLevelId { get; set; }
 
 
-        public List<EnrollmentDTO> Enrollments = new List<EnrollmentDTO>();
+        //public List<EnrollmentDTO> Enrollments = new List<EnrollmentDTO>();
 
-        public List<YearLevelDTO> YearLevels = new List<YearLevelDTO>();
-        public List<SchoolYearDTO> SchoolYears = new List<SchoolYearDTO>();
-        public List<SectionDTO> Sections = new List<SectionDTO>();
+        //public List<YearLevelDTO> YearLevels = new List<YearLevelDTO>();
+        //public List<SchoolYearDTO> SchoolYears = new List<SchoolYearDTO>();
+        //public List<SectionDTO> Sections = new List<SectionDTO>();
+
+
+        // ASP.NET Core model binding binds properties, not fields.
+        public List<EnrollmentDTO> Enrollments { get; set; } = new();
+        public List<YearLevelDTO> YearLevels { get; set; } = new();
+        public List<SchoolYearDTO> SchoolYears { get; set; } = new();
+        public List<SectionDTO> Sections { get; set; } = new();
     }
 }
