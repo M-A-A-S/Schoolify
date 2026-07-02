@@ -90,12 +90,15 @@
         </div>
 
         @* Action Buttons *@
-        <div class="col-md-6">
+        <div class="col-md-6 d-flex align-items-center gap-2" >
             <button type="button"
                     id="btnLoad"
                     class="btn btn-primary mb-3">
                 @Localizer["LoadStudents"]
             </button>
+
+
+            <div id="actionButtonsContainer"></div>
 
             @* <button type="button"
                 id="btnCalculate"
@@ -190,16 +193,61 @@
         // LOAD STUDENTS
         $("#btnLoad").click(function () {
 
+            const yearLevelId = $("#yearLevelId").val();
+            const schoolYearId = $("#schoolYearId").val();
+            const sectionId = $("#sectionId").val();
+
             $.ajax({
                 url: '/StudentAcademicRecords/GetEnrollments',
                 type: 'GET',
                 data: {
-                    yearLevelId: $("#yearLevelId").val(),
-                    schoolYearId: $("#schoolYearId").val(),
-                    sectionId: $("#sectionId").val()
+                    yearLevelId: yearLevelId,
+                    schoolYearId: schoolYearId,
+                    sectionId: sectionId
                 },
                 success: function (res) {
                     console.log(res)
+                    console.log(res.length > 0)
+
+
+
+                    if (res.length > 0)
+                    {
+                        console.log($("#actionButtonsContainer"))
+
+                        $("#actionButtonsContainer").html(
+                            `
+
+            <a href="/StudentAcademicRecord/Edit?yearLevelId=${yearLevelId}&schoolYearId=${schoolYearId}&sectionId=${sectionId}"
+               class="btn btn-icon btn-outline-primary tooltip-btn"
+               data-tooltip="${lang.edit}">
+                <i class="fa fa-pen"></i>
+            </a>
+
+
+            <!--
+
+            <a href="/StudentAcademicRecord/Details/${res[0].enrollmentId}"
+               class="btn btn-icon btn-outline-info tooltip-btn"
+               data-tooltip="${lang.details}">
+                <i class="fa fa-info"></i>
+            </a>
+
+            -->
+
+                    <a href="/StudentAcademicRecord/DeleteAll?yearLevelId=${yearLevelId}&schoolYearId=${schoolYearId}&sectionId=${sectionId}"
+               class="btn btn-icon btn-outline-danger tooltip-btn"
+               data-tooltip="${lang.delete}">
+                <i class="fa fa-trash"></i>
+            </a>
+        
+                        `
+                        )
+                        
+                    }
+
+                    console.log($("#actionButtonsContainer"))
+
                     let rows = "";
 
                     $.each(res, function (i, item) {
@@ -214,13 +262,15 @@
                             <td>${item.gradeLetter ?? '-'}</td>
                             <td>${item.isPassed ? '✔' : '✘'}</td>
                             <td>
-          
+
+                            <!--
 
                                             <a href="/StudentAcademicRecord/Edit?yearLevelId=${item.yearLevelId}&schoolYearId=${item.schoolYearId}&sectionId=${item.sectionId}"
                class="btn btn-icon btn-outline-primary tooltip-btn"
                data-tooltip="${lang.edit}">
                 <i class="fa fa-pen"></i>
             </a>
+                            -->
 
             <a href="/StudentAcademicRecord/Details/${item.enrollmentId}"
                class="btn btn-icon btn-outline-info tooltip-btn"
