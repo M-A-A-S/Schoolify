@@ -9,6 +9,7 @@ using Schoolify.Common.DTOs.Enrollment;
 using Schoolify.Common.DTOs.Exam;
 using Schoolify.Common.DTOs.Student;
 using Schoolify.Common.DTOs.StudentClass;
+using Schoolify.Common.Models;
 using System.Globalization;
 
 namespace Schoolify.Web.Controllers
@@ -175,7 +176,8 @@ namespace Schoolify.Web.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed([FromForm] int id, 
+            [FromForm] int? subjectClassId)
         {
 
             var deleteResult = await _service.DeleteAsync(id);
@@ -183,6 +185,11 @@ namespace Schoolify.Web.Controllers
             if (deleteResult.IsSuccess)
             {
                 TempData["Success"] = _localizer[deleteResult.Code].Value;
+
+                if (subjectClassId.HasValue)
+                {
+                    return RedirectToAction("Index", "StudentClasses", new { SubjectClassId = subjectClassId.Value });
+                }
                 return RedirectToAction(nameof(Index));
             }
 
