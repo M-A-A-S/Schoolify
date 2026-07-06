@@ -1,0 +1,53 @@
+﻿@using Schoolify.Common.DTOs.StudentClass
+@model StudentClassUpsertDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row g-3">
+
+    <!-- Subject Class -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="StudentClass.SubjectClassId" class="form-label"></label>
+
+        <select asp-for="StudentClass.SubjectClassId"
+                class="form-control"
+                asp-items="@(new SelectList(
+                                                    Model.SubjectClasses,
+                                                    "Id",
+                                                    CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                                                        ? "NameAr"
+                                                        : "NameEn"))">
+
+            <option selected disabled value="">
+                @Localizer["SelectClass"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="StudentClass.SubjectClassId" class="text-danger"></span>
+    </div>
+    
+    <!-- Student -->
+    <div class="mb-3 col-md-6">
+        <label asp-for="StudentClass.StudentId" class="form-label"></label>
+
+        <select asp-for="StudentClass.StudentId"
+                class="form-control"
+                asp-items="@(new SelectList(Model.Students,
+                                                    "Id",
+                                                    "FullName"))">
+
+            <option selected disabled value="">
+                @Localizer["SelectStudent"]
+            </option>
+
+        </select>
+
+        <span asp-validation-for="StudentClass.StudentId" class="text-danger"></span>
+    </div>
+
+
+</div>

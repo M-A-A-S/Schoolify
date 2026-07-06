@@ -7,6 +7,7 @@ using Schoolify.Common;
 using Schoolify.Common.DTOs.Class;
 using Schoolify.Common.DTOs.Enrollment;
 using Schoolify.Common.DTOs.Exam;
+using Schoolify.Common.DTOs.Student;
 using Schoolify.Common.DTOs.StudentClass;
 using System.Globalization;
 
@@ -16,15 +17,18 @@ namespace Schoolify.Web.Controllers
     {
         private readonly IStudentClassService _service;
         private readonly IClassService _classService;
+        private readonly IStudentService _studentService;
         private readonly IStringLocalizer<SharedResource> _localizer;
 
         public StudentClassesController(IStudentClassService service,
             IStringLocalizer<SharedResource> localizer,
-            IClassService classService)
+            IClassService classService,
+            IStudentService studentService)
         {
             _service = service;
             _localizer = localizer;
             _classService = classService;
+            _studentService = studentService;
         }
 
         #region Get
@@ -85,36 +89,38 @@ namespace Schoolify.Web.Controllers
         #region Create
         public async Task<IActionResult> Create([FromQuery] int? subjectClassId)
         {
-            await LoadStudentClasses();
-            var DTO = new StudentClassDTO();
+            var studentClass = new StudentClassDTO();
             if (subjectClassId.HasValue)
             {
-                DTO.SubjectClassId = subjectClassId.Value;
+                studentClass.SubjectClassId = subjectClassId.Value;
             }
-            return View(DTO);
+
+            var dto = await BuildViewModel(studentClass);
+
+            return View(dto);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(StudentClassDTO DTO)
+        public async Task<IActionResult> Create(StudentClassUpsertDTO DTO)
         {
             if (!ModelState.IsValid)
             {
-                await LoadStudentClasses();
                 TempData["Error"] = _localizer["ValidationError"].Value;
-                return View(DTO);
+                return View(await BuildViewModel(DTO.StudentClass));
             }
 
-            var addResult = await _service.AddAsync(DTO);
+            var addResult = await _service.AddAsync(DTO.StudentClass);
 
             if (addResult.IsSuccess)
             {
                 TempData["Success"] = _localizer[addResult.Code].Value;
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "StudentClasses", new { SubjectClassId = DTO.StudentClass.SubjectClassId });
             }
 
             TempData["Error"] = _localizer[addResult.Code].Value;
-            return View(DTO);
+            return View(await BuildViewModel(DTO.StudentClass));
         }
         #endregion
 
@@ -197,6 +203,21 @@ namespace Schoolify.Web.Controllers
                         ? d.NameAr
                         : d.NameEn
             });
+        }
+        
+        private async Task<StudentClassUpsertDTO> BuildViewModel(StudentClassDTO studentClass)
+        {
+            var subjectClassesResult = await _classService.GetAllAsync();
+            var studentsResult = await _studentService.GetAllAsync();
+
+            var viewModel = new StudentClassUpsertDTO
+            {
+                StudentClass = studentClass ?? new StudentClassDTO(),
+                SubjectClasses = subjectClassesResult?.Data?.ToList() ?? new List<SubjectClassDTO>(),
+                Students = studentsResult?.Data?.ToList() ?? new List<StudentDTO>()
+            };
+
+            return viewModel;
         }
         #endregion
 
