@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
 using Schoolify.Business.Interfaces;
+using Schoolify.Business.Services;
 using Schoolify.Common;
 using Schoolify.Common.DTOs.Class;
+using Schoolify.Common.DTOs.Enrollment;
 using Schoolify.Common.DTOs.Exam;
 using Schoolify.Common.DTOs.StudentClass;
 using System.Globalization;
@@ -28,7 +30,7 @@ namespace Schoolify.Web.Controllers
         #region Get
         public async Task<IActionResult> Index([FromQuery]int? subjectClassId)
         {
-
+            await LoadStudentClasses();
             StudentClassListDTO studentClassList = new StudentClassListDTO();
 
 
@@ -58,6 +60,25 @@ namespace Schoolify.Web.Controllers
                 return NotFound();
             }
             return View(findResult.Data);
+        }
+
+        public async Task<IActionResult> GetClassStudents(int subjectClassId)
+        {
+
+            StudentClassListDTO studentClassList = new StudentClassListDTO();
+
+            var classStudentsResult = await _service.GetAllAsync(subjectClassId);
+
+            if (!classStudentsResult.IsSuccess 
+                || classStudentsResult.Data is null || 
+                !classStudentsResult.Data.Any())
+            {
+                return Json(studentClassList);
+            }
+
+            studentClassList.SubjectClassId = subjectClassId;
+            studentClassList.StudentClasses = classStudentsResult.Data.ToList();
+            return Json(studentClassList);
         }
         #endregion
 

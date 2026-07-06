@@ -1,4 +1,5 @@
-﻿using Schoolify.Common.DTOs.StudentClass;
+﻿using Schoolify.Common.DTOs.Class;
+using Schoolify.Common.DTOs.StudentClass;
 using Schoolify.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,14 @@ namespace Schoolify.Common.Extensions
                 SubjectClassId = entity.SubjectClassId,
                 StudentId = entity.StudentId,
                 FinalScore = entity.FinalScore,
+
+                Student = entity.Student?.ToDTO(),
+                SubjectClass = new SubjectClassDTO
+                {
+                    Id = entity?.SubjectClass?.Id ?? 0,
+                    NameAr = entity?.SubjectClass?.NameAr,
+                    NameEn = entity?.SubjectClass?.NameEn
+                }
             };
         }
 

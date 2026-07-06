@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Schoolify.Common.DTOs.Class;
+using Schoolify.Common.DTOs.Student;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -33,5 +35,9 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
 ResourceType = typeof(Resources.SharedResource)
 )]
         public decimal? FinalScore { get; set; } // The actual grade earned
+
+
+        public SubjectClassDTO? SubjectClass { get; set; }
+        public StudentDTO? Student { get; set; }
     }
 }
