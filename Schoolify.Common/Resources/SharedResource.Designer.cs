@@ -540,9 +540,9 @@ namespace Schoolify.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Delete All Student Academic Records.
         /// </summary>
-        public static string DeleteAllStudentAcademicRecord {
+        public static string DeleteAllStudentAcademicRecords {
             get {
-                return ResourceManager.GetString("DeleteAllStudentAcademicRecord", resourceCulture);
+                return ResourceManager.GetString("DeleteAllStudentAcademicRecords", resourceCulture);
             }
         }
         

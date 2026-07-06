@@ -1170,7 +1170,7 @@
   <data name="ConfirmDeleteAllStudentAcademicRecords" xml:space="preserve">
     <value>Are you sure you want to delete all student academic records?</value>
   </data>
-  <data name="DeleteAllStudentAcademicRecord" xml:space="preserve">
+  <data name="DeleteAllStudentAcademicRecords" xml:space="preserve">
     <value>Delete All Student Academic Records</value>
   </data>
   <data name="NotMarkedYet" xml:space="preserve">

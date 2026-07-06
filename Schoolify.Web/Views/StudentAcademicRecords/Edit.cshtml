@@ -23,7 +23,11 @@
                 @Localizer["Edit"]
             </button>
 
-            <a asp-action="Index" class="btn btn-secondary">
+            <a asp-action="Index"
+               asp-route-yearLevelId="@Model?.YearLevelId"
+               asp-route-schoolYearId="@Model?.SchoolYearId"
+               asp-route-sectionId="@Model?.SectionId" 
+               class="btn btn-secondary">
                 @Localizer["Cancel"]
             </a>
 

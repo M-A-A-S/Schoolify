@@ -46,6 +46,11 @@ namespace Schoolify.DataAccess.Configurations
                 .HasForeignKey<StudentAcademicRecord>(x => x.EnrollmentId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Constraints
+            builder.HasIndex(x => x.EnrollmentId)
+                .IsUnique()
+                .HasFilter("[IsDeleted] = 0");
+
         }
     }
 }
