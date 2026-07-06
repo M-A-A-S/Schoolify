@@ -448,6 +448,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete all student academic records?.
+        /// </summary>
+        public static string ConfirmDeleteAllStudentAcademicRecords {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteAllStudentAcademicRecords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
         public static string Create {
@@ -525,6 +534,15 @@ namespace Schoolify.Common.Resources {
         public static string DeleteAllScores {
             get {
                 return ResourceManager.GetString("DeleteAllScores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete All Student Academic Records.
+        /// </summary>
+        public static string DeleteAllStudentAcademicRecord {
+            get {
+                return ResourceManager.GetString("DeleteAllStudentAcademicRecord", resourceCulture);
             }
         }
         
@@ -1587,6 +1605,15 @@ namespace Schoolify.Common.Resources {
         public static string NotMarked {
             get {
                 return ResourceManager.GetString("NotMarked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Marked Yet.
+        /// </summary>
+        public static string NotMarkedYet {
+            get {
+                return ResourceManager.GetString("NotMarkedYet", resourceCulture);
             }
         }
         

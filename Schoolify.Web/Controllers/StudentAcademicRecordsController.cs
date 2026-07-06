@@ -170,6 +170,43 @@ namespace Schoolify.Web.Controllers
         #endregion
 
         #region Delete
+
+        public async Task<IActionResult> DeleteAll([FromQuery] int yearLevelId, [FromQuery] int schoolYearId, [FromQuery] int sectionId)
+        {
+            var viewModel = await BuildViewModel();
+            viewModel.YearLevelId = yearLevelId;
+            viewModel.SchoolYearId = schoolYearId;
+            viewModel.SectionId = sectionId;
+            var enrolmentsResult = await _enrollmentService.GetAllAsync(yearLevelId, schoolYearId, sectionId);
+            if (!enrolmentsResult.IsSuccess || enrolmentsResult.Data is null || !enrolmentsResult.Data.Any())
+            {
+                TempData["Error"] = _localizer[enrolmentsResult.Code].Value;
+                return NotFound();
+            }
+
+            viewModel.Enrollments = enrolmentsResult?.Data?.ToList();
+
+            return View(viewModel);
+        }
+
+        [HttpPost, ActionName("DeleteAll")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed([FromQuery] int yearLevelId, [FromQuery] int schoolYearId, [FromQuery] int sectionId)
+        {
+
+            var deleteResult = await _service.DeleteAllAsync(yearLevelId, schoolYearId, sectionId);
+
+            if (deleteResult.IsSuccess)
+            {
+                TempData["Success"] = _localizer[deleteResult.Code].Value;
+                return RedirectToAction(nameof(Index));
+            }
+
+            TempData["Error"] = _localizer[deleteResult.Code].Value;
+            return View(deleteResult.Data);
+        }
+
+
         public async Task<IActionResult> Delete(int id)
         {
             var findResult = await _service.GetByIdAsync(id);

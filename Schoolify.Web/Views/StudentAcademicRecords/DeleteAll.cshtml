@@ -1,0 +1,48 @@
+﻿@using Schoolify.Common.DTOs.StudentAcademicRecord
+@model StudentAcademicRecordListDTO
+
+@using System.Globalization
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common.DTOs.StudentExamResult
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="card border-danger shadow-sm">
+
+    <div class="card-header bg-danger text-white">
+        <h5>@Localizer["Delete"] @Localizer["StudentAcademicRecords"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <div class="alert alert-warning">
+            @Localizer["ConfirmDeleteAllStudentAcademicRecords"]
+        </div>
+
+        <partial name="Partials/_StudentAcademicRecordsDetails" model="Model" />
+
+    </div>
+
+    <div class="card-footer">
+
+        <form asp-action="DeleteAll" 
+            asp-route-yearLevelId="@Model.YearLevelId"
+              asp-route-sectionId="@Model.SectionId"
+              asp-route-schoolYearId="@Model.SchoolYearId">
+
+            @* <input type="hidden" asp-for="Id" /> *@
+
+            <button type="submit" class="btn btn-danger">
+                @Localizer["DeleteAllScores"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Cancel"]
+            </a>
+
+        </form>
+
+    </div>
+
+</div>

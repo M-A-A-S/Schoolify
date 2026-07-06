@@ -238,6 +238,46 @@ namespace Schoolify.Business.Services
 
             return Result<bool>.Success(true, ResultCodes.StudentAcademicRecordDeleted);
         }
+
+        public async Task<Result<bool>> DeleteAllAsync(int yearLevelId, int schoolYearId, int sectionId)
+        {
+            var enrollmentsResult = await _enrollmentRepository
+                .GetAllAsync(x => x.YearLevelId == yearLevelId
+                    && x.SchoolYearId == schoolYearId
+                    && x.SectionId == sectionId,
+                include: q => q
+                    .Include(x => x.StudentAcademicRecord),
+                isTracking: true
+                );
+
+            if (!enrollmentsResult.IsSuccess
+                || enrollmentsResult.Data == null
+                || !enrollmentsResult.Data.Any())
+            {
+                return Result<bool>.Failure(ResultCodes.EnrollmentsNotFound);
+            }
+
+            var studentAcademicRecordsToDelete = enrollmentsResult.Data
+                .Where(e => e.StudentAcademicRecord != null)
+                .Select(e => e.StudentAcademicRecord)
+                .ToList();
+
+            if (!studentAcademicRecordsToDelete.Any())
+            {
+                return Result<bool>.Failure(ResultCodes.StudentAcademicRecordsNotFound);
+            }
+
+
+
+            var deleteResult = await _repo.DeleteRangeAndSaveAsync(studentAcademicRecordsToDelete);
+
+            if (!deleteResult.IsSuccess)
+            {
+                return Result<bool>.Failure(ResultCodes.ServerError, 500);
+            }
+
+            return Result<bool>.Success(true, ResultCodes.StudentAcademicRecordsDeleted);
+        }
         #endregion
 
     }

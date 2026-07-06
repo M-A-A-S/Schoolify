@@ -120,7 +120,7 @@
                     <th>@Localizer["Percentage"]</th>
                     <th>@Localizer["GradeLetter"]</th>
                     <th>@Localizer["IsPassed"]</th>
-                    <th>@Localizer["Actions"]</th>
+                    @* <th>@Localizer["Actions"]</th> *@
                     <th></th>
                 </tr>
             </thead>
@@ -188,6 +188,7 @@
             details: "@Localizer["Details"]",
             edit: "@Localizer["Edit"]",
             delete: "@Localizer["Delete"]",
+            notMarked: "@Localizer["NotMarked"]",
         };
 
         // LOAD STUDENTS
@@ -254,24 +255,25 @@
 
                         rows += `
                         <tr>
-                            <td>${item?.student?.fullName}</td>
-                            <td>${item?.yearLevel?.maxMarks}</td>
-                            <td>%${item?.yearLevel?.passPercentage}</td>
-                            <td>${item?.studentAcademicRecord?.obtainedMarks ?? 0}</td>
-                            <td>%${item?.studentAcademicRecord?.percentage ?? 0}</td>
-                            <td>${item?.studentAcademicRecord?.gradeLetter ?? '-'}</td>
-                            <td>${item?.studentAcademicRecord?.isPassed ? '✔' : '✘'}</td>
-                            <td>
+                            <td>${item?.student?.fullName ?? '-'}</td>
+                            <td>${item?.yearLevel?.maxMarks ?? '-'}</td>
+                            <td>${item?.yearLevel?.passPercentage ? item.yearLevel.passPercentage + '%' : '-' }</td>
+                            <td>${item?.studentAcademicRecord?.obtainedMarks ?? lang.notMarked}</td>
+                            <td>${item?.studentAcademicRecord?.percentage ? item.studentAcademicRecord.percentage + '%' : lang.notMarked}</td>
+                            <td>${item?.studentAcademicRecord ? (item.studentAcademicRecord.gradeLetter ?? '-') : lang.notMarked}</td>
+                            <td>${item?.studentAcademicRecord ? (item.studentAcademicRecord.isPassed ? '✔' : '✘') : lang.notMarked}</td>
 
                             <!--
+                            <td>
+
+                           
 
                                             <a href="/StudentAcademicRecords/Edit?yearLevelId=${item.yearLevelId}&schoolYearId=${item.schoolYearId}&sectionId=${item.sectionId}"
                class="btn btn-icon btn-outline-primary tooltip-btn"
                data-tooltip="${lang.edit}">
                 <i class="fa fa-pen"></i>
             </a>
-                            -->
-
+                          
             <a href="/StudentAcademicRecords/Details/${item.enrollmentId}"
                class="btn btn-icon btn-outline-info tooltip-btn"
                data-tooltip="${lang.details}">
@@ -284,7 +286,10 @@
                 <i class="fa fa-trash"></i>
             </a>
 
+          
                             </td>
+
+                            -->
                         </tr>`;
                     });
 

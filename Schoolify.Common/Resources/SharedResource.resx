@@ -1167,4 +1167,13 @@
   <data name="InvalidData" xml:space="preserve">
     <value>Invalid data</value>
   </data>
+  <data name="ConfirmDeleteAllStudentAcademicRecords" xml:space="preserve">
+    <value>Are you sure you want to delete all student academic records?</value>
+  </data>
+  <data name="DeleteAllStudentAcademicRecord" xml:space="preserve">
+    <value>Delete All Student Academic Records</value>
+  </data>
+  <data name="NotMarkedYet" xml:space="preserve">
+    <value>Not Marked Yet</value>
+  </data>
 </root>

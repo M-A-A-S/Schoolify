@@ -1167,4 +1167,13 @@
   <data name="InvalidData" xml:space="preserve">
     <value>بيانات غير صالحة</value>
   </data>
+  <data name="ConfirmDeleteAllStudentAcademicRecords" xml:space="preserve">
+    <value>هل أنت متأكد من رغبتك في حذف جميع السجلات الأكاديمية للطلاب؟</value>
+  </data>
+  <data name="DeleteAllStudentAcademicRecord" xml:space="preserve">
+    <value>حذف جميع السجلات الأكاديمية للطلاب</value>
+  </data>
+  <data name="NotMarkedYet" xml:space="preserve">
+    <value>لم يتم تعليمه بعد</value>
+  </data>
 </root>
