@@ -1,0 +1,38 @@
+﻿@using Schoolify.Common.DTOs.StudentClass
+@model StudentClassDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="card shadow-sm">
+
+    <div class="card-header text-white">
+        <h5>
+            @Localizer["Details"] @Localizer["StudentClass"]
+        </h5>
+    </div>
+
+    <div class="card-body">
+
+        <partial name="Partials/_StudentClassDetails" model="Model" />
+
+    </div>
+
+    <div class="card-footer">
+
+        @* <a asp-action="Edit"
+           asp-route-id="@Model.Id"
+           class="btn btn-primary">
+            @Localizer["Edit"]
+        </a> *@
+
+        <a asp-action="Index"
+           asp-route-subjectClassId="@Model.SubjectClassId"
+           class="btn btn-secondary">
+            @Localizer["GoBack"]
+        </a>
+
+    </div>
+
+</div>

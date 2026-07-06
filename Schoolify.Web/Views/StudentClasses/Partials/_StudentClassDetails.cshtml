@@ -1,0 +1,29 @@
+﻿@using Schoolify.Common.DTOs.StudentClass
+@model StudentClassDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row g-3">
+
+    <!-- Subject Class -->
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Class"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.SubjectClass?.NameAr
+                        : @Model?.SubjectClass?.NameEn)
+        </div>
+    </div>
+
+    <!-- Student -->
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Student"]</label>
+        <div>
+            @Model?.Student?.FullName
+        </div>
+    </div>
+
+</div>

@@ -60,12 +60,12 @@
                 </td>
 
                     <td style="display: flex; gap: 4px">
-                        <a asp-action="Edit"
+                        @* <a asp-action="Edit"
                            asp-route-id="@item.Id"
                            class="btn btn-icon btn-outline-primary tooltip-btn"
                            data-tooltip="@Localizer["Edit"]">
                             <i class="fa fa-pen"></i>
-                        </a>
+                        </a> *@
                         <a asp-action="Details"
                            asp-route-id="@item.Id"
                            class="btn btn-icon btn-outline-info tooltip-btn"
@@ -134,12 +134,14 @@
                             <th>${isArabic ? item.subjectClass.nameAr : item.subjectClass.nameEn}</td>
                             <th>${item.student.fullName}</td>
                             <td style="display: flex; gap: 4px">
+                            <!--
                         <a 
                            href="StudentClasses/Edit/${item.id}"
                            class="btn btn-icon btn-outline-primary tooltip-btn"
                            data-tooltip="${localizedStrings.edit}">
                             <i class="fa fa-pen"></i>
                         </a>
+                        -->
                         <a
                            href="StudentClasses/Details/${item.id}"
                            class="btn btn-icon btn-outline-info tooltip-btn"
