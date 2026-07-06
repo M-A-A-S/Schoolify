@@ -45,7 +45,8 @@ namespace Schoolify.DataAccess.Configurations
 
             // Prevent duplicate enrollment
             builder.HasIndex(sc => new { sc.StudentId, sc.SubjectClassId })
-                .IsUnique();
+                .IsUnique()
+                .HasFilter("[IsDeleted] = 0");
 
             // Safety constraint
             builder.HasCheckConstraint(
