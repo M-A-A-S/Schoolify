@@ -23,6 +23,7 @@ namespace Schoolify.Business
 
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            services.AddScoped<IStudentClassService, StudentClassService>();
             services.AddScoped<IStudentAcademicRecordService, StudentAcademicRecordService>();
             services.AddScoped<IStudentExamResultService, StudentExamResultService>();
             services.AddScoped<IInstallmentService, InstallmentService>();
