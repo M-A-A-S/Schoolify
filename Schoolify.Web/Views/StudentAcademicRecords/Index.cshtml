@@ -256,11 +256,11 @@
                         <tr>
                             <td>${item?.student?.fullName}</td>
                             <td>${item?.yearLevel?.maxMarks}</td>
-                            <td>${item?.yearLevel?.passPercentage}</td>
-                            <td>${item.obtainedMarks ?? 0}</td>
-                            <td>${item.percentage ?? 0}</td>
-                            <td>${item.gradeLetter ?? '-'}</td>
-                            <td>${item.isPassed ? '✔' : '✘'}</td>
+                            <td>%${item?.yearLevel?.passPercentage}</td>
+                            <td>${item?.studentAcademicRecord?.obtainedMarks ?? 0}</td>
+                            <td>%${item?.studentAcademicRecord?.percentage ?? 0}</td>
+                            <td>${item?.studentAcademicRecord?.gradeLetter ?? '-'}</td>
+                            <td>${item?.studentAcademicRecord?.isPassed ? '✔' : '✘'}</td>
                             <td>
 
                             <!--
