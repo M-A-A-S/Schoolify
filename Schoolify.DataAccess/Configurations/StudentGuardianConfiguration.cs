@@ -47,13 +47,22 @@ namespace Schoolify.DataAccess.Configurations
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Prevent duplicate guardian assignments for same student
+            //builder.HasIndex(sg => new
+            //{
+            //    sg.StudentId,
+            //    sg.GuardianId,
+            //    sg.GuardianTypeId
+            //})
+            //.IsUnique();
+
             builder.HasIndex(sg => new
             {
                 sg.StudentId,
                 sg.GuardianId,
-                sg.GuardianTypeId
+                //sg.GuardianTypeId
             })
-            .IsUnique();
+            .IsUnique()
+            .HasFilter("[IsDeleted] = 0");
 
         }
     }
