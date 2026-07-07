@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Schoolify.Common.DTOs.Guardian;
+using Schoolify.Common.DTOs.GuardianType;
+using Schoolify.Common.DTOs.Student;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -37,5 +40,10 @@ ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
         public int StudentId { get; set; }
+
+
+        public StudentDTO? Student { get; set; }
+        public GuardianTypeDTO? GuardianType { get; set; }
+        public GuardianDTO? Guardian { get; set; }
     }
 }

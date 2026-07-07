@@ -23,6 +23,10 @@ namespace Schoolify.Common.Extensions
                 GuardianTypeId = entity.GuardianTypeId,
                 GuardianId = entity.GuardianId,
                 StudentId = entity.StudentId,
+
+                Student = entity.Student?.ToDTO(),
+                GuardianType = entity.GuardianType?.ToDTO(),
+                Guardian = entity.Guardian?.ToDTO(),
             };
         }
 
