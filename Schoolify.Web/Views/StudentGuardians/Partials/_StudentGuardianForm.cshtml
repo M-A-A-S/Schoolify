@@ -1,0 +1,66 @@
+﻿@using Schoolify.Common.DTOs.StudentGuardian
+@model StudentGuardianUpsertDTO
+
+@using Schoolify.Common
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row g-3 mb-2">
+
+    <!-- Student -->
+    <div class="col-md-6">
+        <label asp-for="StudentGuardian.StudentId" class="form-label"></label>
+        <select asp-for="StudentGuardian.StudentId"
+                class="form-control"
+                asp-items="@Model.Students.Select(x => new SelectListItem
+                {
+                    Value = x.Id.ToString(),
+                    Text = x.FullName
+                })">
+
+            <option selected disabled value="">
+                @Localizer["SelectStudent"]
+            </option>
+        </select>
+        <span asp-validation-for="StudentGuardian.StudentId" class="text-danger"></span>
+    </div>
+
+    <!-- Guardian -->
+    <div class="col-md-6">
+        <label asp-for="StudentGuardian.GuardianId" class="form-label"></label>
+        <select asp-for="StudentGuardian.GuardianId"
+                class="form-control"
+                asp-items="@Model.Guardians.Select(x => new SelectListItem
+                {
+                    Value = x.Id.ToString(),
+                    Text = x.FullName
+                })">
+
+            <option selected disabled value="">
+                @Localizer["SelectGuardian"]
+            </option>
+        </select>
+        <span asp-validation-for="StudentGuardian.GuardianId" class="text-danger"></span>
+    </div>
+
+    <!-- Guardian Type -->
+    <div class="col-md-6">
+        <label asp-for="StudentGuardian.GuardianTypeId" class="form-label"></label>
+        <select asp-for="StudentGuardian.GuardianTypeId"
+                class="form-control"
+                asp-items="@Model.GuardianTypes.Select(x => new SelectListItem
+                    {
+                        Value = x.Id.ToString(),
+		                Text = CultureInfo.InvariantCulture.TwoLetterISOLanguageName == "ar" ? x.NameAr : x.NameEn
+                    })"
+        >
+
+            <option selected disabled value="">
+                @Localizer["SelectGuardianType"]
+            </option>
+        </select>
+        <span asp-validation-for="StudentGuardian.GuardianTypeId" class="text-danger"></span>
+    </div>
+
+</div>

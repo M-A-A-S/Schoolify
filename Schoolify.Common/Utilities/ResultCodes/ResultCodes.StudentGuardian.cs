@@ -13,5 +13,6 @@ namespace Schoolify.Common.Utilities.ResultCodes
         public const string StudentGuardianCreated = "StudentGuardianCreated";
         public const string StudentGuardianUpdated = "StudentGuardianUpdated";
         public const string StudentGuardianDeleted = "StudentGuardianDeleted";
+        public const string StudentGuardianAlreadyExists = "StudentGuardianAlreadyExists";
     }
 }

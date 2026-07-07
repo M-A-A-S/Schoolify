@@ -26,6 +26,22 @@ namespace Schoolify.Business.Services
         public async Task<Result<StudentGuardianDTO>> AddAsync(StudentGuardianDTO dto)
         {
 
+            var existingResult = await _repo
+                .FindByAsync(c => (c.StudentId == dto.StudentId 
+                && c.GuardianId == dto.GuardianId 
+                && c.GuardianTypeId == dto.GuardianTypeId) 
+                || 
+                (
+                c.StudentId == dto.StudentId
+                && c.GuardianId == dto.GuardianId
+                ));
+
+            if (existingResult.IsSuccess && existingResult.Data != null)
+            {
+                //return Result<StudentGuardianDTO>.Failure(ResultCodes.StudentGuardianAlreadyExists, 409);
+                return Result<StudentGuardianDTO>.Failure(ResultCodes.StudentGuardianAlreadyExists, 400);
+            }
+
             var entity = dto.ToEntity();
 
             var addResult = await _repo.AddAndSaveAsync(entity);

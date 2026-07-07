@@ -1176,4 +1176,13 @@
   <data name="NotMarkedYet" xml:space="preserve">
     <value>لم يتم تعليمه بعد</value>
   </data>
+  <data name="SelectGuardian" xml:space="preserve">
+    <value>-- اختر ولي أمر --</value>
+  </data>
+  <data name="SelectGuardianType" xml:space="preserve">
+    <value>-- اختر نوع ولي الأمر --</value>
+  </data>
+  <data name="StudentGuardianAlreadyExists" xml:space="preserve">
+    <value>يوجد ولي أمر لهذا الطالب مسبقاً</value>
+  </data>
 </root>

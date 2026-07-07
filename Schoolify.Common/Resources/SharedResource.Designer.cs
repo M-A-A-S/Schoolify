@@ -2293,6 +2293,24 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -- Select Guardian --.
+        /// </summary>
+        public static string SelectGuardian {
+            get {
+                return ResourceManager.GetString("SelectGuardian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -- Select Guardian Type --.
+        /// </summary>
+        public static string SelectGuardianType {
+            get {
+                return ResourceManager.GetString("SelectGuardianType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to -- Select Payment Method --.
         /// </summary>
         public static string SelectPaymentMethod {
@@ -2694,6 +2712,15 @@ namespace Schoolify.Common.Resources {
         public static string StudentGuardian {
             get {
                 return ResourceManager.GetString("StudentGuardian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A guardian for this student already exists.
+        /// </summary>
+        public static string StudentGuardianAlreadyExists {
+            get {
+                return ResourceManager.GetString("StudentGuardianAlreadyExists", resourceCulture);
             }
         }
         

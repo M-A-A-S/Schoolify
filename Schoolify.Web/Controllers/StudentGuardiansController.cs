@@ -69,12 +69,12 @@ namespace Schoolify.Web.Controllers
             if (addResult.IsSuccess)
             {
                 TempData["Success"] = _localizer[addResult.Code].Value;
-                //return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));
                 //return RedirectToAction("Index", "StudentGuardians", new { Id = addResult?.Data?.Id });
             }
 
             TempData["Error"] = _localizer[addResult.Code].Value;
-            return View(DTO);
+            return View(await BuildStudentGuardianUpsertDTO(DTO.StudentGuardian));
         }
         #endregion
 
@@ -146,24 +146,24 @@ namespace Schoolify.Web.Controllers
         #region Private Helpers
         private async Task<StudentGuardianUpsertDTO> BuildStudentGuardianUpsertDTO(StudentGuardianDTO? studentGuardian)
         {
-            //var studentsResult = await _studentService.GetAllAsync();
-            //var guardiansResult = await _guardianService.GetAllAsync();
-            //var guardianTypesResult = await _guardianTypeService.GetAllAsync();
+            var studentsResult = await _studentService.GetAllAsync();
+            var guardiansResult = await _guardianService.GetAllAsync();
+            var guardianTypesResult = await _guardianTypeService.GetAllAsync();
 
-            var studentsResult = _studentService.GetAllAsync();
-            var guardiansResult = _guardianService.GetAllAsync();
-            var guardianTypesResult = _guardianTypeService.GetAllAsync();
+            //var studentsResult = _studentService.GetAllAsync();
+            //var guardiansResult = _guardianService.GetAllAsync();
+            //var guardianTypesResult = _guardianTypeService.GetAllAsync();
 
-            await Task.WhenAll(studentsResult, guardiansResult, guardianTypesResult);
+            //await Task.WhenAll(studentsResult, guardiansResult, guardianTypesResult);
 
 
             return new StudentGuardianUpsertDTO
             {
                 StudentGuardian = studentGuardian ?? new(),
 
-                Students = studentsResult?.Result?.Data?.ToList() ?? new(),
-                Guardians = guardiansResult?.Result?.Data?.ToList() ?? new(),
-                GuardianTypes = guardianTypesResult?.Result?.Data?.ToList() ?? new()
+                Students = studentsResult?.Data?.ToList() ?? new(),
+                Guardians = guardiansResult?.Data?.ToList() ?? new(),
+                GuardianTypes = guardianTypesResult?.Data?.ToList() ?? new()
             };
         }
 

@@ -1176,4 +1176,13 @@
   <data name="NotMarkedYet" xml:space="preserve">
     <value>Not Marked Yet</value>
   </data>
+  <data name="SelectGuardian" xml:space="preserve">
+    <value>-- Select Guardian --</value>
+  </data>
+  <data name="SelectGuardianType" xml:space="preserve">
+    <value>-- Select Guardian Type --</value>
+  </data>
+  <data name="StudentGuardianAlreadyExists" xml:space="preserve">
+    <value>A guardian for this student already exists</value>
+  </data>
 </root>
