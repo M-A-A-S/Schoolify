@@ -75,5 +75,8 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
     ErrorMessageResourceName = nameof(Resources.SharedResource.InvalidPhone)
 )]
         public string PhoneNumber { get; set; }
+
+
+        public string FullName => $"{FirstName} {SecondName} {ThirdName} {ForthName}";
     }
 }
