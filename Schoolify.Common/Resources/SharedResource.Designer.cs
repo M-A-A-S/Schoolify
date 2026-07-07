@@ -1357,6 +1357,15 @@ namespace Schoolify.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Installments have been successfully created.
+        /// </summary>
+        public static string InstallmentsCreated {
+            get {
+                return ResourceManager.GetString("InstallmentsCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No installments found.
         /// </summary>
         public static string InstallmentsNotFound {
@@ -1614,6 +1623,24 @@ namespace Schoolify.Common.Resources {
         public static string NotMarkedYet {
             get {
                 return ResourceManager.GetString("NotMarkedYet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of Installments.
+        /// </summary>
+        public static string NumberOfInstallments {
+            get {
+                return ResourceManager.GetString("NumberOfInstallments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of installments must be greater than zero.
+        /// </summary>
+        public static string NumberOfInstallmentsMustBeGreaterThanZero {
+            get {
+                return ResourceManager.GetString("NumberOfInstallmentsMustBeGreaterThanZero", resourceCulture);
             }
         }
         

@@ -17,5 +17,6 @@ namespace Schoolify.Common.Utilities.ResultCodes
 
         public const string InvalidMaxMarks = "InvalidMaxMarks";
         public const string InvalidData = "InvalidData";
+        public const string NumberOfInstallmentsMustBeGreaterThanZero = "NumberOfInstallmentsMustBeGreaterThanZero";
     }
 }

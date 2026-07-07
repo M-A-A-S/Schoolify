@@ -8,7 +8,7 @@
 @using System.Globalization
 @inject IStringLocalizer<SharedResource> Localizer
 
-<div class="row g-3">
+<div class="row g-3 mb-2">
 
     <!-- Student -->
     <div class="mb-3 col-md-6">
@@ -131,6 +131,12 @@
         <span asp-validation-for="Enrollment.Status" class="text-danger"></span>
     </div>
 
+    <!-- Number of Installments -->
+    <div class="col-md-6">
+        <label asp-for="Enrollment.NumberOfInstallments"></label>
+        <input asp-for="Enrollment.NumberOfInstallments" type="number" class="form-control" />
+        <span asp-validation-for="Enrollment.NumberOfInstallments" class="text-danger"></span>
+    </div>
 
 
 </div>

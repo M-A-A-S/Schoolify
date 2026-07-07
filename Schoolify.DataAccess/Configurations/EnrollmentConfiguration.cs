@@ -70,14 +70,22 @@ namespace Schoolify.DataAccess.Configurations
             //);
 
             // Prevent duplicate enrollment per year
+            //builder.HasIndex(sy => new
+            //{
+            //    sy.StudentId,
+            //    sy.YearLevelId,
+            //    sy.SchoolYearId,
+            //    sy.SectionId
+            //})
+            //.IsUnique();
             builder.HasIndex(sy => new
             {
                 sy.StudentId,
                 sy.YearLevelId,
-                sy.SchoolYearId,
-                sy.SectionId
+                sy.SchoolYearId
             })
-            .IsUnique();
+            .IsUnique()
+            .HasFilter("[IsDeleted] = 0");
 
         }
     }

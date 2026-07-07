@@ -94,7 +94,7 @@ ResourceType = typeof(Resources.SharedResource)
 ErrorMessageResourceName = nameof(Resources.SharedResource.Required),
 ErrorMessageResourceType = typeof(Resources.SharedResource)
 )]
-        public EnrollmentStatus Status { get; set; }
+        public EnrollmentStatus Status { get; set; } = EnrollmentStatus.Active;
 
         public StudentDTO? Student { get; set; }
         public YearLevelDTO? YearLevel { get; set; }
@@ -104,5 +104,11 @@ ErrorMessageResourceType = typeof(Resources.SharedResource)
 
         //public ICollection<InstallmentDTO> Installments { get; set; }
         //public StudentAcademicRecordDTO StudentAcademicRecord { get; set; }
+
+
+        [Display(Name = nameof(Resources.SharedResource.NumberOfInstallments),
+ResourceType = typeof(Resources.SharedResource)
+)]
+        public int NumberOfInstallments { get; set; } = 5;
     }
 }

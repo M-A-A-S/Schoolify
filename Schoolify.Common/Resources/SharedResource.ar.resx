@@ -1185,4 +1185,13 @@
   <data name="StudentGuardianAlreadyExists" xml:space="preserve">
     <value>يوجد ولي أمر لهذا الطالب مسبقاً</value>
   </data>
+  <data name="NumberOfInstallmentsMustBeGreaterThanZero" xml:space="preserve">
+    <value>يجب أن يكون عدد الأقساط أكبر من الصفر</value>
+  </data>
+  <data name="InstallmentsCreated" xml:space="preserve">
+    <value>تم إنشاء الأقساط بنجاح</value>
+  </data>
+  <data name="NumberOfInstallments" xml:space="preserve">
+    <value>عدد الأقساط</value>
+  </data>
 </root>

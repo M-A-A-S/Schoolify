@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Schoolify.Business.Interfaces;
 using Schoolify.Common.DTOs.Enrollment;
+using Schoolify.Common.Enums;
 using Schoolify.Common.Extensions;
+using Schoolify.Common.Models;
 using Schoolify.Common.Utilities;
 using Schoolify.Common.Utilities.ResultCodes;
 using Schoolify.DataAccess.Interfaces;
@@ -17,23 +19,27 @@ namespace Schoolify.Business.Services
     {
         private readonly IEnrollmentRepository _repo;
         private readonly IFeeStructureRepository _feeStructureRepository;
+        private readonly IInstallmentRepository _installmentRepository;
 
         public EnrollmentService(IEnrollmentRepository repo,
-            IFeeStructureRepository feeStructureRepository)
+            IFeeStructureRepository feeStructureRepository,
+            IInstallmentRepository installmentRepository)
         {
             _repo = repo;
             _feeStructureRepository = feeStructureRepository;
+            _installmentRepository = installmentRepository;
         }
 
         #region Add
         public async Task<Result<EnrollmentDTO>> AddAsync(EnrollmentDTO dto)
         {
             // Prevent duplicates
-            var existing = await _repo.FindByAsync(x =>
+            var existingDuplicatesResult = await _repo.FindByAsync(x =>
                 x.StudentId == dto.StudentId &&
                 x.SchoolYearId == dto.SchoolYearId);
 
-            if (existing.IsSuccess && existing.Data != null)
+            if (existingDuplicatesResult.IsSuccess && 
+                existingDuplicatesResult.Data != null)
             {
                 return Result<EnrollmentDTO>.Failure(
                     ResultCodes.EnrollmentAlreadyExists,
@@ -44,9 +50,11 @@ namespace Schoolify.Business.Services
             var feeStructureResult = await _feeStructureRepository.FindByAsync(
                 x => x.SchoolYearId == dto.SchoolYearId &&
                      x.YearLevelId == dto.YearLevelId,
-                include: q => q.Include(f => f.FeeItems));
+                include: q => q.Include(f => f.FeeItems)
+                    .Include(x => x.SchoolYear));
 
-            if (!feeStructureResult.IsSuccess || feeStructureResult.Data == null)
+            if (!feeStructureResult.IsSuccess || 
+                feeStructureResult.Data == null)
             {
                 return Result<EnrollmentDTO>.Failure(
                     ResultCodes.FeeStructureNotFound,
@@ -58,7 +66,24 @@ namespace Schoolify.Business.Services
             var entity = dto.ToEntity();
 
             entity.TotalFees = totalFees;
-            entity.NetFees = totalFees - dto.Discount;
+            //entity.NetFees = totalFees - dto.Discount;
+            entity.NetFees = Math.Max(totalFees - dto.Discount, 0);
+
+
+            var installmentsResult = await CreateInstallmentsAsync(
+    entity,
+    feeStructureResult.Data.SchoolYear,
+    dto.NumberOfInstallments);
+
+            if (!installmentsResult.IsSuccess)
+            {
+                return Result<EnrollmentDTO>.Failure(
+                    installmentsResult.Code,
+                    installmentsResult.StatusCode,
+                    installmentsResult.Message);
+            }
+
+            entity.Installments = installmentsResult?.Data;
 
             var addResult = await _repo.AddAndSaveAsync(entity);
 
@@ -239,5 +264,81 @@ namespace Schoolify.Business.Services
         }
         #endregion
 
+
+        #region Private helper
+        private async Task<Result<List<Installment>>> CreateInstallmentsAsync(
+    Enrollment enrollment,
+    SchoolYear schoolYear,
+    int numberOfInstallments)
+        {
+            if (numberOfInstallments <= 0)
+            {
+                return Result<List<Installment>>.Failure(
+                    ResultCodes.NumberOfInstallmentsMustBeGreaterThanZero,
+                    400,
+                    "Number of installments must be greater than zero.");
+            }
+
+            var installments = new List<Installment>();
+
+            decimal installmentAmount = Math.Round(
+                enrollment.NetFees / numberOfInstallments,
+                2);
+
+            decimal remainingAmount = enrollment.NetFees;
+
+            if (numberOfInstallments == 1)
+            {
+                installments.Add(new Installment
+                {
+                    EnrollmentId = enrollment.Id,
+                    InstallmentNumber = 1,
+                    Amount = enrollment.NetFees,
+                    DueDate = schoolYear.EndDate,
+                    Status = InstallmentStatus.Pending
+                });
+            }
+            else
+            {
+                int totalDays = schoolYear.EndDate.DayNumber - schoolYear.StartDate.DayNumber;
+
+                // Calculate the number of days between each installment.
+                // Example:
+                // School year = 300 days
+                // Installments = 4
+                // There are 3 gaps between 4 payment dates.
+                // Interval = 300 / (4 - 1) = 100 days.
+
+                double interval = (double)totalDays / (numberOfInstallments - 1);
+
+                for (int i = 0; i < numberOfInstallments; i++)
+                {
+                    // Last installment takes the remaining balance
+                    // to handle decimal rounding differences.
+                    decimal amount = (i == numberOfInstallments - 1)
+                        ? remainingAmount
+                        : installmentAmount;
+
+                    remainingAmount -= amount;
+
+                    // Spread due dates evenly from school year start
+                    // until school year end.
+                    DateOnly dueDate = schoolYear.StartDate.AddDays(
+                        (int)Math.Round(interval * i));
+
+                    installments.Add(new Installment
+                    {
+                        EnrollmentId = enrollment.Id,
+                        InstallmentNumber = i + 1,
+                        Amount = amount,
+                        DueDate = dueDate,
+                        Status = InstallmentStatus.Pending
+                    });
+                }
+            }
+
+            return Result<List<Installment>>.Success(installments, ResultCodes.InstallmentsCreated);
+        }
+        #endregion
     }
 }

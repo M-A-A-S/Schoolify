@@ -21,16 +21,25 @@
 
     <div class="card-footer">
 
-        <a asp-action="Edit"
+        @* <a asp-action="Edit"
            asp-route-id="@Model.Id"
            class="btn btn-primary">
             @Localizer["Edit"]
+        </a> *@
+
+        <a asp-action="Create"
+           asp-controller="Payments"
+           asp-route-installmentId="@Model.Id"
+           class="btn btn-primary">
+            @Localizer["Pay"]
         </a>
 
-        <a asp-action="Index"
+         <a asp-action="Index"
            class="btn btn-secondary">
             @Localizer["GoBack"]
-        </a>
+        </a> 
+
+
 
     </div>
 

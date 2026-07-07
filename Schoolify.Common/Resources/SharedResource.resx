@@ -1185,4 +1185,13 @@
   <data name="StudentGuardianAlreadyExists" xml:space="preserve">
     <value>A guardian for this student already exists</value>
   </data>
+  <data name="NumberOfInstallmentsMustBeGreaterThanZero" xml:space="preserve">
+    <value>Number of installments must be greater than zero</value>
+  </data>
+  <data name="InstallmentsCreated" xml:space="preserve">
+    <value>Installments have been successfully created</value>
+  </data>
+  <data name="NumberOfInstallments" xml:space="preserve">
+    <value>Number of Installments</value>
+  </data>
 </root>
