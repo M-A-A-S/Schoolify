@@ -1,0 +1,40 @@
+﻿@using Schoolify.Common.DTOs.StudentGuardian
+@model StudentGuardianDTO
+
+@using System.Globalization
+
+@using Microsoft.Extensions.Localization
+@using Schoolify.Common
+@inject IStringLocalizer<SharedResource> Localizer
+
+<div class="row">
+
+
+    <!-- Student -->
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Student"]</label>
+        <div>
+            @Model?.Student?.FullName
+        </div>
+    </div>
+
+    <!-- Guardian -->
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["Guardian"]</label>
+        <div>
+            @Model?.Guardian?.FullName
+        </div>
+    </div>
+
+    @* Guardian Type *@
+    <div class="col-md-6">
+        <label class="fw-bold">@Localizer["GuardianType"]</label>
+        <div>
+            @(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar"
+                        ? @Model?.GuardianType?.NameAr
+                        : @Model?.GuardianType?.NameEn)
+        </div>
+    </div>
+
+
+</div>
