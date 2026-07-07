@@ -26,20 +26,26 @@ namespace Schoolify.Business.Services
         public async Task<Result<StudentGuardianDTO>> AddAsync(StudentGuardianDTO dto)
         {
 
-            var existingResult = await _repo
-                .FindByAsync(c => (c.StudentId == dto.StudentId 
-                && c.GuardianId == dto.GuardianId 
-                && c.GuardianTypeId == dto.GuardianTypeId) 
-                || 
-                (
-                c.StudentId == dto.StudentId
-                && c.GuardianId == dto.GuardianId
-                ));
+            //var existingResult = await _repo
+            //    .FindByAsync(c => (c.StudentId == dto.StudentId 
+            //    && c.GuardianId == dto.GuardianId 
+            //    && c.GuardianTypeId == dto.GuardianTypeId) 
+            //    || 
+            //    (
+            //    c.StudentId == dto.StudentId
+            //    && c.GuardianId == dto.GuardianId
+            //    ));
 
-            if (existingResult.IsSuccess && existingResult.Data != null)
+            var existingDuplicateResult = await _repo
+    .FindByAsync(x =>
+    x.StudentId == dto.StudentId &&
+    x.GuardianId == dto.GuardianId
+    );
+
+            if (existingDuplicateResult.IsSuccess && existingDuplicateResult.Data != null)
             {
                 //return Result<StudentGuardianDTO>.Failure(ResultCodes.StudentGuardianAlreadyExists, 409);
-                return Result<StudentGuardianDTO>.Failure(ResultCodes.StudentGuardianAlreadyExists, 400);
+                return Result<StudentGuardianDTO>.Failure(ResultCodes.StudentGuardianAlreadyExists, 409);
             }
 
             var entity = dto.ToEntity();
@@ -115,6 +121,20 @@ namespace Schoolify.Business.Services
         #region Update
         public async Task<Result<StudentGuardianDTO>> UpdateAsync(int id, StudentGuardianDTO dto)
         {
+
+            var existingDuplicateResult = await _repo
+                .FindByAsync(x =>
+                x.Id != id &&
+                x.StudentId == dto.StudentId &&
+                x.GuardianId == dto.GuardianId
+                );
+
+            if (existingDuplicateResult.IsSuccess && existingDuplicateResult.Data != null)
+            {
+                // 409 => Already Exists
+                //return Result<StudentGuardianDTO>.Failure(ResultCodes.StudentGuardianAlreadyExists, 409);
+                return Result<StudentGuardianDTO>.Failure(ResultCodes.StudentGuardianAlreadyExists, 409);
+            }
 
             var existingResult = await _repo.FindByAsync(c => c.Id == id);
             if (!existingResult.IsSuccess || existingResult.Data == null)
